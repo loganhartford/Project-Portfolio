@@ -1,0 +1,68 @@
+Removed Pin From Net: NetName=+X Pin=Q2-1
+Removed Pin From Net: NetName=EN_MATRIX_n Pin=Q2-3
+Change Component Comment : Designator=Q2 Old Comment=DMP21D2UFA-7B New Comment=P-CH
+Change component parameters: Designator = "R2" ("R2"); Footprint = "RESC1005X04N"; UniqueID = "\UBNKMYEW" ("\UBNKMYEW")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic Electronic Components"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "ERJ-2RKF1240X"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "P124LCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R3" ("R3"); Footprint = "RESC1005X04N"; UniqueID = "\VIGVLNIU" ("\VIGVLNIU")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic Electronic Components"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "ERJ-2RKF1240X"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "P124LCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R4" ("R4"); Footprint = "RESC1005X04N"; UniqueID = "\QJHQMBTT" ("\QJHQMBTT")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic Electronic Components"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "ERJ-2RKF1240X"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "P124LCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R5" ("R5"); Footprint = "RESC1005X04N"; UniqueID = "\OSLGIOHQ" ("\OSLGIOHQ")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic Electronic Components"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "ERJ-2RKF1240X"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "P124LCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R6" ("R6"); Footprint = "RESC1005X04N"; UniqueID = "\FGOWEDFZ" ("\FGOWEDFZ")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic Electronic Components"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "ERJ-2RKF1240X"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "P124LCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R8" ("R8"); Footprint = "RESC1005X04N"; UniqueID = "\YKQYBIPC" ("\YKQYBIPC")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic Electronic Components"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "ERJ-2RKF1240X"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "P124LCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R10" ("R10"); Footprint = "RESC1005X04N"; UniqueID = "\SGMTBBZA" ("\SGMTBBZA")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic Electronic Components"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "ERJ-2RKF1240X"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "124O"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "P124LCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "124O"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=EN_MATRIX_n Pin=Q2-1
+Added Pin To Net: NetName=+X Pin=Q2-3

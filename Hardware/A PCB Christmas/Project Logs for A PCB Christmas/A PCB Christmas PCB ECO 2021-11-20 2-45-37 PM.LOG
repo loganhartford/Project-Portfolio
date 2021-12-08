@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=NetD15_1 Pin=TP3-1
+Removed Pin From Net: NetName=CLOCK Pin=TP6-1
+Removed Pin From Net: NetName=CLOCK Pin=U2-12
+Removed Pin From Net: NetName=CLOCK Pin=U3-5
+Removed Pin From Net: NetName=CLOCK Pin=U4-12
+Added Pin To Net: NetName=DATA Pin=TP3-1
+Added Pin To Net: NetName=LATCH Pin=TP6-1
+Added Pin To Net: NetName=LATCH Pin=U2-12
+Added Pin To Net: NetName=LATCH Pin=U3-5
+Added Pin To Net: NetName=LATCH Pin=U4-12
+Added Net: Name=LATCH

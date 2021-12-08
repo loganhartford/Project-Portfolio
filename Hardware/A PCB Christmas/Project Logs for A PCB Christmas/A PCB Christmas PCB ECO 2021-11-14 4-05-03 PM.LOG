@@ -1,0 +1,189 @@
+Removed Pin From Net: NetName=+3V Pin=Q?-2
+Removed Member From Class: ClassName=Main Member=Q?
+Change Component Designator: OldDesignator=B? NewDesignator=B1
+Change Component Designator: OldDesignator=D? NewDesignator=D1
+Change Component Designator: OldDesignator=R? NewDesignator=R6
+Added Component: Designator=J1(TC2030-PKT-NL)
+Add component (AddParameter): Name = "Actuator Material"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Body Material"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case/Package"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Category"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Circuit Application"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Collector Emitter Voltage (VCEO)"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Color"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Colour"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink4Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink4URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink5Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink5URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink6Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink6URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink7Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink7URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Connector System"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Connector Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Current Rating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Finish - Mating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Gender"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Location"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Material"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Plating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Resistance"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Shape"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Current Rating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Depth"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Fastening Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Flammability Rating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Gender"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Glow Wire Compliant"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Housing Color"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Housing Colour"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Housing Material"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Insulation Color"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Insulation Material"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Insulation Resistance"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Lead Free"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Collector Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Current Rating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Output Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Supply Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Voltage Rating (AC)"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Voltage Rating (DC)"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Supply Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Motor Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Channels"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Circuits"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Contacts"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Levels"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Outputs"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Pins"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Poles"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Ports"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Positions"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Positions Per Level"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Rows"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Terminals"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Supply Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Supply Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Orientation"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Current per Channel"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "TC2030-PKT-NL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PCB Mount Retention"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Plating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power Dissipation"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pricing 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Radiation Hardening"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS Compliant"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Row Spacing"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Sealable"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Shrouded"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Stack Height"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Stock 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 2"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 3"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 3"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Termination"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Test Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating (AC)"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating (DC)"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Width"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Wire/Cable Type"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J1-3
+Added Pin To Net: NetName=+3V3 Pin=J1-2
+Added Net: Name=+3V3
+Added Net: Name=+X
+Added Net: Name=CLOCK
+Added Net: Name=DAISY1
+Added Net: Name=DATA
+Added Net: Name=EN_MATRIX_n
+Added Pin To Net: NetName=MCLR Pin=J1-1
+Added Net: Name=MCLR
+Added Net: Name=N1
+Added Net: Name=N2
+Added Net: Name=N3
+Added Net: Name=N4
+Added Net: Name=N5
+Added Net: Name=N6
+Added Net: Name=N7
+Added Pin To Net: NetName=NetB1_1 Pin=B1-1
+Added Net: Name=NetB1_1
+Added Pin To Net: NetName=NetD1_1 Pin=D1-1
+Added Pin To Net: NetName=NetD1_1 Pin=R6-2
+Added Net: Name=NetD1_1
+Added Net: Name=NetD2_1
+Added Net: Name=NetD3_1
+Added Net: Name=NetD3_2
+Added Net: Name=NetD4_2
+Added Net: Name=NetD5_2
+Added Net: Name=NetD6_2
+Added Net: Name=NetD7_2
+Added Net: Name=NetD8_2
+Added Net: Name=NetD9_2
+Added Net: Name=NetD10_1
+Added Net: Name=NetD17_1
+Added Net: Name=NetD24_1
+Added Net: Name=NetD31_1
+Added Net: Name=NetD38_1
+Added Net: Name=NetD45_1
+Added Net: Name=NetQ2_1
+Added Net: Name=NetQ2_3
+Added Net: Name=NetQ4_1
+Added Net: Name=NetQ4_3
+Added Net: Name=NetQ5_1
+Added Net: Name=NetQ5_3
+Added Net: Name=NetQ6_1
+Added Net: Name=NetQ6_3
+Added Net: Name=NetQ7_1
+Added Net: Name=NetQ7_3
+Added Net: Name=NetQ8_1
+Added Net: Name=NetQ8_3
+Added Net: Name=NetQ9_1
+Added Net: Name=NetQ9_3
+Added Net: Name=NetQ10_1
+Added Net: Name=NetQ11_1
+Added Net: Name=NetQ12_1
+Added Net: Name=NetQ13_1
+Added Net: Name=NetQ14_1
+Added Net: Name=NetQ15_1
+Added Net: Name=NetQ16_1
+Added Net: Name=NetR19_2
+Added Net: Name=P1
+Added Net: Name=P2
+Added Net: Name=P3
+Added Net: Name=P4
+Added Net: Name=P5
+Added Net: Name=P6
+Added Net: Name=P7
+Added Pin To Net: NetName=PGC Pin=J1-5
+Added Net: Name=PGC
+Added Pin To Net: NetName=PGD Pin=J1-4
+Added Net: Name=PGD
+Added Member To Class: ClassName=Main Member=Component D1 Diode
+Added Member To Class: ClassName=Main Member=Component J1 TC2030-PKT-NL

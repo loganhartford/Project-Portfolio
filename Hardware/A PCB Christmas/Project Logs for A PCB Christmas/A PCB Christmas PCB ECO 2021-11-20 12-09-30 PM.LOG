@@ -1,0 +1,32 @@
+Added Component: Designator=U1(QFN40P120X120X60_HS-7N)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Microchip Technology"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "6-UFDFN Exposed Pad"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "MIC5363-3.3YMT-TR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "576-4133-1-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=U1-3
+Added Pin To Net: NetName=NetC1_2 Pin=U1-4
+Added Pin To Net: NetName=+3V3 Pin=U1-5
+Added Pin To Net: NetName=NetC1_2 Pin=U1-6
+Added Member To Class: ClassName=Main Member=Component C1 Ceramic Cap
+Added Member To Class: ClassName=Main Member=Component C2 Ceramic Cap
+Added Member To Class: ClassName=Main Member=Component C3 Ceramic Cap
+Added Member To Class: ClassName=Main Member=Component C4 Ceramic Cap
+Added Member To Class: ClassName=Main Member=Component D1 LED
+Added Member To Class: ClassName=Main Member=Component D4 LED
+Added Member To Class: ClassName=Main Member=Component D7 LED
+Added Member To Class: ClassName=Main Member=Component D30 LED
+Added Member To Class: ClassName=Main Member=Component D35 LED
+Added Member To Class: ClassName=Main Member=Component Q1 P-CH
+Added Member To Class: ClassName=Main Member=Component Q5 P-CH
+Added Member To Class: ClassName=Main Member=Component Q7 P-CH
+Added Member To Class: ClassName=Main Member=Component Q9 N-CH
+Added Member To Class: ClassName=Main Member=Component Q12 N-CH
+Added Member To Class: ClassName=Main Member=Component Q14 N-CH
+Added Member To Class: ClassName=Main Member=Component Q16 N-CH
+Added Member To Class: ClassName=Main Member=Component R3 Resistor
+Added Member To Class: ClassName=Main Member=Component R4 Resistor
+Added Member To Class: ClassName=Main Member=Component R7 Resistor
+Added Member To Class: ClassName=Main Member=Component S1 JS202011CQN
+Added Member To Class: ClassName=Main Member=Component U1 MIC5363-3.3YMT-TR
+Added Member To Class: ClassName=Main Member=Component U4 74HC595BQ-Q100,115

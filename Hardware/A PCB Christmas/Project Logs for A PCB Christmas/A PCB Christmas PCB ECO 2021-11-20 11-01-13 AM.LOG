@@ -1,0 +1,34 @@
+Removed Pin From Net: NetName=+VBAT Pin=U?-4
+Removed Pin From Net: NetName=+VBAT Pin=U?-6
+Added Component: Designator=B?(BH9VPC)
+Add component (AddParameter): Name = "=Manufacturer Part Number"; Value = "BH9VPC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "BH9VPC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = "'"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "V"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=U?-3
+Added Pin To Net: NetName=+VBAT Pin=U?-4
+Added Pin To Net: NetName=N5 Pin=U?-4
+Added Pin To Net: NetName=+3V3 Pin=U?-5
+Added Pin To Net: NetName=+VBAT Pin=U?-6
+Added Pin To Net: NetName=N7 Pin=U?-6
+Added Member To Class: ClassName=Main Member=Component B? Single Cell
+Added Member To Class: ClassName=Main Member=Component C? Ceramic Cap
+Added Member To Class: ClassName=Main Member=Component D4 LED
+Added Member To Class: ClassName=Main Member=Component D5 LED
+Added Member To Class: ClassName=Main Member=Component D6 LED
+Added Member To Class: ClassName=Main Member=Component D33 LED
+Added Member To Class: ClassName=Main Member=Component D35 LED
+Added Member To Class: ClassName=Main Member=Component Q? N-CH
+Added Member To Class: ClassName=Main Member=Component R1 Resistor
+Added Member To Class: ClassName=Main Member=Component R3 Resistor
+Added Member To Class: ClassName=Main Member=Component R6 Resistor
+Added Member To Class: ClassName=Main Member=Component R7 Resistor
+Added Member To Class: ClassName=Main Member=Component R8 Resistor
+Added Member To Class: ClassName=Main Member=Component R9 Resistor
+Added Member To Class: ClassName=Main Member=Component R10 Resistor
+Added Member To Class: ClassName=Main Member=Component R11 Resistor
+Added Member To Class: ClassName=Main Member=Component R12 Resistor
+Added Member To Class: ClassName=Main Member=Component R14 Resistor
+Added Member To Class: ClassName=Main Member=Component U? 74HC595BQ-Q100,115
+Added Member To Class: ClassName=Main Member=Component U? 74HC595BQ-Q100,115
+Added Member To Class: ClassName=Main Member=Component U? MIC5363-3.3YMT-TR

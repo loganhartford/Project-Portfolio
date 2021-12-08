@@ -1,0 +1,423 @@
+Removed Pin From Net: NetName=GND Pin=B1-2
+Removed Pin From Net: NetName=+X Pin=C1-2
+Removed Pin From Net: NetName=+X Pin=C4-2
+Removed Pin From Net: NetName=+3V Pin=D1-2
+Removed Pin From Net: NetName=+3V Pin=Q1-2
+Removed Pin From Net: NetName=+X Pin=Q3-2
+Removed Pin From Net: NetName=+3V Pin=Q3-3
+Removed Pin From Net: NetName=GND Pin=Q10-2
+Removed Pin From Net: NetName=NetD3_2 Pin=Q10-3
+Removed Pin From Net: NetName=NetD4_2 Pin=Q11-3
+Removed Pin From Net: NetName=NetD5_2 Pin=Q12-3
+Removed Pin From Net: NetName=NetD6_2 Pin=Q13-3
+Removed Pin From Net: NetName=NetD7_2 Pin=Q14-3
+Removed Pin From Net: NetName=NetD8_2 Pin=Q15-3
+Removed Pin From Net: NetName=NetD9_2 Pin=Q16-3
+Removed Pin From Net: NetName=NetLS1_2 Pin=Q17-3
+Removed Pin From Net: NetName=+X Pin=R1-2
+Removed Pin From Net: NetName=P1 Pin=R3-1
+Removed Pin From Net: NetName=+X Pin=R5-2
+Removed Pin From Net: NetName=GND Pin=R7-2
+Removed Pin From Net: NetName=P2 Pin=R8-1
+Removed Pin From Net: NetName=+X Pin=R10-2
+Removed Pin From Net: NetName=P3 Pin=R11-1
+Removed Pin From Net: NetName=+X Pin=R13-2
+Removed Pin From Net: NetName=P4 Pin=R14-1
+Removed Pin From Net: NetName=+X Pin=R16-2
+Removed Pin From Net: NetName=P5 Pin=R17-1
+Removed Pin From Net: NetName=+X Pin=R20-2
+Removed Pin From Net: NetName=P6 Pin=R21-1
+Removed Pin From Net: NetName=+X Pin=R23-2
+Removed Pin From Net: NetName=P7 Pin=R24-1
+Removed Pin From Net: NetName=N1 Pin=R26-1
+Removed Pin From Net: NetName=GND Pin=R27-2
+Removed Pin From Net: NetName=GND Pin=R28-2
+Removed Pin From Net: NetName=GND Pin=R29-2
+Removed Pin From Net: NetName=GND Pin=R30-2
+Removed Pin From Net: NetName=GND Pin=R31-2
+Removed Pin From Net: NetName=GND Pin=R32-2
+Removed Pin From Net: NetName=GND Pin=R33-2
+Removed Pin From Net: NetName=N2 Pin=R34-1
+Removed Pin From Net: NetName=N3 Pin=R35-1
+Removed Pin From Net: NetName=N4 Pin=R36-1
+Removed Pin From Net: NetName=N5 Pin=R37-1
+Removed Pin From Net: NetName=N6 Pin=R38-1
+Removed Pin From Net: NetName=N7 Pin=R39-1
+Removed Pin From Net: NetName=EN_MATRIX_n Pin=R?-1
+Removed Pin From Net: NetName=SWITCH Pin=U1-2
+Removed Pin From Net: NetName=MCLR Pin=U1-3
+Removed Pin From Net: NetName=CLOCK Pin=U1-4
+Removed Pin From Net: NetName=CLOCK Pin=U1-5
+Removed Pin From Net: NetName=DATA Pin=U1-6
+Removed Pin From Net: NetName=EN_MATRIX_n Pin=U1-7
+Removed Pin From Net: NetName=PGC Pin=U1-11
+Removed Pin From Net: NetName=PGD Pin=U1-12
+Removed Pin From Net: NetName=GND Pin=U1-13
+Removed Pin From Net: NetName=+3V Pin=U1-16
+Removed Pin From Net: NetName=GND Pin=U1-17
+Removed Pin From Net: NetName=P2 Pin=U2-1
+Removed Pin From Net: NetName=P3 Pin=U2-2
+Removed Pin From Net: NetName=P4 Pin=U2-3
+Removed Pin From Net: NetName=P5 Pin=U2-4
+Removed Pin From Net: NetName=P6 Pin=U2-5
+Removed Pin From Net: NetName=P7 Pin=U2-6
+Removed Pin From Net: NetName=GND Pin=U2-8
+Removed Pin From Net: NetName=DAISY1 Pin=U2-9
+Removed Pin From Net: NetName=+X Pin=U2-10
+Removed Pin From Net: NetName=CLOCK Pin=U2-11
+Removed Pin From Net: NetName=CLOCK Pin=U2-12
+Removed Pin From Net: NetName=GND Pin=U2-13
+Removed Pin From Net: NetName=DATA Pin=U2-14
+Removed Pin From Net: NetName=P1 Pin=U2-15
+Removed Pin From Net: NetName=+X Pin=U2-16
+Removed Pin From Net: NetName=GND Pin=U2-17
+Removed Pin From Net: NetName=N2 Pin=U3-1
+Removed Pin From Net: NetName=N3 Pin=U3-2
+Removed Pin From Net: NetName=N4 Pin=U3-3
+Removed Pin From Net: NetName=N5 Pin=U3-4
+Removed Pin From Net: NetName=N6 Pin=U3-5
+Removed Pin From Net: NetName=N7 Pin=U3-6
+Removed Pin From Net: NetName=GND Pin=U3-8
+Removed Pin From Net: NetName=+X Pin=U3-10
+Removed Pin From Net: NetName=CLOCK Pin=U3-11
+Removed Pin From Net: NetName=CLOCK Pin=U3-12
+Removed Pin From Net: NetName=GND Pin=U3-13
+Removed Pin From Net: NetName=DAISY1 Pin=U3-14
+Removed Pin From Net: NetName=N1 Pin=U3-15
+Removed Pin From Net: NetName=+X Pin=U3-16
+Removed Pin From Net: NetName=GND Pin=U3-17
+Removed Member From Class: ClassName=Main Member=B1
+Removed Member From Class: ClassName=Main Member=D2
+Removed Member From Class: ClassName=Main Member=Q3
+Removed Member From Class: ClassName=Main Member=Q10
+Removed Member From Class: ClassName=Main Member=R2
+Removed Member From Class: ClassName=Main Member=R5
+Removed Member From Class: ClassName=Main Member=R13
+Removed Member From Class: ClassName=Main Member=R15
+Removed Member From Class: ClassName=Main Member=R16
+Removed Member From Class: ClassName=Main Member=R17
+Removed Member From Class: ClassName=Main Member=R18
+Removed Member From Class: ClassName=Main Member=R19
+Removed Member From Class: ClassName=Main Member=R20
+Removed Member From Class: ClassName=Main Member=R21
+Removed Member From Class: ClassName=Main Member=R22
+Removed Member From Class: ClassName=Main Member=R23
+Removed Member From Class: ClassName=Main Member=R24
+Removed Member From Class: ClassName=Main Member=R25
+Removed Member From Class: ClassName=Main Member=R26
+Removed Member From Class: ClassName=Main Member=R27
+Removed Member From Class: ClassName=Main Member=R28
+Removed Member From Class: ClassName=Main Member=R29
+Removed Member From Class: ClassName=Main Member=R30
+Removed Member From Class: ClassName=Main Member=R31
+Removed Member From Class: ClassName=Main Member=R32
+Removed Member From Class: ClassName=Main Member=R33
+Removed Member From Class: ClassName=Main Member=R34
+Removed Member From Class: ClassName=Main Member=R35
+Removed Member From Class: ClassName=Main Member=R36
+Removed Member From Class: ClassName=Main Member=R37
+Removed Member From Class: ClassName=Main Member=R38
+Removed Member From Class: ClassName=Main Member=R39
+Removed Member From Class: ClassName=Main Member=R40
+Removed Member From Class: ClassName=Main Member=R41
+Removed Member From Class: ClassName=Main Member=R?
+Removed Member From Class: ClassName=Main Member=U1
+Removed Member From Class: ClassName=Main Member=U2
+Removed Member From Class: ClassName=Main Member=U3
+Change Component Footprint: Designator=Q11 Old Footprint=SOT95P230X110-3N New Footprint=DFN50P80X39-3N
+Change Component Footprint: Designator=Q12 Old Footprint=SOT95P230X110-3N New Footprint=DFN50P80X39-3N
+Change Component Footprint: Designator=Q13 Old Footprint=SOT95P230X110-3N New Footprint=DFN50P80X39-3N
+Change Component Footprint: Designator=Q14 Old Footprint=SOT95P230X110-3N New Footprint=DFN50P80X39-3N
+Change Component Footprint: Designator=Q15 Old Footprint=SOT95P230X110-3N New Footprint=DFN50P80X39-3N
+Change Component Footprint: Designator=Q16 Old Footprint=SOT95P230X110-3N New Footprint=DFN50P80X39-3N
+Change Component Footprint: Designator=Q17 Old Footprint=SOT95P230X110-3N New Footprint=DFN50P80X39-3N
+Change Component Designator: OldDesignator=D3 NewDesignator=D4
+Change Component Designator: OldDesignator=D4 NewDesignator=D5
+Change Component Designator: OldDesignator=D5 NewDesignator=D6
+Change Component Designator: OldDesignator=D6 NewDesignator=D7
+Change Component Designator: OldDesignator=D7 NewDesignator=D3
+Change Component Designator: OldDesignator=D31 NewDesignator=D32
+Change Component Designator: OldDesignator=D32 NewDesignator=D33
+Change Component Designator: OldDesignator=D33 NewDesignator=D34
+Change Component Designator: OldDesignator=D34 NewDesignator=D35
+Change Component Designator: OldDesignator=D35 NewDesignator=D31
+Change Component Designator: OldDesignator=R2 NewDesignator=R1
+Change Component Designator: OldDesignator=R4 NewDesignator=R3
+Change Component Designator: OldDesignator=R6 NewDesignator=R4
+Change Component Designator: OldDesignator=R9 NewDesignator=R6
+Change Component Designator: OldDesignator=R12 NewDesignator=R7
+Change Component Designator: OldDesignator=R15 NewDesignator=R8
+Change Component Designator: OldDesignator=R18 NewDesignator=R9
+Change Component Designator: OldDesignator=R19 NewDesignator=R10
+Change Component Designator: OldDesignator=R22 NewDesignator=R11
+Change Component Designator: OldDesignator=R25 NewDesignator=R14
+Change Component Designator: OldDesignator=R40 NewDesignator=R12
+Change component parameters: Designator = "Q11" ("Q11"); Footprint = "SOT95P230X110-3N"; UniqueID = "\GWFNUEQB" ("\GWFNUEQB")
+Change component parameters (AddParameter): Name = "FET Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Id"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Rohm Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "3-SMD, No Lead"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "RV1C002UNT2CLCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vds"; Value = "20V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vgs (Max)"; Value = "8V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Q12" ("Q12"); Footprint = "SOT95P230X110-3N"; UniqueID = "\CFHJCQAS" ("\CFHJCQAS")
+Change component parameters (AddParameter): Name = "FET Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Id"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Rohm Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "3-SMD, No Lead"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "RV1C002UNT2CLCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vds"; Value = "20V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vgs (Max)"; Value = "8V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Q13" ("Q13"); Footprint = "SOT95P230X110-3N"; UniqueID = "\BZOJEPDR" ("\BZOJEPDR")
+Change component parameters (AddParameter): Name = "FET Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Id"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Rohm Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "3-SMD, No Lead"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "RV1C002UNT2CLCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vds"; Value = "20V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vgs (Max)"; Value = "8V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Q14" ("Q14"); Footprint = "SOT95P230X110-3N"; UniqueID = "\ZTPCBVVD" ("\ZTPCBVVD")
+Change component parameters (AddParameter): Name = "FET Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Id"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Rohm Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "3-SMD, No Lead"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "RV1C002UNT2CLCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vds"; Value = "20V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vgs (Max)"; Value = "8V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Q15" ("Q15"); Footprint = "SOT95P230X110-3N"; UniqueID = "\SSUPLIKY" ("\SSUPLIKY")
+Change component parameters (AddParameter): Name = "FET Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Id"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Rohm Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "3-SMD, No Lead"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "RV1C002UNT2CLCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vds"; Value = "20V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vgs (Max)"; Value = "8V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Q16" ("Q16"); Footprint = "SOT95P230X110-3N"; UniqueID = "\BXEWFIVN" ("\BXEWFIVN")
+Change component parameters (AddParameter): Name = "FET Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Id"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Rohm Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "3-SMD, No Lead"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "RV1C002UNT2CLCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vds"; Value = "20V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vgs (Max)"; Value = "8V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Q17" ("Q17"); Footprint = "SOT95P230X110-3N"; UniqueID = "\WXDDIYEG" ("\WXDDIYEG")
+Change component parameters (AddParameter): Name = "FET Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Id"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Rohm Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "3-SMD, No Lead"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "RV1C002UNT2CLCT-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vds"; Value = "20V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vgs (Max)"; Value = "8V"; VariantName = "[No Variations]"
+Added Component: Designator=B?(2479)
+Add component (AddParameter): Name = "=Manufacturer Part Number"; Value = "2479"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Battery Series"; Value = "AAA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Cells"; Value = "3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Type"; Value = "TH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "2479"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = "AAA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "36-2479-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "V"; Value = "4.5V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "4.5V"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C0402)
+Add component (AddParameter): Name = "Capacitance"; Value = "1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Samsung Electro-Mechanics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CL05A105KO5NNNC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "1276-1067-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "16V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "16V"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C0402)
+Add component (AddParameter): Name = "Capacitance"; Value = "1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Samsung Electro-Mechanics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CL05A105KO5NNNC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "1276-1067-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "16V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "16V"; VariantName = "[No Variations]"
+Added Component: Designator=Q?(DFN57P80X39-3N)
+Add component (AddParameter): Name = "FET Type"; Value = "P-CH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Id"; Value = "330mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Diodes Incorporated"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "DMP21D2UFA-7B"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "3-XFDFN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "DMP21D2UFA-7B"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "DMP21D2UFA-7BDICT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "P-CH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vds"; Value = "20V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vgs (Max)"; Value = "8V"; VariantName = "[No Variations]"
+Added Component: Designator=Q?(DFN50P80X39-3N)
+Add component (AddParameter): Name = "FET Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Id"; Value = "150mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Rohm Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "3-SMD, No Lead"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "RV1C002UNT2CL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "RV1C002UNT2CLCT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vds"; Value = "20V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vgs (Max)"; Value = "8V"; VariantName = "[No Variations]"
+Added Component: Designator=U?(PQFN50P300X300X90_HS-17N)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Microchip Technology"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "PIC16F15225-E/MG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "16-VFQFN Exposed Pad"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "PIC16F15225-E/MG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "150-PIC16F15225-E/MG-ND"; VariantName = "[No Variations]"
+Added Component: Designator=U?(PQFN50P250X350X100_HS-17N)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Nexperia USA Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "74HC595BQ-Q100,115"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "16-VFQFN Exposed Pad"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "74HC595BQ-Q100,115"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "1727-2622-1-ND"; VariantName = "[No Variations]"
+Added Component: Designator=U?(PQFN50P250X350X100_HS-17N)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Nexperia USA Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "74HC595BQ-Q100,115"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "16-VFQFN Exposed Pad"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "74HC595BQ-Q100,115"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "1727-2622-1-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=B?-2
+Added Pin To Net: NetName=+3V Pin=C1-2
+Added Pin To Net: NetName=+3V Pin=C2-2
+Added Pin To Net: NetName=+3V Pin=C4-2
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=+3V Pin=C?-2
+Added Pin To Net: NetName=+3V Pin=J1-2
+Added Pin To Net: NetName=P1 Pin=Q2-1
+Added Pin To Net: NetName=P2 Pin=Q4-1
+Added Pin To Net: NetName=P3 Pin=Q5-1
+Added Pin To Net: NetName=P4 Pin=Q6-1
+Added Pin To Net: NetName=P5 Pin=Q7-1
+Added Pin To Net: NetName=P6 Pin=Q8-1
+Added Pin To Net: NetName=P7 Pin=Q9-1
+Added Pin To Net: NetName=N1 Pin=Q11-1
+Added Pin To Net: NetName=NetD3_2 Pin=Q11-3
+Added Pin To Net: NetName=N2 Pin=Q12-1
+Added Pin To Net: NetName=NetD4_2 Pin=Q12-3
+Added Pin To Net: NetName=N3 Pin=Q13-1
+Added Pin To Net: NetName=NetD5_2 Pin=Q13-3
+Added Pin To Net: NetName=N4 Pin=Q14-1
+Added Pin To Net: NetName=NetD6_2 Pin=Q14-3
+Added Pin To Net: NetName=N5 Pin=Q15-1
+Added Pin To Net: NetName=NetD7_2 Pin=Q15-3
+Added Pin To Net: NetName=N6 Pin=Q16-1
+Added Pin To Net: NetName=NetD8_2 Pin=Q16-3
+Added Pin To Net: NetName=N7 Pin=Q17-1
+Added Pin To Net: NetName=NetD9_2 Pin=Q17-3
+Added Pin To Net: NetName=+X Pin=Q?-1
+Added Pin To Net: NetName=+3V Pin=Q?-2
+Added Pin To Net: NetName=GND Pin=Q?-2
+Added Pin To Net: NetName=EN_MATRIX_n Pin=Q?-3
+Added Pin To Net: NetName=NetLS1_2 Pin=Q?-3
+Added Pin To Net: NetName=EN_MATRIX_n Pin=R1-1
+Added Pin To Net: NetName=N2 Pin=U?-1
+Added Pin To Net: NetName=P2 Pin=U?-1
+Added Pin To Net: NetName=N3 Pin=U?-2
+Added Pin To Net: NetName=P3 Pin=U?-2
+Added Pin To Net: NetName=GND Pin=U?-3
+Added Pin To Net: NetName=MCLR Pin=U?-3
+Added Pin To Net: NetName=N4 Pin=U?-3
+Added Pin To Net: NetName=P4 Pin=U?-3
+Added Pin To Net: NetName=CLOCK Pin=U?-4
+Added Pin To Net: NetName=N5 Pin=U?-4
+Added Pin To Net: NetName=P5 Pin=U?-4
+Added Pin To Net: NetName=+3V Pin=U?-5
+Added Pin To Net: NetName=CLOCK Pin=U?-5
+Added Pin To Net: NetName=N6 Pin=U?-5
+Added Pin To Net: NetName=P6 Pin=U?-5
+Added Pin To Net: NetName=DATA Pin=U?-6
+Added Pin To Net: NetName=N7 Pin=U?-6
+Added Pin To Net: NetName=P7 Pin=U?-6
+Added Pin To Net: NetName=GND Pin=U?-8
+Added Pin To Net: NetName=GND Pin=U?-8
+Added Pin To Net: NetName=DAISY1 Pin=U?-9
+Added Pin To Net: NetName=EN_MATRIX_n Pin=U?-9
+Added Pin To Net: NetName=+3V Pin=U?-10
+Added Pin To Net: NetName=+3V Pin=U?-10
+Added Pin To Net: NetName=SWITCH Pin=U?-10
+Added Pin To Net: NetName=CLOCK Pin=U?-11
+Added Pin To Net: NetName=CLOCK Pin=U?-11
+Added Pin To Net: NetName=PGC Pin=U?-11
+Added Pin To Net: NetName=CLOCK Pin=U?-12
+Added Pin To Net: NetName=CLOCK Pin=U?-12
+Added Pin To Net: NetName=PGD Pin=U?-12
+Added Pin To Net: NetName=GND Pin=U?-13
+Added Pin To Net: NetName=DAISY1 Pin=U?-14
+Added Pin To Net: NetName=DATA Pin=U?-14
+Added Pin To Net: NetName=N1 Pin=U?-15
+Added Pin To Net: NetName=P1 Pin=U?-15
+Added Pin To Net: NetName=+3V Pin=U?-16
+Added Pin To Net: NetName=+3V Pin=U?-16
+Added Pin To Net: NetName=+3V Pin=U?-16
+Added Pin To Net: NetName=GND Pin=U?-17
+Added Pin To Net: NetName=GND Pin=U?-17
+Added Pin To Net: NetName=GND Pin=U?-17
+Change Net Name : Old Net Name=+3V New Net Name=+3V3
+Change Net Name : Old Net Name=NetD3_2 New Net Name=NetD4_2
+Change Net Name : Old Net Name=NetD4_2 New Net Name=NetD5_2
+Change Net Name : Old Net Name=NetD5_2 New Net Name=NetD6_2
+Change Net Name : Old Net Name=NetD6_2 New Net Name=NetD7_2
+Change Net Name : Old Net Name=NetD7_2 New Net Name=NetD3_2
+Added Pin To Net: NetName=+VBAT Pin=C?-2
+Added Pin To Net: NetName=+VBAT Pin=D1-2
+Added Pin To Net: NetName=+VBAT Pin=Q1-2
+Added Pin To Net: NetName=+VBAT Pin=U?-4
+Added Pin To Net: NetName=+VBAT Pin=U?-6
+Added Net: Name=+VBAT
+Added Pin To Net: NetName=NetB?_1 Pin=B?-1
+Added Pin To Net: NetName=NetB?_1 Pin=Q1-3
+Added Net: Name=NetB?_1
+Added Pin To Net: NetName=NetQ?_1 Pin=Q?-1
+Added Pin To Net: NetName=NetQ?_1 Pin=U?-1
+Added Net: Name=NetQ?_1
+Added Pin To Net: NetName=OE_n Pin=U?-7
+Added Pin To Net: NetName=OE_n Pin=U?-13
+Added Pin To Net: NetName=OE_n Pin=U?-13
+Added Net: Name=OE_n
+Added Member To Class: ClassName=Main Member=Component B? Three Cell
+Added Member To Class: ClassName=Main Member=Component B? Single Cell
+Added Member To Class: ClassName=Main Member=Component C? Ceramic Cap
+Added Member To Class: ClassName=Main Member=Component C? Ceramic Cap
+Added Member To Class: ClassName=Main Member=Component Q? DMP21D2UFA-7B
+Added Member To Class: ClassName=Main Member=Component Q? N-CH
+Added Member To Class: ClassName=Main Member=Component U? PIC16F15225-E/MG
+Added Member To Class: ClassName=Main Member=Component U? MIC5363-3.3YMT-TR
+Added Member To Class: ClassName=Main Member=Component U? 74HC595BQ-Q100,115
+Added Member To Class: ClassName=Main Member=Component U? 74HC595BQ-Q100,115

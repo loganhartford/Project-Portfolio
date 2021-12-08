@@ -1,0 +1,26 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [A PCB Christmas.PrjPcb]
+   Generated File[A PCB Christmas.GTO]
+   Generated File[A PCB Christmas.GTP]
+   Generated File[A PCB Christmas.GTS]
+   Generated File[A PCB Christmas.GTL]
+   Generated File[A PCB Christmas.GBL]
+   Generated File[A PCB Christmas.GBS]
+   Generated File[A PCB Christmas.GBP]
+   Generated File[A PCB Christmas.GBO]
+   Generated File[A PCB Christmas.GM1]
+   Generated File[A PCB Christmas.GM13]
+   Generated File[A PCB Christmas.GM15]
+   Generated File[A PCB Christmas.GKO]
+   Generated File[A PCB Christmas.GPT]
+   Generated File[A PCB Christmas.GPB]
+   Generated File[A PCB Christmas.RUL]
+   Generated File[A PCB Christmas.EXTREP]
+   Generated File[A PCB Christmas.REP]
+
+
+Files Generated   : 17
+Documents Printed : 0
+
+Finished Output Generation At 10:27:07 AM On 2021-12-08

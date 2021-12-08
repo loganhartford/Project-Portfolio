@@ -1,0 +1,35 @@
+Removed Pin From Net: NetName=+VBAT Pin=C?-2
+Removed Pin From Net: NetName=+VBAT Pin=D1-2
+Removed Pin From Net: NetName=+VBAT Pin=Q1-2
+Removed Pin From Net: NetName=GND Pin=R4-1
+Removed Pin From Net: NetName=GND Pin=U?-3
+Removed Pin From Net: NetName=+3V3 Pin=U?-5
+Removed Member From Class: ClassName=Main Member=D1
+Removed Member From Class: ClassName=Main Member=Q1
+Removed Member From Class: ClassName=Main Member=R4
+Added Component: Designator=S?(JS202011CQN)
+Add component (AddParameter): Name = "Function"; Value = "Slide Switch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "JS202011CQN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouting Type"; Value = "TH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "JS202011CQN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "401-2001-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+VBAT Pin=B?-1
+Added Pin To Net: NetName=+VBAT Pin=S?-2
+Added Pin To Net: NetName=+VBAT Pin=S?-2
+Added Pin To Net: NetName=GND Pin=U?-3
+Added Pin To Net: NetName=N4 Pin=U?-3
+Added Pin To Net: NetName=+3V3 Pin=U?-5
+Added Pin To Net: NetName=N6 Pin=U?-5
+Added Pin To Net: NetName=NetC?_2 Pin=C?-2
+Added Pin To Net: NetName=NetC?_2 Pin=S?-1
+Added Pin To Net: NetName=NetC?_2 Pin=S?-1
+Added Pin To Net: NetName=NetC?_2 Pin=U?-4
+Added Pin To Net: NetName=NetC?_2 Pin=U?-6
+Added Net: Name=NetC?_2
+Added Member To Class: ClassName=Main Member=Component C? Ceramic Cap
+Added Member To Class: ClassName=Main Member=Component Q? N-CH
+Added Member To Class: ClassName=Main Member=Component S? JS202011CQN
+Added Member To Class: ClassName=Main Member=Component U? MIC5363-3.3YMT-TR
+Added Member To Class: ClassName=Main Member=Component U? 74HC595BQ-Q100,115
+Added Member To Class: ClassName=Main Member=Component U? 74HC595BQ-Q100,115
