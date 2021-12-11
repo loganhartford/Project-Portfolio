@@ -5872,12 +5872,57 @@ int count = 0;
 void shiftBytes(uint8_t highSide, uint8_t lowSide);
 void Initialize_Matrix(void);
 void displayMatrix(uint8_t states[8]);
-void play_note(uint8_t note);
+void play_note(uint8_t note, uint8_t prescale);
 void EXT_ISR(void);
 void TMR0_ISR_(void);
 void TMR1_ISR_(void);
 
-uint8_t silent_night[] = {158, 158, 141, 158, 188, 188, 0, 158, 158, 141, 158, 188, 188, 0};
+uint8_t silent_night[] = {158, 158, 158, 141, 158, 158,
+                          188, 188, 188, 188, 188, 188,
+                          158, 158, 158, 141, 158, 158,
+                          188, 188, 188, 188, 188, 188,
+                          211, 211, 211, 211, 211, 211,
+                          252, 252, 252, 252, 252, 252,
+                          238, 238, 238, 238, 238, 238,
+                          158, 158, 158, 158, 158, 158,
+                          141, 141, 141, 141, 141, 141,
+                          237, 237, 237, 252, 141, 141,
+                          158, 158, 158, 141, 158, 158,
+                          188, 188, 188, 188, 188, 188,
+                          141, 141, 141, 141, 141, 141,
+                          237, 237, 237, 252, 141, 141,
+                          158, 158, 158, 141, 158, 158,
+                          188, 188, 188, 188, 188, 188,
+                          211, 211, 211, 211, 211, 211,
+                          177, 177, 177, 211, 252, 252,
+                          237, 237, 237, 237, 237, 237,
+                          188, 188, 188, 188, 188, 188,
+                          237, 237, 158, 158, 188, 188,
+                          158, 158, 158, 177, 211, 211,
+                          238, 238, 238, 238, 238, 238};
+uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
 
 
 
@@ -5895,7 +5940,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 90 "main.c"
+# 135 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -5942,12 +5987,12 @@ void main(void)
     while (1)
     {
 
-        play_note(silent_night[count]);
-        T2CONbits.TMR2ON = 0;
+        play_note(silent_night[count], silent_night_pre[count]);
+
         count++;
-        if (count > 14) count = 0;
-        _delay((unsigned long)((500)*(8000000/4000.0)));
-# 210 "main.c"
+        if (count > 138) __asm("sleep");
+        _delay((unsigned long)((250)*(8000000/4000.0)));
+# 255 "main.c"
     }
 }
 
@@ -5987,18 +6032,18 @@ void TMR1_ISR_(void)
     }
 }
 
-void play_note(uint8_t note)
+void play_note(uint8_t note, uint8_t prescale)
 {
     T2CONbits.TMR2ON = 1;
     if (note)
     {
+       T2CON = prescale;
        T2PR = note;
     }
     else
     {
        T2CONbits.TMR2ON = 0;
     }
-
 }
 
 void Initialize_Matrix(void)

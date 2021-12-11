@@ -11,52 +11,51 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
+$C:\Users\Logan\AppData\Local\Temp\xcAssao.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 31 31 2 2
 config CONFIG 4 8007 8007 5 2
 $dist/default/production\Test.X.production.o
-cinit CODE 0 33 33 13 2
-text1 CODE 0 1BA 1BA F 2
-text2 CODE 0 1F3 1F3 D 2
-text3 CODE 0 200 200 D 2
-text4 CODE 0 105 105 1C 2
-text5 CODE 0 26D 26D 3 2
-text6 CODE 0 1D7 1D7 E 2
-text7 CODE 0 E4 E4 21 2
-text8 CODE 0 24B 24B 6 2
-text9 CODE 0 121 121 1A 2
-nvCOMMON COMMON 1 78 78 2 1
-text10 CODE 0 251 251 6 2
-text11 CODE 0 180 180 15 2
-text12 CODE 0 23D 23D 8 2
-text13 CODE 0 BC BC 28 2
-text14 CODE 0 257 257 6 2
-text15 CODE 0 1E5 1E5 E 2
-text16 CODE 0 25D 25D 6 2
-text18 CODE 0 13B 13B 17 2
-text19 CODE 0 1A9 1A9 11 2
-text20 CODE 0 270 270 1 2
-text21 CODE 0 152 152 17 2
-text22 CODE 0 195 195 14 2
-text23 CODE 0 271 271 1 2
-text24 CODE 0 169 169 17 2
-text25 CODE 0 263 263 6 2
-text26 CODE 0 20D 20D D 2
-text27 CODE 0 234 234 9 2
-text28 CODE 0 272 272 1 2
-text29 CODE 0 21A 21A D 2
-text30 CODE 0 227 227 D 2
-nvBANK0 BANK0 1 2E 2E 8 1
-maintext CODE 0 46 46 76 2
-cstackCOMMON COMMON 1 70 70 5 1
-cstackBANK0 BANK0 1 36 36 4 1
-inittext CODE 0 245 245 6 2
-stringtext1 STRCODE 0 269 269 4 2
+cinit CODE 0 33 33 15 2
+text1 CODE 0 2F3 2F3 F 2
+text2 CODE 0 302 302 E 2
+text3 CODE 0 2A4 2A4 15 2
+text4 CODE 0 22A 22A 1C 2
+text5 CODE 0 392 392 3 2
+text6 CODE 0 310 310 E 2
+text7 CODE 0 20C 20C 1E 2
+text8 CODE 0 370 370 6 2
+text9 CODE 0 246 246 1A 2
+nvCOMMON COMMON 1 70 70 4 1
+text10 CODE 0 376 376 6 2
+text11 CODE 0 2B9 2B9 15 2
+text12 CODE 0 368 368 8 2
+text13 CODE 0 1E4 1E4 28 2
+text14 CODE 0 37C 37C 6 2
+text15 CODE 0 31E 31E E 2
+text16 CODE 0 382 382 6 2
+text18 CODE 0 28E 28E 16 2
+text19 CODE 0 2E2 2E2 11 2
+text20 CODE 0 395 395 1 2
+text21 CODE 0 260 260 17 2
+text22 CODE 0 2CE 2CE 14 2
+text23 CODE 0 396 396 1 2
+text24 CODE 0 277 277 17 2
+text25 CODE 0 388 388 6 2
+text26 CODE 0 32C 32C D 2
+text27 CODE 0 35F 35F 9 2
+text28 CODE 0 397 397 1 2
+text29 CODE 0 339 339 D 2
+text30 CODE 0 346 346 D 2
+idataBIGRAM CODE 0 48 48 114 2
+nvBANK0 BANK0 1 28 28 6 1
+maintext CODE 0 15C 15C 88 2
+cstackCOMMON COMMON 1 74 74 4 1
+cstackBANK0 BANK0 1 20 20 8 1
+inittext CODE 0 353 353 C 2
+stringtext1 STRCODE 0 38E 38E 4 2
 intentry CODE 0 4 4 2D 2
-idataBANK0 CODE 0 1C9 1C9 E 2
-dataBANK0 BANK0 1 20 20 E 1
-bssCOMMON COMMON 1 75 75 3 1
+bssCOMMON COMMON 1 78 78 3 1
 config CONFIG 4 8007 8007 5 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -64,7 +63,7 @@ config CONFIG 4 8007 8007 5 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 3A-6F 1
+RAM 2E-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
@@ -73,11 +72,8 @@ RAM 2A0-2EF 1
 RAM 320-36F 1
 RAM 3A0-3EF 1
 RAM 420-46F 1
-RAM 4A0-4EF 1
-RAM 520-56F 1
-RAM 5A0-5EF 1
-RAM 620-64F 1
-BANK0 3A-6F 1
+RAM 4A0-4AB 1
+BANK0 2E-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
@@ -86,11 +82,11 @@ BANK5 2A0-2EF 1
 BANK6 320-36F 1
 BANK7 3A0-3EF 1
 BANK8 420-46F 1
-BANK9 4A0-4EF 1
+BANK9 4A0-4AB 1
 CONST 2-3 2
-CONST 273-1FFF 2
+CONST 398-1FFF 2
 ENTRY 2-3 2
-ENTRY 273-1FFF 2
+ENTRY 398-1FFF 2
 IDLOC 8000-8003 2
 SFR10 500-51F 1
 SFR11 580-59F 1
@@ -146,9 +142,9 @@ SFR60 1E00-1E6F 1
 SFR61 1E80-1EEF 1
 SFR62 1F00-1F6F 1
 SFR63 1F80-1FEF 1
-STACK 201A-23EF 1
+STACK 200E-22DB 1
 CODE 2-3 2
-CODE 273-1FFF 2
+CODE 398-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -159,15 +155,12 @@ SFR6 300-31F 1
 SFR7 380-39F 1
 SFR8 400-41F 1
 SFR9 480-49F 1
-BANK10 520-56F 1
-BANK11 5A0-5EF 1
-BANK12 620-64F 1
 BIGRAM 2000-23EF 1
-COMMON 7A-7D 1
+COMMON 7B-7D 1
 STRCODE 2-3 2
-STRCODE 273-1FFF 2
+STRCODE 398-1FFF 2
 STRING 2-3 2
-STRING 273-1FFF 2
+STRING 398-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -182,25 +175,27 @@ STRING 273-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Test.X.production.o
-33 cinit CODE >3663:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-33 cinit CODE >3666:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-33 cinit CODE >3699:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-34 cinit CODE >3700:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-35 cinit CODE >3701:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-36 cinit CODE >3702:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-37 cinit CODE >3703:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-38 cinit CODE >3704:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-39 cinit CODE >3705:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-3A cinit CODE >3706:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-3B cinit CODE >3707:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-3C cinit CODE >3708:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-3F cinit CODE >3713:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-40 cinit CODE >3714:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-41 cinit CODE >3715:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-42 cinit CODE >3721:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-42 cinit CODE >3723:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-43 cinit CODE >3724:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-44 cinit CODE >3725:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
+33 cinit CODE >3934:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+33 cinit CODE >3937:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+33 cinit CODE >3975:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+34 cinit CODE >3976:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+35 cinit CODE >3977:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+36 cinit CODE >3978:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+37 cinit CODE >3979:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+38 cinit CODE >3980:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+39 cinit CODE >3981:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+3A cinit CODE >3982:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+3B cinit CODE >3983:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+3C cinit CODE >3984:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+3D cinit CODE >3985:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+3E cinit CODE >3986:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+41 cinit CODE >3991:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+42 cinit CODE >3992:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+43 cinit CODE >3993:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+44 cinit CODE >3999:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+44 cinit CODE >4001:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+45 cinit CODE >4002:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+46 cinit CODE >4003:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
 4 intentry CODE >52:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/interrupt_manager.c
 6 intentry CODE >55:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/interrupt_manager.c
 F intentry CODE >57:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/interrupt_manager.c
@@ -214,238 +209,244 @@ F intentry CODE >57:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc
 2E intentry CODE >68:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/interrupt_manager.c
 2F intentry CODE >77:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/interrupt_manager.c
 2F intentry CODE >78:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/interrupt_manager.c
-227 text30 CODE >97:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-228 text30 CODE >99:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-22B text30 CODE >100:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-230 text30 CODE >101:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-231 text30 CODE >102:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-233 text30 CODE >103:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-21A text29 CODE >272:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-21B text29 CODE >276:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-21F text29 CODE >277:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-223 text29 CODE >279:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-225 text29 CODE >281:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-226 text29 CODE >282:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-272 text28 CODE >54:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-272 text28 CODE >57:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-234 text27 CODE >216:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-234 text27 CODE >218:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-23C text27 CODE >219:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-20D text26 CODE >41:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-20D text26 CODE >44:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-214 text26 CODE >46:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-219 text26 CODE >48:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-263 text25 CODE >32:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-263 text25 CODE >34:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-265 text25 CODE >37:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-268 text25 CODE >38:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-169 text24 CODE >221:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-169 text24 CODE >223:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-16E text24 CODE >225:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-176 text24 CODE >226:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-177 text24 CODE >227:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-178 text24 CODE >230:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-17D text24 CODE >231:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-17F text24 CODE >233:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-271 text23 CODE >155:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-271 text23 CODE >158:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-195 text22 CODE >134:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-195 text22 CODE >137:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-197 text22 CODE >139:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-19A text22 CODE >140:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-19C text22 CODE >142:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-1A3 text22 CODE >144:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-1A8 text22 CODE >148:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-152 text21 CODE >235:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-152 text21 CODE >237:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-157 text21 CODE >239:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-15F text21 CODE >240:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-160 text21 CODE >241:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-161 text21 CODE >244:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-166 text21 CODE >245:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-168 text21 CODE >247:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-270 text20 CODE >182:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-270 text20 CODE >185:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1A9 text19 CODE >127:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1A9 text19 CODE >129:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1AE text19 CODE >132:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1AF text19 CODE >135:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1B1 text19 CODE >136:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1B3 text19 CODE >139:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1B4 text19 CODE >140:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1B5 text19 CODE >144:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1B7 text19 CODE >145:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1B9 text19 CODE >147:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-13B text18 CODE >164:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-13B text18 CODE >168:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-13D text18 CODE >169:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-145 text18 CODE >171:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-14C text18 CODE >173:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-151 text18 CODE >175:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-25D text16 CODE >50:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-25D text16 CODE >51:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-262 text16 CODE >52:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-1E5 text15 CODE >59:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-1E5 text15 CODE >64:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-1E7 text15 CODE >65:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-1E8 text15 CODE >67:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-1F0 text15 CODE >68:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-1F2 text15 CODE >70:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
-257 text14 CODE >64:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-257 text14 CODE >67:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-259 text14 CODE >69:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-25B text14 CODE >71:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-25C text14 CODE >72:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-BC text13 CODE >55:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-BC text13 CODE >60:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-BE text13 CODE >61:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-BF text13 CODE >66:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-C1 text13 CODE >67:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-C3 text13 CODE >72:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-C6 text13 CODE >73:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-C8 text13 CODE >78:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-C9 text13 CODE >79:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-CA text13 CODE >84:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-CB text13 CODE >85:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-CC text13 CODE >90:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-CE text13 CODE >91:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-D0 text13 CODE >96:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-D2 text13 CODE >97:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-D4 text13 CODE >106:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-D7 text13 CODE >107:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-D9 text13 CODE >108:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-DC text13 CODE >109:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-DE text13 CODE >110:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-E0 text13 CODE >111:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-E3 text13 CODE >112:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
-23D text12 CODE >58:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pwm3.c
-23D text12 CODE >62:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pwm3.c
-240 text12 CODE >65:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pwm3.c
-242 text12 CODE >68:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pwm3.c
-244 text12 CODE >70:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pwm3.c
-180 text11 CODE >62:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-180 text11 CODE >65:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-183 text11 CODE >66:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-185 text11 CODE >67:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-188 text11 CODE >68:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-18A text11 CODE >70:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-18D text11 CODE >71:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-18E text11 CODE >72:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-190 text11 CODE >73:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-192 text11 CODE >74:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-194 text11 CODE >75:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-251 text10 CODE >151:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-251 text10 CODE >152:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-256 text10 CODE >153:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-121 text9 CODE >66:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-121 text9 CODE >71:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-124 text9 CODE >74:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-126 text9 CODE >77:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-128 text9 CODE >80:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-12C text9 CODE >83:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-12E text9 CODE >86:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-12F text9 CODE >89:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-137 text9 CODE >92:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-13A text9 CODE >93:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
-24B text8 CODE >178:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-24B text8 CODE >179:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-250 text8 CODE >180:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-E4 text7 CODE >64:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-E4 text7 CODE >69:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-E6 text7 CODE >72:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-E7 text7 CODE >75:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-E9 text7 CODE >78:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-EB text7 CODE >81:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-ED text7 CODE >84:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-EF text7 CODE >87:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-F7 text7 CODE >90:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-F9 text7 CODE >93:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-101 text7 CODE >96:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-104 text7 CODE >97:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
-1D7 text6 CODE >62:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
-1D7 text6 CODE >67:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
-1DA text6 CODE >70:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
-1DB text6 CODE >73:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
-1DC text6 CODE >76:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
-1DE text6 CODE >79:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
-1DF text6 CODE >82:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
-1E1 text6 CODE >85:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
-1E4 text6 CODE >86:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
-26D text5 CODE >74:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-26D text5 CODE >77:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-26F text5 CODE >78:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-105 text4 CODE >50:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-105 text4 CODE >53:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-108 text4 CODE >54:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-10B text4 CODE >55:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-10E text4 CODE >56:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-111 text4 CODE >57:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-114 text4 CODE >58:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-117 text4 CODE >59:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-11A text4 CODE >60:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-11D text4 CODE >61:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-120 text4 CODE >62:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
-200 text3 CODE >249:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-201 text3 CODE >251:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-203 text3 CODE >252:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-208 text3 CODE >254:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-20A text3 CODE >255:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-20B text3 CODE >256:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-20B text3 CODE >258:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-20C text3 CODE >261:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-1F3 text2 CODE >97:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-1F4 text2 CODE >99:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-1F7 text2 CODE >100:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-1FC text2 CODE >101:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-1FD text2 CODE >102:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-1FF text2 CODE >103:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-1BA text1 CODE >272:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-1BC text1 CODE >276:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-1C0 text1 CODE >277:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-1C5 text1 CODE >279:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-1C7 text1 CODE >281:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-1C8 text1 CODE >282:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-46 maintext CODE >69:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-46 maintext CODE >72:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-49 maintext CODE >78:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-4A maintext CODE >81:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-4B maintext CODE >90:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-4E maintext CODE >91:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-50 maintext CODE >92:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-52 maintext CODE >93:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-53 maintext CODE >94:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-54 maintext CODE >97:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-56 maintext CODE >100:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-59 maintext CODE >101:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-61 maintext CODE >102:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-63 maintext CODE >105:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-66 maintext CODE >106:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-6E maintext CODE >107:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-70 maintext CODE >110:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-73 maintext CODE >111:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-7B maintext CODE >112:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-7D maintext CODE >116:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-80 maintext CODE >117:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-82 maintext CODE >121:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-85 maintext CODE >124:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-87 maintext CODE >126:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-88 maintext CODE >128:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-89 maintext CODE >130:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-8E maintext CODE >136:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-96 maintext CODE >137:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-98 maintext CODE >138:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-9C maintext CODE >139:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-A2 maintext CODE >139:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-A6 maintext CODE >139:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-AC maintext CODE >140:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-245 inittext CODE >3688:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-245 inittext CODE >3689:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-246 inittext CODE >3690:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-246 inittext CODE >3691:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-247 inittext CODE >3692:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-248 inittext CODE >3693:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-249 inittext CODE >3694:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
-24A inittext CODE >3695:C:\Users\Logan\AppData\Local\Temp\xcAsht0.s
+346 text30 CODE >97:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+347 text30 CODE >99:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+34A text30 CODE >100:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+34F text30 CODE >101:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+350 text30 CODE >102:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+352 text30 CODE >103:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+339 text29 CODE >317:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+33A text29 CODE >321:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+33E text29 CODE >322:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+342 text29 CODE >324:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+344 text29 CODE >326:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+345 text29 CODE >327:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+397 text28 CODE >54:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+397 text28 CODE >57:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+35F text27 CODE >261:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+35F text27 CODE >263:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+367 text27 CODE >264:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+32C text26 CODE >41:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+32C text26 CODE >44:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+333 text26 CODE >46:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+338 text26 CODE >48:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+388 text25 CODE >32:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+388 text25 CODE >34:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+38A text25 CODE >37:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+38D text25 CODE >38:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+277 text24 CODE >266:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+277 text24 CODE >268:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+27C text24 CODE >270:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+284 text24 CODE >271:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+285 text24 CODE >272:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+286 text24 CODE >275:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+28B text24 CODE >276:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+28D text24 CODE >278:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+396 text23 CODE >155:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+396 text23 CODE >158:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+2CE text22 CODE >134:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+2CE text22 CODE >137:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+2D0 text22 CODE >139:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+2D3 text22 CODE >140:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+2D5 text22 CODE >142:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+2DC text22 CODE >144:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+2E1 text22 CODE >148:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+260 text21 CODE >280:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+260 text21 CODE >282:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+265 text21 CODE >284:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+26D text21 CODE >285:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+26E text21 CODE >286:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+26F text21 CODE >289:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+274 text21 CODE >290:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+276 text21 CODE >292:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+395 text20 CODE >182:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+395 text20 CODE >185:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2E2 text19 CODE >127:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2E2 text19 CODE >129:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2E7 text19 CODE >132:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2E8 text19 CODE >135:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2EA text19 CODE >136:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2EC text19 CODE >139:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2ED text19 CODE >140:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2EE text19 CODE >144:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2F0 text19 CODE >145:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2F2 text19 CODE >147:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+28E text18 CODE >164:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+28E text18 CODE >168:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+290 text18 CODE >169:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+297 text18 CODE >171:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+29E text18 CODE >173:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+2A3 text18 CODE >175:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+382 text16 CODE >50:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+382 text16 CODE >51:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+387 text16 CODE >52:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+31E text15 CODE >59:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+31E text15 CODE >64:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+320 text15 CODE >65:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+321 text15 CODE >67:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+329 text15 CODE >68:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+32B text15 CODE >70:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
+37C text14 CODE >64:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+37C text14 CODE >67:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+37E text14 CODE >69:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+380 text14 CODE >71:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+381 text14 CODE >72:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+1E4 text13 CODE >55:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1E4 text13 CODE >60:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1E6 text13 CODE >61:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1E7 text13 CODE >66:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1E9 text13 CODE >67:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1EB text13 CODE >72:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1EE text13 CODE >73:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1F0 text13 CODE >78:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1F1 text13 CODE >79:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1F2 text13 CODE >84:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1F3 text13 CODE >85:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1F4 text13 CODE >90:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1F6 text13 CODE >91:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1F8 text13 CODE >96:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1FA text13 CODE >97:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1FC text13 CODE >106:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+1FF text13 CODE >107:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+201 text13 CODE >108:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+204 text13 CODE >109:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+206 text13 CODE >110:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+208 text13 CODE >111:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+20B text13 CODE >112:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pin_manager.c
+368 text12 CODE >58:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pwm3.c
+368 text12 CODE >62:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pwm3.c
+36B text12 CODE >65:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pwm3.c
+36D text12 CODE >68:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pwm3.c
+36F text12 CODE >70:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/pwm3.c
+2B9 text11 CODE >62:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2B9 text11 CODE >65:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2BC text11 CODE >66:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2BE text11 CODE >67:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2C1 text11 CODE >68:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2C3 text11 CODE >70:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2C6 text11 CODE >71:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2C7 text11 CODE >72:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2C9 text11 CODE >73:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2CB text11 CODE >74:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2CD text11 CODE >75:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+376 text10 CODE >151:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+376 text10 CODE >152:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+37B text10 CODE >153:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+246 text9 CODE >66:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+246 text9 CODE >71:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+249 text9 CODE >74:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+24B text9 CODE >77:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+24D text9 CODE >80:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+251 text9 CODE >83:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+253 text9 CODE >86:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+254 text9 CODE >89:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+25C text9 CODE >92:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+25F text9 CODE >93:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
+370 text8 CODE >178:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+370 text8 CODE >179:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+375 text8 CODE >180:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+20C text7 CODE >64:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+20C text7 CODE >69:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+20E text7 CODE >72:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+20F text7 CODE >75:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+211 text7 CODE >78:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+213 text7 CODE >81:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+215 text7 CODE >84:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+217 text7 CODE >87:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+21C text7 CODE >90:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+21E text7 CODE >93:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+226 text7 CODE >96:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+229 text7 CODE >97:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr1.c
+310 text6 CODE >62:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
+310 text6 CODE >67:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
+313 text6 CODE >70:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
+314 text6 CODE >73:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
+315 text6 CODE >76:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
+317 text6 CODE >79:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
+318 text6 CODE >82:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
+31A text6 CODE >85:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
+31D text6 CODE >86:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr2.c
+392 text5 CODE >74:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+392 text5 CODE >77:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+394 text5 CODE >78:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+22A text4 CODE >50:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+22A text4 CODE >53:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+22D text4 CODE >54:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+230 text4 CODE >55:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+233 text4 CODE >56:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+236 text4 CODE >57:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+239 text4 CODE >58:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+23C text4 CODE >59:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+23F text4 CODE >60:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+242 text4 CODE >61:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+245 text4 CODE >62:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
+2A4 text3 CODE >294:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2A6 text3 CODE >296:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2A8 text3 CODE >297:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2AE text3 CODE >299:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2B1 text3 CODE >300:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2B5 text3 CODE >301:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2B6 text3 CODE >302:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2B6 text3 CODE >304:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2B8 text3 CODE >306:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+302 text2 CODE >97:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+304 text2 CODE >99:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+307 text2 CODE >100:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+30C text2 CODE >101:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+30D text2 CODE >102:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+30F text2 CODE >103:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+2F3 text1 CODE >317:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2F5 text1 CODE >321:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2F9 text1 CODE >322:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+2FE text1 CODE >324:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+300 text1 CODE >326:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+301 text1 CODE >327:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+15C maintext CODE >114:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+15C maintext CODE >117:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+15F maintext CODE >123:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+160 maintext CODE >126:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+161 maintext CODE >135:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+164 maintext CODE >136:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+166 maintext CODE >137:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+168 maintext CODE >138:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+169 maintext CODE >139:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+16A maintext CODE >142:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+16C maintext CODE >145:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+16F maintext CODE >146:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+177 maintext CODE >147:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+179 maintext CODE >150:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+17C maintext CODE >151:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+184 maintext CODE >152:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+186 maintext CODE >155:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+189 maintext CODE >156:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+191 maintext CODE >157:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+193 maintext CODE >161:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+196 maintext CODE >162:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+198 maintext CODE >166:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+19B maintext CODE >169:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+19D maintext CODE >171:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+19E maintext CODE >173:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+19F maintext CODE >175:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+1A4 maintext CODE >181:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+1C1 maintext CODE >183:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+1C5 maintext CODE >184:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+1CB maintext CODE >184:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+1CF maintext CODE >184:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+1D4 maintext CODE >185:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+353 inittext CODE >3958:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+353 inittext CODE >3959:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+354 inittext CODE >3960:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+354 inittext CODE >3961:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+355 inittext CODE >3962:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+356 inittext CODE >3963:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+357 inittext CODE >3964:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+358 inittext CODE >3965:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+359 inittext CODE >3966:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+35A inittext CODE >3967:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+35B inittext CODE >3968:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+35C inittext CODE >3969:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+35D inittext CODE >3970:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
+35E inittext CODE >3971:C:\Users\Logan\AppData\Local\Temp\xcAssao.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -459,74 +460,74 @@ AC maintext CODE >140:D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\m
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\Test.X.production.o
-__LdataBANK0 0 0 ABS 0 dataBANK0 -
-__Hspace_0 273 0 ABS 0 - -
-__Hspace_1 7A 0 ABS 0 - -
+__Hspace_0 398 0 ABS 0 - -
+__Hspace_1 7B 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 10013 0 ABS 0 - -
-__HidataBANK0 0 0 ABS 0 idataBANK0 -
 _PWM3CON 316 0 ABS 0 - dist/default/production\Test.X.production.o
 _PWM3DCH 315 0 ABS 0 - dist/default/production\Test.X.production.o
 _PWM3DCL 314 0 ABS 0 - dist/default/production\Test.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-_INT_CallBack 41A 0 CODE 0 text26 dist/default/production\Test.X.production.o
+_INT_CallBack 658 0 CODE 0 text26 dist/default/production\Test.X.production.o
 _T1CONbits 20E 0 ABS 0 - dist/default/production\Test.X.production.o
 __size_of_EXT_INT_Initialize 0 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of_WDT_Initialize 4E0 0 CODE 0 text5 dist/default/production\Test.X.production.o
+__end_of_WDT_Initialize 72A 0 CODE 0 text5 dist/default/production\Test.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-__end_of_TMR0_ISR_ 300 0 CODE 0 text24 dist/default/production\Test.X.production.o
+__end_of_TMR0_ISR_ 51C 0 CODE 0 text24 dist/default/production\Test.X.production.o
 _LATA 18 0 ABS 0 - dist/default/production\Test.X.production.o
 _LATC 1A 0 ABS 0 - dist/default/production\Test.X.production.o
 _T2PR 28D 0 ABS 0 - dist/default/production\Test.X.production.o
 _TMR2 28C 0 ABS 0 - dist/default/production\Test.X.production.o
 _WPUA 1F39 0 ABS 0 - dist/default/production\Test.X.production.o
 _WPUC 1F4F 0 ABS 0 - dist/default/production\Test.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-_main 8C 0 CODE 0 maintext dist/default/production\Test.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+_main 2B8 0 CODE 0 maintext dist/default/production\Test.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Test.X.production.o
-start 62 0 CODE 0 init C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-_TMR0_InterruptHandler 32 0 BANK0 1 nvBANK0 dist/default/production\Test.X.production.o
-__end_of_TMR1_ISR_ 2D2 0 CODE 0 text21 dist/default/production\Test.X.production.o
+start 62 0 CODE 0 init C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+_TMR0_InterruptHandler 2A 0 BANK0 1 nvBANK0 dist/default/production\Test.X.production.o
+__end_of_TMR1_ISR_ 4EE 0 CODE 0 text21 dist/default/production\Test.X.production.o
 __size_of_TMR0_ISR_ 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
-__end_of_SPI1_Initialize 32A 0 CODE 0 text11 dist/default/production\Test.X.production.o
-__end_of_TMR0_SetInterruptHandler 4AE 0 CODE 0 text10 dist/default/production\Test.X.production.o
+__end_of_SPI1_Initialize 59C 0 CODE 0 text11 dist/default/production\Test.X.production.o
+__end_of_TMR0_SetInterruptHandler 6F8 0 CODE 0 text10 dist/default/production\Test.X.production.o
 __size_of_TMR1_ISR_ 0 0 ABS 0 - dist/default/production\Test.X.production.o
-__LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
-__end_of_spi1_configuration 4DA 0 STRCODE 0 stringtext1 dist/default/production\Test.X.production.o
+__end_of_spi1_configuration 724 0 STRCODE 0 stringtext1 dist/default/production\Test.X.production.o
 __size_of_TMR1_Initialize 0 0 ABS 0 - dist/default/production\Test.X.production.o
+__HdataBIGRAM 0 0 ABS 0 dataBIGRAM -
 __size_of_TMR1_WriteTimer 0 0 ABS 0 - dist/default/production\Test.X.production.o
-_TMR0_ISR_ 2D2 0 CODE 0 text24 dist/default/production\Test.X.production.o
-_TMR2_Initialize 3AE 0 CODE 0 text6 dist/default/production\Test.X.production.o
+_TMR0_ISR_ 4EE 0 CODE 0 text24 dist/default/production\Test.X.production.o
+_TMR2_Initialize 620 0 CODE 0 text6 dist/default/production\Test.X.production.o
 __LnvCOMMON 0 0 ABS 0 nvCOMMON -
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\Test.X.production.o
-_TMR1_ISR_ 2A4 0 CODE 0 text21 dist/default/production\Test.X.production.o
-TMR0_SetInterruptHandler@InterruptHandler 36 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
+_TMR1_ISR_ 4C0 0 CODE 0 text21 dist/default/production\Test.X.production.o
+TMR0_SetInterruptHandler@InterruptHandler 20 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Logan\AppData\Local\Temp\xcAssao.o
 __size_of_INT_CallBack 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Test.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __size_of_TMR1_DefaultInterruptHandler 0 0 ABS 0 - dist/default/production\Test.X.production.o
+__pidataBIGRAM 90 0 CODE 0 idataBIGRAM dist/default/production\Test.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
 __size_of_EXT_ISR 0 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of_TMR1_DefaultInterruptHandler 4E2 0 CODE 0 text20 dist/default/production\Test.X.production.o
-_SPI1_Initialize 300 0 CODE 0 text11 dist/default/production\Test.X.production.o
-_timer0ReloadVal16bit 78 0 COMMON 1 nvCOMMON dist/default/production\Test.X.production.o
-_spi1_configuration 4D2 0 STRCODE 0 stringtext1 dist/default/production\Test.X.production.o
+__end_of_TMR1_DefaultInterruptHandler 72C 0 CODE 0 text20 dist/default/production\Test.X.production.o
+_SPI1_Initialize 572 0 CODE 0 text11 dist/default/production\Test.X.production.o
+_timer0ReloadVal16bit 72 0 COMMON 1 nvCOMMON dist/default/production\Test.X.production.o
+_spi1_configuration 71C 0 STRCODE 0 stringtext1 dist/default/production\Test.X.production.o
 _ANSELA 1F38 0 ABS 0 - dist/default/production\Test.X.production.o
 _ANSELC 1F4E 0 ABS 0 - dist/default/production\Test.X.production.o
-_shiftBytes 374 0 CODE 0 text1 dist/default/production\Test.X.production.o
-_TMR0_DefaultInterruptHandler 4E2 0 CODE 0 text23 dist/default/production\Test.X.production.o
-__end_of_INT_CallBack 434 0 CODE 0 text26 dist/default/production\Test.X.production.o
+__LdataBIGRAM 0 0 ABS 0 dataBIGRAM -
+_shiftBytes 5E6 0 CODE 0 text1 dist/default/production\Test.X.production.o
+_TMR0_DefaultInterruptHandler 72C 0 CODE 0 text23 dist/default/production\Test.X.production.o
+__end_of_INT_CallBack 672 0 CODE 0 text26 dist/default/production\Test.X.production.o
 __end_of_INTERRUPT_InterruptManager 62 0 CODE 0 intentry dist/default/production\Test.X.production.o
 __size_of_TMR1_SetInterruptHandler 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
@@ -536,37 +537,39 @@ __size_of_INT_SetInterruptHandler 0 0 ABS 0 - dist/default/production\Test.X.pro
 _INLVLA 1F3C 0 ABS 0 - dist/default/production\Test.X.production.o
 _INLVLC 1F52 0 ABS 0 - dist/default/production\Test.X.production.o
 _INTPPS 1E90 0 ABS 0 - dist/default/production\Test.X.production.o
-___stackhi 23EF 0 ABS 0 - C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-___stacklo 201A 0 ABS 0 - C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-i1shiftBytes@lowSide 71 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
+___stackhi 22DB 0 ABS 0 - C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+___stacklo 200E 0 ABS 0 - C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+__LidataBIGRAM 0 0 ABS 0 idataBIGRAM -
+i1shiftBytes@lowSide 75 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
 __size_of_INT_ISR 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __HnvCOMMON 0 0 ABS 0 nvCOMMON -
 __size_of_TMR2_Initialize 0 0 ABS 0 - dist/default/production\Test.X.production.o
-_PIN_MANAGER_Initialize 178 0 CODE 0 text13 dist/default/production\Test.X.production.o
+_PIN_MANAGER_Initialize 3C8 0 CODE 0 text13 dist/default/production\Test.X.production.o
 start_initialization 66 0 CODE 0 cinit dist/default/production\Test.X.production.o
 _ODCONA 1F3A 0 ABS 0 - dist/default/production\Test.X.production.o
 _ODCONC 1F50 0 ABS 0 - dist/default/production\Test.X.production.o
 _OSCFRQ 893 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of_shiftBytes 392 0 CODE 0 text1 dist/default/production\Test.X.production.o
+__end_of_shiftBytes 604 0 CODE 0 text1 dist/default/production\Test.X.production.o
 _TRISAbits 12 0 ABS 0 - dist/default/production\Test.X.production.o
 _TRISCbits 14 0 ABS 0 - dist/default/production\Test.X.production.o
+play_note@prescale 20 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
 _RA5PPS 1F15 0 ABS 0 - dist/default/production\Test.X.production.o
 _RC3PPS 1F23 0 ABS 0 - dist/default/production\Test.X.production.o
 _RC5PPS 1F25 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of_SYSTEM_Initialize 242 0 CODE 0 text4 dist/default/production\Test.X.production.o
-__pcstackBANK0 36 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
+__end_of_SYSTEM_Initialize 48C 0 CODE 0 text4 dist/default/production\Test.X.production.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
 _T0CON0 59E 0 ABS 0 - dist/default/production\Test.X.production.o
 _T0CON1 59F 0 ABS 0 - dist/default/production\Test.X.production.o
 _T1GATE 210 0 ABS 0 - dist/default/production\Test.X.production.o
 _T1GCON 20F 0 ABS 0 - dist/default/production\Test.X.production.o
 _T2CLKCON 290 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of_EXT_ISR 47A 0 CODE 0 text27 dist/default/production\Test.X.production.o
-_TMR0_b 77 0 COMMON 1 bssCOMMON dist/default/production\Test.X.production.o
+__end_of_EXT_ISR 6D0 0 CODE 0 text27 dist/default/production\Test.X.production.o
+_TMR0_b 7A 0 COMMON 1 bssCOMMON dist/default/production\Test.X.production.o
 __size_of_SPI1_Initialize 0 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of_TMR1_SetInterruptHandler 4A2 0 CODE 0 text8 dist/default/production\Test.X.production.o
+__end_of_TMR1_SetInterruptHandler 6EC 0 CODE 0 text8 dist/default/production\Test.X.production.o
 _WDTCON 80C 0 ABS 0 - dist/default/production\Test.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-__end_of_PWM3_Initialize 48A 0 CODE 0 text12 dist/default/production\Test.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+__end_of_PWM3_Initialize 6E0 0 CODE 0 text12 dist/default/production\Test.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -577,8 +580,8 @@ __Hbank6 0 0 ABS 0 bank6 -
 __Hbank7 0 0 ABS 0 bank7 -
 __Hbank8 0 0 ABS 0 bank8 -
 __Hbank9 0 0 ABS 0 bank9 -
-__Hcinit 8C 0 CODE 0 cinit -
-_INT_DefaultInterruptHandler 4E4 0 CODE 0 text28 dist/default/production\Test.X.production.o
+__Hcinit 90 0 CODE 0 cinit -
+_INT_DefaultInterruptHandler 72E 0 CODE 0 text28 dist/default/production\Test.X.production.o
 __size_of_OSCILLATOR_Initialize 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __Hsfr10 0 0 ABS 0 sfr10 -
 __Hsfr11 0 0 ABS 0 sfr11 -
@@ -692,7 +695,7 @@ __Hbank63 0 0 BANK63 1 bank63 -
 __size_ofi1_SPI1_ExchangeByte 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __Hbigram 0 0 ABS 0 bigram -
 __Hmaintext 0 0 ABS 0 maintext -
-shiftBytes@lowSide 36 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
+shiftBytes@lowSide 21 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 10018 0 CONFIG 4 config -
 _T2HLTbits 28F 0 ABS 0 - dist/default/production\Test.X.production.o
@@ -763,7 +766,7 @@ __Lsfr61 0 0 ABS 0 sfr61 -
 __Lsfr62 0 0 ABS 0 sfr62 -
 __Lsfr63 0 0 ABS 0 sfr63 -
 __Lstack 0 0 STACK 2 stack -
-init_ram 48A 0 CODE 0 inittext dist/default/production\Test.X.production.o
+init_ram 6A6 0 CODE 0 inittext dist/default/production\Test.X.production.o
 __Linittext 0 0 ABS 0 inittext -
 _INTCONbits B 0 ABS 0 - dist/default/production\Test.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
@@ -794,69 +797,70 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
-__pstringtext1 4D2 0 STRCODE 0 stringtext1 dist/default/production\Test.X.production.o
-__pnvBANK0 2E 0 BANK0 1 nvBANK0 dist/default/production\Test.X.production.o
+__pstringtext1 71C 0 STRCODE 0 stringtext1 dist/default/production\Test.X.production.o
+__pnvBANK0 28 0 BANK0 1 nvBANK0 dist/default/production\Test.X.production.o
 _SSP1CON1 190 0 ABS 0 - dist/default/production\Test.X.production.o
 _SSP1CON2 191 0 ABS 0 - dist/default/production\Test.X.production.o
 _SSP1STAT 18F 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of_SPI1_ExchangeByte 400 0 CODE 0 text2 dist/default/production\Test.X.production.o
+__end_of_SPI1_ExchangeByte 620 0 CODE 0 text2 dist/default/production\Test.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 int$flags 7E 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of_INT_ISR 4D2 0 CODE 0 text25 dist/default/production\Test.X.production.o
+__end_of_INT_ISR 71C 0 CODE 0 text25 dist/default/production\Test.X.production.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __size_of_INTERRUPT_InterruptManager 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __size_of_WDT_Initialize 0 0 ABS 0 - dist/default/production\Test.X.production.o
 _PR2 28D 0 ABS 0 - dist/default/production\Test.X.production.o
-__S0 273 0 ABS 0 - -
-__S1 7A 0 ABS 0 - -
+__S0 398 0 ABS 0 - -
+__S1 7B 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __size_of_TMR0_ISR 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __size_of_TMR1_ISR 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __size_of_TMR0_DefaultInterruptHandler 0 0 ABS 0 - dist/default/production\Test.X.production.o
-shiftBytes@highSide 37 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
-__pnvCOMMON 78 0 COMMON 1 nvCOMMON dist/default/production\Test.X.production.o
-__end_of_TMR0_DefaultInterruptHandler 4E4 0 CODE 0 text23 dist/default/production\Test.X.production.o
+shiftBytes@highSide 22 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
+__pnvCOMMON 70 0 COMMON 1 nvCOMMON dist/default/production\Test.X.production.o
+__end_of_TMR0_DefaultInterruptHandler 72E 0 CODE 0 text23 dist/default/production\Test.X.production.o
 _T2RSTbits 291 0 ABS 0 - dist/default/production\Test.X.production.o
-_PWM3_Initialize 47A 0 CODE 0 text12 dist/default/production\Test.X.production.o
-i1_SPI1_ExchangeByte 44E 0 CODE 0 text30 dist/default/production\Test.X.production.o
-_silent_night 20 0 BANK0 1 dataBANK0 dist/default/production\Test.X.production.o
-_SYSTEM_Initialize 20A 0 CODE 0 text4 dist/default/production\Test.X.production.o
+__HidataBIGRAM 0 0 ABS 0 idataBIGRAM -
+_PWM3_Initialize 6D0 0 CODE 0 text12 dist/default/production\Test.X.production.o
+i1_SPI1_ExchangeByte 68C 0 CODE 0 text30 dist/default/production\Test.X.production.o
+_silent_night 2366 0 ABS 1 - dist/default/production\Test.X.production.o
+_SYSTEM_Initialize 454 0 CODE 0 text4 dist/default/production\Test.X.production.o
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Logan\AppData\Local\Temp\xcAsht0.o
-__pdataBANK0 20 0 BANK0 1 dataBANK0 dist/default/production\Test.X.production.o
-__end_of_play_note 41A 0 CODE 0 text3 dist/default/production\Test.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Logan\AppData\Local\Temp\xcAssao.o
+__end_of_play_note 572 0 CODE 0 text3 dist/default/production\Test.X.production.o
 __Lstringtext1 0 0 ABS 0 stringtext1 -
-_INT_InterruptHandler 34 0 BANK0 1 nvBANK0 dist/default/production\Test.X.production.o
+_INT_InterruptHandler 2C 0 BANK0 1 nvBANK0 dist/default/production\Test.X.production.o
 _INTERRUPT_InterruptManager 8 0 CODE 0 intentry dist/default/production\Test.X.production.o
 __size_of_play_note 0 0 ABS 0 - dist/default/production\Test.X.production.o
+_silent_night_pre 22DC 0 ABS 1 - dist/default/production\Test.X.production.o
 _PIE0bits 716 0 ABS 0 - dist/default/production\Test.X.production.o
 _PIE1bits 717 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of_EXT_INT_Initialize 3E6 0 CODE 0 text15 dist/default/production\Test.X.production.o
-_TMR0_ISR 32A 0 CODE 0 text22 dist/default/production\Test.X.production.o
-_TMR1_ISR 276 0 CODE 0 text18 dist/default/production\Test.X.production.o
-__ptext10 4A2 0 CODE 0 text10 dist/default/production\Test.X.production.o
-__ptext11 300 0 CODE 0 text11 dist/default/production\Test.X.production.o
-__ptext12 47A 0 CODE 0 text12 dist/default/production\Test.X.production.o
-__ptext13 178 0 CODE 0 text13 dist/default/production\Test.X.production.o
-__ptext14 4AE 0 CODE 0 text14 dist/default/production\Test.X.production.o
-__ptext15 3CA 0 CODE 0 text15 dist/default/production\Test.X.production.o
-__ptext16 4BA 0 CODE 0 text16 dist/default/production\Test.X.production.o
-__ptext18 276 0 CODE 0 text18 dist/default/production\Test.X.production.o
-__ptext19 352 0 CODE 0 text19 dist/default/production\Test.X.production.o
-__ptext20 4E0 0 CODE 0 text20 dist/default/production\Test.X.production.o
-__ptext21 2A4 0 CODE 0 text21 dist/default/production\Test.X.production.o
-__ptext22 32A 0 CODE 0 text22 dist/default/production\Test.X.production.o
-__ptext23 4E2 0 CODE 0 text23 dist/default/production\Test.X.production.o
-__ptext24 2D2 0 CODE 0 text24 dist/default/production\Test.X.production.o
-__ptext25 4C6 0 CODE 0 text25 dist/default/production\Test.X.production.o
-__ptext26 41A 0 CODE 0 text26 dist/default/production\Test.X.production.o
-__ptext27 468 0 CODE 0 text27 dist/default/production\Test.X.production.o
-__ptext28 4E4 0 CODE 0 text28 dist/default/production\Test.X.production.o
-__ptext29 434 0 CODE 0 text29 dist/default/production\Test.X.production.o
-__ptext30 44E 0 CODE 0 text30 dist/default/production\Test.X.production.o
-__end_of_PIN_MANAGER_Initialize 1C8 0 CODE 0 text13 dist/default/production\Test.X.production.o
-__end_of_TMR0_Initialize 276 0 CODE 0 text9 dist/default/production\Test.X.production.o
+__end_of_EXT_INT_Initialize 658 0 CODE 0 text15 dist/default/production\Test.X.production.o
+_TMR0_ISR 59C 0 CODE 0 text22 dist/default/production\Test.X.production.o
+_TMR1_ISR 51C 0 CODE 0 text18 dist/default/production\Test.X.production.o
+__ptext10 6EC 0 CODE 0 text10 dist/default/production\Test.X.production.o
+__ptext11 572 0 CODE 0 text11 dist/default/production\Test.X.production.o
+__ptext12 6D0 0 CODE 0 text12 dist/default/production\Test.X.production.o
+__ptext13 3C8 0 CODE 0 text13 dist/default/production\Test.X.production.o
+__ptext14 6F8 0 CODE 0 text14 dist/default/production\Test.X.production.o
+__ptext15 63C 0 CODE 0 text15 dist/default/production\Test.X.production.o
+__ptext16 704 0 CODE 0 text16 dist/default/production\Test.X.production.o
+__ptext18 51C 0 CODE 0 text18 dist/default/production\Test.X.production.o
+__ptext19 5C4 0 CODE 0 text19 dist/default/production\Test.X.production.o
+__ptext20 72A 0 CODE 0 text20 dist/default/production\Test.X.production.o
+__ptext21 4C0 0 CODE 0 text21 dist/default/production\Test.X.production.o
+__ptext22 59C 0 CODE 0 text22 dist/default/production\Test.X.production.o
+__ptext23 72C 0 CODE 0 text23 dist/default/production\Test.X.production.o
+__ptext24 4EE 0 CODE 0 text24 dist/default/production\Test.X.production.o
+__ptext25 710 0 CODE 0 text25 dist/default/production\Test.X.production.o
+__ptext26 658 0 CODE 0 text26 dist/default/production\Test.X.production.o
+__ptext27 6BE 0 CODE 0 text27 dist/default/production\Test.X.production.o
+__ptext28 72E 0 CODE 0 text28 dist/default/production\Test.X.production.o
+__ptext29 672 0 CODE 0 text29 dist/default/production\Test.X.production.o
+__ptext30 68C 0 CODE 0 text30 dist/default/production\Test.X.production.o
+__end_of_PIN_MANAGER_Initialize 418 0 CODE 0 text13 dist/default/production\Test.X.production.o
+__end_of_TMR0_Initialize 4C0 0 CODE 0 text9 dist/default/production\Test.X.production.o
 __Lbank10 0 0 ABS 0 bank10 -
 __Lbank11 0 0 ABS 0 bank11 -
 __Lbank12 0 0 ABS 0 bank12 -
@@ -911,21 +915,21 @@ __Lbank60 0 0 BANK60 1 bank60 -
 __Lbank61 0 0 BANK61 1 bank61 -
 __Lbank62 0 0 BANK62 1 bank62 -
 __Lbank63 0 0 BANK63 1 bank63 -
-__pmaintext 8C 0 CODE 0 maintext dist/default/production\Test.X.production.o
+__pmaintext 2B8 0 CODE 0 maintext dist/default/production\Test.X.production.o
 __Lbigram 0 0 ABS 0 bigram -
-i1_shiftBytes 434 0 CODE 0 text29 dist/default/production\Test.X.production.o
-SPI1_ExchangeByte@data 74 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
+i1_shiftBytes 672 0 CODE 0 text29 dist/default/production\Test.X.production.o
+SPI1_ExchangeByte@data 20 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-__end_of_TMR0_ISR 352 0 CODE 0 text22 dist/default/production\Test.X.production.o
-__end_of_TMR1_ISR 2A4 0 CODE 0 text18 dist/default/production\Test.X.production.o
+__end_of_TMR0_ISR 5C4 0 CODE 0 text22 dist/default/production\Test.X.production.o
+__end_of_TMR1_ISR 548 0 CODE 0 text18 dist/default/production\Test.X.production.o
 __Hinittext 0 0 ABS 0 inittext -
-_play_note 400 0 CODE 0 text3 dist/default/production\Test.X.production.o
+_play_note 548 0 CODE 0 text3 dist/default/production\Test.X.production.o
 __size_of_shiftBytes 0 0 ABS 0 - dist/default/production\Test.X.production.o
 _LATCbits 1A 0 ABS 0 - dist/default/production\Test.X.production.o
-_SPI1_ExchangeByte 3E6 0 CODE 0 text2 dist/default/production\Test.X.production.o
-_TMR0_SetInterruptHandler 4A2 0 CODE 0 text10 dist/default/production\Test.X.production.o
-_EXT_INT_Initialize 3CA 0 CODE 0 text15 dist/default/production\Test.X.production.o
+_SPI1_ExchangeByte 604 0 CODE 0 text2 dist/default/production\Test.X.production.o
+_TMR0_SetInterruptHandler 6EC 0 CODE 0 text10 dist/default/production\Test.X.production.o
+_EXT_INT_Initialize 63C 0 CODE 0 text15 dist/default/production\Test.X.production.o
 _SSP1CLKPPS 1EC5 0 ABS 0 - dist/default/production\Test.X.production.o
 _OSCTUNE 892 0 ABS 0 - dist/default/production\Test.X.production.o
 _SSP1DATPPS 1EC6 0 ABS 0 - dist/default/production\Test.X.production.o
@@ -934,62 +938,61 @@ __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-__pbssCOMMON 75 0 COMMON 1 bssCOMMON dist/default/production\Test.X.production.o
+__pbssCOMMON 78 0 COMMON 1 bssCOMMON dist/default/production\Test.X.production.o
 __size_of_PWM3_Initialize 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR0bits 70C 0 ABS 0 - dist/default/production\Test.X.production.o
 _PIR1bits 70D 0 ABS 0 - dist/default/production\Test.X.production.o
 __Lend_init 62 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__end_ofi1_SPI1_ExchangeByte 468 0 CODE 0 text30 dist/default/production\Test.X.production.o
+__end_ofi1_SPI1_ExchangeByte 6A6 0 CODE 0 text30 dist/default/production\Test.X.production.o
 __size_ofi1_shiftBytes 0 0 ABS 0 - dist/default/production\Test.X.production.o
-end_of_initialization 84 0 CODE 0 cinit dist/default/production\Test.X.production.o
-_EXT_ISR 468 0 CODE 0 text27 dist/default/production\Test.X.production.o
-_TMR0_Initialize 242 0 CODE 0 text9 dist/default/production\Test.X.production.o
+end_of_initialization 88 0 CODE 0 cinit dist/default/production\Test.X.production.o
+_EXT_ISR 6BE 0 CODE 0 text27 dist/default/production\Test.X.production.o
+_TMR0_Initialize 48C 0 CODE 0 text9 dist/default/production\Test.X.production.o
 __Hintentry 62 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 4 0 CODE 0 reset_vec -
-TMR1_SetInterruptHandler@InterruptHandler 36 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
-_INT_SetInterruptHandler 4BA 0 CODE 0 text16 dist/default/production\Test.X.production.o
-__end_of_INT_SetInterruptHandler 4C6 0 CODE 0 text16 dist/default/production\Test.X.production.o
-__ptext1 374 0 CODE 0 text1 dist/default/production\Test.X.production.o
-__ptext2 3E6 0 CODE 0 text2 dist/default/production\Test.X.production.o
-__ptext3 400 0 CODE 0 text3 dist/default/production\Test.X.production.o
-__ptext4 20A 0 CODE 0 text4 dist/default/production\Test.X.production.o
-__ptext5 4DA 0 CODE 0 text5 dist/default/production\Test.X.production.o
-__ptext6 3AE 0 CODE 0 text6 dist/default/production\Test.X.production.o
-__ptext7 1C8 0 CODE 0 text7 dist/default/production\Test.X.production.o
-__ptext8 496 0 CODE 0 text8 dist/default/production\Test.X.production.o
-__ptext9 242 0 CODE 0 text9 dist/default/production\Test.X.production.o
-__end_ofi1_shiftBytes 44E 0 CODE 0 text29 dist/default/production\Test.X.production.o
+TMR1_SetInterruptHandler@InterruptHandler 20 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
+_INT_SetInterruptHandler 704 0 CODE 0 text16 dist/default/production\Test.X.production.o
+__end_of_INT_SetInterruptHandler 710 0 CODE 0 text16 dist/default/production\Test.X.production.o
+__ptext1 5E6 0 CODE 0 text1 dist/default/production\Test.X.production.o
+__ptext2 604 0 CODE 0 text2 dist/default/production\Test.X.production.o
+__ptext3 548 0 CODE 0 text3 dist/default/production\Test.X.production.o
+__ptext4 454 0 CODE 0 text4 dist/default/production\Test.X.production.o
+__ptext5 724 0 CODE 0 text5 dist/default/production\Test.X.production.o
+__ptext6 620 0 CODE 0 text6 dist/default/production\Test.X.production.o
+__ptext7 418 0 CODE 0 text7 dist/default/production\Test.X.production.o
+__ptext8 6E0 0 CODE 0 text8 dist/default/production\Test.X.production.o
+__ptext9 48C 0 CODE 0 text9 dist/default/production\Test.X.production.o
+__end_ofi1_shiftBytes 68C 0 CODE 0 text29 dist/default/production\Test.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-TMR1_WriteTimer@timerVal 70 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
-__end_of_TMR1_Initialize 20A 0 CODE 0 text7 dist/default/production\Test.X.production.o
-__end_of_TMR1_WriteTimer 374 0 CODE 0 text19 dist/default/production\Test.X.production.o
+TMR1_WriteTimer@timerVal 74 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
+__end_of_TMR1_Initialize 454 0 CODE 0 text7 dist/default/production\Test.X.production.o
+__end_of_TMR1_WriteTimer 5E6 0 CODE 0 text19 dist/default/production\Test.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __Hstringtext1 0 0 ABS 0 stringtext1 -
 _SLRCONA 1F3B 0 ABS 0 - dist/default/production\Test.X.production.o
 _SLRCONC 1F51 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of__initialization 84 0 CODE 0 cinit dist/default/production\Test.X.production.o
-_INT_ISR 4C6 0 CODE 0 text25 dist/default/production\Test.X.production.o
+__end_of__initialization 88 0 CODE 0 cinit dist/default/production\Test.X.production.o
+_INT_ISR 710 0 CODE 0 text25 dist/default/production\Test.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-play_note@note 74 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
-__pidataBANK0 392 0 CODE 0 idataBANK0 dist/default/production\Test.X.production.o
+play_note@note 21 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
 _SSP1CON1bits 190 0 ABS 0 - dist/default/production\Test.X.production.o
-_timer1ReloadVal 30 0 BANK0 1 nvBANK0 dist/default/production\Test.X.production.o
-i1SPI1_ExchangeByte@data 70 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
-INT_SetInterruptHandler@InterruptHandler 36 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
-_TMR1_DefaultInterruptHandler 4E0 0 CODE 0 text20 dist/default/production\Test.X.production.o
-__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
+_timer1ReloadVal 70 0 COMMON 1 nvCOMMON dist/default/production\Test.X.production.o
+i1SPI1_ExchangeByte@data 74 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
+INT_SetInterruptHandler@InterruptHandler 20 0 BANK0 1 cstackBANK0 dist/default/production\Test.X.production.o
+_TMR1_DefaultInterruptHandler 72A 0 CODE 0 text20 dist/default/production\Test.X.production.o
+__pcstackCOMMON 74 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
 _T0CON0bits 59E 0 ABS 0 - dist/default/production\Test.X.production.o
 _SSP1ADD 18D 0 ABS 0 - dist/default/production\Test.X.production.o
 _SSP1BUF 18C 0 ABS 0 - dist/default/production\Test.X.production.o
 __Hend_init 66 0 CODE 0 end_init -
 __size_of_TMR0_SetInterruptHandler 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __size_of_INT_DefaultInterruptHandler 0 0 ABS 0 - dist/default/production\Test.X.production.o
-__end_of_main 178 0 CODE 0 maintext dist/default/production\Test.X.production.o
+__end_of_main 3C8 0 CODE 0 maintext dist/default/production\Test.X.production.o
 _OSCEN 891 0 ABS 0 - dist/default/production\Test.X.production.o
 _T1CLK 211 0 ABS 0 - dist/default/production\Test.X.production.o
 _T1CON 20E 0 ABS 0 - dist/default/production\Test.X.production.o
@@ -1006,22 +1009,22 @@ _TRISC 14 0 ABS 0 - dist/default/production\Test.X.production.o
 __size_of_TMR0_Initialize 0 0 ABS 0 - dist/default/production\Test.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_TMR1_Initialize 1C8 0 CODE 0 text7 dist/default/production\Test.X.production.o
-_count 75 0 COMMON 1 bssCOMMON dist/default/production\Test.X.production.o
-_TMR1_WriteTimer 352 0 CODE 0 text19 dist/default/production\Test.X.production.o
+_TMR1_Initialize 418 0 CODE 0 text7 dist/default/production\Test.X.production.o
+_count 78 0 COMMON 1 bssCOMMON dist/default/production\Test.X.production.o
+_TMR1_WriteTimer 5C4 0 CODE 0 text19 dist/default/production\Test.X.production.o
 __size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production\Test.X.production.o
-_WDT_Initialize 4DA 0 CODE 0 text5 dist/default/production\Test.X.production.o
+_WDT_Initialize 724 0 CODE 0 text5 dist/default/production\Test.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Test.X.production.o
-__HdataBANK0 0 0 ABS 0 dataBANK0 -
-__end_of_OSCILLATOR_Initialize 4BA 0 CODE 0 text14 dist/default/production\Test.X.production.o
+__end_of_OSCILLATOR_Initialize 704 0 CODE 0 text14 dist/default/production\Test.X.production.o
+__pdataBIGRAM 22DC 0 ABS 0 - dist/default/production\Test.X.production.o
 __initialization 66 0 CODE 0 cinit dist/default/production\Test.X.production.o
-__end_of_INT_DefaultInterruptHandler 4E6 0 CODE 0 text28 dist/default/production\Test.X.production.o
+__end_of_INT_DefaultInterruptHandler 730 0 CODE 0 text28 dist/default/production\Test.X.production.o
 _T2CONbits 28E 0 ABS 0 - dist/default/production\Test.X.production.o
-_TMR1_SetInterruptHandler 496 0 CODE 0 text8 dist/default/production\Test.X.production.o
-i1shiftBytes@highSide 72 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
-_TMR1_InterruptHandler 2E 0 BANK0 1 nvBANK0 dist/default/production\Test.X.production.o
-_OSCILLATOR_Initialize 4AE 0 CODE 0 text14 dist/default/production\Test.X.production.o
-__end_of_TMR2_Initialize 3CA 0 CODE 0 text6 dist/default/production\Test.X.production.o
+_TMR1_SetInterruptHandler 6E0 0 CODE 0 text8 dist/default/production\Test.X.production.o
+i1shiftBytes@highSide 76 0 COMMON 1 cstackCOMMON dist/default/production\Test.X.production.o
+_TMR1_InterruptHandler 28 0 BANK0 1 nvBANK0 dist/default/production\Test.X.production.o
+_OSCILLATOR_Initialize 6F8 0 CODE 0 text14 dist/default/production\Test.X.production.o
+__end_of_TMR2_Initialize 63C 0 CODE 0 text6 dist/default/production\Test.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1038,6 +1041,13 @@ __end_of_TMR2_Initialize 3CA 0 CODE 0 text6 dist/default/production\Test.X.produ
 # otherwise name will be "-".  The <space> number is in decimal.
 # <address> and <size> are in byte units as unqaulified hexadecimal
 %DABS
+_silent_night 1 2366 0
+_silent_night_pre 1 22DC 0
+- 1 620 30
+- 1 5A0 50
+- 1 566 A
+- 1 520 46
+- 1 4AC 44
 - 1 7E 2
 # %SEGMENTS Section
 # This sections enumerates the segments of the program.  Each segment
@@ -1047,12 +1057,12 @@ __end_of_TMR2_Initialize 3CA 0 CODE 0 text6 dist/default/production\Test.X.produ
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text5 0 26D 4DA 6 2
-cstackCOMMON 1 70 70 A 1
-stringtext1 0 269 4D2 4 2
-intentry 0 4 8 265 2
+text5 0 392 724 6 2
+nvCOMMON 1 70 70 B 1
+cstackBANK0 1 20 20 E 1
+stringtext1 0 38E 71C 4 2
+intentry 0 4 8 38A 2
 reset_vec 0 0 0 2 2
-dataBANK0 1 20 20 1A 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
