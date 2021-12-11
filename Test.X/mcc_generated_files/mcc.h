@@ -55,8 +55,8 @@
 #include "interrupt_manager.h"
 #include "spi1.h"
 #include "pwm3.h"
-#include "tmr1.h"
 #include "ext_int.h"
+#include "tmr1.h"
 #include "tmr2.h"
 #include "tmr0.h"
 

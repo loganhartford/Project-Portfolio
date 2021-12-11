@@ -5624,6 +5624,21 @@ uint8_t SPI1_ReadByte(void);
  void PWM3_LoadDutyValue(uint16_t dutyValue);
 # 57 "./mcc_generated_files/mcc.h" 2
 
+# 1 "./mcc_generated_files/ext_int.h" 1
+# 250 "./mcc_generated_files/ext_int.h"
+void EXT_INT_Initialize(void);
+# 272 "./mcc_generated_files/ext_int.h"
+void INT_ISR(void);
+# 296 "./mcc_generated_files/ext_int.h"
+void INT_CallBack(void);
+# 319 "./mcc_generated_files/ext_int.h"
+void INT_SetInterruptHandler(void (* InterruptHandler)(void));
+# 343 "./mcc_generated_files/ext_int.h"
+extern void (*INT_InterruptHandler)(void);
+# 367 "./mcc_generated_files/ext_int.h"
+void INT_DefaultInterruptHandler(void);
+# 58 "./mcc_generated_files/mcc.h" 2
+
 # 1 "./mcc_generated_files/tmr1.h" 1
 # 100 "./mcc_generated_files/tmr1.h"
 void TMR1_Initialize(void);
@@ -5649,21 +5664,6 @@ void TMR1_ISR(void);
 extern void (*TMR1_InterruptHandler)(void);
 # 421 "./mcc_generated_files/tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
-# 58 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/ext_int.h" 1
-# 250 "./mcc_generated_files/ext_int.h"
-void EXT_INT_Initialize(void);
-# 272 "./mcc_generated_files/ext_int.h"
-void INT_ISR(void);
-# 296 "./mcc_generated_files/ext_int.h"
-void INT_CallBack(void);
-# 319 "./mcc_generated_files/ext_int.h"
-void INT_SetInterruptHandler(void (* InterruptHandler)(void));
-# 343 "./mcc_generated_files/ext_int.h"
-extern void (*INT_InterruptHandler)(void);
-# 367 "./mcc_generated_files/ext_int.h"
-void INT_DefaultInterruptHandler(void);
 # 59 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/tmr2.h" 1
@@ -5863,6 +5863,7 @@ void WDT_Initialize(void);
 
 
 _Bool TMR0_b = 0;
+int count = 0;
 
 
 
@@ -5871,9 +5872,12 @@ _Bool TMR0_b = 0;
 void shiftBytes(uint8_t highSide, uint8_t lowSide);
 void Initialize_Matrix(void);
 void displayMatrix(uint8_t states[8]);
+void play_note(uint8_t note);
 void EXT_ISR(void);
 void TMR0_ISR_(void);
 void TMR1_ISR_(void);
+
+uint8_t silent_night[] = {158, 158, 141, 158, 188, 188, 0, 158, 158, 141, 158, 188, 188, 0};
 
 
 
@@ -5891,7 +5895,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 86 "main.c"
+# 90 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -5919,7 +5923,7 @@ void main(void)
 
 
     TMR2_Initialize();
-    T2CONbits.TMR2ON = 1;
+    T2CONbits.TMR2ON = 0;
 
 
 
@@ -5937,7 +5941,13 @@ void main(void)
 
     while (1)
     {
-# 199 "main.c"
+
+        play_note(silent_night[count]);
+        T2CONbits.TMR2ON = 0;
+        count++;
+        if (count > 14) count = 0;
+        _delay((unsigned long)((500)*(8000000/4000.0)));
+# 210 "main.c"
     }
 }
 
@@ -5975,6 +5985,20 @@ void TMR1_ISR_(void)
         shiftBytes(0xFF, 0x00);
         TMR0_b = 1;
     }
+}
+
+void play_note(uint8_t note)
+{
+    T2CONbits.TMR2ON = 1;
+    if (note)
+    {
+       T2PR = note;
+    }
+    else
+    {
+       T2CONbits.TMR2ON = 0;
+    }
+
 }
 
 void Initialize_Matrix(void)

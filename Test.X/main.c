@@ -47,6 +47,7 @@
 // Add thing for delay fuction or creat your own.
 
 bool TMR0_b = 0;
+int count = 0;
 
 /*
                     Prototypes
@@ -55,9 +56,15 @@ bool TMR0_b = 0;
 void shiftBytes(uint8_t highSide, uint8_t lowSide);
 void Initialize_Matrix(void);
 void displayMatrix(uint8_t states[8]);
+void play_note(uint8_t note);
 void EXT_ISR(void);
 void TMR0_ISR_(void);
 void TMR1_ISR_(void);
+
+uint8_t silent_night[] = {158, 158, 141, 158, 158, 188, 188, 0,
+                          158, 158, 141, 158, 158, 188, 188, 0};
+uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
 
 /*
                          Main application
@@ -110,7 +117,7 @@ void main(void)
     
     // TMR2 for PWM
     TMR2_Initialize();
-    T2CONbits.TMR2ON = 1;
+    T2CONbits.TMR2ON = 0;
     //T2PR = 0x80;
     
     // PWM
@@ -128,6 +135,13 @@ void main(void)
     // TMR0 and TMR1 will run during sleep
     while (1)
     {
+//        uint8_t notes[7] = {252, 238, 224, 211, 200, 133, 125};
+        play_note(silent_night[count]);
+        T2CONbits.TMR2ON = 0;
+        count++;
+        if (count > 14) count = 0;
+        __delay_ms(500);
+        
 //        // TEST1: SPI/Shift Register Properties
 //        shiftBytes(0xBF, 0x20); // High-side 2 and low-side 3 ON
 //        // If correct D48 should be on.
@@ -233,6 +247,20 @@ void TMR1_ISR_(void)
         shiftBytes(0xFF, 0x00); // Turn LED OFF
         TMR0_b = 1;
     }
+}
+
+void play_note(uint8_t note)
+{
+    T2CONbits.TMR2ON = 1;
+    if (note)
+    {
+       T2PR = note; 
+    }
+    else
+    {
+       T2CONbits.TMR2ON = 0; 
+    }
+    
 }
 
 void Initialize_Matrix(void)
