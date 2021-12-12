@@ -44,6 +44,10 @@
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/pin_manager.h"
 
+// Third song selection
+//#define jcole
+#define coc
+
 // Add thing for delay fuction or creat your own.
 
 bool TMR0_b = 0;
@@ -51,8 +55,9 @@ int count = 0;
 uint8_t presses = 0;
 uint8_t last_note = 0;
 bool silent_night_playing = 0;
+bool song3_playing = 0;
 bool TMR0_complete = 0;
-uint8_t num_songs = 2;
+uint8_t num_songs = 3;
 /*
                     Prototypes
  */
@@ -111,6 +116,32 @@ uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xC0, 0xC0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
+#ifdef jcole
+uint8_t song3[] =  {141, 141, 141, 141, 168, 168, 168, 168,
+                    168, 168, 168, 168, 141, 141, 141, 141, 
+                    141, 141, 141, 141, 252, 252, 252, 252,
+                    212, 212, 212, 212, 212, 212, 212, 212,
+                    168, 168, 168, 168, 168, 168, 168, 168,
+                    141, 141, 141, 141, 168, 168, 168, 168,
+                    168, 168, 168, 168, 141, 141, 141, 141, 
+                    141, 141, 141, 141, 252, 252, 252, 252,
+                    212, 212, 212, 212, 212, 212, 212, 212,
+                    168, 168, 168, 168, 168, 168, 168, 168};
+uint8_t song3_length = 80;
+uint8_t song3_pre[] = {0xE0};
+uint8_t timer_high = 0xED;
+uint8_t timer_low = 0xD6;
+#endif
+
+#ifdef coc
+uint8_t song3[] = {211, 158, 141, 211, 188, 188,   0,   0,
+                   188, 188, 158, 158, 188, 188, 141, 141, 141};
+uint8_t song3_pre[] = {0xB0, 0xB0, 0xB0, 0xA0, 0xA0, 0xA0, 0xA0, 0xA0,
+                       0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0};
+uint8_t timer_high = 0xF3;
+uint8_t timer_low = 0xE4;
+uint8_t song3_length = 16;
+#endif
 
 uint8_t silent_night_lights[] = {0x88, 0x44, 0x22, 0x11, 0x88, 0x44, 0x22};
 uint8_t light_array[] = {0};
@@ -184,7 +215,7 @@ void main(void)
 
 //    while (1)
 //    {
-//         play_note(silent_night[count], silent_night_pre[count]);
+//         playNote(silent_night[count], silent_night_pre[count]);
 //        //T2CONbits.TMR2ON = 0;
 //        count++;
 //        if (count > 138) SLEEP();
@@ -195,13 +226,13 @@ void main(void)
     while (1)
     {
         T0CON0bits.T0EN = 1;        // Enable TMR0
-        shiftBytes(0x00, 0x01); // Testing
+        shiftBytes(0xFE, 0x08); // Testing
         OE_n_SetLow();          // ^^
         EN_MATRIX_n_SetLow();   // ^^
         if (presses && TMR0_complete)
         {
-            OE_n_SetLow();          // Enable shift registers
-            EN_MATRIX_n_SetLow();   // Turn on load switch
+//            OE_n_SetLow();          // Enable shift registers
+//            EN_MATRIX_n_SetLow();   // Turn on load switch
             T0CON0bits.T0EN = 0;    // Disable TMR0
             switch (presses)
             {
@@ -225,6 +256,19 @@ void main(void)
                     light_array[5] = 0x00;
                     light_array[6] = 0x00;
                     //silent_night_playing = 1;
+                    break;
+                case 3:
+                    light_array[0] = 0xFE;
+                    light_array[1] = 0xFE;
+                    light_array[2] = 0xFE;
+                    light_array[3] = 0xFE;
+                    light_array[4] = 0xFE;
+                    light_array[5] = 0xFE;
+                    light_array[6] = 0xFE;
+                    song3_playing = 1;
+                    TMR1H = 0xED;
+                    TMR1L = 0xD6;
+                    break; 
             }
             T1CONbits.TMR1ON = 1;   // Enable TMR1
             T2CONbits.TMR2ON = 1;   // Enable PWM TMR
@@ -237,15 +281,26 @@ void main(void)
             }
             while (presses == 2)
             {
-                playNote(silent_night[1], silent_night_pre[1]);
+                playNote(168, 0xE0);
+                displayMatrix(light_array);
+            }
+            while (presses == 3)
+            {
+                uint8_t pre;
+                pre = song3_pre[count];
+#ifdef jcole 
+                pre = 0xE0;
+#endif
+                playNote(song3[count], pre);
                 displayMatrix(light_array);
             }
             presses = 0; // *
             silent_night_playing = 0;
+            song3_playing = 0;
             T1CONbits.TMR1ON = 0;   // Disable TMR1
             T2CONbits.TMR2ON = 0;
-            OE_n_SetHigh();         // Disable shift registers
-            EN_MATRIX_n_SetHigh();  // Turn off load switch
+//            OE_n_SetHigh();         // Disable shift registers
+//            EN_MATRIX_n_SetHigh();  // Turn off load switch
         }
         if (TMR0_complete)
         {
@@ -318,15 +373,57 @@ void TMR1_ISR_(void)
                 uint8_t lights = light_array[i] >> 7;
                 light_array[i] = (light_array[i] << 1) + lights;
             }
-        }
-          
+        }    
     }
+    if (song3_playing)
+    {
+#ifdef coc
+        if (count < 8)
+        {
+          for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = (light_array[i] << 1);
+            }  
+        }
+        else if (count == 8)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = 0xAA;
+            } 
+        }
+        else
+        {
+            if (count & 0x01)
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    uint8_t lights = light_array[0] >> 7;
+                    light_array[i] = (light_array[i] << 1) + lights;
+                }
+            }
+        }
+#endif
+    }
+
+    if (song3_playing)
+    {
+        TMR1H = timer_high;
+        TMR1L = timer_low;
+    }
+    
     count++;
     if ((count > 138) && silent_night_playing)
     {
         presses = 0;            // Reset presses
         count = 0;              // Reset beat counter
     }
+    else if ((count > song3_length) && song3_playing)
+    {
+        presses = 0;            // Reset presses
+        count = 0;              // Reset beat counter
+    }
+    
 }
 
 void playNote(uint8_t note, uint8_t prescale)
