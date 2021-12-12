@@ -50,8 +50,7 @@ bool TMR0_b = 0;
 int count = 0;
 uint8_t presses = 0;
 uint8_t last_note = 0;
-uint8_t last_pre = 0;
-
+bool silent_night_playing = 0;
 /*
                     Prototypes
  */
@@ -59,7 +58,7 @@ uint8_t last_pre = 0;
 void shiftBytes(uint8_t highSide, uint8_t lowSide);
 void Initialize_Matrix(void);
 void displayMatrix(uint8_t states[8]);
-void play_note(uint8_t note, uint8_t prescale);
+void playNote(uint8_t note, uint8_t prescale);
 void EXT_ISR(void);
 void TMR0_ISR_(void);
 void TMR1_ISR_(void);
@@ -110,6 +109,8 @@ uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xC0, 0xC0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
+
+uint8_t silent_night_lights[] = {0x92, 0x48, 0x48, 0x92, 0x24, 0x48, 0x24};
 
 /*
                          Main application
@@ -168,13 +169,14 @@ void main(void)
     // PWM
     PWM3_Initialize();
     
-    // Enable the output of the shift register
-    OE_n_SetLow();
-    // Turn on load switch
-    EN_MATRIX_n_SetLow();
+    // Disable the output of the shift register
+    OE_n_SetHigh();
+    // Turn off load switch
+    EN_MATRIX_n_SetHigh();
     // Data is shifted on low-to-high tansistion of SCHP input
     LATCH_SetLow();
     
+    // Make sure lights are off initally.
     shiftBytes(0xFF, 0x00);
 
 //    while (1)
@@ -192,14 +194,21 @@ void main(void)
         // Silent night
         if (presses == 1)
         {
+            OE_n_SetLow();         // Enable shift registers
+            EN_MATRIX_n_SetLow();  // Turn on load switch
             T1CONbits.TMR1ON = 1;   // Enable TMR1
             T2CONbits.TMR2ON = 1;   // Enable PWM TMR
             while (presses == 1)
-            {
-                play_note(silent_night[count], silent_night_pre[count]);
+            {   
+                silent_night_playing = 1;
+                playNote(silent_night[count], silent_night_pre[count]);
+                displayMatrix(silent_night_lights);
             }
+            silent_night_playing = 0;
             T1CONbits.TMR1ON = 0;   // Disable TMR1
             T2CONbits.TMR2ON = 0;
+            OE_n_SetHigh();         // Disable shift registers
+            EN_MATRIX_n_SetHigh();  // Turn off load switch
         }
         else 
         {
@@ -295,7 +304,9 @@ void EXT_ISR(void)
     // If someone presses the button during a song
     if (T1CONbits.TMR1ON)
     {
+        T1CONbits.TMR1ON = 0;
         presses = 0;
+        count = 0;
     }
 }
 
@@ -315,6 +326,16 @@ void TMR0_ISR_(void)
 
 void TMR1_ISR_(void)
 {
+    if (silent_night_playing)
+    {
+        // If the third bit is a 1, we want to shift and add one, else shift   
+        for (int i = 0; i < 7; i++)
+        {
+            uint8_t lights = silent_night_lights[0] << 5;
+            lights = lights >> 7;
+            silent_night_lights[i] = (silent_night_lights[i] << 1) + lights;
+        }  
+    }
     count++;
     if (count > 138)
     {
@@ -323,7 +344,7 @@ void TMR1_ISR_(void)
     }
 }
 
-void play_note(uint8_t note, uint8_t prescale)
+void playNote(uint8_t note, uint8_t prescale)
 {
     if (note != last_note)
     {
@@ -331,7 +352,6 @@ void play_note(uint8_t note, uint8_t prescale)
         T2PR = note;  
     }
     last_note = note;
-//    last_pre = prescale;
 }
 
 void Initialize_Matrix(void)
@@ -340,7 +360,6 @@ void Initialize_Matrix(void)
     EN_MATRIX_n_SetLow(); // Don't forget this for testing the buzzer
     shiftBytes(0xFF, 0x00); // Make sure all FETS are off
     OE_n_SetLow(); // Enable output;
-    
 }
 
 void shiftBytes(uint8_t highSide, uint8_t lowSide) 
