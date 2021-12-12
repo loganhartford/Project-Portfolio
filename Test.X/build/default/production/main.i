@@ -5857,14 +5857,19 @@ void OSCILLATOR_Initialize(void);
 # 101 "./mcc_generated_files/mcc.h"
 void WDT_Initialize(void);
 # 44 "main.c" 2
-# 53 "main.c"
-_Bool TMR0_b = 0;
-int count = 0;
-uint8_t presses = 0;
-uint8_t last_note = 0;
+# 54 "main.c"
 _Bool silent_night_playing = 0;
 _Bool song3_playing = 0;
+_Bool song2_playing = 0;
+
 _Bool TMR0_complete = 0;
+
+int count = 0;
+uint8_t last_note = 0;
+uint8_t last_prescale = 0;
+
+uint8_t presses = 0;
+
 uint8_t num_songs = 3;
 
 
@@ -5877,6 +5882,7 @@ void playNote(uint8_t note, uint8_t prescale);
 void EXT_ISR(void);
 void TMR0_ISR_(void);
 void TMR1_ISR_(void);
+
 
 uint8_t silent_night[] = {158, 158, 158, 141, 158, 158,
                           188, 188, 188, 188, 188, 188,
@@ -5924,17 +5930,36 @@ uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xC0, 0xC0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
-# 137 "main.c"
-uint8_t song3[] = {211, 158, 141, 211, 188, 188, 0, 0,
+
+
+uint8_t song2[] = {211, 158, 141, 211, 188, 188, 0, 0,
                    188, 188, 158, 158, 188, 188, 141, 141, 141};
-uint8_t song3_pre[] = {0xB0, 0xB0, 0xB0, 0xA0, 0xA0, 0xA0, 0xA0, 0xA0,
+uint8_t song2_pre[] = {0xB0, 0xB0, 0xB0, 0xA0, 0xA0, 0xA0, 0xA0, 0xA0,
                        0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0};
-uint8_t timer_high = 0xF3;
-uint8_t timer_low = 0xE4;
-uint8_t song3_length = 16;
+uint8_t timer_high_2 = 0xF3;
+uint8_t timer_low_2 = 0xE4;
+uint8_t song2_length = 16;
 
 
-uint8_t silent_night_lights[] = {0x88, 0x44, 0x22, 0x11, 0x88, 0x44, 0x22};
+
+
+uint8_t song3[] = {141, 141, 141, 141, 168, 168, 168, 168,
+                    168, 168, 168, 168, 141, 141, 141, 141,
+                    141, 141, 141, 141, 252, 252, 252, 252,
+                    212, 212, 212, 212, 212, 212, 212, 212,
+                    168, 168, 168, 168, 168, 168, 168, 168,
+                    141, 141, 141, 141, 168, 168, 168, 168,
+                    168, 168, 168, 168, 141, 141, 141, 141,
+                    141, 141, 141, 141, 252, 252, 252, 252,
+                    212, 212, 212, 212, 212, 212, 212, 212,
+                    168, 168, 168, 168, 168, 168, 168, 168};
+uint8_t song3_length = 80;
+uint8_t song3_pre[] = {0xE0};
+uint8_t timer_high_3 = 0xED;
+uint8_t timer_low_3 = 0xD6;
+
+
+
 uint8_t light_array[] = {0};
 
 
@@ -5953,7 +5978,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 173 "main.c"
+# 182 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -5979,24 +6004,20 @@ void main(void)
     T1CONbits.TMR1ON = 0;
 
 
-
     TMR2_Initialize();
     T2CONbits.TMR2ON = 0;
-
 
 
     PWM3_Initialize();
 
 
-    do { LATCbits.LATC2 = 1; } while(0);
-
-    do { LATCbits.LATC0 = 1; } while(0);
-
+    do { LATCbits.LATC2 = 0; } while(0);
     do { LATCbits.LATC4 = 0; } while(0);
 
 
-    shiftBytes(0xFF, 0x00);
-# 226 "main.c"
+    do { LATCbits.LATC0 = 0; } while(0);
+
+
     while (1)
     {
         T0CON0bits.T0EN = 1;
@@ -6005,12 +6026,11 @@ void main(void)
         do { LATCbits.LATC0 = 0; } while(0);
         if (presses && TMR0_complete)
         {
-
-
             T0CON0bits.T0EN = 0;
+
+
             switch (presses)
             {
-
                 case 1:
                     light_array[0] = 0x88;
                     light_array[1] = 0x44;
@@ -6022,14 +6042,14 @@ void main(void)
                     silent_night_playing = 1;
                     break;
                 case 2:
-                    light_array[0] = 0x00;
-                    light_array[1] = 0x00;
-                    light_array[2] = 0x00;
-                    light_array[3] = 0x00;
-                    light_array[4] = 0x00;
-                    light_array[5] = 0x00;
-                    light_array[6] = 0x00;
-
+                    light_array[0] = 0xFE;
+                    light_array[1] = 0xFE;
+                    light_array[2] = 0xFE;
+                    light_array[3] = 0xFE;
+                    light_array[4] = 0xFE;
+                    light_array[5] = 0xFE;
+                    light_array[6] = 0xFE;
+                    song2_playing = 1;
                     break;
                 case 3:
                     light_array[0] = 0xFE;
@@ -6053,32 +6073,36 @@ void main(void)
                 playNote(silent_night[count], silent_night_pre[count]);
                 displayMatrix(light_array);
             }
+
             while (presses == 2)
             {
-                playNote(168, 0xE0);
+                playNote(song2[count], song2_pre[count]);
                 displayMatrix(light_array);
             }
+
             while (presses == 3)
             {
                 uint8_t pre;
                 pre = song3_pre[count];
 
-
+                pre = 0xE0;
 
                 playNote(song3[count], pre);
                 displayMatrix(light_array);
             }
             presses = 0;
             silent_night_playing = 0;
+            song2_playing = 0;
             song3_playing = 0;
             T1CONbits.TMR1ON = 0;
             T2CONbits.TMR2ON = 0;
-
-
         }
-        if (TMR0_complete)
+
+        if (TMR0_complete && (!presses))
         {
             T0CON0bits.T0EN = 0;
+            T1CONbits.TMR1ON = 0;
+            T2CONbits.TMR2ON = 0;
             PIR0bits.INTF = 0;
             PIE0bits.INTE = 1;
             do { LATCbits.LATC2 = 1; } while(0);
@@ -6091,6 +6115,7 @@ void main(void)
 
 
 
+
 void EXT_ISR(void)
 {
     presses++;
@@ -6099,27 +6124,31 @@ void EXT_ISR(void)
 
     if (T1CONbits.TMR1ON)
     {
-
         presses = 0;
         count = 0;
     }
+
     else
     {
         TMR0_complete = 0;
     }
+
     if (presses > num_songs)
     {
         presses = 0;
     }
 }
 
+
 void TMR0_ISR_(void)
 {
     TMR0_complete = 1;
 }
 
+
 void TMR1_ISR_(void)
 {
+
     if (silent_night_playing)
     {
         if (count < 24 || ((count > 48) && (count < 96)))
@@ -6149,7 +6178,9 @@ void TMR1_ISR_(void)
             }
         }
     }
-    if (song3_playing)
+
+
+    if (song2_playing)
     {
 
         if (count < 8)
@@ -6180,35 +6211,63 @@ void TMR1_ISR_(void)
 
     }
 
+
+    if (song2_playing)
+    {
+        TMR1H = timer_high_2;
+        TMR1L = timer_low_2;
+    }
+
+
     if (song3_playing)
     {
-        TMR1H = timer_high;
-        TMR1L = timer_low;
+        TMR1H = timer_high_3;
+        TMR1L = timer_low_3;
     }
 
     count++;
+
+
     if ((count > 138) && silent_night_playing)
     {
         presses = 0;
         count = 0;
     }
+
+
+    else if ((count > song2_length) && song2_playing)
+    {
+        presses = 0;
+        count = 0;
+    }
+
+
     else if ((count > song3_length) && song3_playing)
     {
         presses = 0;
         count = 0;
     }
 
+
 }
+
 
 void playNote(uint8_t note, uint8_t prescale)
 {
+
     if (note != last_note)
     {
-        T2CON = prescale;
         T2PR = note;
     }
+
+    if (prescale != last_prescale)
+    {
+        T2CON = prescale;
+    }
     last_note = note;
+    last_prescale = prescale;
 }
+
 
 void Initialize_Matrix(void)
 {
@@ -6218,9 +6277,9 @@ void Initialize_Matrix(void)
     do { LATCbits.LATC2 = 0; } while(0);
 }
 
+
 void shiftBytes(uint8_t highSide, uint8_t lowSide)
 {
-
 
     SPI1_ExchangeByte(lowSide);
     SPI1_ExchangeByte(highSide);
@@ -6229,6 +6288,7 @@ void shiftBytes(uint8_t highSide, uint8_t lowSide)
 
     do { LATCbits.LATC4 = 0; } while(0);
 }
+
 
 void displayMatrix(uint8_t states[8])
 {
@@ -6248,20 +6308,5 @@ void displayMatrix(uint8_t states[8])
 
         shiftBytes(states[i], lowSide);
         _delay((unsigned long)((1)*(8000000/4000.0)));
-    }
-}
-
-void resetLightArray(uint8_t presses)
-{
-    switch (presses)
-    {
-        case 1:
-            light_array[0] = 0x88;
-            light_array[1] = 0x44;
-            light_array[2] = 0x22;
-            light_array[3] = 0x11;
-            light_array[4] = 0x88;
-            light_array[5] = 0x44;
-            light_array[6] = 0x22;
     }
 }

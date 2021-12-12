@@ -44,20 +44,26 @@
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/pin_manager.h"
 
-// Third song selection
-//#define jcole
+// Second Song Selection--Only define one at a time
 #define coc
 
-// Add thing for delay fuction or creat your own.
+// Third song Selection--Only define one at a time
+#define jcole
 
-bool TMR0_b = 0;
-int count = 0;
-uint8_t presses = 0;
-uint8_t last_note = 0;
+// Track which song is being played
 bool silent_night_playing = 0;
 bool song3_playing = 0;
-bool TMR0_complete = 0;
-uint8_t num_songs = 3;
+bool song2_playing = 0;
+
+bool TMR0_complete = 0;     //TMR0 waits for user input
+
+int count = 0;              // Beat counter
+uint8_t last_note = 0;      // Only update PWM if note changes
+uint8_t last_prescale = 0;  // Only update PWM if prescaler changed
+
+uint8_t presses = 0;        // Button presses
+
+uint8_t num_songs = 3;      // Total number of songs available 
 /*
                     Prototypes
  */
@@ -70,6 +76,7 @@ void EXT_ISR(void);
 void TMR0_ISR_(void);
 void TMR1_ISR_(void);
 
+// Silent night notes and TMR2 prescalers.
 uint8_t silent_night[] = {158, 158, 158, 141, 158, 158, 
                           188, 188, 188, 188, 188, 188,
                           158, 158, 158, 141, 158, 158,
@@ -116,6 +123,18 @@ uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xC0, 0xC0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
+// Song 2 Variables
+#ifdef coc
+uint8_t song2[] = {211, 158, 141, 211, 188, 188,   0,   0,
+                   188, 188, 158, 158, 188, 188, 141, 141, 141};
+uint8_t song2_pre[] = {0xB0, 0xB0, 0xB0, 0xA0, 0xA0, 0xA0, 0xA0, 0xA0,
+                       0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0};
+uint8_t timer_high_2 = 0xF3;
+uint8_t timer_low_2 = 0xE4;
+uint8_t song2_length = 16;
+#endif
+
+// Song 3 Variables
 #ifdef jcole
 uint8_t song3[] =  {141, 141, 141, 141, 168, 168, 168, 168,
                     168, 168, 168, 168, 141, 141, 141, 141, 
@@ -129,21 +148,11 @@ uint8_t song3[] =  {141, 141, 141, 141, 168, 168, 168, 168,
                     168, 168, 168, 168, 168, 168, 168, 168};
 uint8_t song3_length = 80;
 uint8_t song3_pre[] = {0xE0};
-uint8_t timer_high = 0xED;
-uint8_t timer_low = 0xD6;
+uint8_t timer_high_3 = 0xED;
+uint8_t timer_low_3 = 0xD6;
 #endif
 
-#ifdef coc
-uint8_t song3[] = {211, 158, 141, 211, 188, 188,   0,   0,
-                   188, 188, 158, 158, 188, 188, 141, 141, 141};
-uint8_t song3_pre[] = {0xB0, 0xB0, 0xB0, 0xA0, 0xA0, 0xA0, 0xA0, 0xA0,
-                       0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0};
-uint8_t timer_high = 0xF3;
-uint8_t timer_low = 0xE4;
-uint8_t song3_length = 16;
-#endif
-
-uint8_t silent_night_lights[] = {0x88, 0x44, 0x22, 0x11, 0x88, 0x44, 0x22};
+// Contains the state of the LEDs as any given point in time.
 uint8_t light_array[] = {0};
 
 /*
@@ -194,50 +203,35 @@ void main(void)
     TMR1_SetInterruptHandler(TMR1_ISR_);
     T1CONbits.TMR1ON = 0; // Timer off by default
     
-    
     // TMR2 for PWM
     TMR2_Initialize();
     T2CONbits.TMR2ON = 0;
-    //T2PR = 0x80;
     
     // PWM
     PWM3_Initialize();
     
-    // Disable the output of the shift register
-    OE_n_SetHigh();
-    // Turn off load switch
-    EN_MATRIX_n_SetHigh();
-    // Data is shifted on low-to-high transition of SCHP input
-    LATCH_SetLow();
+    // Shift Registers
+    OE_n_SetLow();         // Enable shift register output
+    LATCH_SetLow();        // Data is shifted on low-to-high transition of SCHP input
     
-    // Make sure lights are off initially.
-    shiftBytes(0xFF, 0x00);
-
-//    while (1)
-//    {
-//         playNote(silent_night[count], silent_night_pre[count]);
-//        //T2CONbits.TMR2ON = 0;
-//        count++;
-//        if (count > 138) SLEEP();
-//        __delay_ms(250);
-//    }
-    
+    // LEDs
+    EN_MATRIX_n_SetLow();  // Turn on load switch
+        
     // TMR0 and TMR1 will run during sleep
     while (1)
     {
         T0CON0bits.T0EN = 1;        // Enable TMR0
-        shiftBytes(0xFE, 0x08); // Testing
-        OE_n_SetLow();          // ^^
-        EN_MATRIX_n_SetLow();   // ^^
+        shiftBytes(0xFE, 0x08);     // ON indicator
+        OE_n_SetLow();              // Enable shift register output 
+        EN_MATRIX_n_SetLow();       // Turn on load switch
         if (presses && TMR0_complete)
         {
-//            OE_n_SetLow();          // Enable shift registers
-//            EN_MATRIX_n_SetLow();   // Turn on load switch
-            T0CON0bits.T0EN = 0;    // Disable TMR0
+            T0CON0bits.T0EN = 0;    // Disable TMR0 to prevent interrupts
+            
+            // Set up light_array and playing boolean
             switch (presses)
             {
-                // Silent night
-                case 1:
+                case 1:  // Silent night
                     light_array[0] = 0x88;
                     light_array[1] = 0x44;
                     light_array[2] = 0x22;
@@ -247,17 +241,17 @@ void main(void)
                     light_array[6] = 0x22;
                     silent_night_playing = 1;
                     break;
-                case 2:
-                    light_array[0] = 0x00;
-                    light_array[1] = 0x00;
-                    light_array[2] = 0x00;
-                    light_array[3] = 0x00;
-                    light_array[4] = 0x00;
-                    light_array[5] = 0x00;
-                    light_array[6] = 0x00;
-                    //silent_night_playing = 1;
+                case 2: // Song 2
+                    light_array[0] = 0xFE;
+                    light_array[1] = 0xFE;
+                    light_array[2] = 0xFE;
+                    light_array[3] = 0xFE;
+                    light_array[4] = 0xFE;
+                    light_array[5] = 0xFE;
+                    light_array[6] = 0xFE;
+                    song2_playing = 1;
                     break;
-                case 3:
+                case 3: // Song 3
                     light_array[0] = 0xFE;
                     light_array[1] = 0xFE;
                     light_array[2] = 0xFE;
@@ -274,41 +268,45 @@ void main(void)
             T2CONbits.TMR2ON = 1;   // Enable PWM TMR
             
             // Silent night
-            while (presses == 1)
+            while (presses == 1) 
             {   
                 playNote(silent_night[count], silent_night_pre[count]);
                 displayMatrix(light_array);
             }
+            // Song 2
             while (presses == 2)
             {
-                playNote(168, 0xE0);
+                playNote(song2[count], song2_pre[count]);
                 displayMatrix(light_array);
             }
+            // Song 3
             while (presses == 3)
             {
                 uint8_t pre;
                 pre = song3_pre[count];
-#ifdef jcole 
+#ifdef jcole // This saves some data when jcole is defined
                 pre = 0xE0;
 #endif
                 playNote(song3[count], pre);
                 displayMatrix(light_array);
             }
-            presses = 0; // *
-            silent_night_playing = 0;
+            presses = 0;                // Reset presses 
+            silent_night_playing = 0;   // Reset playing booleans
+            song2_playing = 0;
             song3_playing = 0;
-            T1CONbits.TMR1ON = 0;   // Disable TMR1
-            T2CONbits.TMR2ON = 0;
-//            OE_n_SetHigh();         // Disable shift registers
-//            EN_MATRIX_n_SetHigh();  // Turn off load switch
+            T1CONbits.TMR1ON = 0;       // Disable TMR1
+            T2CONbits.TMR2ON = 0;       // Disable PWM TMR
         }
-        if (TMR0_complete)
+        // If no button was pushed or a song was just played, go to sleep.
+        if (TMR0_complete && (!presses))
         {
             T0CON0bits.T0EN = 0;    // Disable TMR0
+            T1CONbits.TMR1ON = 0;   // Disable TMR1
+            T2CONbits.TMR2ON = 0;   // Disable TM2
             PIR0bits.INTF = 0;      // Clear flag
             PIE0bits.INTE = 1;      // Enable external interrupts
-            OE_n_SetHigh();          // TEst
-            EN_MATRIX_n_SetHigh();  // ^^
+            OE_n_SetHigh();         // Disable shift register output
+            EN_MATRIX_n_SetHigh();  // Disable load swich
             SLEEP();
         }
     }
@@ -317,35 +315,40 @@ void main(void)
 /*
                     Functions
  */
+// Wakes from sleep and increments number of button pushes
 void EXT_ISR(void)
 {
     presses++;          // Increment presses
     TMR0_Reload();      // Reset TMR0
-    //T0CON0bits.T0EN = 1;
-    // If someone presses the button during a song
+    
+    // If someone presses the button during a song, go to sleep.
     if (T1CONbits.TMR1ON)
     {
-        //T1CONbits.TMR1ON = 0;
         presses = 0;
         count = 0;
     }
+    // If a song was not playing, then make sure TMR0 bool is cleared.
     else
     {  
         TMR0_complete = 0;
     }
+    // Stops presses from being larger than the number of options
     if (presses > num_songs)
     {
         presses = 0;
     }
 }
 
+// Waits for user input, if this times out, it goes to sleep or plays a song.
 void TMR0_ISR_(void)
 {
     TMR0_complete = 1;
 }
 
+// Increment the beat counter and manipulate the LED matrix.
 void TMR1_ISR_(void)
 {
+    // Update the silent night LED matrix.
     if (silent_night_playing)
     {
         if (count < 24 || ((count > 48) && (count < 96)))
@@ -375,7 +378,9 @@ void TMR1_ISR_(void)
             }
         }    
     }
-    if (song3_playing)
+    
+    // Update the song 2 LED matrix
+    if (song2_playing)
     {
 #ifdef coc
         if (count < 8)
@@ -406,36 +411,64 @@ void TMR1_ISR_(void)
 #endif
     }
 
-    if (song3_playing)
+    // Set the BPM to the correct value for song 2
+    if (song2_playing)
     {
-        TMR1H = timer_high;
-        TMR1L = timer_low;
+        TMR1H = timer_high_2;
+        TMR1L = timer_low_2;
     }
     
-    count++;
+    // Set the BPM to the correct value for song 3
+    if (song3_playing)
+    {
+        TMR1H = timer_high_3;
+        TMR1L = timer_low_3;
+    }
+    
+    count++;    // Increment beat counter
+    
+    // If silent night is over, sleep
     if ((count > 138) && silent_night_playing)
     {
         presses = 0;            // Reset presses
         count = 0;              // Reset beat counter
     }
+    
+    // If song 2 is over, sleep
+    else if ((count > song2_length) && song2_playing)
+    {
+        presses = 0;            // Reset presses
+        count = 0;              // Reset beat counter
+    }
+    
+    // If song 3 t is over, sleep
     else if ((count > song3_length) && song3_playing)
     {
         presses = 0;            // Reset presses
         count = 0;              // Reset beat counter
     }
     
+    
 }
 
+// Updates PWM registers with correct period and prescaler.
 void playNote(uint8_t note, uint8_t prescale)
 {
+    // If the note is the same as before don't update.
     if (note != last_note)
     {
-        T2CON = prescale;
         T2PR = note;  
     }
+    // If the prescale is the same as before don't update
+    if (prescale != last_prescale)
+    {
+        T2CON = prescale;
+    }
     last_note = note;
+    last_prescale = prescale;
 }
 
+// I never use this
 void Initialize_Matrix(void)
 {
     // Turn on load switch
@@ -444,18 +477,19 @@ void Initialize_Matrix(void)
     OE_n_SetLow(); // Enable output;
 }
 
+// Shifts bytes into the shift registers
 void shiftBytes(uint8_t highSide, uint8_t lowSide) 
 {
-    // Make sure output is enabled, handle this is sleep/wake.
     // Write bytes into registers
     SPI1_ExchangeByte(lowSide);
-    SPI1_ExchangeByte(highSide); // Verify this is the correct order to write out.
+    SPI1_ExchangeByte(highSide);
     // Shift data to the output
     LATCH_SetHigh();
     // Reset for next time
     LATCH_SetLow();
 }
 
+// Displays the matrix
 void displayMatrix(uint8_t states[8])
 {
     // Have a global array with the desired states of the high FETS
@@ -475,21 +509,6 @@ void displayMatrix(uint8_t states[8])
         shiftBytes(states[i], lowSide);
         __delay_ms(1);
     } 
-}
-
-void resetLightArray(uint8_t presses)
-{
-    switch (presses)
-    {
-        case 1:
-            light_array[0] = 0x88;
-            light_array[1] = 0x44;
-            light_array[2] = 0x22;
-            light_array[3] = 0x11;
-            light_array[4] = 0x88;
-            light_array[5] = 0x44;
-            light_array[6] = 0x22;     
-    }
 }
 
 
