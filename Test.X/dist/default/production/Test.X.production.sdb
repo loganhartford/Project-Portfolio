@@ -43,19 +43,19 @@ TMR2_PWM4_OUT 4
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"161 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"186 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"319
+"342
 [v _EXT_ISR EXT_ISR `(v  1 e 1 0 ]
-"343
+"366
 [v _TMR0_ISR_ TMR0_ISR_ `(v  1 e 1 0 ]
-"349
+"372
 [v _TMR1_ISR_ TMR1_ISR_ `(v  1 e 1 0 ]
-"455
+"504
 [v _playNote playNote `(v  1 e 1 0 ]
-"481
+"530
 [v _shiftBytes shiftBytes `(v  1 e 1 0 ]
-"493
+"542
 [v _displayMatrix displayMatrix `(v  1 e 1 0 ]
 "33 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_ISR INT_ISR `(v  1 e 1 0 ]
@@ -455,49 +455,49 @@ TMR2_PWM4_OUT 4
 [v _SLRCONC SLRCONC `VEuc  1 e 1 @8017 ]
 "8178
 [v _INLVLC INLVLC `VEuc  1 e 1 @8018 ]
-"54 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"55 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _silent_night_playing silent_night_playing `a  1 e 1 0 ]
-"55
-[v _song3_playing song3_playing `a  1 e 1 0 ]
 "56
+[v _song3_playing song3_playing `a  1 e 1 0 ]
+"57
 [v _song2_playing song2_playing `a  1 e 1 0 ]
-"58
+"59
 [v _TMR0_complete TMR0_complete `a  1 e 1 0 ]
-"60
-[v _count count `i  1 e 2 0 ]
 "61
-[v _last_note last_note `uc  1 e 1 0 ]
+[v _count count `i  1 e 2 0 ]
 "62
+[v _last_note last_note `uc  1 e 1 0 ]
+"63
 [v _last_prescale last_prescale `uc  1 e 1 0 ]
-"64
+"65
 [v _presses presses `uc  1 e 1 0 ]
-"66
+"67
 [v _num_songs num_songs `uc  1 e 1 0 ]
-"80
+"81
 [v _silent_night silent_night `[138]uc  1 e 138 @9062 ]
-"103
+"104
 [v _silent_night_pre silent_night_pre `[138]uc  1 e 138 @8924 ]
-"128
+"129
 [v _song2 song2 `[17]uc  1 e 17 0 ]
-"130
+"131
 [v _song2_pre song2_pre `[16]uc  1 e 16 0 ]
-"132
-[v _timer_high_2 timer_high_2 `uc  1 e 1 0 ]
 "133
-[v _timer_low_2 timer_low_2 `uc  1 e 1 0 ]
+[v _timer_high_2 timer_high_2 `uc  1 e 1 0 ]
 "134
+[v _timer_low_2 timer_low_2 `uc  1 e 1 0 ]
+"135
 [v _song2_length song2_length `uc  1 e 1 0 ]
-"139
-[v _song3 song3 `[80]uc  1 e 80 0 ]
-"149
-[v _song3_length song3_length `uc  1 e 1 0 ]
-"150
-[v _song3_pre song3_pre `[1]uc  1 e 1 0 ]
-"151
+"157
+[v _song3 song3 `[66]uc  1 e 66 0 ]
+"166
+[v _song3_pre song3_pre `[66]uc  1 e 66 0 ]
+"175
 [v _timer_high_3 timer_high_3 `uc  1 e 1 0 ]
-"152
+"176
 [v _timer_low_3 timer_low_3 `uc  1 e 1 0 ]
-"156
+"177
+[v _song3_length song3_length `uc  1 e 1 0 ]
+"181
 [v _light_array light_array `[1]uc  1 e 1 0 ]
 "31 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_InterruptHandler INT_InterruptHandler `*.37(v  1 e 2 0 ]
@@ -512,44 +512,46 @@ TMR2_PWM4_OUT 4
 [v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
 "58
 [v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
-"161 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"186 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"313
+"308
+[v main@pre pre `uc  1 a 1 7 ]
+"336
 } 0
-"455
+"504
 [v _playNote playNote `(v  1 e 1 0 ]
 {
 [v playNote@note note `uc  1 a 1 wreg ]
 [v playNote@note note `uc  1 a 1 wreg ]
 [v playNote@prescale prescale `uc  1 p 1 2 ]
-"458
+"507
 [v playNote@note note `uc  1 a 1 4 ]
-"469
+"518
 } 0
-"493
+"542
 [v _displayMatrix displayMatrix `(v  1 e 1 0 ]
 {
 [v displayMatrix@states states `*.1uc  1 a 1 wreg ]
-"498
+"547
 [v displayMatrix@i i `i  1 a 2 1 ]
-"497
+"546
 [v displayMatrix@lowSide lowSide `uc  1 a 1 3 ]
-"493
+"542
 [v displayMatrix@states states `*.1uc  1 a 1 wreg ]
-"497
+"546
 [v displayMatrix@states states `*.1uc  1 a 1 0 ]
-"512
+"561
 } 0
-"481
+"530
 [v _shiftBytes shiftBytes `(v  1 e 1 0 ]
 {
 [v shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v shiftBytes@lowSide lowSide `uc  1 p 1 3 ]
-"484
+"533
 [v shiftBytes@highSide highSide `uc  1 a 1 4 ]
-"490
+"539
 } 0
 "97 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
 [v _SPI1_ExchangeByte SPI1_ExchangeByte `(uc  1 e 1 0 ]
@@ -649,28 +651,32 @@ TMR2_PWM4_OUT 4
 {
 "185
 } 0
-"349 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"372 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _TMR1_ISR_ TMR1_ISR_ `(v  1 e 1 0 ]
 {
-"406
-[v TMR1_ISR_@lights_1175 lights `uc  1 a 1 2 ]
-"360
+"385
 [v TMR1_ISR_@lights lights `uc  1 a 1 0 ]
-"404
-[v TMR1_ISR_@i_1174 i `i  1 a 2 9 ]
-"376
-[v TMR1_ISR_@lights_1171 lights `uc  1 a 1 1 ]
-"358
-[v TMR1_ISR_@i i `i  1 a 2 11 ]
-"395
-[v TMR1_ISR_@i_1173 i `i  1 a 2 3 ]
-"388
-[v TMR1_ISR_@i_1172 i `i  1 a 2 7 ]
-"374
-[v TMR1_ISR_@i_1170 i `i  1 a 2 13 ]
-"367
-[v TMR1_ISR_@i_1169 i `i  1 a 2 5 ]
 "452
+[v TMR1_ISR_@i_1178 i `i  1 a 2 17 ]
+"447
+[v TMR1_ISR_@i_1176 i `i  1 a 2 15 ]
+"430
+[v TMR1_ISR_@i_1175 i `i  1 a 2 9 ]
+"401
+[v TMR1_ISR_@lights_1171 lights `uc  1 a 1 1 ]
+"383
+[v TMR1_ISR_@i i `i  1 a 2 11 ]
+"429
+[v TMR1_ISR_@lights_1174 lights `uc  1 a 1 2 ]
+"420
+[v TMR1_ISR_@i_1173 i `i  1 a 2 3 ]
+"413
+[v TMR1_ISR_@i_1172 i `i  1 a 2 7 ]
+"399
+[v TMR1_ISR_@i_1170 i `i  1 a 2 13 ]
+"392
+[v TMR1_ISR_@i_1169 i `i  1 a 2 5 ]
+"501
 } 0
 "134 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
@@ -682,10 +688,10 @@ TMR2_PWM4_OUT 4
 {
 "158
 } 0
-"343 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"366 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _TMR0_ISR_ TMR0_ISR_ `(v  1 e 1 0 ]
 {
-"346
+"369
 } 0
 "33 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_ISR INT_ISR `(v  1 e 1 0 ]
@@ -697,10 +703,10 @@ TMR2_PWM4_OUT 4
 {
 "61
 } 0
-"319 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"342 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _EXT_ISR EXT_ISR `(v  1 e 1 0 ]
 {
-"340
+"363
 } 0
 "67 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]

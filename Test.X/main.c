@@ -48,7 +48,8 @@
 #define coc
 
 // Third song Selection--Only define one at a time
-#define jcole
+//#define jcole
+#define dreams
 
 // Track which song is being played
 bool silent_night_playing = 0;
@@ -146,10 +147,34 @@ uint8_t song3[] =  {141, 141, 141, 141, 168, 168, 168, 168,
                     141, 141, 141, 141, 252, 252, 252, 252,
                     212, 212, 212, 212, 212, 212, 212, 212,
                     168, 168, 168, 168, 168, 168, 168, 168};
-uint8_t song3_length = 80;
 uint8_t song3_pre[] = {0xE0};
 uint8_t timer_high_3 = 0xED;
 uint8_t timer_low_3 = 0xD6;
+uint8_t song3_length = 80;
+#endif
+
+#ifdef dreams
+uint8_t song3[] =  {  0,   0, 212, 212, 212, 212, 212, 212,
+                    212, 212, 212, 212,   0, 212, 212, 212,
+                    212, 212, 212, 212, 212, 212, 212, 212,
+                    212, 212, 212, 212,   0, 212, 212, 212,
+                    0,     0, 212, 212, 212, 212, 212, 212,
+                    212, 212, 212, 212,   0, 212, 212, 212,
+                    212, 212, 212, 212, 212, 212, 212, 212,
+                    212, 212, 212, 212,   0,   0, 
+                    237, 212, 176, 176};
+uint8_t song3_pre[] = {0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0x00, 
+                       0xD0, 0xD0, 0xD0, 0xD0};
+uint8_t timer_high_3 = 0xEA;
+uint8_t timer_low_3 = 0x34;
+uint8_t song3_length = 66;
 #endif
 
 // Contains the state of the LEDs as any given point in time.
@@ -252,16 +277,14 @@ void main(void)
                     song2_playing = 1;
                     break;
                 case 3: // Song 3
-                    light_array[0] = 0xFE;
-                    light_array[1] = 0xFE;
-                    light_array[2] = 0xFE;
-                    light_array[3] = 0xFE;
-                    light_array[4] = 0xFE;
-                    light_array[5] = 0xFE;
-                    light_array[6] = 0xFE;
+                    light_array[0] = 0xAA;
+                    light_array[1] = 0xAA;
+                    light_array[2] = 0xAA;
+                    light_array[3] = 0xAA;
+                    light_array[4] = 0xAA;
+                    light_array[5] = 0xAA;
+                    light_array[6] = 0xAA;
                     song3_playing = 1;
-                    TMR1H = 0xED;
-                    TMR1L = 0xD6;
                     break; 
             }
             T1CONbits.TMR1ON = 1;   // Enable TMR1
@@ -348,12 +371,14 @@ void TMR0_ISR_(void)
 // Increment the beat counter and manipulate the LED matrix.
 void TMR1_ISR_(void)
 {
+    count++;    // Increment beat counter
+    
     // Update the silent night LED matrix.
     if (silent_night_playing)
     {
         if (count < 24 || ((count > 48) && (count < 96)))
         {
-            if (((count + 1) & 0x02) && ((count + 1) & 0x01))
+            if (last_note != silent_night[count])
             {
                 for (int i = 0; i < 7; i++)
                 {
@@ -401,15 +426,39 @@ void TMR1_ISR_(void)
         {
             if (count & 0x01)
             {
+                uint8_t lights = light_array[0] >> 7;
                 for (int i = 0; i < 7; i++)
                 {
-                    uint8_t lights = light_array[0] >> 7;
                     light_array[i] = (light_array[i] << 1) + lights;
                 }
             }
         }
 #endif
     }
+    
+    // Update the song 2 LED matrix
+    if (song3_playing)
+    {
+#ifdef dreams
+       if (count < 62)
+       {
+           if (last_note != song2[count])
+           {
+               for (int i = 0; i < 7; i = i + 2)
+               {
+                   uint8_t lights = light_array[i] >> 7;
+                   light_array[i] = (light_array[i] << 1) + lights;
+               }
+               for (int i = 1; i < 7; i = i + 2)
+               {
+                   uint8_t lights = light_array[i] << 7;
+                   light_array[i] = (light_array[i] >> 1) + 0x80;
+               }
+           }
+       }
+#endif
+    }
+    
 
     // Set the BPM to the correct value for song 2
     if (song2_playing)
@@ -425,7 +474,7 @@ void TMR1_ISR_(void)
         TMR1L = timer_low_3;
     }
     
-    count++;    // Increment beat counter
+    
     
     // If silent night is over, sleep
     if ((count > 138) && silent_night_playing)
