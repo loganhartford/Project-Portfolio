@@ -5451,10 +5451,10 @@ void TMR0_Initialize(void)
     T0CON1 = 0x90;
 
 
-    TMR0H = 0x0D;
+    TMR0H = 0x86;
 
 
-    TMR0L = 0xD0;
+    TMR0L = 0xE8;
 
 
     timer0ReloadVal16bit = (TMR0H << 8) | TMR0L;

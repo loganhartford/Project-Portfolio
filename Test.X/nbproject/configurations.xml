@@ -293,7 +293,7 @@
         <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="false"/>
         <property key="programmerToGoFilePath"
-                  value="D:/Users/Logan/Documents/GitHub/Project-Portfolio/Test.X/debug/default/Test_ptg"/>
+                  value="H:/Libraries/Downloads/Test.X/Test.X/debug/default/Test_ptg"/>
         <property key="programmerToGoImageName" value="Test_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

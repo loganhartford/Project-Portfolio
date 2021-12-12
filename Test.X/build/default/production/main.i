@@ -5624,21 +5624,6 @@ uint8_t SPI1_ReadByte(void);
  void PWM3_LoadDutyValue(uint16_t dutyValue);
 # 57 "./mcc_generated_files/mcc.h" 2
 
-# 1 "./mcc_generated_files/ext_int.h" 1
-# 250 "./mcc_generated_files/ext_int.h"
-void EXT_INT_Initialize(void);
-# 272 "./mcc_generated_files/ext_int.h"
-void INT_ISR(void);
-# 296 "./mcc_generated_files/ext_int.h"
-void INT_CallBack(void);
-# 319 "./mcc_generated_files/ext_int.h"
-void INT_SetInterruptHandler(void (* InterruptHandler)(void));
-# 343 "./mcc_generated_files/ext_int.h"
-extern void (*INT_InterruptHandler)(void);
-# 367 "./mcc_generated_files/ext_int.h"
-void INT_DefaultInterruptHandler(void);
-# 58 "./mcc_generated_files/mcc.h" 2
-
 # 1 "./mcc_generated_files/tmr1.h" 1
 # 100 "./mcc_generated_files/tmr1.h"
 void TMR1_Initialize(void);
@@ -5664,6 +5649,21 @@ void TMR1_ISR(void);
 extern void (*TMR1_InterruptHandler)(void);
 # 421 "./mcc_generated_files/tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
+# 58 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/ext_int.h" 1
+# 250 "./mcc_generated_files/ext_int.h"
+void EXT_INT_Initialize(void);
+# 272 "./mcc_generated_files/ext_int.h"
+void INT_ISR(void);
+# 296 "./mcc_generated_files/ext_int.h"
+void INT_CallBack(void);
+# 319 "./mcc_generated_files/ext_int.h"
+void INT_SetInterruptHandler(void (* InterruptHandler)(void));
+# 343 "./mcc_generated_files/ext_int.h"
+extern void (*INT_InterruptHandler)(void);
+# 367 "./mcc_generated_files/ext_int.h"
+void INT_DefaultInterruptHandler(void);
 # 59 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/tmr2.h" 1
@@ -5867,6 +5867,8 @@ int count = 0;
 uint8_t presses = 0;
 uint8_t last_note = 0;
 _Bool silent_night_playing = 0;
+_Bool TMR0_complete = 0;
+uint8_t num_songs = 2;
 
 
 
@@ -5945,7 +5947,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 140 "main.c"
+# 142 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -5958,7 +5960,7 @@ void main(void)
 
     EXT_INT_Initialize();
     INT_SetInterruptHandler(EXT_ISR);
-    PIE0bits.INTE = 0;
+    PIE0bits.INTE = 1;
 
 
     TMR0_Initialize();
@@ -5988,16 +5990,21 @@ void main(void)
 
 
     shiftBytes(0xFF, 0x00);
-# 193 "main.c"
+# 195 "main.c"
     while (1)
     {
-
-        if (presses)
+        T0CON0bits.T0EN = 1;
+        shiftBytes(0x00, 0x01);
+        do { LATCbits.LATC2 = 0; } while(0);
+        do { LATCbits.LATC0 = 0; } while(0);
+        if (presses && TMR0_complete)
         {
             do { LATCbits.LATC2 = 0; } while(0);
             do { LATCbits.LATC0 = 0; } while(0);
+            T0CON0bits.T0EN = 0;
             switch (presses)
             {
+
                 case 1:
                     light_array[0] = 0x88;
                     light_array[1] = 0x44;
@@ -6008,27 +6015,46 @@ void main(void)
                     light_array[6] = 0x22;
                     silent_night_playing = 1;
                     break;
+                case 2:
+                    light_array[0] = 0x00;
+                    light_array[1] = 0x00;
+                    light_array[2] = 0x00;
+                    light_array[3] = 0x00;
+                    light_array[4] = 0x00;
+                    light_array[5] = 0x00;
+                    light_array[6] = 0x00;
+
             }
             T1CONbits.TMR1ON = 1;
             T2CONbits.TMR2ON = 1;
+
+
             while (presses == 1)
             {
                 playNote(silent_night[count], silent_night_pre[count]);
                 displayMatrix(light_array);
             }
+            while (presses == 2)
+            {
+                playNote(silent_night[1], silent_night_pre[1]);
+                displayMatrix(light_array);
+            }
+            presses = 0;
             silent_night_playing = 0;
             T1CONbits.TMR1ON = 0;
             T2CONbits.TMR2ON = 0;
             do { LATCbits.LATC2 = 1; } while(0);
             do { LATCbits.LATC0 = 1; } while(0);
         }
-        else
+        if (TMR0_complete)
         {
+            T0CON0bits.T0EN = 0;
             PIR0bits.INTF = 0;
             PIE0bits.INTE = 1;
+            do { LATCbits.LATC2 = 1; } while(0);
+            do { LATCbits.LATC0 = 1; } while(0);
             __asm("sleep");
         }
-# 308 "main.c"
     }
 }
 
@@ -6038,27 +6064,28 @@ void main(void)
 void EXT_ISR(void)
 {
     presses++;
+    TMR0_Reload();
+
 
     if (T1CONbits.TMR1ON)
     {
-        T1CONbits.TMR1ON = 0;
+
         presses = 0;
         count = 0;
+    }
+    else
+    {
+        TMR0_complete = 0;
+    }
+    if (presses > num_songs)
+    {
+        presses = 0;
     }
 }
 
 void TMR0_ISR_(void)
 {
-    if (TMR0_b)
-    {
-       shiftBytes(0xBF, 0x20);
-       TMR0_b = 0;
-    }
-    else
-    {
-        shiftBytes(0xFF, 0x00);
-        TMR0_b = 1;
-    }
+    TMR0_complete = 1;
 }
 
 void TMR1_ISR_(void)
@@ -6094,7 +6121,7 @@ void TMR1_ISR_(void)
 
     }
     count++;
-    if (count > 138)
+    if ((count > 138) && silent_night_playing)
     {
         presses = 0;
         count = 0;

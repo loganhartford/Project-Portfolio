@@ -70,11 +70,11 @@ void TMR0_Initialize(void)
     // T0CS LFINTOSC; T0CKPS 1:1; T0ASYNC not_synchronised; 
     T0CON1 = 0x90;
 
-    // TMR0H 13; 
-    TMR0H = 0x0D;
+    // TMR0H 134; 
+    TMR0H = 0x86;
 
-    // TMR0L 208; 
-    TMR0L = 0xD0;
+    // TMR0L 232; 
+    TMR0L = 0xE8;
 
     // Load TMR0 value to the 16-bit reload variable
     timer0ReloadVal16bit = (TMR0H << 8) | TMR0L;

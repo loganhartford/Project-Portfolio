@@ -5624,21 +5624,6 @@ uint8_t SPI1_ReadByte(void);
  void PWM3_LoadDutyValue(uint16_t dutyValue);
 # 57 "mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/ext_int.h" 1
-# 250 "mcc_generated_files/ext_int.h"
-void EXT_INT_Initialize(void);
-# 272 "mcc_generated_files/ext_int.h"
-void INT_ISR(void);
-# 296 "mcc_generated_files/ext_int.h"
-void INT_CallBack(void);
-# 319 "mcc_generated_files/ext_int.h"
-void INT_SetInterruptHandler(void (* InterruptHandler)(void));
-# 343 "mcc_generated_files/ext_int.h"
-extern void (*INT_InterruptHandler)(void);
-# 367 "mcc_generated_files/ext_int.h"
-void INT_DefaultInterruptHandler(void);
-# 58 "mcc_generated_files/mcc.h" 2
-
 # 1 "mcc_generated_files/tmr1.h" 1
 # 100 "mcc_generated_files/tmr1.h"
 void TMR1_Initialize(void);
@@ -5664,6 +5649,21 @@ void TMR1_ISR(void);
 extern void (*TMR1_InterruptHandler)(void);
 # 421 "mcc_generated_files/tmr1.h"
 void TMR1_DefaultInterruptHandler(void);
+# 58 "mcc_generated_files/mcc.h" 2
+
+# 1 "mcc_generated_files/ext_int.h" 1
+# 250 "mcc_generated_files/ext_int.h"
+void EXT_INT_Initialize(void);
+# 272 "mcc_generated_files/ext_int.h"
+void INT_ISR(void);
+# 296 "mcc_generated_files/ext_int.h"
+void INT_CallBack(void);
+# 319 "mcc_generated_files/ext_int.h"
+void INT_SetInterruptHandler(void (* InterruptHandler)(void));
+# 343 "mcc_generated_files/ext_int.h"
+extern void (*INT_InterruptHandler)(void);
+# 367 "mcc_generated_files/ext_int.h"
+void INT_DefaultInterruptHandler(void);
 # 59 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/tmr2.h" 1
@@ -5869,8 +5869,8 @@ void SYSTEM_Initialize(void)
     WDT_Initialize();
     PWM3_Initialize();
     TMR2_Initialize();
-    EXT_INT_Initialize();
     TMR1_Initialize();
+    EXT_INT_Initialize();
     TMR0_Initialize();
 }
 

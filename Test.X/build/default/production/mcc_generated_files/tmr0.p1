@@ -576,11 +576,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/tmr0.c: 71:     T0CON1 = 0x90;
 [e = _T0CON1 -> -> 144 `i `uc ]
 "74
-[; ;mcc_generated_files/tmr0.c: 74:     TMR0H = 0x0D;
-[e = _TMR0H -> -> 13 `i `uc ]
+[; ;mcc_generated_files/tmr0.c: 74:     TMR0H = 0x86;
+[e = _TMR0H -> -> 134 `i `uc ]
 "77
-[; ;mcc_generated_files/tmr0.c: 77:     TMR0L = 0xD0;
-[e = _TMR0L -> -> 208 `i `uc ]
+[; ;mcc_generated_files/tmr0.c: 77:     TMR0L = 0xE8;
+[e = _TMR0L -> -> 232 `i `uc ]
 "80
 [; ;mcc_generated_files/tmr0.c: 80:     timer0ReloadVal16bit = (TMR0H << 8) | TMR0L;
 [e = _timer0ReloadVal16bit -> | << -> _TMR0H `i -> 8 `i -> _TMR0L `i `us ]

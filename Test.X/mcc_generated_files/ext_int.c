@@ -26,11 +26,24 @@
  */
 #include <xc.h>
 #include "ext_int.h"
+#include "mcc.h"
 
 void (*INT_InterruptHandler)(void);
 
 void INT_ISR(void)
 {
+//    long count = 0;
+//    while (count < 160000)
+//    {
+//        if (RA2_GetValue())
+//        {
+//            count++;
+//        }
+//        else
+//        {
+//            count = 0;
+//        }
+//    }
     EXT_INT_InterruptFlagClear();
 
     // Callback function gets called everytime this ISR executes

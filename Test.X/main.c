@@ -51,6 +51,8 @@ int count = 0;
 uint8_t presses = 0;
 uint8_t last_note = 0;
 bool silent_night_playing = 0;
+bool TMR0_complete = 0;
+uint8_t num_songs = 2;
 /*
                     Prototypes
  */
@@ -149,7 +151,7 @@ void main(void)
     // External Interrupts
     EXT_INT_Initialize();
     INT_SetInterruptHandler(EXT_ISR);
-    PIE0bits.INTE = 0; // Interrupt off by default
+    PIE0bits.INTE = 1; // Interrupt on by default
     
     // TMR0
     TMR0_Initialize();
@@ -174,10 +176,10 @@ void main(void)
     OE_n_SetHigh();
     // Turn off load switch
     EN_MATRIX_n_SetHigh();
-    // Data is shifted on low-to-high tansistion of SCHP input
+    // Data is shifted on low-to-high transition of SCHP input
     LATCH_SetLow();
     
-    // Make sure lights are off initally.
+    // Make sure lights are off initially.
     shiftBytes(0xFF, 0x00);
 
 //    while (1)
@@ -192,13 +194,18 @@ void main(void)
     // TMR0 and TMR1 will run during sleep
     while (1)
     {
-        // Silent night
-        if (presses)
+        T0CON0bits.T0EN = 1;        // Enable TMR0
+        shiftBytes(0x00, 0x01); // Testing
+        OE_n_SetLow();          // ^^
+        EN_MATRIX_n_SetLow();   // ^^
+        if (presses && TMR0_complete)
         {
-            OE_n_SetLow();         // Enable shift registers
-            EN_MATRIX_n_SetLow();  // Turn on load switch
+            OE_n_SetLow();          // Enable shift registers
+            EN_MATRIX_n_SetLow();   // Turn on load switch
+            T0CON0bits.T0EN = 0;    // Disable TMR0
             switch (presses)
             {
+                // Silent night
                 case 1:
                     light_array[0] = 0x88;
                     light_array[1] = 0x44;
@@ -209,102 +216,46 @@ void main(void)
                     light_array[6] = 0x22;
                     silent_night_playing = 1;
                     break;
+                case 2:
+                    light_array[0] = 0x00;
+                    light_array[1] = 0x00;
+                    light_array[2] = 0x00;
+                    light_array[3] = 0x00;
+                    light_array[4] = 0x00;
+                    light_array[5] = 0x00;
+                    light_array[6] = 0x00;
+                    //silent_night_playing = 1;
             }
             T1CONbits.TMR1ON = 1;   // Enable TMR1
             T2CONbits.TMR2ON = 1;   // Enable PWM TMR
+            
+            // Silent night
             while (presses == 1)
             {   
                 playNote(silent_night[count], silent_night_pre[count]);
                 displayMatrix(light_array);
             }
+            while (presses == 2)
+            {
+                playNote(silent_night[1], silent_night_pre[1]);
+                displayMatrix(light_array);
+            }
+            presses = 0; // *
             silent_night_playing = 0;
             T1CONbits.TMR1ON = 0;   // Disable TMR1
             T2CONbits.TMR2ON = 0;
             OE_n_SetHigh();         // Disable shift registers
             EN_MATRIX_n_SetHigh();  // Turn off load switch
         }
-        else 
+        if (TMR0_complete)
         {
-            PIR0bits.INTF = 0;  // Clear flag
-            PIE0bits.INTE = 1;  // Enable external interrupts
+            T0CON0bits.T0EN = 0;    // Disable TMR0
+            PIR0bits.INTF = 0;      // Clear flag
+            PIE0bits.INTE = 1;      // Enable external interrupts
+            OE_n_SetHigh();          // TEst
+            EN_MATRIX_n_SetHigh();  // ^^
             SLEEP();
         }
-        
-//        uint8_t notes[7] = {252, 238, 224, 211, 200, 133, 125};
-//        play_note(silent_night[count], silent_night_pre[count]);
-//        //T2CONbits.TMR2ON = 0;
-//        count++;
-//        if (count > 138) SLEEP();
-//        __delay_ms(250);
-        
-//        // TEST1: SPI/Shift Register Properties
-//        shiftBytes(0xBF, 0x20); // High-side 2 and low-side 3 ON
-//        // If correct D48 should be on.
-//        __delay_ms(1); // Make sure delay function is working properly
-        
-        //T2PR = 255;
-//        // TEST2: LEDs working
-//        // Should turn on each led individually.
-//        uint8_t highSide = 0xFE;
-//        uint8_t lowSide = 0x01;
-//        for (int i = 0; i < 7; i++)
-//        {
-//            for (int j = 0; j < 7; j++)
-//            {
-//                shiftBytes(highSide, lowSide);
-//                highSide = (highSide << 1) + 1;
-//                __delay_ms(500);               
-//            }
-//            lowSide = (lowSide << 1);
-//            highSide = 0xFE;
-//        }
-//        
-//        // TEST3: Multiplexing
-//        uint8_t state[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-//        displayMatrix(state);
-//        //D1-7 should be on, this is only possible through multiplexing.
-//        
-        // TEST4: PWM and Buzzer
-        // T2PR determines the period
-//        T2PR = 36; // This should correspond to 440Hz
-//        TRISAbits.TRISA4 = 0;
-//        T2CONbits.TMR2ON = 1; // Enable TMR
-//        // May have to enable CCP, see data sheet.
-//        IO_RA5_SetHigh();
-//        __delay_ms(1);
-//        IO_RA5_SetLow();
-//        __delay_ms(1);
-//        
-//        // TEST5: EXT_INT
-//        __delay_ms(2000);
-//        PIE0bits.INTE = 1;  // Enable external interrupts
-//        shiftBytes(0xFF, 0x00); // Turn LEDs OFF
-//        SLEEP();
-//        __delay_ms(1);
-//        
-//        // TEST6: TMR0_ISR
-//        T0CON0bits.T0EN = 1;
-//        
-//        // TEST7: TMR1_ISR
-//        T1CONbits.TMR1ON = 1;
-        
-//        // TEST8: Load SW
-//        shiftBytes(0xBF, 0x20); // Turn LED ON
-//        EN_MATRIX_n_SetLow();
-//        __delay_ms(1000);
-//        EN_MATRIX_n_SetHigh();
-//        __delay_ms(1000);
-//        
-//        // TEST9: OEn
-//        shiftBytes(0xBF, 0x20); // Turn LED ON
-//        OE_n_SetLow();
-//        __delay_ms(1000);
-//        OE_n_SetHigh();
-//        __delay_ms(1000);
-        
-        
-        
-        
     }
 }
 
@@ -313,28 +264,29 @@ void main(void)
  */
 void EXT_ISR(void)
 {
-    presses++;
+    presses++;          // Increment presses
+    TMR0_Reload();      // Reset TMR0
+    //T0CON0bits.T0EN = 1;
     // If someone presses the button during a song
     if (T1CONbits.TMR1ON)
     {
-        T1CONbits.TMR1ON = 0;
+        //T1CONbits.TMR1ON = 0;
         presses = 0;
         count = 0;
+    }
+    else
+    {  
+        TMR0_complete = 0;
+    }
+    if (presses > num_songs)
+    {
+        presses = 0;
     }
 }
 
 void TMR0_ISR_(void)
 {
-    if (TMR0_b)
-    {
-       shiftBytes(0xBF, 0x20); // Turn LED ON
-       TMR0_b = 0;
-    }
-    else
-    {
-        shiftBytes(0xFF, 0x00); // Turn LED OFF
-        TMR0_b = 1;
-    }
+    TMR0_complete = 1;
 }
 
 void TMR1_ISR_(void)
@@ -370,7 +322,7 @@ void TMR1_ISR_(void)
           
     }
     count++;
-    if (count > 138)
+    if ((count > 138) && silent_night_playing)
     {
         presses = 0;            // Reset presses
         count = 0;              // Reset beat counter
