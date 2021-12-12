@@ -43,20 +43,20 @@ TMR2_PWM4_OUT 4
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"118 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"119 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"301
+"314
 [v _EXT_ISR EXT_ISR `(v  1 e 1 0 ]
-"313
+"326
 [v _TMR0_ISR_ TMR0_ISR_ `(v  1 e 1 0 ]
-"327
+"340
 [v _TMR1_ISR_ TMR1_ISR_ `(v  1 e 1 0 ]
-"367
+"380
 [v _playNote playNote `(v  1 e 1 0 ]
-"385
+"398
 [v _shiftBytes shiftBytes `(v  1 e 1 0 ]
 [v i1_shiftBytes shiftBytes `(v  1 e 1 0 ]
-"397
+"410
 [v _displayMatrix displayMatrix `(v  1 e 1 0 ]
 "32 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_ISR INT_ISR `(v  1 e 1 0 ]
@@ -469,8 +469,8 @@ TMR2_PWM4_OUT 4
 [v _silent_night silent_night `[138]uc  1 e 138 @9062 ]
 "89
 [v _silent_night_pre silent_night_pre `[138]uc  1 e 138 @8924 ]
-"113
-[v _silent_night_lights silent_night_lights `[7]uc  1 e 7 0 ]
+"114
+[v _light_array light_array `[1]uc  1 e 1 0 ]
 "30 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_InterruptHandler INT_InterruptHandler `*.37(v  1 e 2 0 ]
 [s S65 . 4 `uc 1 con1 1 0 `uc 1 stat 1 1 `uc 1 add 1 2 `uc 1 operation 1 3 ]
@@ -484,44 +484,44 @@ TMR2_PWM4_OUT 4
 [v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
 "58
 [v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
-"118 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"119 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"296
+"309
 } 0
-"367
+"380
 [v _playNote playNote `(v  1 e 1 0 ]
 {
 [v playNote@note note `uc  1 a 1 wreg ]
 [v playNote@note note `uc  1 a 1 wreg ]
 [v playNote@prescale prescale `uc  1 p 1 0 ]
-"369
+"382
 [v playNote@note note `uc  1 a 1 2 ]
-"375
+"388
 } 0
-"397
+"410
 [v _displayMatrix displayMatrix `(v  1 e 1 0 ]
 {
 [v displayMatrix@states states `*.4uc  1 a 1 wreg ]
-"402
+"415
 [v displayMatrix@i i `i  1 a 2 6 ]
-"401
+"414
 [v displayMatrix@lowSide lowSide `uc  1 a 1 8 ]
-"397
+"410
 [v displayMatrix@states states `*.4uc  1 a 1 wreg ]
-"401
+"414
 [v displayMatrix@states states `*.4uc  1 a 1 5 ]
-"416
+"429
 } 0
-"385
+"398
 [v _shiftBytes shiftBytes `(v  1 e 1 0 ]
 {
 [v shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v shiftBytes@lowSide lowSide `uc  1 p 1 1 ]
-"389
+"402
 [v shiftBytes@highSide highSide `uc  1 a 1 2 ]
-"395
+"408
 } 0
 "97 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
 [v _SPI1_ExchangeByte SPI1_ExchangeByte `(uc  1 e 1 0 ]
@@ -621,20 +621,20 @@ TMR2_PWM4_OUT 4
 {
 "185
 } 0
-"327 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"340 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _TMR1_ISR_ TMR1_ISR_ `(v  1 e 1 0 ]
 {
-"337
+"350
 [v TMR1_ISR_@lights lights `uc  1 a 1 2 ]
-"353
-[v TMR1_ISR_@lights_1152 lights `uc  1 a 1 3 ]
-"335
+"366
+[v TMR1_ISR_@lights_1153 lights `uc  1 a 1 3 ]
+"348
 [v TMR1_ISR_@i i `i  1 a 2 6 ]
-"351
-[v TMR1_ISR_@i_1151 i `i  1 a 2 8 ]
-"344
-[v TMR1_ISR_@i_1150 i `i  1 a 2 4 ]
-"365
+"364
+[v TMR1_ISR_@i_1152 i `i  1 a 2 8 ]
+"357
+[v TMR1_ISR_@i_1151 i `i  1 a 2 4 ]
+"378
 } 0
 "134 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
@@ -646,20 +646,20 @@ TMR2_PWM4_OUT 4
 {
 "158
 } 0
-"313 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"326 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _TMR0_ISR_ TMR0_ISR_ `(v  1 e 1 0 ]
 {
-"325
+"338
 } 0
-"385
+"398
 [v i1_shiftBytes shiftBytes `(v  1 e 1 0 ]
 {
 [v i1shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v i1shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v i1shiftBytes@lowSide lowSide `uc  1 p 1 1 ]
-"389
+"402
 [v i1shiftBytes@highSide highSide `uc  1 a 1 2 ]
-"395
+"408
 } 0
 "97 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
 [v i1_SPI1_ExchangeByte SPI1_ExchangeByte `(uc  1 e 1 0 ]
@@ -680,10 +680,10 @@ TMR2_PWM4_OUT 4
 {
 "48
 } 0
-"301 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"314 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _EXT_ISR EXT_ISR `(v  1 e 1 0 ]
 {
-"311
+"324
 } 0
 "54 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]

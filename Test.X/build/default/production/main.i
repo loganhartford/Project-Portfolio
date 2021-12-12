@@ -5927,6 +5927,7 @@ uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
 
 uint8_t silent_night_lights[] = {0x88, 0x44, 0x22, 0x11, 0x88, 0x44, 0x22};
+uint8_t light_array[] = {0};
 
 
 
@@ -5944,7 +5945,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 139 "main.c"
+# 140 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -5987,21 +5988,33 @@ void main(void)
 
 
     shiftBytes(0xFF, 0x00);
-# 192 "main.c"
+# 193 "main.c"
     while (1)
     {
 
-        if (presses == 1)
+        if (presses)
         {
             do { LATCbits.LATC2 = 0; } while(0);
             do { LATCbits.LATC0 = 0; } while(0);
+            switch (presses)
+            {
+                case 1:
+                    light_array[0] = 0x88;
+                    light_array[1] = 0x44;
+                    light_array[2] = 0x22;
+                    light_array[3] = 0x11;
+                    light_array[4] = 0x88;
+                    light_array[5] = 0x44;
+                    light_array[6] = 0x22;
+                    silent_night_playing = 1;
+                    break;
+            }
             T1CONbits.TMR1ON = 1;
             T2CONbits.TMR2ON = 1;
             while (presses == 1)
             {
-                silent_night_playing = 1;
                 playNote(silent_night[count], silent_night_pre[count]);
-                displayMatrix(silent_night_lights);
+                displayMatrix(light_array);
             }
             silent_night_playing = 0;
             T1CONbits.TMR1ON = 0;
@@ -6015,7 +6028,7 @@ void main(void)
             PIE0bits.INTE = 1;
             __asm("sleep");
         }
-# 295 "main.c"
+# 308 "main.c"
     }
 }
 
@@ -6052,14 +6065,14 @@ void TMR1_ISR_(void)
 {
     if (silent_night_playing)
     {
-        if (count < 24 || ((count > 54) && (count < 96)))
+        if (count < 24 || ((count > 48) && (count < 96)))
         {
-            if ((count & 0x02) && (count & 0x01))
+            if (((count + 1) & 0x02) && ((count + 1) & 0x01))
             {
                 for (int i = 0; i < 7; i++)
                 {
-                    uint8_t lights = silent_night_lights[i] >> 7;
-                    silent_night_lights[i] = (silent_night_lights[i] << 1) + lights;
+                    uint8_t lights = light_array[i] >> 7;
+                    light_array[i] = (light_array[i] << 1) + lights;
                 }
             }
         }
@@ -6067,15 +6080,15 @@ void TMR1_ISR_(void)
         {
             for (int i = 0; i < 7; i++)
             {
-                silent_night_lights[i] = (silent_night_lights[i] << 1) + 1;
+                light_array[i] = (light_array[i] << 1) + 1;
             }
         }
         else
         {
             for (int i = 0; i < 7; i++)
             {
-                uint8_t lights = silent_night_lights[i] >> 7;
-                silent_night_lights[i] = (silent_night_lights[i] << 1) + lights;
+                uint8_t lights = light_array[i] >> 7;
+                light_array[i] = (light_array[i] << 1) + lights;
             }
         }
 
@@ -6136,5 +6149,20 @@ void displayMatrix(uint8_t states[8])
 
         shiftBytes(states[i], lowSide);
         _delay((unsigned long)((1)*(8000000/4000.0)));
+    }
+}
+
+void resetLightArray(uint8_t presses)
+{
+    switch (presses)
+    {
+        case 1:
+            light_array[0] = 0x88;
+            light_array[1] = 0x44;
+            light_array[2] = 0x22;
+            light_array[3] = 0x11;
+            light_array[4] = 0x88;
+            light_array[5] = 0x44;
+            light_array[6] = 0x22;
     }
 }
