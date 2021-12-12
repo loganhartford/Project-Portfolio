@@ -5864,6 +5864,7 @@ void WDT_Initialize(void);
 
 _Bool TMR0_b = 0;
 int count = 0;
+uint8_t presses = 0;
 
 
 
@@ -5940,7 +5941,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 135 "main.c"
+# 136 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -5987,12 +5988,24 @@ void main(void)
     while (1)
     {
 
-        play_note(silent_night[count], silent_night_pre[count]);
-
-        count++;
-        if (count > 138) __asm("sleep");
-        _delay((unsigned long)((250)*(8000000/4000.0)));
-# 255 "main.c"
+        if (presses)
+        {
+            play_note(silent_night[count], silent_night_pre[count]);;
+            count++;
+            if (count > 138)
+            {
+                presses = 0;
+                count = 0;
+            }
+            _delay((unsigned long)((250)*(8000000/4000.0)));
+        }
+        else
+        {
+            PIR0bits.INTF = 0;
+            PIE0bits.INTE = 1;
+            __asm("sleep");
+        }
+# 275 "main.c"
     }
 }
 
@@ -6001,7 +6014,7 @@ void main(void)
 
 void EXT_ISR(void)
 {
-    shiftBytes(0xBF, 0x20);
+    presses = 1;
 }
 
 void TMR0_ISR_(void)

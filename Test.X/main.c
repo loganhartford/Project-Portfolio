@@ -48,6 +48,7 @@
 
 bool TMR0_b = 0;
 int count = 0;
+uint8_t presses = 0;
 
 /*
                     Prototypes
@@ -177,12 +178,31 @@ void main(void)
     // TMR0 and TMR1 will run during sleep
     while (1)
     {
+        
+        if (presses)
+        {
+            play_note(silent_night[count], silent_night_pre[count]);;
+            count++;
+            if (count > 138)
+            {
+                presses = 0;
+                count = 0;
+            }
+            __delay_ms(250);
+        }
+        else 
+        {
+            PIR0bits.INTF = 0;  // Clear flag
+            PIE0bits.INTE = 1;  // Enable external interrupts
+            SLEEP();
+        }
+        
 //        uint8_t notes[7] = {252, 238, 224, 211, 200, 133, 125};
-        play_note(silent_night[count], silent_night_pre[count]);
-        //T2CONbits.TMR2ON = 0;
-        count++;
-        if (count > 138) SLEEP();
-        __delay_ms(250);
+//        play_note(silent_night[count], silent_night_pre[count]);
+//        //T2CONbits.TMR2ON = 0;
+//        count++;
+//        if (count > 138) SLEEP();
+//        __delay_ms(250);
         
 //        // TEST1: SPI/Shift Register Properties
 //        shiftBytes(0xBF, 0x20); // High-side 2 and low-side 3 ON
@@ -260,7 +280,7 @@ void main(void)
  */
 void EXT_ISR(void)
 {
-    shiftBytes(0xBF, 0x20); // Turn LED ON
+    presses = 1;
 }
 
 void TMR0_ISR_(void)

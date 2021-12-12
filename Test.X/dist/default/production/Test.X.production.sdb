@@ -43,17 +43,17 @@ TMR2_PWM4_OUT 4
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"114 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"115 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"261
+"281
 [v _EXT_ISR EXT_ISR `(v  1 e 1 0 ]
-"266
+"286
 [v _TMR0_ISR_ TMR0_ISR_ `(v  1 e 1 0 ]
-"280
+"300
 [v _TMR1_ISR_ TMR1_ISR_ `(v  1 e 1 0 ]
-"294
+"314
 [v _play_note play_note `(v  1 e 1 0 ]
-"317
+"337
 [v _shiftBytes shiftBytes `(v  1 e 1 0 ]
 [v i1_shiftBytes shiftBytes `(v  1 e 1 0 ]
 "32 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
@@ -457,9 +457,11 @@ TMR2_PWM4_OUT 4
 [v _TMR0_b TMR0_b `a  1 e 1 0 ]
 "50
 [v _count count `i  1 e 2 0 ]
-"64
+"51
+[v _presses presses `uc  1 e 1 0 ]
+"65
 [v _silent_night silent_night `[138]uc  1 e 138 @9062 ]
-"87
+"88
 [v _silent_night_pre silent_night_pre `[138]uc  1 e 138 @8924 ]
 "30 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_InterruptHandler INT_InterruptHandler `*.37(v  1 e 2 0 ]
@@ -474,20 +476,20 @@ TMR2_PWM4_OUT 4
 [v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
 "58
 [v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
-"114 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"115 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"256
+"276
 } 0
-"317
+"337
 [v _shiftBytes shiftBytes `(v  1 e 1 0 ]
 {
 [v shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v shiftBytes@lowSide lowSide `uc  1 p 1 1 ]
-"321
+"341
 [v shiftBytes@highSide highSide `uc  1 a 1 2 ]
-"327
+"347
 } 0
 "97 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
 [v _SPI1_ExchangeByte SPI1_ExchangeByte `(uc  1 e 1 0 ]
@@ -498,15 +500,15 @@ TMR2_PWM4_OUT 4
 [v SPI1_ExchangeByte@data data `uc  1 a 1 0 ]
 "103
 } 0
-"294 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"314 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _play_note play_note `(v  1 e 1 0 ]
 {
 [v play_note@note note `uc  1 a 1 wreg ]
 [v play_note@note note `uc  1 a 1 wreg ]
 [v play_note@prescale prescale `uc  1 p 1 0 ]
-"296
+"316
 [v play_note@note note `uc  1 a 1 1 ]
-"306
+"326
 } 0
 "50 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -597,10 +599,10 @@ TMR2_PWM4_OUT 4
 {
 "185
 } 0
-"280 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"300 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _TMR1_ISR_ TMR1_ISR_ `(v  1 e 1 0 ]
 {
-"292
+"312
 } 0
 "134 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
@@ -612,10 +614,29 @@ TMR2_PWM4_OUT 4
 {
 "158
 } 0
-"266 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"286 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _TMR0_ISR_ TMR0_ISR_ `(v  1 e 1 0 ]
 {
-"278
+"298
+} 0
+"337
+[v i1_shiftBytes shiftBytes `(v  1 e 1 0 ]
+{
+[v i1shiftBytes@highSide highSide `uc  1 a 1 wreg ]
+[v i1shiftBytes@highSide highSide `uc  1 a 1 wreg ]
+[v i1shiftBytes@lowSide lowSide `uc  1 p 1 1 ]
+"341
+[v i1shiftBytes@highSide highSide `uc  1 a 1 2 ]
+"347
+} 0
+"97 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
+[v i1_SPI1_ExchangeByte SPI1_ExchangeByte `(uc  1 e 1 0 ]
+{
+[v i1SPI1_ExchangeByte@data data `uc  1 a 1 wreg ]
+[v i1SPI1_ExchangeByte@data data `uc  1 a 1 wreg ]
+"99
+[v i1SPI1_ExchangeByte@data data `uc  1 a 1 0 ]
+"103
 } 0
 "32 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_ISR INT_ISR `(v  1 e 1 0 ]
@@ -627,32 +648,13 @@ TMR2_PWM4_OUT 4
 {
 "48
 } 0
-"261 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"281 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _EXT_ISR EXT_ISR `(v  1 e 1 0 ]
 {
-"264
+"284
 } 0
 "54 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
 "57
-} 0
-"317 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
-[v i1_shiftBytes shiftBytes `(v  1 e 1 0 ]
-{
-[v i1shiftBytes@highSide highSide `uc  1 a 1 wreg ]
-[v i1shiftBytes@highSide highSide `uc  1 a 1 wreg ]
-[v i1shiftBytes@lowSide lowSide `uc  1 p 1 1 ]
-"321
-[v i1shiftBytes@highSide highSide `uc  1 a 1 2 ]
-"327
-} 0
-"97 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
-[v i1_SPI1_ExchangeByte SPI1_ExchangeByte `(uc  1 e 1 0 ]
-{
-[v i1SPI1_ExchangeByte@data data `uc  1 a 1 wreg ]
-[v i1SPI1_ExchangeByte@data data `uc  1 a 1 wreg ]
-"99
-[v i1SPI1_ExchangeByte@data data `uc  1 a 1 0 ]
-"103
 } 0
