@@ -110,7 +110,7 @@ uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
 
-uint8_t silent_night_lights[] = {0x92, 0x48, 0x48, 0x92, 0x24, 0x48, 0x24};
+uint8_t silent_night_lights[] = {0x88, 0x44, 0x22, 0x11, 0x88, 0x44, 0x22};
 
 /*
                          Main application
@@ -328,13 +328,33 @@ void TMR1_ISR_(void)
 {
     if (silent_night_playing)
     {
-        // If the third bit is a 1, we want to shift and add one, else shift   
-        for (int i = 0; i < 7; i++)
+        if (count < 24 || ((count > 54) && (count < 96)))
         {
-            uint8_t lights = silent_night_lights[0] << 5;
-            lights = lights >> 7;
-            silent_night_lights[i] = (silent_night_lights[i] << 1) + lights;
-        }  
+            if ((count & 0x02) && (count & 0x01))
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    uint8_t lights = silent_night_lights[i] >> 7;
+                    silent_night_lights[i] = (silent_night_lights[i] << 1) + lights;
+                }  
+            }
+        }
+        else if (count > 126)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                silent_night_lights[i] = (silent_night_lights[i] << 1) + 1;
+            }
+        }
+        else 
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                uint8_t lights = silent_night_lights[i] >> 7;
+                silent_night_lights[i] = (silent_night_lights[i] << 1) + lights;
+            }
+        }
+          
     }
     count++;
     if (count > 138)
