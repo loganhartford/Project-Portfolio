@@ -615,11 +615,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/tmr1.c: 75:     T1CLK = 0x04;
 [e = _T1CLK -> -> 4 `i `uc ]
 "78
-[; ;mcc_generated_files/tmr1.c: 78:     TMR1H = 0x0D;
-[e = _TMR1H -> -> 13 `i `uc ]
+[; ;mcc_generated_files/tmr1.c: 78:     TMR1H = 0xE1;
+[e = _TMR1H -> -> 225 `i `uc ]
 "81
-[; ;mcc_generated_files/tmr1.c: 81:     TMR1L = 0xD0;
-[e = _TMR1L -> -> 208 `i `uc ]
+[; ;mcc_generated_files/tmr1.c: 81:     TMR1L = 0xBA;
+[e = _TMR1L -> -> 186 `i `uc ]
 "84
 [; ;mcc_generated_files/tmr1.c: 84:     PIR1bits.TMR1IF = 0;
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]

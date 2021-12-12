@@ -49,6 +49,8 @@
 bool TMR0_b = 0;
 int count = 0;
 uint8_t presses = 0;
+uint8_t last_note = 0;
+uint8_t last_pre = 0;
 
 /*
                     Prototypes
@@ -175,20 +177,29 @@ void main(void)
     
     shiftBytes(0xFF, 0x00);
 
+//    while (1)
+//    {
+//         play_note(silent_night[count], silent_night_pre[count]);
+//        //T2CONbits.TMR2ON = 0;
+//        count++;
+//        if (count > 138) SLEEP();
+//        __delay_ms(250);
+//    }
+    
     // TMR0 and TMR1 will run during sleep
     while (1)
     {
-        
-        if (presses)
+        // Silent night
+        if (presses == 1)
         {
-            play_note(silent_night[count], silent_night_pre[count]);;
-            count++;
-            if (count > 138)
+            T1CONbits.TMR1ON = 1;   // Enable TMR1
+            T2CONbits.TMR2ON = 1;   // Enable PWM TMR
+            while (presses == 1)
             {
-                presses = 0;
-                count = 0;
+                play_note(silent_night[count], silent_night_pre[count]);
             }
-            __delay_ms(250);
+            T1CONbits.TMR1ON = 0;   // Disable TMR1
+            T2CONbits.TMR2ON = 0;
         }
         else 
         {
@@ -280,7 +291,12 @@ void main(void)
  */
 void EXT_ISR(void)
 {
-    presses = 1;
+    presses++;
+    // If someone presses the button during a song
+    if (T1CONbits.TMR1ON)
+    {
+        presses = 0;
+    }
 }
 
 void TMR0_ISR_(void)
@@ -299,30 +315,23 @@ void TMR0_ISR_(void)
 
 void TMR1_ISR_(void)
 {
-    if (TMR0_b)
+    count++;
+    if (count > 138)
     {
-       shiftBytes(0xBF, 0x20); // Turn LED ON
-       TMR0_b = 0;
-    }
-    else
-    {
-        shiftBytes(0xFF, 0x00); // Turn LED OFF
-        TMR0_b = 1;
+        presses = 0;            // Reset presses
+        count = 0;              // Reset beat counter
     }
 }
 
 void play_note(uint8_t note, uint8_t prescale)
 {
-    T2CONbits.TMR2ON = 1;
-    if (note)
+    if (note != last_note)
     {
-       T2CON = prescale;
-       T2PR = note; 
+        T2CON = prescale;
+        T2PR = note;  
     }
-    else
-    {
-       T2CONbits.TMR2ON = 0; 
-    }
+    last_note = note;
+//    last_pre = prescale;
 }
 
 void Initialize_Matrix(void)

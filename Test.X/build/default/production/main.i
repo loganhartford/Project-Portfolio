@@ -5865,6 +5865,8 @@ void WDT_Initialize(void);
 _Bool TMR0_b = 0;
 int count = 0;
 uint8_t presses = 0;
+uint8_t last_note = 0;
+uint8_t last_pre = 0;
 
 
 
@@ -5941,7 +5943,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 136 "main.c"
+# 138 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -5983,21 +5985,20 @@ void main(void)
     do { LATCbits.LATC4 = 0; } while(0);
 
     shiftBytes(0xFF, 0x00);
-
-
+# 190 "main.c"
     while (1)
     {
 
-        if (presses)
+        if (presses == 1)
         {
-            play_note(silent_night[count], silent_night_pre[count]);;
-            count++;
-            if (count > 138)
+            T1CONbits.TMR1ON = 1;
+            T2CONbits.TMR2ON = 1;
+            while (presses == 1)
             {
-                presses = 0;
-                count = 0;
+                play_note(silent_night[count], silent_night_pre[count]);
             }
-            _delay((unsigned long)((250)*(8000000/4000.0)));
+            T1CONbits.TMR1ON = 0;
+            T2CONbits.TMR2ON = 0;
         }
         else
         {
@@ -6005,7 +6006,7 @@ void main(void)
             PIE0bits.INTE = 1;
             __asm("sleep");
         }
-# 275 "main.c"
+# 286 "main.c"
     }
 }
 
@@ -6014,7 +6015,12 @@ void main(void)
 
 void EXT_ISR(void)
 {
-    presses = 1;
+    presses++;
+
+    if (T1CONbits.TMR1ON)
+    {
+        presses = 0;
+    }
 }
 
 void TMR0_ISR_(void)
@@ -6033,30 +6039,23 @@ void TMR0_ISR_(void)
 
 void TMR1_ISR_(void)
 {
-    if (TMR0_b)
+    count++;
+    if (count > 138)
     {
-       shiftBytes(0xBF, 0x20);
-       TMR0_b = 0;
-    }
-    else
-    {
-        shiftBytes(0xFF, 0x00);
-        TMR0_b = 1;
+        presses = 0;
+        count = 0;
     }
 }
 
 void play_note(uint8_t note, uint8_t prescale)
 {
-    T2CONbits.TMR2ON = 1;
-    if (note)
+    if (note != last_note)
     {
-       T2CON = prescale;
-       T2PR = note;
+        T2CON = prescale;
+        T2PR = note;
     }
-    else
-    {
-       T2CONbits.TMR2ON = 0;
-    }
+    last_note = note;
+
 }
 
 void Initialize_Matrix(void)
