@@ -5975,8 +5975,8 @@ uint8_t song3_pre[] = {0xD0, 0xD0,
                        0xE0, 0xE0,
                        0xD0, 0xD0};
 # 200 "main.c"
-uint8_t timer_high_3 = 0xEF;
-uint8_t timer_low_3 = 0x88;
+uint8_t timer_high_3 = 0xED;
+uint8_t timer_low_3 = 0xD6;
 uint8_t song3_length = 31;
 uint8_t cole_counter = 0;
 # 233 "main.c"
@@ -6211,14 +6211,14 @@ void TMR1_ISR_(void)
                 }
             }
         }
-        else if (count > 126)
+        else if (count > 119 && (last_note != silent_night[count]))
         {
             for (int i = 0; i < 7; i++)
             {
                 light_array[i] = (light_array[i] << 1) + 1;
             }
         }
-        else
+        else if (count < 120)
         {
             for (int i = 0; i < 7; i++)
             {
@@ -6284,7 +6284,7 @@ void TMR1_ISR_(void)
            {
                 for (int i = 0; i < 7; i++)
                 {
-                    light_array[i] = 0xFA;
+                    light_array[i] = 0xF9;
                 }
            }
            else

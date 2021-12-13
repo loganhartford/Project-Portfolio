@@ -1209,16 +1209,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "200
-[; ;main.c: 200: uint8_t timer_high_3 = 0xEF;
+[; ;main.c: 200: uint8_t timer_high_3 = 0xED;
 [v _timer_high_3 `uc ~T0 @X0 1 e ]
 [i _timer_high_3
--> -> 239 `i `uc
+-> -> 237 `i `uc
 ]
 "201
-[; ;main.c: 201: uint8_t timer_low_3 = 0x88;
+[; ;main.c: 201: uint8_t timer_low_3 = 0xD6;
 [v _timer_low_3 `uc ~T0 @X0 1 e ]
 [i _timer_low_3
--> -> 136 `i `uc
+-> -> 214 `i `uc
 ]
 "202
 [; ;main.c: 202: uint8_t song3_length = 31;
@@ -1873,9 +1873,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 536  ]
 "480
-[; ;main.c: 480:         else if (count > 126)
+[; ;main.c: 480:         else if (count > 119 && (last_note != silent_night[count]))
 [e :U 531 ]
-[e $ ! > _count -> 126 `i 537  ]
+[e $ ! && > _count -> 119 `i != -> _last_note `i -> *U + &U _silent_night * -> -> _count `ui `ux -> -> # *U &U _silent_night `ui `ux `i 537  ]
 "481
 [; ;main.c: 481:         {
 {
@@ -1905,8 +1905,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 541  ]
 "487
-[; ;main.c: 487:         else
+[; ;main.c: 487:         else if (count < 120)
 [e :U 537 ]
+[e $ ! < _count -> 120 `i 542  ]
 "488
 [; ;main.c: 488:         {
 {
@@ -1915,9 +1916,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 542  ]
-[e $U 543  ]
-[e :U 542 ]
+[e $ < _i -> 7 `i 543  ]
+[e $U 544  ]
+[e :U 543 ]
 "490
 [; ;main.c: 490:             {
 {
@@ -1932,12 +1933,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 493:             }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 542  ]
-[e :U 543 ]
+[e $ < _i -> 7 `i 543  ]
+[e :U 544 ]
 }
 "494
 [; ;main.c: 494:         }
 }
+[e :U 542 ]
 [e :U 541 ]
 [e :U 536 ]
 "495
@@ -1946,13 +1948,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 530 ]
 "498
 [; ;main.c: 498:     if (song2_playing)
-[e $ ! != -> _song2_playing `i -> 0 `i 545  ]
+[e $ ! != -> _song2_playing `i -> 0 `i 546  ]
 "499
 [; ;main.c: 499:     {
 {
 "501
 [; ;main.c: 501:         if (count < 8)
-[e $ ! < _count -> 8 `i 546  ]
+[e $ ! < _count -> 8 `i 547  ]
 "502
 [; ;main.c: 502:         {
 {
@@ -1961,9 +1963,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 547  ]
-[e $U 548  ]
-[e :U 547 ]
+[e $ < _i -> 7 `i 548  ]
+[e $U 549  ]
+[e :U 548 ]
 "504
 [; ;main.c: 504:             {
 {
@@ -1974,17 +1976,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 506:             }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 547  ]
-[e :U 548 ]
+[e $ < _i -> 7 `i 548  ]
+[e :U 549 ]
 }
 "507
 [; ;main.c: 507:         }
 }
-[e $U 550  ]
+[e $U 551  ]
 "508
 [; ;main.c: 508:         else if (count == 8)
-[e :U 546 ]
-[e $ ! == _count -> 8 `i 551  ]
+[e :U 547 ]
+[e $ ! == _count -> 8 `i 552  ]
 "509
 [; ;main.c: 509:         {
 {
@@ -1993,9 +1995,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 552  ]
-[e $U 553  ]
-[e :U 552 ]
+[e $ < _i -> 7 `i 553  ]
+[e $U 554  ]
+[e :U 553 ]
 "511
 [; ;main.c: 511:             {
 {
@@ -2006,22 +2008,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 513:             }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 552  ]
-[e :U 553 ]
+[e $ < _i -> 7 `i 553  ]
+[e :U 554 ]
 }
 "514
 [; ;main.c: 514:         }
 }
-[e $U 555  ]
+[e $U 556  ]
 "515
 [; ;main.c: 515:         else
-[e :U 551 ]
+[e :U 552 ]
 "516
 [; ;main.c: 516:         {
 {
 "517
 [; ;main.c: 517:             if (count & 0x01)
-[e $ ! != & _count -> 1 `i -> 0 `i 556  ]
+[e $ ! != & _count -> 1 `i -> 0 `i 557  ]
 "518
 [; ;main.c: 518:             {
 {
@@ -2034,9 +2036,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 557  ]
-[e $U 558  ]
-[e :U 557 ]
+[e $ < _i -> 7 `i 558  ]
+[e $U 559  ]
+[e :U 558 ]
 "521
 [; ;main.c: 521:                 {
 {
@@ -2047,31 +2049,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 523:                 }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 557  ]
-[e :U 558 ]
+[e $ < _i -> 7 `i 558  ]
+[e :U 559 ]
 }
 "524
 [; ;main.c: 524:             }
 }
-[e :U 556 ]
+[e :U 557 ]
 "525
 [; ;main.c: 525:         }
 }
-[e :U 555 ]
-[e :U 550 ]
+[e :U 556 ]
+[e :U 551 ]
 "527
 [; ;main.c: 527:     }
 }
-[e :U 545 ]
+[e :U 546 ]
 "530
 [; ;main.c: 530:     if (song3_playing)
-[e $ ! != -> _song3_playing `i -> 0 `i 560  ]
+[e $ ! != -> _song3_playing `i -> 0 `i 561  ]
 "531
 [; ;main.c: 531:     {
 {
 "592
 [; ;main.c: 592:        if (song3[count] == 212)
-[e $ ! == -> *U + &U _song3 * -> -> _count `ui `ux -> -> # *U &U _song3 `ui `ux `i -> 212 `i 561  ]
+[e $ ! == -> *U + &U _song3 * -> -> _count `ui `ux -> -> # *U &U _song3 `ui `ux `i -> 212 `i 562  ]
 "593
 [; ;main.c: 593:        {
 {
@@ -2080,9 +2082,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 562  ]
-[e $U 563  ]
-[e :U 562 ]
+[e $ < _i -> 7 `i 563  ]
+[e $U 564  ]
+[e :U 563 ]
 "595
 [; ;main.c: 595:             {
 {
@@ -2093,17 +2095,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 597:             }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 562  ]
-[e :U 563 ]
+[e $ < _i -> 7 `i 563  ]
+[e :U 564 ]
 }
 "598
 [; ;main.c: 598:        }
 }
-[e $U 565  ]
+[e $U 566  ]
 "599
 [; ;main.c: 599:        else if (song3[count] == 0)
-[e :U 561 ]
-[e $ ! == -> *U + &U _song3 * -> -> _count `ui `ux -> -> # *U &U _song3 `ui `ux `i -> 0 `i 566  ]
+[e :U 562 ]
+[e $ ! == -> *U + &U _song3 * -> -> _count `ui `ux -> -> # *U &U _song3 `ui `ux `i -> 0 `i 567  ]
 "600
 [; ;main.c: 600:        {
 {
@@ -2112,9 +2114,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 567  ]
-[e $U 568  ]
-[e :U 567 ]
+[e $ < _i -> 7 `i 568  ]
+[e $U 569  ]
+[e :U 568 ]
 "602
 [; ;main.c: 602:             {
 {
@@ -2125,22 +2127,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 604:             }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 567  ]
-[e :U 568 ]
+[e $ < _i -> 7 `i 568  ]
+[e :U 569 ]
 }
 "605
 [; ;main.c: 605:        }
 }
-[e $U 570  ]
+[e $U 571  ]
 "606
 [; ;main.c: 606:        else
-[e :U 566 ]
+[e :U 567 ]
 "607
 [; ;main.c: 607:        {
 {
 "608
 [; ;main.c: 608:            if ((light_array[1] == 0x00) || (light_array[1] == 0xFF))
-[e $ ! || == -> *U + &U _light_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _light_array `ui `ux `i -> 0 `i == -> *U + &U _light_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _light_array `ui `ux `i -> 255 `i 571  ]
+[e $ ! || == -> *U + &U _light_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _light_array `ui `ux `i -> 0 `i == -> *U + &U _light_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _light_array `ui `ux `i -> 255 `i 572  ]
 "609
 [; ;main.c: 609:            {
 {
@@ -2149,35 +2151,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 572  ]
-[e $U 573  ]
-[e :U 572 ]
+[e $ < _i -> 7 `i 573  ]
+[e $U 574  ]
+[e :U 573 ]
 "611
 [; ;main.c: 611:                 {
 {
 "612
-[; ;main.c: 612:                     light_array[i] = 0xFA;
-[e = *U + &U _light_array * -> -> _i `ui `ux -> -> # *U &U _light_array `ui `ux -> -> 250 `i `uc ]
+[; ;main.c: 612:                     light_array[i] = 0xF9;
+[e = *U + &U _light_array * -> -> _i `ui `ux -> -> # *U &U _light_array `ui `ux -> -> 249 `i `uc ]
 "613
 [; ;main.c: 613:                 }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 572  ]
-[e :U 573 ]
+[e $ < _i -> 7 `i 573  ]
+[e :U 574 ]
 }
 "614
 [; ;main.c: 614:            }
 }
-[e $U 575  ]
+[e $U 576  ]
 "615
 [; ;main.c: 615:            else
-[e :U 571 ]
+[e :U 572 ]
 "616
 [; ;main.c: 616:            {
 {
 "617
 [; ;main.c: 617:                 if (last_note != song3[count])
-[e $ ! != -> _last_note `i -> *U + &U _song3 * -> -> _count `ui `ux -> -> # *U &U _song3 `ui `ux `i 576  ]
+[e $ ! != -> _last_note `i -> *U + &U _song3 * -> -> _count `ui `ux -> -> # *U &U _song3 `ui `ux `i 577  ]
 "618
 [; ;main.c: 618:                 {
 {
@@ -2186,9 +2188,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 577  ]
-[e $U 578  ]
-[e :U 577 ]
+[e $ < _i -> 7 `i 578  ]
+[e $U 579  ]
+[e :U 578 ]
 "620
 [; ;main.c: 620:                     {
 {
@@ -2215,29 +2217,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 627:                     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 577  ]
-[e :U 578 ]
+[e $ < _i -> 7 `i 578  ]
+[e :U 579 ]
 }
 "628
 [; ;main.c: 628:                 }
 }
-[e :U 576 ]
+[e :U 577 ]
 "629
 [; ;main.c: 629:            }
 }
-[e :U 575 ]
+[e :U 576 ]
 "630
 [; ;main.c: 630:        }
 }
-[e :U 570 ]
-[e :U 565 ]
+[e :U 571 ]
+[e :U 566 ]
 "632
 [; ;main.c: 632:     }
 }
-[e :U 560 ]
+[e :U 561 ]
 "636
 [; ;main.c: 636:     if (song2_playing)
-[e $ ! != -> _song2_playing `i -> 0 `i 580  ]
+[e $ ! != -> _song2_playing `i -> 0 `i 581  ]
 "637
 [; ;main.c: 637:     {
 {
@@ -2250,10 +2252,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "640
 [; ;main.c: 640:     }
 }
-[e :U 580 ]
+[e :U 581 ]
 "643
 [; ;main.c: 643:     if (song3_playing)
-[e $ ! != -> _song3_playing `i -> 0 `i 581  ]
+[e $ ! != -> _song3_playing `i -> 0 `i 582  ]
 "644
 [; ;main.c: 644:     {
 {
@@ -2266,10 +2268,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "647
 [; ;main.c: 647:     }
 }
-[e :U 581 ]
+[e :U 582 ]
 "650
 [; ;main.c: 650:     if ((count > 138) && silent_night_playing)
-[e $ ! && > _count -> 138 `i != -> _silent_night_playing `i -> 0 `i 582  ]
+[e $ ! && > _count -> 138 `i != -> _silent_night_playing `i -> 0 `i 583  ]
 "651
 [; ;main.c: 651:     {
 {
@@ -2282,11 +2284,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "654
 [; ;main.c: 654:     }
 }
-[e $U 583  ]
+[e $U 584  ]
 "657
 [; ;main.c: 657:     else if ((count > song2_length) && song2_playing)
-[e :U 582 ]
-[e $ ! && > _count -> _song2_length `i != -> _song2_playing `i -> 0 `i 584  ]
+[e :U 583 ]
+[e $ ! && > _count -> _song2_length `i != -> _song2_playing `i -> 0 `i 585  ]
 "658
 [; ;main.c: 658:     {
 {
@@ -2299,11 +2301,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "661
 [; ;main.c: 661:     }
 }
-[e $U 585  ]
+[e $U 586  ]
 "664
 [; ;main.c: 664:     else if ((count > song3_length) && song3_playing)
-[e :U 584 ]
-[e $ ! && > _count -> _song3_length `i != -> _song3_playing `i -> 0 `i 586  ]
+[e :U 585 ]
+[e $ ! && > _count -> _song3_length `i != -> _song3_playing `i -> 0 `i 587  ]
 "665
 [; ;main.c: 665:     {
 {
@@ -2315,7 +2317,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _count -> 0 `i ]
 "669
 [; ;main.c: 669:         if (cole_counter < 2)
-[e $ ! < -> _cole_counter `i -> 2 `i 587  ]
+[e $ ! < -> _cole_counter `i -> 2 `i 588  ]
 "670
 [; ;main.c: 670:         {
 {
@@ -2331,13 +2333,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "674
 [; ;main.c: 674:         }
 }
-[e :U 587 ]
+[e :U 588 ]
 "676
 [; ;main.c: 676:     }
 }
+[e :U 587 ]
 [e :U 586 ]
-[e :U 585 ]
-[e :U 583 ]
+[e :U 584 ]
 "679
 [; ;main.c: 679: }
 [e :UE 529 ]
@@ -2358,7 +2360,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "685
 [; ;main.c: 685:     if (note != last_note)
-[e $ ! != -> _note `i -> _last_note `i 589  ]
+[e $ ! != -> _note `i -> _last_note `i 590  ]
 "686
 [; ;main.c: 686:     {
 {
@@ -2368,10 +2370,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "688
 [; ;main.c: 688:     }
 }
-[e :U 589 ]
+[e :U 590 ]
 "690
 [; ;main.c: 690:     if (prescale != last_prescale)
-[e $ ! != -> _prescale `i -> _last_prescale `i 590  ]
+[e $ ! != -> _prescale `i -> _last_prescale `i 591  ]
 "691
 [; ;main.c: 691:     {
 {
@@ -2381,7 +2383,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "693
 [; ;main.c: 693:     }
 }
-[e :U 590 ]
+[e :U 591 ]
 "694
 [; ;main.c: 694:     last_note = note;
 [e = _last_note _note ]
@@ -2390,7 +2392,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _last_prescale _prescale ]
 "696
 [; ;main.c: 696: }
-[e :UE 588 ]
+[e :UE 589 ]
 }
 "699
 [; ;main.c: 699: void Initialize_Matrix(void)
@@ -2402,24 +2404,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "702
 [; ;main.c: 702:     do { LATCbits.LATC0 = 0; } while(0);
-[e :U 594 ]
+[e :U 595 ]
 {
 [e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 593 ]
+[e :U 594 ]
 "703
 [; ;main.c: 703:     shiftBytes(0xFF, 0x00);
 [e ( _shiftBytes (2 , -> -> 255 `i `uc -> -> 0 `i `uc ]
 "704
 [; ;main.c: 704:     do { LATCbits.LATC2 = 0; } while(0);
-[e :U 597 ]
+[e :U 598 ]
 {
 [e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
 }
-[e :U 596 ]
+[e :U 597 ]
 "705
 [; ;main.c: 705: }
-[e :UE 591 ]
+[e :UE 592 ]
 }
 "708
 [; ;main.c: 708: void shiftBytes(uint8_t highSide, uint8_t lowSide)
@@ -2443,21 +2445,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SPI1_ExchangeByte (1 _highSide ]
 "714
 [; ;main.c: 714:     do { LATCbits.LATC4 = 1; } while(0);
-[e :U 601 ]
+[e :U 602 ]
 {
 [e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
 }
-[e :U 600 ]
+[e :U 601 ]
 "716
 [; ;main.c: 716:     do { LATCbits.LATC4 = 0; } while(0);
-[e :U 604 ]
+[e :U 605 ]
 {
 [e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
 }
-[e :U 603 ]
+[e :U 604 ]
 "717
 [; ;main.c: 717: }
-[e :UE 598 ]
+[e :UE 599 ]
 }
 "720
 [; ;main.c: 720: void displayMatrix(uint8_t states[8])
@@ -2481,15 +2483,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 7 `i 606  ]
-[e $U 607  ]
-[e :U 606 ]
+[e $ < _i -> 7 `i 607  ]
+[e $U 608  ]
+[e :U 607 ]
 "726
 [; ;main.c: 726:     {
 {
 "727
 [; ;main.c: 727:         if (!lowSide)
-[e $ ! ! != -> _lowSide `i -> 0 `i 609  ]
+[e $ ! ! != -> _lowSide `i -> 0 `i 610  ]
 "728
 [; ;main.c: 728:         {
 {
@@ -2499,10 +2501,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "730
 [; ;main.c: 730:         }
 }
-[e $U 610  ]
+[e $U 611  ]
 "731
 [; ;main.c: 731:         else
-[e :U 609 ]
+[e :U 610 ]
 "732
 [; ;main.c: 732:         {
 {
@@ -2512,7 +2514,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "734
 [; ;main.c: 734:         }
 }
-[e :U 610 ]
+[e :U 611 ]
 "736
 [; ;main.c: 736:         shiftBytes(states[i], lowSide);
 [e ( _shiftBytes (2 , *U + _states * -> _i `x -> -> # *U _states `i `x _lowSide ]
@@ -2523,10 +2525,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 738:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 7 `i 606  ]
-[e :U 607 ]
+[e $ < _i -> 7 `i 607  ]
+[e :U 608 ]
 }
 "739
 [; ;main.c: 739: }
-[e :UE 605 ]
+[e :UE 606 ]
 }
