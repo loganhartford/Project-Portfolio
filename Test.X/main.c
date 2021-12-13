@@ -175,6 +175,8 @@ uint8_t song3_pre[] = {0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
 uint8_t timer_high_3 = 0xEA;
 uint8_t timer_low_3 = 0x34;
 uint8_t song3_length = 66;
+bool change_lights = 0;
+uint8_t dream_lights[] = {0x00, 0xE8, 0xBE, 0xFE, 0xBD, 0xA0, 0x00};
 #endif
 
 // Contains the state of the LEDs as any given point in time.
@@ -241,12 +243,17 @@ void main(void)
     
     // LEDs
     EN_MATRIX_n_SetLow();  // Turn on load switch
+    
+//    while(1)
+//    {
+//        displayMatrix(dream_lights);
+//    }
         
     // TMR0 and TMR1 will run during sleep
     while (1)
     {
         T0CON0bits.T0EN = 1;        // Enable TMR0
-        shiftBytes(0xFE, 0x08);     // ON indicator
+        shiftBytes(0x02, 0x01);     // ON indicator
         OE_n_SetLow();              // Enable shift register output 
         EN_MATRIX_n_SetLow();       // Turn on load switch
         if (presses && TMR0_complete)
@@ -277,13 +284,13 @@ void main(void)
                     song2_playing = 1;
                     break;
                 case 3: // Song 3
-                    light_array[0] = 0xAA;
-                    light_array[1] = 0xAA;
-                    light_array[2] = 0xAA;
-                    light_array[3] = 0xAA;
-                    light_array[4] = 0xAA;
-                    light_array[5] = 0xAA;
-                    light_array[6] = 0xAA;
+                    light_array[0] = 0x00;
+                    light_array[1] = 0xE8;
+                    light_array[2] = 0xBE;
+                    light_array[3] = 0xFE;
+                    light_array[4] = 0xBD;
+                    light_array[5] = 0xA0;
+                    light_array[6] = 0x00;
                     song3_playing = 1;
                     break; 
             }
@@ -436,24 +443,65 @@ void TMR1_ISR_(void)
 #endif
     }
     
-    // Update the song 2 LED matrix
+    // Update the song 3 LED matrix
     if (song3_playing)
     {
 #ifdef dreams
-       if (count < 62)
+       if (count < 58)
        {
-           if (last_note != song2[count])
+           if ((last_prescale != song3_pre[count]) && (song3[count] != 0))
            {
-               for (int i = 0; i < 7; i = i + 2)
+               if (change_lights)
                {
-                   uint8_t lights = light_array[i] >> 7;
-                   light_array[i] = (light_array[i] << 1) + lights;
+                   for (int i = 0; i < 7; i++)
+                    {
+                        light_array[i] = dream_lights[i];
+                    }
+                   change_lights = 0;
                }
-               for (int i = 1; i < 7; i = i + 2)
+               else 
                {
-                   uint8_t lights = light_array[i] << 7;
-                   light_array[i] = (light_array[i] >> 1) + 0x80;
+                   for (int i = 0; i < 7; i++)
+                    {
+                        light_array[i] = ~dream_lights[i];
+                    }
+                   change_lights = 1;              
                }
+           }
+       }
+       else if (count < 62)
+       {
+           for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = 0xFF;
+            }
+       }
+       else
+       {
+           uint8_t dream_sw = count - 61;
+           switch(dream_sw)
+           {
+               case 1:
+                   light_array[0] = 0xFF;
+                   light_array[1] = 0xFF;
+                   light_array[2] = 0xF3;
+                   light_array[3] = 0xE3;
+                   light_array[4] = 0xE3;
+                   light_array[5] = 0xFF;
+                   light_array[6] = 0xFF;
+                   break;
+               case 2:
+                   for (int i = 0; i < 7; i++)
+                    {
+                        light_array[i] = !dream_lights[i];
+                    }
+                   break;
+               case 3:
+                   for (int i = 0; i < 7; i++)
+                    {
+                        light_array[i] = 0x00;
+                    }
+                   break;
            }
        }
 #endif
