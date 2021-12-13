@@ -45,17 +45,17 @@ TMR2_PWM4_OUT 4
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "238 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"422
+"432
 [v _EXT_ISR EXT_ISR `(v  1 e 1 0 ]
-"446
+"456
 [v _TMR0_ISR_ TMR0_ISR_ `(v  1 e 1 0 ]
-"452
+"462
 [v _TMR1_ISR_ TMR1_ISR_ `(v  1 e 1 0 ]
-"631
+"682
 [v _playNote playNote `(v  1 e 1 0 ]
-"657
+"708
 [v _shiftBytes shiftBytes `(v  1 e 1 0 ]
-"669
+"720
 [v _displayMatrix displayMatrix `(v  1 e 1 0 ]
 "33 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_ISR INT_ISR `(v  1 e 1 0 ]
@@ -518,50 +518,50 @@ TMR2_PWM4_OUT 4
 [v _main main `(v  1 e 1 0 ]
 {
 "308
-[v main@light light `uc  1 a 1 9 ]
+[v main@light light `uc  1 a 1 0 ]
 "314
-[v main@j_1167 j `i  1 a 2 16 ]
+[v main@j_1167 j `i  1 a 2 7 ]
 "306
-[v main@j_1165 j `i  1 a 2 14 ]
+[v main@j_1165 j `i  1 a 2 5 ]
 "300
-[v main@j j `i  1 a 2 10 ]
+[v main@j j `i  1 a 2 1 ]
 "298
-[v main@i i `i  1 a 2 12 ]
-"416
+[v main@i i `i  1 a 2 3 ]
+"426
 } 0
-"631
+"682
 [v _playNote playNote `(v  1 e 1 0 ]
 {
 [v playNote@note note `uc  1 a 1 wreg ]
 [v playNote@note note `uc  1 a 1 wreg ]
 [v playNote@prescale prescale `uc  1 p 1 2 ]
-"634
+"685
 [v playNote@note note `uc  1 a 1 4 ]
-"645
+"696
 } 0
-"669
+"720
 [v _displayMatrix displayMatrix `(v  1 e 1 0 ]
 {
 [v displayMatrix@states states `*.4uc  1 a 1 wreg ]
-"674
+"725
 [v displayMatrix@i i `i  1 a 2 1 ]
-"673
+"724
 [v displayMatrix@lowSide lowSide `uc  1 a 1 3 ]
-"669
+"720
 [v displayMatrix@states states `*.4uc  1 a 1 wreg ]
-"673
+"724
 [v displayMatrix@states states `*.4uc  1 a 1 0 ]
-"688
+"739
 } 0
-"657
+"708
 [v _shiftBytes shiftBytes `(v  1 e 1 0 ]
 {
 [v shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v shiftBytes@lowSide lowSide `uc  1 p 1 3 ]
-"660
+"711
 [v shiftBytes@highSide highSide `uc  1 a 1 4 ]
-"666
+"717
 } 0
 "97 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
 [v _SPI1_ExchangeByte SPI1_ExchangeByte `(uc  1 e 1 0 ]
@@ -661,28 +661,38 @@ TMR2_PWM4_OUT 4
 {
 "185
 } 0
-"452 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"462 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _TMR1_ISR_ TMR1_ISR_ `(v  1 e 1 0 ]
 {
-"465
+"621
+[v TMR1_ISR_@lights_1186 lights `uc  1 a 1 17 ]
+"619
+[v TMR1_ISR_@i_1185 i `i  1 a 2 22 ]
+"475
 [v TMR1_ISR_@lights lights `uc  1 a 1 0 ]
-"510
-[v TMR1_ISR_@i_1181 i `i  1 a 2 9 ]
-"481
+"610
+[v TMR1_ISR_@i_1184 i `i  1 a 2 9 ]
+"520
+[v TMR1_ISR_@i_1181 i `i  1 a 2 15 ]
+"491
 [v TMR1_ISR_@lights_1177 lights `uc  1 a 1 1 ]
-"463
-[v TMR1_ISR_@i i `i  1 a 2 11 ]
-"509
+"473
+[v TMR1_ISR_@i i `i  1 a 2 18 ]
+"601
+[v TMR1_ISR_@i_1183 i `i  1 a 2 7 ]
+"594
+[v TMR1_ISR_@i_1182 i `i  1 a 2 5 ]
+"519
 [v TMR1_ISR_@lights_1180 lights `uc  1 a 1 2 ]
-"500
+"510
 [v TMR1_ISR_@i_1179 i `i  1 a 2 3 ]
-"493
-[v TMR1_ISR_@i_1178 i `i  1 a 2 7 ]
-"479
-[v TMR1_ISR_@i_1176 i `i  1 a 2 13 ]
-"472
-[v TMR1_ISR_@i_1175 i `i  1 a 2 5 ]
-"628
+"503
+[v TMR1_ISR_@i_1178 i `i  1 a 2 13 ]
+"489
+[v TMR1_ISR_@i_1176 i `i  1 a 2 20 ]
+"482
+[v TMR1_ISR_@i_1175 i `i  1 a 2 11 ]
+"679
 } 0
 "134 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/tmr0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
@@ -694,10 +704,10 @@ TMR2_PWM4_OUT 4
 {
 "158
 } 0
-"446 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"456 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _TMR0_ISR_ TMR0_ISR_ `(v  1 e 1 0 ]
 {
-"449
+"459
 } 0
 "33 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_ISR INT_ISR `(v  1 e 1 0 ]
@@ -709,10 +719,10 @@ TMR2_PWM4_OUT 4
 {
 "61
 } 0
-"422 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"432 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _EXT_ISR EXT_ISR `(v  1 e 1 0 ]
 {
-"443
+"453
 } 0
 "67 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]

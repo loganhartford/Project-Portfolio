@@ -5977,7 +5977,7 @@ uint8_t song3_pre[] = {0xD0, 0xD0,
 # 200 "main.c"
 uint8_t timer_high_3 = 0xEF;
 uint8_t timer_low_3 = 0x88;
-uint8_t song3_length = 32;
+uint8_t song3_length = 31;
 uint8_t cole_counter = 0;
 # 233 "main.c"
 uint8_t light_array[] = {0xFE, 0xFF, 0xFE, 0xFF, 0xFE, 0xFF, 0xFE};
@@ -6102,17 +6102,18 @@ void main(void)
                     song2_playing = 1;
                     break;
                 case 3:
-                    light_array[0] = 0x00;
-                    light_array[1] = 0xE8;
-                    light_array[2] = 0xBE;
-                    light_array[3] = 0xFE;
-                    light_array[4] = 0xBD;
-                    light_array[5] = 0xA0;
-                    light_array[6] = 0x00;
-                    song3_playing = 1;
-
+# 372 "main.c"
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xFF;
+                    light_array[3] = 0xFF;
+                    light_array[4] = 0xFF;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
                     cole_counter = 0;
 
+
+                    song3_playing = 1;
                     break;
             }
             T1CONbits.TMR1ON = 1;
@@ -6262,7 +6263,47 @@ void TMR1_ISR_(void)
 
     if (song3_playing)
     {
-# 581 "main.c"
+# 592 "main.c"
+       if (song3[count] == 212)
+       {
+           for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = 0x00;
+            }
+       }
+       else if (song3[count] == 0)
+       {
+           for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = 0xFF;
+            }
+       }
+       else
+       {
+           if ((light_array[1] == 0x00) || (light_array[1] == 0xFF))
+           {
+                for (int i = 0; i < 7; i++)
+                {
+                    light_array[i] = 0xFA;
+                }
+           }
+           else
+           {
+                if (last_note != song3[count])
+                {
+                    for (int i = 0; i < 7; i++)
+                    {
+                        uint8_t lights = (light_array[i]) << 1;
+                        lights = lights >> 7;
+                        light_array[i] = (light_array[i] << 1) + lights;
+                        lights = (light_array[i]) << 1;
+                        lights = lights >> 7;
+                        light_array[i] = (light_array[i] << 1) + lights;
+                    }
+                }
+           }
+       }
+
     }
 
 
