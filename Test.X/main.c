@@ -48,8 +48,8 @@
 #define coc
 
 // Third song Selection--Only define one at a time
-//#define jcole
-#define dreams
+#define jcole
+//#define dreams
 
 // Track which song is being played
 bool silent_night_playing = 0;
@@ -139,20 +139,68 @@ uint8_t song2_length = 16;
 
 // Song 3 Variables
 #ifdef jcole
-uint8_t song3[] =  {141, 141, 141, 141, 168, 168, 168, 168,
-                    168, 168, 168, 168, 141, 141, 141, 141, 
-                    141, 141, 141, 141, 252, 252, 252, 252,
-                    212, 212, 212, 212, 212, 212, 212, 212,
-                    168, 168, 168, 168, 168, 168, 168, 168,
-                    141, 141, 141, 141, 168, 168, 168, 168,
-                    168, 168, 168, 168, 141, 141, 141, 141, 
-                    141, 141, 141, 141, 252, 252, 252, 252,
-                    212, 212, 212, 212, 212, 212, 212, 212,
-                    168, 168, 168, 168, 168, 168, 168, 168};
-uint8_t song3_pre[] = {0xE0};
-uint8_t timer_high_3 = 0xED;
-uint8_t timer_low_3 = 0xD6;
-uint8_t song3_length = 80;
+//uint8_t song3[] =  {141, 141, 141, 141, 168, 168, 168, 168,
+//                    168, 168, 168, 168, 141, 141, 141, 141, 
+//                    141, 141, 141, 141, 252, 252, 252, 252,
+//                    212, 212, 212, 212, 212, 212, 212, 212,
+//                    168, 168, 168, 168, 168, 168, 168, 168,
+//                    141, 141, 141, 141, 168, 168, 168, 168,
+//                    168, 168, 168, 168, 141, 141, 141, 141, 
+//                    141, 141, 141, 141, 252, 252, 252, 252,
+//                    212, 212, 212, 212, 212, 212, 212, 212,
+//                    168, 168, 168, 168, 168, 168, 168, 168};
+uint8_t song3[] = {212, 0, 
+                   212, 238, 
+                   252, 238, 
+                   252, 141, 
+                   158, 158,
+                   212,   0,
+                   212, 212,
+                     0,   0,
+                     0,   0, 
+                   212, 238, 
+                   252, 238, 
+                   252, 141, 
+                   158, 158,
+                   212,   0,
+                   212, 212,
+                     0,   0};
+uint8_t song3_pre[] = {0xD0, 0xD0, 
+                       0xD0, 0xD0, 
+                       0xD0, 0xD0, 
+                       0xD0, 0xE0,
+                       0xE0, 0xE0,
+                       0xE0, 0xE0,
+                       0xE0, 0xE0,
+                       0xD0, 0xD0,
+                       0xD0, 0xD0, 
+                       0xD0, 0xD0, 
+                       0xD0, 0xD0, 
+                       0xD0, 0xE0,
+                       0xE0, 0xE0,
+                       0xE0, 0xE0,
+                       0xE0, 0xE0,
+                       0xD0, 0xD0};
+//uint8_t song3_pre[] = {0xC0, 0xC0, 
+//                       0xC0, 0xC0, 
+//                       0xC0, 0xC0,
+//                       0xC0, 0xD0,
+//                       0xD0, 0xD0,
+//                       0xD0, 0xD0,
+//                       0xD0, 0xD0,
+//                       0xC0, 0xC0,
+//                       0xC0, 0xC0, 
+//                       0xC0, 0xC0, 
+//                       0xC0, 0xC0,
+//                       0xC0, 0xD0,
+//                       0xD0, 0xD0,
+//                       0xD0, 0xD0,
+//                       0xD0, 0xD0,
+//                       0xC0, 0xC0};
+uint8_t timer_high_3 = 0xEF;
+uint8_t timer_low_3 = 0x88;
+uint8_t song3_length = 32;
+uint8_t cole_counter = 0;
 #endif
 
 #ifdef dreams
@@ -319,6 +367,9 @@ void main(void)
                     light_array[5] = 0xA0;
                     light_array[6] = 0x00;
                     song3_playing = 1;
+#ifdef jcole
+                    cole_counter = 0;
+#endif
                     break; 
             }
             T1CONbits.TMR1ON = 1;   // Enable TMR1
@@ -339,12 +390,7 @@ void main(void)
             // Song 3
             while (presses == 3)
             {
-                uint8_t pre;
-                pre = song3_pre[count];
-#ifdef jcole // This saves some data when jcole is defined
-                pre = 0xE0;
-#endif
-                playNote(song3[count], pre);
+                playNote(song3[count], song3_pre[count]);
                 displayMatrix(light_array);
             }
             presses = 0;                // Reset presses 
@@ -549,8 +595,6 @@ void TMR1_ISR_(void)
         TMR1L = timer_low_3;
     }
     
-    
-    
     // If silent night is over, sleep
     if ((count > 138) && silent_night_playing)
     {
@@ -570,6 +614,14 @@ void TMR1_ISR_(void)
     {
         presses = 0;            // Reset presses
         count = 0;              // Reset beat counter
+#ifdef jcole
+        if (cole_counter < 2)
+        {
+            count = 0;
+            presses = 3;
+            cole_counter++;
+        }
+#endif
     }
     
     

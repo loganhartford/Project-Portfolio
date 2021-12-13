@@ -5941,33 +5941,45 @@ uint8_t song2_pre[] = {0xC0, 0xC0, 0xC0, 0xB0, 0xB0, 0xB0, 0xB0, 0xB0, 0xB0,
 uint8_t timer_high_2 = 0xF3;
 uint8_t timer_low_2 = 0xE4;
 uint8_t song2_length = 16;
-# 159 "main.c"
-uint8_t song3[] = { 0, 0, 212, 212, 212, 212, 212, 212,
-                    212, 212, 212, 212, 0, 212, 212, 212,
-                    212, 212, 212, 212, 212, 212, 212, 212,
-                    212, 212, 212, 212, 0, 212, 212, 212,
-                    0, 0, 212, 212, 212, 212, 212, 212,
-                    212, 212, 212, 212, 0, 212, 212, 212,
-                    212, 212, 212, 212, 212, 212, 212, 212,
-                    212, 212, 212, 212, 0, 0,
-                    237, 212, 176, 176};
-uint8_t song3_pre[] = {0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
-                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
-                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
-                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
-                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
-                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
-                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
-                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0x00,
-                       0xD0, 0xD0, 0xD0, 0xD0};
-uint8_t timer_high_3 = 0xEA;
-uint8_t timer_low_3 = 0x34;
-uint8_t song3_length = 66;
-_Bool change_lights = 0;
-uint8_t dream_lights[] = {0x00, 0xE8, 0xBE, 0xFE, 0xBD, 0xA0, 0x00};
-
-
-
+# 152 "main.c"
+uint8_t song3[] = {212, 0,
+                   212, 238,
+                   252, 238,
+                   252, 141,
+                   158, 158,
+                   212, 0,
+                   212, 212,
+                     0, 0,
+                     0, 0,
+                   212, 238,
+                   252, 238,
+                   252, 141,
+                   158, 158,
+                   212, 0,
+                   212, 212,
+                     0, 0};
+uint8_t song3_pre[] = {0xD0, 0xD0,
+                       0xD0, 0xD0,
+                       0xD0, 0xD0,
+                       0xD0, 0xE0,
+                       0xE0, 0xE0,
+                       0xE0, 0xE0,
+                       0xE0, 0xE0,
+                       0xD0, 0xD0,
+                       0xD0, 0xD0,
+                       0xD0, 0xD0,
+                       0xD0, 0xD0,
+                       0xD0, 0xE0,
+                       0xE0, 0xE0,
+                       0xE0, 0xE0,
+                       0xE0, 0xE0,
+                       0xD0, 0xD0};
+# 200 "main.c"
+uint8_t timer_high_3 = 0xEF;
+uint8_t timer_low_3 = 0x88;
+uint8_t song3_length = 32;
+uint8_t cole_counter = 0;
+# 233 "main.c"
 uint8_t light_array[] = {0xFE, 0xFF, 0xFE, 0xFF, 0xFE, 0xFF, 0xFE};
 
 
@@ -5986,7 +5998,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 211 "main.c"
+# 259 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -6098,6 +6110,9 @@ void main(void)
                     light_array[5] = 0xA0;
                     light_array[6] = 0x00;
                     song3_playing = 1;
+
+                    cole_counter = 0;
+
                     break;
             }
             T1CONbits.TMR1ON = 1;
@@ -6118,12 +6133,7 @@ void main(void)
 
             while (presses == 3)
             {
-                uint8_t pre;
-                pre = song3_pre[count];
-
-
-
-                playNote(song3[count], pre);
+                playNote(song3[count], song3_pre[count]);
                 displayMatrix(light_array);
             }
             presses = 0;
@@ -6252,65 +6262,7 @@ void TMR1_ISR_(void)
 
     if (song3_playing)
     {
-
-       if (count < 58)
-       {
-           if ((last_prescale != song3_pre[count]) && (song3[count] != 0))
-           {
-               if (change_lights)
-               {
-                   for (int i = 0; i < 7; i++)
-                    {
-                        light_array[i] = dream_lights[i];
-                    }
-                   change_lights = 0;
-               }
-               else
-               {
-                   for (int i = 0; i < 7; i++)
-                    {
-                        light_array[i] = ~dream_lights[i];
-                    }
-                   change_lights = 1;
-               }
-           }
-       }
-       else if (count < 62)
-       {
-           for (int i = 0; i < 7; i++)
-            {
-                light_array[i] = 0xFF;
-            }
-       }
-       else
-       {
-           uint8_t dream_sw = count - 61;
-           switch(dream_sw)
-           {
-               case 1:
-                   light_array[0] = 0xFF;
-                   light_array[1] = 0xFF;
-                   light_array[2] = 0xF3;
-                   light_array[3] = 0xE3;
-                   light_array[4] = 0xE3;
-                   light_array[5] = 0xFF;
-                   light_array[6] = 0xFF;
-                   break;
-               case 2:
-                   for (int i = 0; i < 7; i++)
-                    {
-                        light_array[i] = !dream_lights[i];
-                    }
-                   break;
-               case 3:
-                   for (int i = 0; i < 7; i++)
-                    {
-                        light_array[i] = 0x00;
-                    }
-                   break;
-           }
-       }
-
+# 581 "main.c"
     }
 
 
@@ -6327,8 +6279,6 @@ void TMR1_ISR_(void)
         TMR1H = timer_high_3;
         TMR1L = timer_low_3;
     }
-
-
 
 
     if ((count > 138) && silent_night_playing)
@@ -6349,6 +6299,14 @@ void TMR1_ISR_(void)
     {
         presses = 0;
         count = 0;
+
+        if (cole_counter < 2)
+        {
+            count = 0;
+            presses = 3;
+            cole_counter++;
+        }
+
     }
 
 
