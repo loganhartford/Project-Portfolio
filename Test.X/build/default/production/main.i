@@ -5932,14 +5932,16 @@ uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
 
 
-uint8_t song2[] = {211, 158, 141, 211, 188, 188, 0, 0,
+uint8_t song2[] = {211, 158, 141, 211, 188, 188, 0, 0, 0,
                    188, 188, 158, 158, 188, 188, 141, 141, 141};
-uint8_t song2_pre[] = {0xB0, 0xB0, 0xB0, 0xA0, 0xA0, 0xA0, 0xA0, 0xA0,
-                       0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0};
+
+
+uint8_t song2_pre[] = {0xC0, 0xC0, 0xC0, 0xB0, 0xB0, 0xB0, 0xB0, 0xB0, 0xB0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
 uint8_t timer_high_2 = 0xF3;
 uint8_t timer_low_2 = 0xE4;
 uint8_t song2_length = 16;
-# 157 "main.c"
+# 159 "main.c"
 uint8_t song3[] = { 0, 0, 212, 212, 212, 212, 212, 212,
                     212, 212, 212, 212, 0, 212, 212, 212,
                     212, 212, 212, 212, 212, 212, 212, 212,
@@ -5966,7 +5968,7 @@ uint8_t dream_lights[] = {0x00, 0xE8, 0xBE, 0xFE, 0xBD, 0xA0, 0x00};
 
 
 
-uint8_t light_array[] = {0};
+uint8_t light_array[] = {0xFE, 0xFF, 0xFE, 0xFF, 0xFE, 0xFF, 0xFE};
 
 
 
@@ -5984,7 +5986,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 209 "main.c"
+# 211 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -6022,6 +6024,31 @@ void main(void)
 
 
     do { LATCbits.LATC0 = 0; } while(0);
+
+
+    for (int i = 0; i < 15; i++)
+    {
+        for (int j = 0; j < 12; j++)
+        {
+            displayMatrix(light_array);
+        }
+        if (i < 7)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                uint8_t light = (~light_array[j]) << 7;
+                light_array[j] = (light_array[j] << 1) + (light >> 7);
+            }
+        }
+        else
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                uint8_t light = (~light_array[j]);
+                light_array[j] = (light_array[j] << 1) + 1;
+            }
+        }
+    }
 
 
 
