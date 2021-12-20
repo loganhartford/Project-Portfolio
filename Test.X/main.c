@@ -45,11 +45,12 @@
 #include "mcc_generated_files/pin_manager.h"
 
 // Second Song Selection--Only define one at a time
-#define coc
+//#define coc
+#define river
 
 // Third song Selection--Only define one at a time
-#define jcole
-//#define dreams
+//#define jcole
+#define dreams
 
 // Track which song is being played
 bool silent_night_playing = 0;
@@ -76,6 +77,9 @@ void playNote(uint8_t note, uint8_t prescale);
 void EXT_ISR(void);
 void TMR0_ISR_(void);
 void TMR1_ISR_(void);
+
+
+
 
 // Silent night notes and TMR2 prescalers.
 uint8_t silent_night[] = {158, 158, 158, 141, 158, 158, 
@@ -135,6 +139,25 @@ uint8_t song2_pre[] = {0xC0, 0xC0, 0xC0, 0xB0, 0xB0, 0xB0, 0xB0, 0xB0, 0xB0,
 uint8_t timer_high_2 = 0xF3;
 uint8_t timer_low_2 = 0xE4;
 uint8_t song2_length = 16;
+#endif
+
+
+#ifdef river
+// Notes
+
+uint8_t song2[] =    {238, 238, 189, 189, 158, 158,
+                      158, 158, 158, 158, 141, 141, 141, 141, 158, 158, 189, 189, 189, 189, 189, 158,
+                      141, 141, 141, 141, 141, 141, 158, 158, 158, 158, 158, 158,   0,   0, 189, 158,
+                      141, 141, 141, 141, 141, 141, 158, 158, 158, 158, 158, 158, 158, 158, 158, 178,
+                      178, 178, 189, 178, 178, 178, 158, 158, 141, 141, 158, 158, 189, 189, 158, 158, 
+                      158, 158, 158, 158, 141, 141, 158, 158, 158, 158, 189, 189, 189, 189, 189, 189,};
+uint8_t song2_2[] =  {141, 141, 141, 141, 141, 141, 252, 252, 189, 189, 212, 212, 178, 178, 141, 141, 
+                      158, 158, 158, 158, 141, 141, 141, 141, 158, 158, 189, 189, 189, 189, 238, 212, 
+                      189, 189, 189, 212, 212, 212, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 0};
+uint8_t song2_pre[] = {};
+uint8_t timer_high_2 = 0xE8;
+uint8_t timer_low_2 = 0x25;
+uint8_t song2_length = 133;
 #endif
 
 // Song 3 Variables
@@ -204,15 +227,29 @@ uint8_t cole_counter = 0;
 #endif
 
 #ifdef dreams
+const uint8_t b = 252;
+const uint8_t c = 238;
+const uint8_t d = 212;
+const uint8_t e = 189;
+const uint8_t f = 178;
+const uint8_t g = 158;
+const uint8_t a = 141;
 uint8_t song3[] =  {  0,   0, 212, 212, 212, 212, 212, 212,
                     212, 212, 212, 212,   0, 212, 212, 212,
                     212, 212, 212, 212, 212, 212, 212, 212,
                     212, 212, 212, 212,   0, 212, 212, 212,
-                    0,     0, 212, 212, 212, 212, 212, 212,
+                      0,   0, 212, 212, 212, 212, 212, 212,
                     212, 212, 212, 212,   0, 212, 212, 212,
                     212, 212, 212, 212, 212, 212, 212, 212,
                     212, 212, 212, 212,   0,   0, 
-                    237, 212, 176, 176};
+                    237, 212, 178, 
+                    178, 178, 178, 178, 178, 178, 212, 238,
+                    178, 178, 212, 178, 178, 178, 212, 238,
+                    212, 178,   0,   0,   0,   0, 212, 238,
+                    141, 158, 178, 178, 178, 178, 178, 212,
+                    238, 178,   0,   0,   0,   0, 141, 141,
+                    141, 141, 158, 158, 158, 158, 178, 141,
+                    141, 158, 178, 212, 212, 212,   0,   0,};
 uint8_t song3_pre[] = {0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
                        0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
                        0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
@@ -221,10 +258,17 @@ uint8_t song3_pre[] = {0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
                        0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
                        0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
                        0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0x00, 
-                       0xD0, 0xD0, 0xD0, 0xD0};
+                       0xD0, 0xD0, 0xD0, 
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,};
 uint8_t timer_high_3 = 0xEA;
 uint8_t timer_low_3 = 0x34;
-uint8_t song3_length = 66;
+uint8_t song3_length = 121;
 bool change_lights = 0;
 uint8_t dream_lights[] = {0x00, 0xE8, 0xBE, 0xFE, 0xBD, 0xA0, 0x00};
 #endif
@@ -394,8 +438,30 @@ void main(void)
             // Song 2
             while (presses == 2)
             {
+#ifdef river
+                if (count > 84)
+                {
+                    uint8_t pre = 0xD0l;
+                    if ((count >= 91) && (count <= 96))
+                    {
+                        pre = 0xC0;
+                    }
+                    else 
+                    {
+                        pre = 0xD0;
+                    }
+                    playNote(song2_2[count - 85], pre);
+                    displayMatrix(light_array);
+                }
+                else 
+                {
+                    playNote(song2[count], 0xD0);
+                    displayMatrix(light_array);  
+                }
+#else           
                 playNote(song2[count], song2_pre[count]);
                 displayMatrix(light_array);
+#endif
             }
             // Song 3
             while (presses == 3)
@@ -635,6 +701,9 @@ void TMR1_ISR_(void)
     // Set the BPM to the correct value for song 2
     if (song2_playing)
     {
+#ifdef river
+        //playNote(0, 0);
+#endif
         TMR1H = timer_high_2;
         TMR1L = timer_low_2;
     }
