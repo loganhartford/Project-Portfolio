@@ -372,7 +372,7 @@ void main(void)
     while (1)
     {
         T0CON0bits.T0EN = 1;        // Enable TMR0
-        shiftBytes(0x02, 0x01);     // ON indicator
+        shiftBytes(0xFE, 0x08);     // ON indicator
         OE_n_SetLow();              // Enable shift register output 
         EN_MATRIX_n_SetLow();       // Turn on load switch
         if (presses && TMR0_complete)
@@ -393,6 +393,7 @@ void main(void)
                     silent_night_playing = 1;
                     break;
                 case 2: // Song 2
+#ifdef coc
                     light_array[0] = 0xFE;
                     light_array[1] = 0xFE;
                     light_array[2] = 0xFE;
@@ -400,6 +401,16 @@ void main(void)
                     light_array[4] = 0xFE;
                     light_array[5] = 0xFE;
                     light_array[6] = 0xFE;
+#endif
+#ifdef river
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xFF;
+                    light_array[3] = 0xFF;
+                    light_array[4] = 0xFF;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
+#endif
                     song2_playing = 1;
                     break;
                 case 3: // Song 3
@@ -563,6 +574,49 @@ void TMR1_ISR_(void)
     // Update the song 2 LED matrix
     if (song2_playing)
     {
+#ifdef river
+        if (count < 34)
+        {
+            if (last_note != song2[count])
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    light_array[i] = light_array[i] >> 1;
+                }
+            }  
+        }
+        else if (count < 37)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = 0x00;
+            }
+        }
+        else if (count > 37 && count < 44)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                uint8_t light = (~light_array[j]) << 7;
+                light_array[j] = (light_array[j] << 1) + (light >> 7);
+            }
+        }
+        else if (count > 44 && count < 125)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                uint8_t lights = light_array[i] >> 7;
+                light_array[i] = (light_array[i] << 1) + lights;
+            } 
+        }
+        else
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                uint8_t light = (~light_array[j]);
+                light_array[j] = (light_array[j] << 1) + 1;
+            }
+        }
+#endif
 #ifdef coc
         if (count < 8)
         {

@@ -6086,7 +6086,7 @@ void main(void)
     while (1)
     {
         T0CON0bits.T0EN = 1;
-        shiftBytes(0x02, 0x01);
+        shiftBytes(0xFE, 0x08);
         do { LATCbits.LATC2 = 0; } while(0);
         do { LATCbits.LATC0 = 0; } while(0);
         if (presses && TMR0_complete)
@@ -6107,13 +6107,15 @@ void main(void)
                     silent_night_playing = 1;
                     break;
                 case 2:
-                    light_array[0] = 0xFE;
-                    light_array[1] = 0xFE;
-                    light_array[2] = 0xFE;
-                    light_array[3] = 0xFE;
-                    light_array[4] = 0xFE;
-                    light_array[5] = 0xFE;
-                    light_array[6] = 0xFE;
+# 406 "main.c"
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xFF;
+                    light_array[3] = 0xFF;
+                    light_array[4] = 0xFF;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
+
                     song2_playing = 1;
                     break;
                 case 3:
@@ -6125,7 +6127,7 @@ void main(void)
                     light_array[4] = 0xBD;
                     light_array[5] = 0xA0;
                     light_array[6] = 0x00;
-# 426 "main.c"
+# 437 "main.c"
                     song3_playing = 1;
                     break;
             }
@@ -6266,7 +6268,49 @@ void TMR1_ISR_(void)
 
     if (song2_playing)
     {
-# 593 "main.c"
+
+        if (count < 34)
+        {
+            if (last_note != song2[count])
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    light_array[i] = light_array[i] >> 1;
+                }
+            }
+        }
+        else if (count < 37)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = 0x00;
+            }
+        }
+        else if (count > 37 && count < 44)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                uint8_t light = (~light_array[j]) << 7;
+                light_array[j] = (light_array[j] << 1) + (light >> 7);
+            }
+        }
+        else if (count > 44 && count < 125)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                uint8_t lights = light_array[i] >> 7;
+                light_array[i] = (light_array[i] << 1) + lights;
+            }
+        }
+        else
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                uint8_t light = (~light_array[j]);
+                light_array[j] = (light_array[j] << 1) + 1;
+            }
+        }
+# 647 "main.c"
     }
 
 
@@ -6330,7 +6374,7 @@ void TMR1_ISR_(void)
                    break;
            }
        }
-# 698 "main.c"
+# 752 "main.c"
     }
 
 
@@ -6370,7 +6414,7 @@ void TMR1_ISR_(void)
     {
         presses = 0;
         count = 0;
-# 745 "main.c"
+# 799 "main.c"
     }
 
 
