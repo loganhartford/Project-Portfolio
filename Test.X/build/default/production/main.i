@@ -5909,7 +5909,7 @@ uint8_t silent_night[] = {158, 158, 158, 141, 158, 158,
                           188, 188, 188, 188, 188, 188,
                           237, 237, 158, 158, 188, 188,
                           158, 158, 158, 177, 211, 211,
-                          238, 238, 238, 238, 238, 238};
+                          238, 238, 238, 238, 238, 238, 0};
 uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
@@ -5989,9 +5989,10 @@ uint8_t song3_pre[] = {0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
                        0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,};
 uint8_t timer_high_3 = 0xEA;
 uint8_t timer_low_3 = 0x34;
-uint8_t song3_length = 121;
+uint8_t song3_length = 120;
 _Bool change_lights = 0;
 uint8_t dream_lights[] = {0x00, 0xE8, 0xBE, 0xFE, 0xBD, 0xA0, 0x00};
+uint8_t dream_sw = 0;
 
 
 
@@ -6013,7 +6014,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 303 "main.c"
+# 304 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -6107,7 +6108,7 @@ void main(void)
                     silent_night_playing = 1;
                     break;
                 case 2:
-# 406 "main.c"
+# 407 "main.c"
                     light_array[0] = 0xFF;
                     light_array[1] = 0xFF;
                     light_array[2] = 0xFF;
@@ -6127,7 +6128,7 @@ void main(void)
                     light_array[4] = 0xBD;
                     light_array[5] = 0xA0;
                     light_array[6] = 0x00;
-# 437 "main.c"
+# 438 "main.c"
                     song3_playing = 1;
                     break;
             }
@@ -6310,7 +6311,7 @@ void TMR1_ISR_(void)
                 light_array[j] = (light_array[j] << 1) + 1;
             }
         }
-# 647 "main.c"
+# 648 "main.c"
     }
 
 
@@ -6348,33 +6349,44 @@ void TMR1_ISR_(void)
        }
        else
        {
-           uint8_t dream_sw = count - 61;
-           switch(dream_sw)
+           if ((last_note != song3[count]) || (last_prescale != song3_pre[count]))
            {
-               case 1:
-                   light_array[0] = 0xFF;
-                   light_array[1] = 0xFF;
-                   light_array[2] = 0xF3;
-                   light_array[3] = 0xE3;
-                   light_array[4] = 0xE3;
-                   light_array[5] = 0xFF;
-                   light_array[6] = 0xFF;
-                   break;
-               case 2:
-                   for (int i = 0; i < 7; i++)
-                    {
-                        light_array[i] = !dream_lights[i];
-                    }
-                   break;
-               case 3:
-                   for (int i = 0; i < 7; i++)
-                    {
-                        light_array[i] = 0x00;
-                    }
-                   break;
+                dream_sw++;
+                if (song3[count] == 0) dream_sw = 4;
+                switch(dream_sw)
+                {
+                case 1:
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xF3;
+                    light_array[3] = 0xE3;
+                    light_array[4] = 0xE3;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
+                    break;
+                case 2:
+                    for (int i = 0; i < 7; i++)
+                     {
+                         light_array[i] = ~dream_lights[i];
+                     }
+                    break;
+                case 3:
+                    for (int i = 0; i < 7; i++)
+                     {
+                         light_array[i] = 0x00;
+                     }
+                    break;
+                default:
+                    dream_sw = 0;
+                    for (int i = 0; i < 7; i++)
+                     {
+                         light_array[i] = 0xFF;
+                     }
+                    break;
+                }
            }
        }
-# 752 "main.c"
+# 764 "main.c"
     }
 
 
@@ -6414,7 +6426,7 @@ void TMR1_ISR_(void)
     {
         presses = 0;
         count = 0;
-# 799 "main.c"
+# 811 "main.c"
     }
 
 
