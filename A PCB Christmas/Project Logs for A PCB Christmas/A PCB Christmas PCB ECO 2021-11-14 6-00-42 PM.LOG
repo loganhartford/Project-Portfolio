@@ -1,0 +1,57 @@
+Added Component: Designator=LS1(PS1240P02BT)
+Add component (AddParameter): Name = "Driver Circuitry"; Value = "Transducer, Externally Driven"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Input Type"; Value = "Zero-Peak Signal"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "PS1240P02BT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Type"; Value = "TH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "PS1240P02BT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Sound Pressure Level"; Value = "60dB @ 3V, 10cm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SPL"; Value = "60dB @ 3V, 10cm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "445-2525-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "V Max"; Value = "30V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "V Rated"; Value = "3V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "3V"; VariantName = "[No Variations]"
+Added Component: Designator=Q17(SOT95P230X110-3N)
+Add component (AddParameter): Name = "FET Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Id"; Value = "500mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Nexperia USA Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "NX3008NBK,215"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SOT233"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "NX3008NBK,215"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "1727-1220-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vds"; Value = "30V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vgs (Max)"; Value = "8V"; VariantName = "[No Variations]"
+Added Component: Designator=R40(RESC1005X04N)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package/Footprint"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "RC0402FR-071RL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Resistance"; Value = "1kO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "311-1.00LRCT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1kO"; VariantName = "[No Variations]"
+Added Component: Designator=R41(RESC1005X04N)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Stackpole Electronics Inc"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package/Footprint"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "RMCF0402FT100R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Resistance"; Value = "100O"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "RMCF0402FT100RCT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100O"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+X Pin=LS1-1
+Added Pin To Net: NetName=GND Pin=Q17-2
+Added Pin To Net: NetName=+X Pin=R40-2
+Added Pin To Net: NetName=NetLS1_2 Pin=LS1-2
+Added Pin To Net: NetName=NetLS1_2 Pin=Q17-3
+Added Pin To Net: NetName=NetLS1_2 Pin=R40-1
+Added Net: Name=NetLS1_2
+Added Pin To Net: NetName=NetQ17_1 Pin=Q17-1
+Added Pin To Net: NetName=NetQ17_1 Pin=R41-2
+Added Net: Name=NetQ17_1
+Added Member To Class: ClassName=Main Member=Component LS1 Buzzer
+Added Member To Class: ClassName=Main Member=Component Q17 N-CH
+Added Member To Class: ClassName=Main Member=Component R40 Resistor
+Added Member To Class: ClassName=Main Member=Component R41 Resistor

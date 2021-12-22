@@ -1,0 +1,19 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: A PCB Christmas.PcbDoc   2021-12-09  7:33:09 AM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : TOP to BOT
+ASCII RoundHoles File : A PCB Christmas.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      8mil (0.203mm)                                            Round             172       PTH        0.00inch (0.00mm)
+T2      35mil (0.9mm)                                             Round             6         PTH        0.00inch (0.00mm)
+T3      39mil (1mm)                                               Round             2         PTH        0.00inch (0.00mm)
+T4      40mil (1.02mm)                                            Round             2         PTH        0.00inch (0.00mm)
+T5      39mil (0.991mm)                                           Round             3         NPTH       0.00inch (0.00mm)
+T6      118mil (3mm)                                              Round             1         NPTH       0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              186
+
+Total Processing Time (hh:mm:ss) : 00:00:01

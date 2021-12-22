@@ -1,0 +1,27 @@
+Output: Gerber X2 Files
+Type  : GerberX2
+From  : Project [A PCB Christmas.PrjPcb]
+   Generated File[A PCB Christmas_Copper_Signal_Top.gbr]
+   Generated File[A PCB Christmas_Copper_Signal_Bot.gbr]
+   Generated File[A PCB Christmas_Pads_Bot.gbr]
+   Generated File[A PCB Christmas_Pads_Top.gbr]
+   Generated File[A PCB Christmas_Legend_Bot.gbr]
+   Generated File[A PCB Christmas_Soldermask_Bot.gbr]
+   Generated File[A PCB Christmas_Paste_Bot.gbr]
+   Generated File[A PCB Christmas_Legend_Top.gbr]
+   Generated File[A PCB Christmas_Paste_Top.gbr]
+   Generated File[A PCB Christmas_Soldermask_Top.gbr]
+   Generated File[A PCB Christmas_Keep-out.gbr]
+   Generated File[A PCB Christmas_Mechanical_13.gbr]
+   Generated File[A PCB Christmas_Mechanical_1.gbr]
+   Generated File[A PCB Christmas_Mechanical_15.gbr]
+   Generated File[A PCB Christmas_Profile.gbr]
+   Generated File[A PCB Christmas.RUL]
+   Generated File[A PCB Christmas.EXTREP]
+   Generated File[A PCB Christmas.REP]
+
+
+Files Generated   : 18
+Documents Printed : 0
+
+Finished Output Generation At 7:34:00 AM On 2021-12-09
