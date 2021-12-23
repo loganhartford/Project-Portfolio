@@ -5959,7 +5959,9 @@ uint8_t song3[] = {212, 212, 212, 212, 212, 212, 212, 212, 212, 212,
                     158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
                     158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
                     158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
-                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,};
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212};
 uint8_t song3_pre[] = {0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
                        0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
                        0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
@@ -5968,12 +5970,14 @@ uint8_t song3_pre[] = {0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE
                        0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                        0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                        0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,};
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
 uint8_t timer_high_3 = 0xF1;
 uint8_t timer_low_3 = 0x3A;
-uint8_t song3_length = 126;
-_Bool change_lights = 0;
-uint8_t dream_sw = 0;
+uint8_t song3_length = 158;
+uint8_t jungle_count = 0;
+_Bool jungle_bool = 0;
 
 
 
@@ -5995,7 +5999,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 351 "main.c"
+# 355 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -6089,11 +6093,22 @@ void main(void)
                     silent_night_playing = 1;
                     break;
                 case 2:
-# 462 "main.c"
+# 466 "main.c"
                     song2_playing = 1;
                     break;
                 case 3:
-# 485 "main.c"
+# 489 "main.c"
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xFF;
+                    light_array[3] = 0xFF;
+                    light_array[4] = 0xFF;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
+                    jungle_count = 0;
+                    jungle_bool = 0;
+
+
                     song3_playing = 1;
                     break;
             }
@@ -6109,7 +6124,7 @@ void main(void)
 
             while (presses == 2)
             {
-# 522 "main.c"
+# 537 "main.c"
                 playNote(song2[count], 0xD0);
                 displayMatrix(light_array);
 
@@ -6214,13 +6229,129 @@ void TMR1_ISR_(void)
 
     if (song2_playing)
     {
-# 696 "main.c"
+# 711 "main.c"
     }
 
 
     if (song3_playing)
     {
-# 812 "main.c"
+# 828 "main.c"
+        if (count < 10)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0xF3;
+             }
+        }
+        else if (count < 20)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0x0F;
+             }
+        }
+        else if (count < 29)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0xFC;
+             }
+        }
+       else if (count == 29)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0x7F;
+             }
+        }
+       else if (song3[count] == 0)
+        {
+           for (int i = 0; i < 7; i++)
+           {
+                light_array[i] = 0x7F;
+           }
+        }
+       else if (count < 46 && (last_note != song3[count]))
+       {
+           for (int i = 0; i < 7; i++)
+           {
+                light_array[i] = light_array[i] >> 1;
+           }
+       }
+       else if (count < 62 && count > 45)
+        {
+           for (int i = 0; i < 7; i++)
+           {
+                light_array[i] = 0x00;
+           }
+        }
+       else if (count >= 62)
+       {
+           jungle_count++;
+           if (jungle_count == 1)
+           {
+                light_array[0] = 0x88;
+                light_array[1] = 0x44;
+                light_array[2] = 0x22;
+                light_array[3] = 0x11;
+                light_array[4] = 0x88;
+                light_array[5] = 0x44;
+                light_array[6] = 0x22;
+           }
+           else if (jungle_count < 9)
+           {
+               if (last_note != song3[count])
+               {
+                    for (int i = 0; i < 7; i++)
+                    {
+                        uint8_t lights = light_array[i] >> 7;
+                        light_array[i] = (light_array[i] << 1) + lights;
+                    }
+               }
+           }
+           else if (jungle_count < 16)
+           {
+               if (last_note != song3[count])
+               {
+                   uint8_t jungle_sw = (jungle_count - 8)/2;
+                   switch (jungle_sw)
+                   {
+                       case 0:
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0x81;
+                            }
+                            break;
+                        case 1:
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0xC3;
+                            }
+                            break;
+                        case 2:
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0xE7;
+                            }
+                            break;
+                        case 3:
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0xFF;
+                            }
+                            break;
+                   }
+               }
+           }
+           else
+           {
+               jungle_count = 0;
+           }
+
+
+       }
+
+
     }
 
 
@@ -6260,7 +6391,7 @@ void TMR1_ISR_(void)
     {
         presses = 0;
         count = 0;
-# 859 "main.c"
+# 991 "main.c"
     }
 
 

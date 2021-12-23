@@ -45,14 +45,14 @@
 #include "mcc_generated_files/pin_manager.h"
 
 // Second Song Selection--Only define one at a time
-//#define coc
-//#define river
-#define sand
+//#define coc           // Clash of Clans login
+//#define river         // The River, Garth Brooks
+#define sand            // Sandstorm
 
 // Third song Selection--Only define one at a time
-//#define jcole
-//#define dreams
-#define jungle
+//#define jcole         // No Role Modlez, J.Cole
+//#define dreams        // You Make My Dream Come True, Hall and Oates
+#define jungle          // Into the Jungle, Guns N' Roses
 
 // Track which song is being played
 bool silent_night_playing = 0;
@@ -297,14 +297,16 @@ uint8_t dream_sw = 0;
 //const uint8_t g = 158;
 //const uint8_t a = 141;
 uint8_t song3[] =  {212, 212, 212, 212, 212, 212, 212, 212, 212, 212,
-                    252, 252, 252, 252, 252, 252, 252, 252, 252, 252, 
-                    178, 178, 178, 178, 178, 178, 178, 178, 178, 178, 
+                    252, 252, 252, 252, 252, 252, 252, 252, 252, 252,
+                    178, 178, 178, 178, 178, 178, 178, 178, 178, 178,
                     141, 141, 238, 238, 212, 212, 189, 189, 158, 158, 141, 141, 238, 238, 212, 212,
                     189,   0, 189,   0, 189,   0, 189,   0, 189,   0, 189,   0, 189,   0, 189, 189,
                     158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
                     158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
                     158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
-                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,};
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212};
 uint8_t song3_pre[] = {0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
                        0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
                        0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
@@ -313,12 +315,14 @@ uint8_t song3_pre[] = {0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE
                        0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                        0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                        0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,};
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
 uint8_t timer_high_3 = 0xF1;
 uint8_t timer_low_3 = 0x3A;
-uint8_t song3_length = 126;
-bool change_lights = 0;
-uint8_t dream_sw = 0;
+uint8_t song3_length = 158;
+uint8_t jungle_count = 0;
+bool jungle_bool = 0;
 #endif
 
 // Contains the state of the LEDs as any given point in time.
@@ -480,6 +484,17 @@ void main(void)
                     light_array[5] = 0xFF;
                     light_array[6] = 0xFF;
                     cole_counter = 0;
+#endif
+#ifdef jungle
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xFF;
+                    light_array[3] = 0xFF;
+                    light_array[4] = 0xFF;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
+                    jungle_count  = 0;
+                    jungle_bool = 0;
 #endif
                     
                     song3_playing = 1;
@@ -808,6 +823,123 @@ void TMR1_ISR_(void)
                 }
            }
        }
+#endif
+#ifdef jungle
+        if (count < 10)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0xF3;
+             } 
+        }
+        else if (count < 20)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0x0F;
+             } 
+        }
+        else if (count < 29)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0xFC;
+             } 
+        }
+       else if (count == 29)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0x7F;
+             } 
+        }
+       else if (song3[count] == 0)
+        {
+           for (int i = 0; i < 7; i++)
+           {
+                light_array[i] = 0x7F;
+           } 
+        }
+       else if (count < 46 && (last_note != song3[count]))
+       {
+           for (int i = 0; i < 7; i++)
+           {
+                light_array[i] = light_array[i] >> 1;
+           } 
+       }
+       else if (count < 62 && count > 45)
+        {
+           for (int i = 0; i < 7; i++)
+           {
+                light_array[i] = 0x00;
+           } 
+        }
+       else if (count >= 62)
+       {
+           jungle_count++;
+           if (jungle_count == 1)
+           {
+                light_array[0] = 0x88;
+                light_array[1] = 0x44;
+                light_array[2] = 0x22;
+                light_array[3] = 0x11;
+                light_array[4] = 0x88;
+                light_array[5] = 0x44;
+                light_array[6] = 0x22;
+           }
+           else if (jungle_count < 9)
+           {
+               if (last_note != song3[count])
+               {
+                    for (int i = 0; i < 7; i++)
+                    {
+                        uint8_t lights = light_array[i] >> 7;
+                        light_array[i] = (light_array[i] << 1) + lights;
+                    }
+               }
+           }
+           else if (jungle_count < 16)
+           {
+               if (last_note != song3[count])
+               {
+                   uint8_t jungle_sw = (jungle_count - 8)/2;
+                   switch (jungle_sw)
+                   {
+                       case 0: 
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0x81;
+                            } 
+                            break;
+                        case 1:  
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0xC3;
+                            } 
+                            break;
+                        case 2:  
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0xE7;
+                            } 
+                            break;
+                        case 3:  
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0xFF;
+                            } 
+                            break;
+                   }
+               }
+           }
+           else
+           {
+               jungle_count = 0;
+           }
+           
+           
+       }
+       
 #endif
     }
     
