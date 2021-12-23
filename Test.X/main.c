@@ -47,7 +47,8 @@
 // Second Song Selection--Only define one at a time
 //#define coc           // Clash of Clans login
 //#define river         // The River, Garth Brooks
-#define sand            // Sandstorm
+//#define sand            // Sandstorm
+#define pac             // PAC-MAN by Gorillaz
 
 // Third song Selection--Only define one at a time
 //#define jcole         // No Role Modlez, J.Cole
@@ -162,7 +163,6 @@ uint8_t timer_low_2 = 0x25;
 uint8_t song2_length = 133;
 #endif
 
-#define sand
 
 #ifdef sand
 // Notes
@@ -182,6 +182,38 @@ uint8_t song2_pre[] = {};
 uint8_t timer_high_2 = 0xE7;
 uint8_t timer_low_2 = 0xC8;
 uint8_t song2_length = 60;
+#endif
+
+#ifdef pac
+// Notes
+const uint8_t b = 252;
+const uint8_t c = 238;
+const uint8_t d = 212;
+const uint8_t e = 189;
+const uint8_t f = 178;
+const uint8_t g = 158;
+const uint8_t a = 141;
+uint8_t song2[] = { 50,  50, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
+                   252, 252, 238, 238, 238, 238, 252, 252, 252, 252, 238, 238, 238, 238, 252, 252,
+                     0,   0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
+                   141, 141, 252, 252, 141, 141, 158, 158, 178, 178, 178, 178, 168, 168, 168, 168,
+                     0,   0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
+                     0,   0, 158,   0, 158, 158, 158, 158,   0,   0, 141,   0, 141, 141, 141, 141,
+                     0,   0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158,   0,   0, 158, 158,
+                   252, 252, 238, 238, 238, 238, 252, 252, 252, 252, 252, 252, 238, 238, 238, 238,
+                     0,   0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158,   0,   0, 158, 158, 0};
+uint8_t song2_pre[] = {0x00, 0x00, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,};
+uint8_t timer_high_2 = 0xED;
+uint8_t timer_low_2 = 0x1C;
+uint8_t song2_length = 144;
 #endif
 
 // Song 3 Variables
@@ -535,6 +567,10 @@ void main(void)
 #endif
 #ifdef sand           
                 playNote(song2[count], 0xD0);
+                displayMatrix(light_array);
+#endif
+#ifdef pac           
+                playNote(song2[count], song2_pre[count]);
                 displayMatrix(light_array);
 #endif
             }
@@ -962,6 +998,16 @@ void TMR1_ISR_(void)
     {
 #ifdef sand
         playNote(0, 0);
+#endif
+#ifdef pac
+        if ((song2[count] == 212) &&(song2_pre[count] == 0xD0))
+        {
+           playNote(0, 0); 
+        }
+        else if ((count == 110) || (count == 111))
+        {
+           playNote(0, 0); 
+        }
 #endif
         TMR1H = timer_high_2;
         TMR1L = timer_low_2;
