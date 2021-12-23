@@ -45,15 +45,16 @@
 #include "mcc_generated_files/pin_manager.h"
 
 // Second Song Selection--Only define one at a time
-//#define coc           // Clash of Clans login
-//#define river         // The River, Garth Brooks
+//#define coc             // Clash of Clans login
+//#define river           // The River, Garth Brooks
 //#define sand            // Sandstorm
-#define pac             // PAC-MAN by Gorillaz
+//#define pac             // PAC-MAN, Gorillaz
+#define vibes           // Good Vibrations, Beach Boys
 
 // Third song Selection--Only define one at a time
-//#define jcole         // No Role Modlez, J.Cole
-//#define dreams        // You Make My Dream Come True, Hall and Oates
-#define jungle          // Into the Jungle, Guns N' Roses
+//#define jcole           // No Role Modlez, J.Cole
+#define dreams          // You Make My Dream Come True, Hall and Oates
+//#define jungle          // Into the Jungle, Guns N' Roses
 
 // Track which song is being played
 bool silent_night_playing = 0;
@@ -163,6 +164,47 @@ uint8_t timer_low_2 = 0x25;
 uint8_t song2_length = 133;
 #endif
 
+#ifdef vibes
+// Notes
+const uint8_t b = 252;
+const uint8_t c = 238;
+const uint8_t d = 212;
+const uint8_t e = 189;
+const uint8_t f = 178;
+const uint8_t g = 158;
+const uint8_t a = 141;
+
+uint8_t song2[] =    { 50,  50,  50,  50, 178, 178, 178, 178, 189, 189,   0, 189, 212, 212, 212, 212, 
+                      178, 178, 178, 178, 158, 158, 158, 158, 133, 133, 133, 133, 238, 238, 238, 238,
+                        0,   0,   0,   0, 158, 158, 158, 158, 178, 178,   0, 178, 189, 189, 189, 189,
+                      158, 158, 158, 158, 141, 141, 141, 141, 238, 238, 238, 238, 212, 212, 212, 212,
+                        0,   0,   0,   0, 141, 141, 141, 141, 158, 158,   0, 158, 168, 168, 168, 168,
+                      141, 141, 141, 141, 252, 252, 252, 252, 212, 212, 212, 212, 189, 189, 189, 189,
+                        0,   0,   0,   0, 141, 141, 141, 141, 158, 158,   0, 158, 168, 168, 168, 168,
+                      141, 141, 141, 141, 252, 252, 252, 252, 189, 189, 189, 189, 212, 212, 212, 212,
+                        0,   0,   0,   0,   0,   0,   0,   0, 252, 252, 252, 252, 238, 238, 238, 238,
+                      238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238,
+                      238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238,
+                      };
+uint8_t song2_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+};
+uint8_t timer_high_2 = 0xF3;
+uint8_t timer_low_2 = 0x68;
+uint8_t song2_length = 176;
+uint8_t vibes_count = 0;
+uint8_t vibes_count2 = 0;
+#endif
+
 
 #ifdef sand
 // Notes
@@ -185,14 +227,6 @@ uint8_t song2_length = 60;
 #endif
 
 #ifdef pac
-// Notes
-const uint8_t b = 252;
-const uint8_t c = 238;
-const uint8_t d = 212;
-const uint8_t e = 189;
-const uint8_t f = 178;
-const uint8_t g = 158;
-const uint8_t a = 141;
 uint8_t song2[] = { 50,  50, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
                    252, 252, 238, 238, 238, 238, 252, 252, 252, 252, 238, 238, 238, 238, 252, 252,
                      0,   0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
@@ -495,6 +529,17 @@ void main(void)
                     light_array[5] = 0xFF;
                     light_array[6] = 0xFF;
 #endif
+#ifdef vibes
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xFF;
+                    light_array[3] = 0xFF;
+                    light_array[4] = 0xFF;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
+                    vibes_count = 0;
+                    vibes_count2 = 0;
+#endif
                     song2_playing = 1;
                     break;
                 case 3: // Song 3
@@ -568,8 +613,7 @@ void main(void)
 #ifdef sand           
                 playNote(song2[count], 0xD0);
                 displayMatrix(light_array);
-#endif
-#ifdef pac           
+#else         
                 playNote(song2[count], song2_pre[count]);
                 displayMatrix(light_array);
 #endif
@@ -609,7 +653,7 @@ void main(void)
 void EXT_ISR(void)
 {
     uint8_t debounce = 0;
-    while (debounce < 20)
+    while (debounce < 40)
     {
         if (RA2_GetValue())
         {
@@ -1007,6 +1051,18 @@ void TMR1_ISR_(void)
         else if ((count == 110) || (count == 111))
         {
            playNote(0, 0); 
+        }
+#endif
+#ifdef vibes
+        if ((count == 32) && (vibes_count < 3))
+        {
+            count = 0;
+            vibes_count++;
+        }
+        else if ((count == 64) && (vibes_count2 < 1))
+        {
+            count = 32;
+            vibes_count2++;
         }
 #endif
         TMR1H = timer_high_2;

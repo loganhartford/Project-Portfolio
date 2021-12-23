@@ -5857,7 +5857,7 @@ void OSCILLATOR_Initialize(void);
 # 101 "./mcc_generated_files/mcc.h"
 void WDT_Initialize(void);
 # 44 "main.c" 2
-# 59 "main.c"
+# 60 "main.c"
 _Bool silent_night_playing = 0;
 _Bool song3_playing = 0;
 _Bool song2_playing = 0;
@@ -5933,7 +5933,7 @@ uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xC0, 0xC0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                               0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
-# 189 "main.c"
+# 169 "main.c"
 const uint8_t b = 252;
 const uint8_t c = 238;
 const uint8_t d = 212;
@@ -5941,58 +5941,76 @@ const uint8_t e = 189;
 const uint8_t f = 178;
 const uint8_t g = 158;
 const uint8_t a = 141;
-uint8_t song2[] = { 50, 50, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
-                   252, 252, 238, 238, 238, 238, 252, 252, 252, 252, 238, 238, 238, 238, 252, 252,
-                     0, 0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
-                   141, 141, 252, 252, 141, 141, 158, 158, 178, 178, 178, 178, 168, 168, 168, 168,
-                     0, 0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
-                     0, 0, 158, 0, 158, 158, 158, 158, 0, 0, 141, 0, 141, 141, 141, 141,
-                     0, 0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 0, 0, 158, 158,
-                   252, 252, 238, 238, 238, 238, 252, 252, 252, 252, 252, 252, 238, 238, 238, 238,
-                     0, 0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 0, 0, 158, 158, 0};
-uint8_t song2_pre[] = {0x00, 0x00, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
+
+uint8_t song2[] = { 50, 50, 50, 50, 178, 178, 178, 178, 189, 189, 0, 189, 212, 212, 212, 212,
+                      178, 178, 178, 178, 158, 158, 158, 158, 133, 133, 133, 133, 238, 238, 238, 238,
+                        0, 0, 0, 0, 158, 158, 158, 158, 178, 178, 0, 178, 189, 189, 189, 189,
+                      158, 158, 158, 158, 141, 141, 141, 141, 238, 238, 238, 238, 212, 212, 212, 212,
+                        0, 0, 0, 0, 141, 141, 141, 141, 158, 158, 0, 158, 168, 168, 168, 168,
+                      141, 141, 141, 141, 252, 252, 252, 252, 212, 212, 212, 212, 189, 189, 189, 189,
+                        0, 0, 0, 0, 141, 141, 141, 141, 158, 158, 0, 158, 168, 168, 168, 168,
+                      141, 141, 141, 141, 252, 252, 252, 252, 189, 189, 189, 189, 212, 212, 212, 212,
+                        0, 0, 0, 0, 0, 0, 0, 0, 252, 252, 252, 252, 238, 238, 238, 238,
+                      238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238,
+                      238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238, 238,
+                      };
+uint8_t song2_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0,
                        0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
-                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
-                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
                        0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,};
-uint8_t timer_high_2 = 0xED;
-uint8_t timer_low_2 = 0x1C;
-uint8_t song2_length = 144;
-# 331 "main.c"
-uint8_t song3[] = {212, 212, 212, 212, 212, 212, 212, 212, 212, 212,
-                    252, 252, 252, 252, 252, 252, 252, 252, 252, 252,
-                    178, 178, 178, 178, 178, 178, 178, 178, 178, 178,
-                    141, 141, 238, 238, 212, 212, 189, 189, 158, 158, 141, 141, 238, 238, 212, 212,
-                    189, 0, 189, 0, 189, 0, 189, 0, 189, 0, 189, 0, 189, 0, 189, 189,
-                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
-                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
-                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
-                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
-                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
-                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212};
-uint8_t song3_pre[] = {0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
-                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
-                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
-                       0xE0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xC0, 0xC0, 0xC0, 0xC0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xC0, 0xC0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
-                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
-uint8_t timer_high_3 = 0xF1;
-uint8_t timer_low_3 = 0x3A;
-uint8_t song3_length = 158;
-uint8_t jungle_count = 0;
-_Bool jungle_bool = 0;
-
-
-
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+};
+uint8_t timer_high_2 = 0xF3;
+uint8_t timer_low_2 = 0x68;
+uint8_t song2_length = 176;
+uint8_t vibes_count = 0;
+uint8_t vibes_count2 = 0;
+# 317 "main.c"
+uint8_t song3[] = { 0, 0, 212, 212, 212, 212, 212, 212,
+                    212, 212, 212, 212, 0, 212, 212, 212,
+                    212, 212, 212, 212, 212, 212, 212, 212,
+                    212, 212, 212, 212, 0, 212, 212, 212,
+                      0, 0, 212, 212, 212, 212, 212, 212,
+                    212, 212, 212, 212, 0, 212, 212, 212,
+                    212, 212, 212, 212, 212, 212, 212, 212,
+                    212, 212, 212, 212, 0, 0,
+                    237, 212, 178,
+                    178, 178, 178, 178, 178, 178, 212, 238,
+                    178, 178, 212, 178, 178, 178, 212, 238,
+                    212, 178, 0, 0, 0, 0, 212, 238,
+                    141, 158, 178, 178, 178, 178, 178, 212,
+                    238, 178, 0, 0, 0, 0, 141, 141,
+                    141, 141, 158, 158, 158, 158, 178, 141,
+                    141, 158, 178, 212, 212, 212, 0, 0,};
+uint8_t song3_pre[] = {0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xD0, 0xD0,
+                       0xE0, 0xE0, 0xD0, 0xE0, 0x00, 0x00,
+                       0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,};
+uint8_t timer_high_3 = 0xEA;
+uint8_t timer_low_3 = 0x34;
+uint8_t song3_length = 120;
+_Bool change_lights = 0;
+uint8_t dream_lights[] = {0x00, 0xE8, 0xBE, 0xFE, 0xBD, 0xA0, 0x00};
+uint8_t dream_sw = 0;
+# 395 "main.c"
 uint8_t light_array[] = {0xFE, 0xFF, 0xFE, 0xFF, 0xFE, 0xFF, 0xFE};
 
 
@@ -6011,7 +6029,7 @@ void main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 387 "main.c"
+# 421 "main.c"
     SPI1_Initialize();
     SSP1CON1bits.SSPEN = 0;
     TRISCbits.TRISC3 = 0;
@@ -6105,11 +6123,7 @@ void main(void)
                     silent_night_playing = 1;
                     break;
                 case 2:
-# 498 "main.c"
-                    song2_playing = 1;
-                    break;
-                case 3:
-# 521 "main.c"
+# 533 "main.c"
                     light_array[0] = 0xFF;
                     light_array[1] = 0xFF;
                     light_array[2] = 0xFF;
@@ -6117,10 +6131,21 @@ void main(void)
                     light_array[4] = 0xFF;
                     light_array[5] = 0xFF;
                     light_array[6] = 0xFF;
-                    jungle_count = 0;
-                    jungle_bool = 0;
+                    vibes_count = 0;
+                    vibes_count2 = 0;
 
+                    song2_playing = 1;
+                    break;
+                case 3:
 
+                    light_array[0] = 0x00;
+                    light_array[1] = 0xE8;
+                    light_array[2] = 0xBE;
+                    light_array[3] = 0xFE;
+                    light_array[4] = 0xBD;
+                    light_array[5] = 0xA0;
+                    light_array[6] = 0x00;
+# 577 "main.c"
                     song3_playing = 1;
                     break;
             }
@@ -6136,7 +6161,7 @@ void main(void)
 
             while (presses == 2)
             {
-# 573 "main.c"
+# 617 "main.c"
                 playNote(song2[count], song2_pre[count]);
                 displayMatrix(light_array);
 
@@ -6176,7 +6201,7 @@ void main(void)
 void EXT_ISR(void)
 {
     uint8_t debounce = 0;
-    while (debounce < 20)
+    while (debounce < 40)
     {
         if (PORTAbits.RA2)
         {
@@ -6254,146 +6279,98 @@ void TMR1_ISR_(void)
 
     if (song2_playing)
     {
-# 760 "main.c"
+# 804 "main.c"
     }
 
 
     if (song3_playing)
     {
-# 877 "main.c"
-        if (count < 10)
-        {
-           for (int i = 0; i < 7; i++)
-             {
-                 light_array[i] = 0xF3;
-             }
-        }
-        else if (count < 20)
-        {
-           for (int i = 0; i < 7; i++)
-             {
-                 light_array[i] = 0x0F;
-             }
-        }
-        else if (count < 29)
-        {
-           for (int i = 0; i < 7; i++)
-             {
-                 light_array[i] = 0xFC;
-             }
-        }
-       else if (count == 29)
-        {
-           for (int i = 0; i < 7; i++)
-             {
-                 light_array[i] = 0x7F;
-             }
-        }
-       else if (song3[count] == 0)
-        {
-           for (int i = 0; i < 7; i++)
-           {
-                light_array[i] = 0x7F;
-           }
-        }
-       else if (count < 46 && (last_note != song3[count]))
+
+       if (count < 58)
        {
-           for (int i = 0; i < 7; i++)
+           if ((last_prescale != song3_pre[count]) && (song3[count] != 0))
            {
-                light_array[i] = light_array[i] >> 1;
-           }
-       }
-       else if (count < 62 && count > 45)
-        {
-           for (int i = 0; i < 7; i++)
-           {
-                light_array[i] = 0x00;
-           }
-        }
-       else if (count >= 62)
-       {
-           jungle_count++;
-           if (jungle_count == 1)
-           {
-                light_array[0] = 0x88;
-                light_array[1] = 0x44;
-                light_array[2] = 0x22;
-                light_array[3] = 0x11;
-                light_array[4] = 0x88;
-                light_array[5] = 0x44;
-                light_array[6] = 0x22;
-           }
-           else if (jungle_count < 9)
-           {
-               if (last_note != song3[count])
+               if (change_lights)
                {
-                    for (int i = 0; i < 7; i++)
+                   for (int i = 0; i < 7; i++)
                     {
-                        uint8_t lights = light_array[i] >> 7;
-                        light_array[i] = (light_array[i] << 1) + lights;
+                        light_array[i] = dream_lights[i];
                     }
+                   change_lights = 0;
                }
-           }
-           else if (jungle_count < 16)
-           {
-               if (last_note != song3[count])
+               else
                {
-                   uint8_t jungle_sw = (jungle_count - 8)/2;
-                   switch (jungle_sw)
-                   {
-                       case 0:
-                            for (int i = 0; i < 7; i++)
-                            {
-                                light_array[i] = 0x81;
-                            }
-                            break;
-                        case 1:
-                            for (int i = 0; i < 7; i++)
-                            {
-                                light_array[i] = 0xC3;
-                            }
-                            break;
-                        case 2:
-                            for (int i = 0; i < 7; i++)
-                            {
-                                light_array[i] = 0xE7;
-                            }
-                            break;
-                        case 3:
-                            for (int i = 0; i < 7; i++)
-                            {
-                                light_array[i] = 0xFF;
-                            }
-                            break;
-                   }
+                   for (int i = 0; i < 7; i++)
+                    {
+                        light_array[i] = ~dream_lights[i];
+                    }
+                   change_lights = 1;
                }
            }
-           else
-           {
-               jungle_count = 0;
-           }
-
-
        }
-
-
+       else if (count < 62)
+       {
+           for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = 0xFF;
+            }
+       }
+       else
+       {
+           if ((last_note != song3[count]) || (last_prescale != song3_pre[count]))
+           {
+                dream_sw++;
+                if (song3[count] == 0) dream_sw = 4;
+                switch(dream_sw)
+                {
+                case 1:
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xF3;
+                    light_array[3] = 0xE3;
+                    light_array[4] = 0xE3;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
+                    break;
+                case 2:
+                    for (int i = 0; i < 7; i++)
+                     {
+                         light_array[i] = ~dream_lights[i];
+                     }
+                    break;
+                case 3:
+                    for (int i = 0; i < 7; i++)
+                     {
+                         light_array[i] = 0x00;
+                     }
+                    break;
+                default:
+                    dream_sw = 0;
+                    for (int i = 0; i < 7; i++)
+                     {
+                         light_array[i] = 0xFF;
+                     }
+                    break;
+                }
+           }
+       }
+# 1037 "main.c"
     }
 
 
 
     if (song2_playing)
     {
-
-
-
-
-        if ((song2[count] == 212) &&(song2_pre[count] == 0xD0))
+# 1057 "main.c"
+        if ((count == 32) && (vibes_count < 3))
         {
-           playNote(0, 0);
+            count = 0;
+            vibes_count++;
         }
-        else if ((count == 110) || (count == 111))
+        else if ((count == 64) && (vibes_count2 < 1))
         {
-           playNote(0, 0);
+            count = 32;
+            vibes_count2++;
         }
 
         TMR1H = timer_high_2;
@@ -6426,7 +6403,7 @@ void TMR1_ISR_(void)
     {
         presses = 0;
         count = 0;
-# 1050 "main.c"
+# 1106 "main.c"
     }
 
 
