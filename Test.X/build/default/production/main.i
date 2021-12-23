@@ -6163,6 +6163,19 @@ void main(void)
 
 void EXT_ISR(void)
 {
+    uint8_t debounce = 0;
+    while (debounce < 20)
+    {
+        if (PORTAbits.RA2)
+        {
+            debounce++;
+            _delay((unsigned long)((1)*(8000000/4000.0)));
+        }
+        else
+        {
+            debounce = 0;
+        }
+    }
     presses++;
     TMR0_Reload();
 
@@ -6229,13 +6242,13 @@ void TMR1_ISR_(void)
 
     if (song2_playing)
     {
-# 711 "main.c"
+# 724 "main.c"
     }
 
 
     if (song3_playing)
     {
-# 828 "main.c"
+# 841 "main.c"
         if (count < 10)
         {
            for (int i = 0; i < 7; i++)
@@ -6391,7 +6404,7 @@ void TMR1_ISR_(void)
     {
         presses = 0;
         count = 0;
-# 991 "main.c"
+# 1004 "main.c"
     }
 
 

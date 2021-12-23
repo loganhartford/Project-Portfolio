@@ -49,16 +49,16 @@ TMR2_PWM4_OUT 4
 [v _main main `(v  1 e 1 0 ]
 "573
 [v _EXT_ISR EXT_ISR `(v  1 e 1 0 ]
-"597
+"610
 [v _TMR0_ISR_ TMR0_ISR_ `(v  1 e 1 0 ]
-"603
+"616
 [v _TMR1_ISR_ TMR1_ISR_ `(v  1 e 1 0 ]
-"997
+"1010
 [v _playNote playNote `(v  1 e 1 0 ]
 [v i1_playNote playNote `(v  1 e 1 0 ]
-"1023
+"1036
 [v _shiftBytes shiftBytes `(v  1 e 1 0 ]
-"1035
+"1048
 [v _displayMatrix displayMatrix `(v  1 e 1 0 ]
 "33 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_ISR INT_ISR `(v  1 e 1 0 ]
@@ -126,6 +126,16 @@ TMR2_PWM4_OUT 4
 "427 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16F1xxxx_DFP/1.7.146/xc8\pic\include\proc\pic16f15225.h
 [u S505 . 1 `S500 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES505  1 e 1 @11 ]
+[s S1110 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+]
+"462
+[u S1117 . 1 `S1110 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES1117  1 e 1 @12 ]
 "547
 [v _TRISA TRISA `VEuc  1 e 1 @18 ]
 [s S940 . 1 `uc 1 TRISA0 1 0 :1:0 
@@ -523,48 +533,48 @@ TMR2_PWM4_OUT 4
 "404
 [v main@light light `uc  1 a 1 14 ]
 "410
-[v main@j_1175 j `i  1 a 2 21 ]
+[v main@j_1192 j `i  1 a 2 21 ]
 "402
-[v main@j_1173 j `i  1 a 2 19 ]
+[v main@j_1190 j `i  1 a 2 19 ]
 "396
 [v main@j j `i  1 a 2 15 ]
 "394
 [v main@i i `i  1 a 2 17 ]
 "567
 } 0
-"997
+"1010
 [v _playNote playNote `(v  1 e 1 0 ]
 {
 [v playNote@note note `uc  1 a 1 wreg ]
 [v playNote@note note `uc  1 a 1 wreg ]
 [v playNote@prescale prescale `uc  1 p 1 0 ]
-"1000
+"1013
 [v playNote@note note `uc  1 a 1 2 ]
-"1011
+"1024
 } 0
-"1035
+"1048
 [v _displayMatrix displayMatrix `(v  1 e 1 0 ]
 {
 [v displayMatrix@states states `*.4uc  1 a 1 wreg ]
-"1040
+"1053
 [v displayMatrix@i i `i  1 a 2 6 ]
-"1039
+"1052
 [v displayMatrix@lowSide lowSide `uc  1 a 1 8 ]
-"1035
+"1048
 [v displayMatrix@states states `*.4uc  1 a 1 wreg ]
-"1039
+"1052
 [v displayMatrix@states states `*.4uc  1 a 1 5 ]
-"1054
+"1067
 } 0
-"1023
+"1036
 [v _shiftBytes shiftBytes `(v  1 e 1 0 ]
 {
 [v shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v shiftBytes@highSide highSide `uc  1 a 1 wreg ]
 [v shiftBytes@lowSide lowSide `uc  1 p 1 1 ]
-"1026
+"1039
 [v shiftBytes@highSide highSide `uc  1 a 1 2 ]
-"1032
+"1045
 } 0
 "97 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/spi1.c
 [v _SPI1_ExchangeByte SPI1_ExchangeByte `(uc  1 e 1 0 ]
@@ -664,58 +674,58 @@ TMR2_PWM4_OUT 4
 {
 "185
 } 0
-"603 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"616 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _TMR1_ISR_ TMR1_ISR_ `(v  1 e 1 0 ]
 {
-"927
-[v TMR1_ISR_@i_1199 i `i  1 a 2 22 ]
-"921
-[v TMR1_ISR_@i_1198 i `i  1 a 2 20 ]
-"915
-[v TMR1_ISR_@i_1197 i `i  1 a 2 18 ]
+"940
+[v TMR1_ISR_@i_1223 i `i  1 a 2 22 ]
+"934
+[v TMR1_ISR_@i_1222 i `i  1 a 2 20 ]
+"928
+[v TMR1_ISR_@i_1221 i `i  1 a 2 18 ]
+"922
+[v TMR1_ISR_@i_1220 i `i  1 a 2 16 ]
 "909
-[v TMR1_ISR_@i_1196 i `i  1 a 2 16 ]
-"896
-[v TMR1_ISR_@lights_1194 lights `uc  1 a 1 2 ]
-"894
-[v TMR1_ISR_@i_1193 i `i  1 a 2 32 ]
-"616
+[v TMR1_ISR_@lights_1218 lights `uc  1 a 1 2 ]
+"907
+[v TMR1_ISR_@i_1217 i `i  1 a 2 32 ]
+"629
 [v TMR1_ISR_@lights lights `uc  1 a 1 0 ]
-"905
+"918
 [v TMR1_ISR_@jungle_sw jungle_sw `uc  1 a 1 3 ]
-"632
-[v TMR1_ISR_@lights_1185 lights `uc  1 a 1 1 ]
-"614
+"645
+[v TMR1_ISR_@lights_1209 lights `uc  1 a 1 1 ]
+"627
 [v TMR1_ISR_@i i `i  1 a 2 28 ]
-"872
-[v TMR1_ISR_@i_1192 i `i  1 a 2 14 ]
-"865
-[v TMR1_ISR_@i_1191 i `i  1 a 2 26 ]
-"858
-[v TMR1_ISR_@i_1190 i `i  1 a 2 12 ]
-"851
-[v TMR1_ISR_@i_1189 i `i  1 a 2 10 ]
-"844
-[v TMR1_ISR_@i_1188 i `i  1 a 2 8 ]
-"837
-[v TMR1_ISR_@i_1187 i `i  1 a 2 6 ]
-"830
-[v TMR1_ISR_@i_1186 i `i  1 a 2 4 ]
-"630
-[v TMR1_ISR_@i_1184 i `i  1 a 2 30 ]
-"623
-[v TMR1_ISR_@i_1183 i `i  1 a 2 24 ]
-"994
+"885
+[v TMR1_ISR_@i_1216 i `i  1 a 2 14 ]
+"878
+[v TMR1_ISR_@i_1215 i `i  1 a 2 26 ]
+"871
+[v TMR1_ISR_@i_1214 i `i  1 a 2 12 ]
+"864
+[v TMR1_ISR_@i_1213 i `i  1 a 2 10 ]
+"857
+[v TMR1_ISR_@i_1212 i `i  1 a 2 8 ]
+"850
+[v TMR1_ISR_@i_1211 i `i  1 a 2 6 ]
+"843
+[v TMR1_ISR_@i_1210 i `i  1 a 2 4 ]
+"643
+[v TMR1_ISR_@i_1208 i `i  1 a 2 30 ]
+"636
+[v TMR1_ISR_@i_1207 i `i  1 a 2 24 ]
+"1007
 } 0
-"997
+"1010
 [v i1_playNote playNote `(v  1 e 1 0 ]
 {
 [v i1playNote@note note `uc  1 a 1 wreg ]
 [v i1playNote@note note `uc  1 a 1 wreg ]
 [v i1playNote@prescale prescale `uc  1 p 1 0 ]
-"1000
+"1013
 [v i1playNote@note note `uc  1 a 1 2 ]
-"1011
+"1024
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -740,10 +750,10 @@ TMR2_PWM4_OUT 4
 {
 "158
 } 0
-"597 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
+"610 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _TMR0_ISR_ TMR0_ISR_ `(v  1 e 1 0 ]
 {
-"600
+"613
 } 0
 "33 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_ISR INT_ISR `(v  1 e 1 0 ]
@@ -758,7 +768,9 @@ TMR2_PWM4_OUT 4
 "573 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\main.c
 [v _EXT_ISR EXT_ISR `(v  1 e 1 0 ]
 {
-"594
+"575
+[v EXT_ISR@debounce debounce `uc  1 a 1 1 ]
+"607
 } 0
 "67 D:\Users\Logan\Documents\GitHub\Project-Portfolio\Test.X\mcc_generated_files/ext_int.c
 [v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]

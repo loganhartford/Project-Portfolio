@@ -572,6 +572,19 @@ void main(void)
 // Wakes from sleep and increments number of button pushes
 void EXT_ISR(void)
 {
+    uint8_t debounce = 0;
+    while (debounce < 20)
+    {
+        if (RA2_GetValue())
+        {
+            debounce++;
+            __delay_ms(1);
+        }
+        else
+        {
+            debounce = 0;
+        }
+    }
     presses++;          // Increment presses
     TMR0_Reload();      // Reset TMR0
     
