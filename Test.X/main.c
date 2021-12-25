@@ -48,13 +48,13 @@
 //#define coc             // Clash of Clans login
 //#define river           // The River, Garth Brooks
 //#define sand            // Sandstorm
-//#define pac             // PAC-MAN, Gorillaz
-#define vibes           // Good Vibrations, Beach Boys
+#define pac             // PAC-MAN, Gorillaz
+//#define vibes           // Good Vibrations, Beach Boys
 
 // Third song Selection--Only define one at a time
 //#define jcole           // No Role Modlez, J.Cole
-#define dreams          // You Make My Dream Come True, Hall and Oates
-//#define jungle          // Into the Jungle, Guns N' Roses
+//#define dreams          // You Make My Dream Come True, Hall and Oates
+#define jungle          // Into the Jungle, Guns N' Roses
 
 // Track which song is being played
 bool silent_night_playing = 0;
@@ -490,7 +490,7 @@ void main(void)
     while (1)
     {
         T0CON0bits.T0EN = 1;        // Enable TMR0
-        shiftBytes(0xFE, 0x08);     // ON indicator
+        shiftBytes(0xFE, 0x07);//0x08);     // ON indicator
         OE_n_SetLow();              // Enable shift register output 
         EN_MATRIX_n_SetLow();       // Turn on load switch
         if (presses && TMR0_complete)
@@ -521,6 +521,15 @@ void main(void)
                     light_array[6] = 0xFE;
 #endif
 #ifdef river
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xFF;
+                    light_array[3] = 0xFF;
+                    light_array[4] = 0xFF;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
+#endif
+#ifdef pac
                     light_array[0] = 0xFF;
                     light_array[1] = 0xFF;
                     light_array[2] = 0xFF;
@@ -799,6 +808,54 @@ void TMR1_ISR_(void)
                     light_array[i] = (light_array[i] << 1) + lights;
                 }
             }
+        }
+#endif
+        
+        
+#ifdef pac
+        if (((song2[count] == 212) &&(song2_pre[count] == 0xD0))||((count == 110) || (count == 111)))
+        {
+           if (light_array[3] == 0xFF)
+           {
+                light_array[0] = 0xFF;
+                light_array[1] = 0xFF;
+                light_array[2] = 0xF3;
+                light_array[3] = 0xE3;
+                light_array[4] = 0xE3;
+                light_array[5] = 0xFF;
+                light_array[6] = 0xFF;
+           }
+           else
+           {
+               for (int i = 0; i < 7; i++)
+                {
+                    light_array[i] = 0x00;
+                }
+           }
+        }
+        else if ((song2[count] == 0) || (song2[count] == 50))
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = 0xFF;
+            } 
+        }
+        else if ((light_array[1] == 0x00) && (last_note != song2[count]))
+        {
+            light_array[0] = 0x88;
+            light_array[1] = 0x44;
+            light_array[2] = 0x22;
+            light_array[3] = 0x11;
+            light_array[4] = 0x88;
+            light_array[5] = 0x44;
+            light_array[6] = 0x22;
+        }
+        else if (last_note != song2[count])
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                light_array[i] =(light_array[i] << 1) + light_array[i]*2/3;
+            } 
         }
 #endif
     }
