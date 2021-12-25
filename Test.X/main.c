@@ -48,13 +48,13 @@
 //#define coc             // Clash of Clans login
 //#define river           // The River, Garth Brooks
 //#define sand            // Sandstorm
-#define pac             // PAC-MAN, Gorillaz
-//#define vibes           // Good Vibrations, Beach Boys
+//#define pac             // PAC-MAN, Gorillaz
+#define vibes           // Good Vibrations, Beach Boys
 
 // Third song Selection--Only define one at a time
-//#define jcole           // No Role Modlez, J.Cole
+#define jcole           // No Role Modlez, J.Cole
 //#define dreams          // You Make My Dream Come True, Hall and Oates
-#define jungle          // Into the Jungle, Guns N' Roses
+//#define jungle          // Into the Jungle, Guns N' Roses
 
 // Track which song is being played
 bool silent_night_playing = 0;
@@ -203,6 +203,7 @@ uint8_t timer_low_2 = 0x68;
 uint8_t song2_length = 176;
 uint8_t vibes_count = 0;
 uint8_t vibes_count2 = 0;
+uint8_t vibes_count3 = 0;
 #endif
 
 
@@ -548,6 +549,7 @@ void main(void)
                     light_array[6] = 0xFF;
                     vibes_count = 0;
                     vibes_count2 = 0;
+                    vibes_count3 = 0;
 #endif
                     song2_playing = 1;
                     break;
@@ -857,6 +859,53 @@ void TMR1_ISR_(void)
                 light_array[i] =(light_array[i] << 1) + light_array[i]*2/3;
             } 
         }
+#endif
+        if (((song2[count] == 0) ||(song2[count] == 50)) && (vibes_count3 < 8))
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = 0xFF;
+            }
+        }
+        else if (count < 128)
+        {
+            if (vibes_count3 == 4)
+            {
+                light_array[0] = 0x88;
+                light_array[1] = 0x44;
+                light_array[2] = 0x22;
+                light_array[3] = 0x11;
+                light_array[4] = 0x88;
+                light_array[5] = 0x44;
+                light_array[6] = 0x22;
+            }
+            else if ((vibes_count3 < 14) && (last_note != song2[count]))
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    uint8_t lights = light_array[i] >> 7;
+                    light_array[i] = (light_array[i] << 1) + lights; 
+                }
+            }
+            else if (vibes_count3 == 14)
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    light_array[i] = 0x7F;
+                }
+            }
+            else if (last_note != song2[count])
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    light_array[i] = light_array[i] >> 2;
+                }
+            }
+        }
+        vibes_count3++;
+        if (vibes_count3 > 31) vibes_count3 = 0;
+#ifdef vibes
+        
 #endif
     }
     
