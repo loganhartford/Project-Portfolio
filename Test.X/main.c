@@ -47,14 +47,15 @@
 // Second Song Selection--Only define one at a time
 //#define coc             // Clash of Clans login
 //#define river           // The River, Garth Brooks
-//#define sand            // Sandstorm
-//#define pac             // PAC-MAN, Gorillaz
-#define vibes           // Good Vibrations, Beach Boys
+//#define sand            // Sandstorm -- unfinished
+#define pac             // PAC-MAN, Gorillaz
+//#define vibes           // Good Vibrations, Beach Boys
 
 // Third song Selection--Only define one at a time
-#define jcole           // No Role Modlez, J.Cole
+//#define jcole           // No Role Modlez, J.Cole
 //#define dreams          // You Make My Dream Come True, Hall and Oates
-//#define jungle          // Into the Jungle, Guns N' Roses
+#define jungle          // Into the Jungle, Guns N' Roses
+//#define xp              // Windows XP start up jingle -- unfinished
 
 // Track which song is being played
 bool silent_night_playing = 0;
@@ -392,6 +393,23 @@ uint8_t jungle_count = 0;
 bool jungle_bool = 0;
 #endif
 
+#ifdef xp
+//const uint8_t b = 252;
+//const uint8_t c = 238;
+//const uint8_t d = 212;
+//const uint8_t e = 189;
+//const uint8_t f = 178;
+//const uint8_t g = 158;
+//const uint8_t a = 141;
+uint8_t song3[] =  {189, 189, 189, 212, 212, 252, 252, 252, 252, 141, 141, 141, 141, 141, 141,
+                    189, 189, 189, 189, 252, 252, 252, 252, 252, 252, 252, 252,};
+uint8_t song3_pre[] = {0xC0, 0xC0, 0xC0, 0xD0, 0xD0, 0xD0, 0xD0, 0xC0, 0xC0, 0xC0,0xC0, 0xC0, 0xC0, 
+                       0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0};
+uint8_t timer_high_3 = 0xF5;
+uint8_t timer_low_3 = 0xD4;
+uint8_t song3_length = 21;
+#endif
+
 // Contains the state of the LEDs as any given point in time.
 uint8_t light_array[] = {0xFE, 0xFF, 0xFE, 0xFF, 0xFE, 0xFF, 0xFE};
 
@@ -491,7 +509,7 @@ void main(void)
     while (1)
     {
         T0CON0bits.T0EN = 1;        // Enable TMR0
-        shiftBytes(0xFE, 0x07);//0x08);     // ON indicator
+        shiftBytes(0xFE, 0x08);//0x08);     // ON indicator
         OE_n_SetLow();              // Enable shift register output 
         EN_MATRIX_n_SetLow();       // Turn on load switch
         if (presses && TMR0_complete)
@@ -624,7 +642,16 @@ void main(void)
 #ifdef sand           
                 playNote(song2[count], 0xD0);
                 displayMatrix(light_array);
-#else         
+#endif        
+#ifdef coc
+                playNote(song2[count], song2_pre[count]);
+                displayMatrix(light_array);
+#endif
+#ifdef vibes
+                playNote(song2[count], song2_pre[count]);
+                displayMatrix(light_array);
+#endif
+#ifdef pac
                 playNote(song2[count], song2_pre[count]);
                 displayMatrix(light_array);
 #endif
@@ -663,19 +690,19 @@ void main(void)
 // Wakes from sleep and increments number of button pushes
 void EXT_ISR(void)
 {
-    uint8_t debounce = 0;
-    while (debounce < 40)
-    {
-        if (RA2_GetValue())
-        {
-            debounce++;
-            __delay_ms(1);
-        }
-        else
-        {
-            debounce = 0;
-        }
-    }
+//    uint8_t debounce = 0;
+//    while (debounce < 20)
+//    {
+//        if (RA2_GetValue())
+//        {
+//            debounce++;
+//            __delay_ms(1);
+//        }
+//        else
+//        {
+//            debounce = 0;
+//        }
+//    }
     presses++;          // Increment presses
     TMR0_Reload();      // Reset TMR0
     
@@ -860,6 +887,7 @@ void TMR1_ISR_(void)
             } 
         }
 #endif
+#ifdef vibes
         if (((song2[count] == 0) ||(song2[count] == 50)) && (vibes_count3 < 8))
         {
             for (int i = 0; i < 7; i++)
@@ -904,8 +932,6 @@ void TMR1_ISR_(void)
         }
         vibes_count3++;
         if (vibes_count3 > 31) vibes_count3 = 0;
-#ifdef vibes
-        
 #endif
     }
     
