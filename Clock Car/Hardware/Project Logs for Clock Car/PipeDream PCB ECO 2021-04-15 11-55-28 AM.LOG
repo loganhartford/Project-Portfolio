@@ -1,0 +1,200 @@
+Removed Pin From Net: NetName=+3V3 Pin=J11-2
+Added Component: Designator=U7(SOT89-150P330X160-5N)
+Add component (AddParameter): Name = "Accuracy"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case/Package"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Category"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink4Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink4URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Plating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Desc"; Value = "LED Driver"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Dimming"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Dropout Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Frequency"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Interface IC Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Lead Free"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Diodes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "AL8861WT-7"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Input Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Output Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Power Dissipation"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Supply Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Current Limit"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Input Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Outputs"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Pins"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Regulators"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Current per Channel"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Body Material"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Code"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "AL8861Y-13"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Polarity"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power Dissipation"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power Supply Rejection Ratio (PSRR)"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pricing 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Quiescent Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Radiation Hardening"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Reference Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS Compliant"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Stock 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "AL8861WT-7DICT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Terminal Finish"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Width"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U8(SOT89-150P330X160-5N)
+Add component (AddParameter): Name = "Accuracy"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case/Package"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Category"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink4Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink4URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Plating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Desc"; Value = "LED Driver"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Dimming"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Dropout Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Frequency"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Interface IC Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Lead Free"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Diodes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "AL8861WT-7"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Input Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Output Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Power Dissipation"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Supply Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Current Limit"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Input Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Outputs"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Pins"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Regulators"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Current per Channel"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Body Material"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Code"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "AL8861Y-13"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Polarity"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power Dissipation"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power Supply Rejection Ratio (PSRR)"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pricing 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Quiescent Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Radiation Hardening"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Reference Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS Compliant"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Stock 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "AL8861WT-7DICT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Terminal Finish"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Width"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+5V Pin=J11-2
+Added Pin To Net: NetName=NetD1_1 Pin=U7-1
+Added Pin To Net: NetName=GND Pin=U7-2
+Added Pin To Net: NetName=NetC31_2 Pin=U7-3
+Added Pin To Net: NetName=+BATT Pin=U7-4
+Added Pin To Net: NetName=NetJ10_1 Pin=U7-5
+Added Pin To Net: NetName=NetD2_1 Pin=U8-1
+Added Pin To Net: NetName=GND Pin=U8-2
+Added Pin To Net: NetName=NetC33_2 Pin=U8-3
+Added Pin To Net: NetName=+BATT Pin=U8-4
+Added Pin To Net: NetName=NetJ12_1 Pin=U8-5
+Added Member To Class: ClassName=Main Member=Component U7 AL8861Y-13
+Added Member To Class: ClassName=Main Member=Component U8 AL8861Y-13
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil

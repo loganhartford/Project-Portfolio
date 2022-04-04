@@ -1,5 +1,0 @@
-Added Component: Designator=MH1(3MM_MH)
-Add component (AddParameter): Name = "Function"; Value = "3MM"; VariantName = "[No Variations]"
-Add component (AddParameter): Name = "Part Number"; Value = "3MM_MH"; VariantName = "[No Variations]"
-Add component (AddParameter): Name = "Size"; Value = "3MM"; VariantName = "[No Variations]"
-Added Member To Class: ClassName=Main Member=Component MH1 3MM_MH

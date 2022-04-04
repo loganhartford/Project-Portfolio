@@ -1,0 +1,6 @@
+Change Component Designator: OldDesignator=GND NewDesignator=TP4
+Change Component Designator: OldDesignator=GND NewDesignator=TP5
+Change Component Designator: OldDesignator=VBAT NewDesignator=TP1
+Added Component: Designator=TP?(TESTPOINT_CIRCLE_1MM)
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component TP4 TESTPOINT_LOOP
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component TP? TESTPOINT_1MM_CIRCLE

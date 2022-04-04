@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=GND Pin=GND-1
+Change Component Designator: OldDesignator=24V NewDesignator=TP2
+Change Component Designator: OldDesignator=GND NewDesignator=TP3
+Change Component Designator: OldDesignator=GND NewDesignator=TP4
+Change Component Designator: OldDesignator=VBAT NewDesignator=TP1
+Added Component: Designator=TP5(TESTPOINT_LOOP)
+Add component (AddParameter): Name = "Manufacturer 1"; Value = "Keystone Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "5002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Type"; Value = "TH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package/Footprint"; Value = "TH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "36-5002-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=TP5-1
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component TP3 TESTPOINT_LOOP
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component TP5 TESTPOINT_LOOP

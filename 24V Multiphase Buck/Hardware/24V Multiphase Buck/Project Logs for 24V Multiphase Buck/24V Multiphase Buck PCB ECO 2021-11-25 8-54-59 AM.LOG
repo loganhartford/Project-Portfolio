@@ -1,0 +1,9 @@
+Added Component: Designator=J1(1935161)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Type"; Value = "TH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "1935161"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "277-1667-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VBAT Pin=J1-1
+Added Pin To Net: NetName=GND Pin=J1-2
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component J1 1935161

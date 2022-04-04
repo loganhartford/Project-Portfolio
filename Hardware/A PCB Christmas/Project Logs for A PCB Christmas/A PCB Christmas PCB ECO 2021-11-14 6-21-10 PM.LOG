@@ -1,6 +1,0 @@
-Added Pin To Net: NetName=NetR41_1 Pin=R41-1
-Added Pin To Net: NetName=NetR41_1 Pin=U1-1
-Added Net: Name=NetR41_1
-Added Pin To Net: NetName=SWITCH Pin=R19-2
-Added Pin To Net: NetName=SWITCH Pin=U1-2
-Added Net: Name=SWITCH

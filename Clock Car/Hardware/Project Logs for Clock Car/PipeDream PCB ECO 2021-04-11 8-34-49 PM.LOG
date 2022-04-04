@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=RST Pin=U5-7
+Removed Pin From Net: NetName=GPIO2 Pin=U5-12
+Removed Pin From Net: NetName=CS Pin=U5-15
+Removed Pin From Net: NetName=INT Pin=U5-16
+Removed Pin From Net: NetName=UART_IN Pin=U5-20
+Removed Pin From Net: NetName=D_ENC_B Pin=U5-21
+Removed Pin From Net: NetName=B_ENC_A Pin=U5-24
+Added Pin To Net: NetName=B_ENC_A Pin=U5-7
+Added Pin To Net: NetName=INT Pin=U5-12
+Added Pin To Net: NetName=UART_IN Pin=U5-15
+Added Pin To Net: NetName=GPIO2 Pin=U5-16
+Added Pin To Net: NetName=CS Pin=U5-20
+Added Pin To Net: NetName=RST Pin=U5-21
+Added Pin To Net: NetName=D_ENC_B Pin=U5-24
+Added Member To Class: ClassName=Main Member=Component U5 DSPIC33CK256MP505T-I/PT

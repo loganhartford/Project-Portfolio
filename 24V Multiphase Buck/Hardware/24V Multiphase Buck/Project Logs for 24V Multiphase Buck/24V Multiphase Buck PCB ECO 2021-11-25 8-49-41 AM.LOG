@@ -1,0 +1,153 @@
+Added Component: Designator=C25(CAPAE9983X105M)
+Add component (AddParameter): Name = "Capacitance"; Value = "NU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Radial"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "33uF Electro Blank"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "NU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "NV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "NV"; VariantName = "[No Variations]"
+Added Component: Designator=C26(CAPAE9983X105M)
+Add component (AddParameter): Name = "Capacitance"; Value = "NU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Radial"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "33uF Electro Blank"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "NU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "NV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "NV"; VariantName = "[No Variations]"
+Added Component: Designator=C27(CAPAE9983X105M)
+Add component (AddParameter): Name = "Capacitance"; Value = "NU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Radial"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "33uF Electro Blank"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "NU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "NV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "NV"; VariantName = "[No Variations]"
+Added Component: Designator=C28(CAPAE9983X105M)
+Add component (AddParameter): Name = "Capacitance"; Value = "NU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Radial"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "33uF Electro Blank"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "NU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "NV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "NV"; VariantName = "[No Variations]"
+Added Component: Designator=Q7(DPAK254P1530X450-3N)
+Add component (AddParameter): Name = "Id"; Value = "100A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Nexperia USA Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "BUK768R1-100E,118"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "D2PAK"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "BUK768R1-100E,118"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "1727-1062-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vds"; Value = "100V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vgs (Max)"; Value = "20V"; VariantName = "[No Variations]"
+Added Component: Designator=Q8(DPAK254P1530X450-3N)
+Add component (AddParameter): Name = "Id"; Value = "100A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Nexperia USA Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "BUK768R1-100E,118"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "D2PAK"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "BUK768R1-100E,118"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "1727-1062-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vds"; Value = "100V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vgs (Max)"; Value = "20V"; VariantName = "[No Variations]"
+Added Component: Designator=U1(CQFP80P900X900X120-32N)
+Add component (AddParameter): Name = "-3db Bandwidth"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Axis"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Bandwidth"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case/Package"; Value = "TQFP"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Category"; Value = "Voltage Regulators - Switching"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Plating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Dropout Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Lead Free"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Maxim"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "MAX17559ACJ+"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Input Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = "125°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Supply Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Input Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = "-40°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Supply Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Motor Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Nominal Output Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Nominal Supply Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Outputs"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Pins"; Value = "32"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Regulators"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Supply Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Current"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Voltage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Tray"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "MAX17559ACJ+"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pricing 1"; Value = "1=7.47000, 10=6.75100, 25=6.43680, 80=5.58925, 250=5.33800, 500=4.86700, 1000=4.71000 (USD)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Radiation Hardening"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS Compliant"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Sensitivity"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Sensor Type"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Stock 1"; Value = "210"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "MAX17559ACJ+-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supply Current"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=24V Pin=C25-1
+Added Pin To Net: NetName=GND Pin=C25-2
+Added Pin To Net: NetName=24V Pin=C26-1
+Added Pin To Net: NetName=GND Pin=C26-2
+Added Pin To Net: NetName=24V Pin=C27-1
+Added Pin To Net: NetName=GND Pin=C27-2
+Added Pin To Net: NetName=24V Pin=C28-1
+Added Pin To Net: NetName=GND Pin=C28-2
+Added Pin To Net: NetName=VBATT Pin=Q7-2
+Added Pin To Net: NetName=NetC17_1 Pin=Q7-3
+Added Pin To Net: NetName=VBATT Pin=Q8-2
+Added Pin To Net: NetName=NetC17_1 Pin=Q8-3
+Added Pin To Net: NetName=24V Pin=U1-1
+Added Pin To Net: NetName=NetR12_2 Pin=U1-2
+Added Pin To Net: NetName=NetR15_2 Pin=U1-3
+Added Pin To Net: NetName=NetR17_2 Pin=U1-4
+Added Pin To Net: NetName=NetR1_1 Pin=U1-5
+Added Pin To Net: NetName=GND Pin=U1-6
+Added Pin To Net: NetName=NetR1_1 Pin=U1-7
+Added Pin To Net: NetName=NetR1_1 Pin=U1-8
+Added Pin To Net: NetName=24V Pin=U1-9
+Added Pin To Net: NetName=NetL2_2 Pin=U1-10
+Added Pin To Net: NetName=NetR16_1 Pin=U1-11
+Added Pin To Net: NetName=NetC15_2 Pin=U1-12
+Added Pin To Net: NetName=NetR8_1 Pin=U1-13
+Added Pin To Net: NetName=NetR7_2 Pin=U1-14
+Added Pin To Net: NetName=NetC17_1 Pin=U1-16
+Added Pin To Net: NetName=NetC17_2 Pin=U1-17
+Added Pin To Net: NetName=NetQ5_1 Pin=U1-18
+Added Pin To Net: NetName=VCCINT Pin=U1-19
+Added Pin To Net: NetName=24V Pin=U1-20
+Added Pin To Net: NetName=GND Pin=U1-21
+Added Pin To Net: NetName=VBATT Pin=U1-22
+Added Pin To Net: NetName=NetQ3_1 Pin=U1-23
+Added Pin To Net: NetName=NetC9_2 Pin=U1-24
+Added Pin To Net: NetName=NetC9_1 Pin=U1-25
+Added Pin To Net: NetName=NetQ1_1 Pin=U1-26
+Added Pin To Net: NetName=NetR6_2 Pin=U1-27
+Added Pin To Net: NetName=NetR14_2 Pin=U1-28
+Added Pin To Net: NetName=NetC24_2 Pin=U1-29
+Added Pin To Net: NetName=NetC16_2 Pin=U1-30
+Added Pin To Net: NetName=NetR4_1 Pin=U1-31
+Added Pin To Net: NetName=NetL1_2 Pin=U1-32
+Added Pin To Net: NetName=NetQ7_1 Pin=Q7-1
+Added Pin To Net: NetName=NetQ7_1 Pin=Q8-1
+Added Pin To Net: NetName=NetQ7_1 Pin=U1-15
+Added Net: Name=NetQ7_1
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C25 Electro Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C26 Electro Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C27 Electro Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C28 Electro Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component Q7 BUK768R1-100E,118
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component Q8 BUK768R1-100E,118
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component U1 MAX17559ACJ+

@@ -1,0 +1,70 @@
+Removed Pin From Net: NetName=D_ENC_A Pin=U5-21
+Added Pin To Net: NetName=D_ENC_A Pin=U5-35
+Added Pin To Net: NetName=D_ENC_B Pin=J8-4
+Added Pin To Net: NetName=D_ENC_B Pin=U5-21
+Added Net: Name=D_ENC_B
+Added Member To Class: ClassName=Main Member=Component U6 DRV8848PWPR
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil
+PCB-ECO: Change Pad Pin/Pkg Length: Old=118.11mil New=0mil

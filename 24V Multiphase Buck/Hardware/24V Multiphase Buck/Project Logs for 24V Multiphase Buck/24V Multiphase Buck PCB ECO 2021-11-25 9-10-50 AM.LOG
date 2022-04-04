@@ -1,0 +1,30 @@
+Removed Pin From Net: NetName=VBATT Pin=Q1-4
+Removed Pin From Net: NetName=VBATT Pin=Q2-4
+Change Component Footprint: Designator=Q1 Old Footprint=DPAK230P950X150-3N New Footprint=DPAK254P1530X450-3N
+Change Component Footprint: Designator=Q2 Old Footprint=DPAK230P950X150-3N New Footprint=DPAK254P1530X450-3N
+Change Component Comment : Designator=Q1 Old Comment=N-CH_DPAK New Comment=BUK768R1-100E,118
+Change Component Comment : Designator=Q2 Old Comment=N-CH_DPAK New Comment=BUK768R1-100E,118
+Change component parameters: Designator = "Q1" ("Q1"); Footprint = "DPAK230P950X150-3N"; UniqueID = "\UERFFIPW" ("\UERFFIPW")
+Change component parameters (AddParameter): Name = "Id"; Value = "100A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Nexperia USA Inc."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "BUK768R1-100E,118"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "D2PAK"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "BUK768R1-100E,118"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "1727-1062-1-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vds"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vgs (Max)"; Value = "20V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Q2" ("Q2"); Footprint = "DPAK230P950X150-3N"; UniqueID = "\TBVEFDZO" ("\TBVEFDZO")
+Change component parameters (AddParameter): Name = "Id"; Value = "100A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Nexperia USA Inc."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "BUK768R1-100E,118"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "D2PAK"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "BUK768R1-100E,118"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = "1727-1062-1-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "N-CH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vds"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vgs (Max)"; Value = "20V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VBATT Pin=Q1-2
+Added Pin To Net: NetName=VBATT Pin=Q2-2

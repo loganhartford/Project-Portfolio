@@ -1,0 +1,44 @@
+Change Component Footprint: Designator=TP1 Old Footprint=TP1 New Footprint=TESTPOINT_LOOP
+Change Component Footprint: Designator=TP2 Old Footprint=TP1 New Footprint=TESTPOINT_LOOP
+Change Component Footprint: Designator=TP3 Old Footprint=TP1 New Footprint=TESTPOINT_LOOP
+Change Component Footprint: Designator=TP4 Old Footprint=TP1 New Footprint=TESTPOINT_LOOP
+Change Component Comment : Designator=TP1 Old Comment=EMR_TP New Comment=TESTPOINT_LOOP
+Change Component Comment : Designator=TP2 Old Comment=EMR_TP New Comment=TESTPOINT_LOOP
+Change Component Comment : Designator=TP3 Old Comment=EMR_TP New Comment=TESTPOINT_LOOP
+Change Component Comment : Designator=TP4 Old Comment=EMR_TP New Comment=TESTPOINT_LOOP
+Change component parameters: Designator = "TP1" ("TP1"); Footprint = "TP1"; UniqueID = "\NJVIFXSR" ("\NJVIFXSR")
+Change component parameters (AddParameter): Name = "Manufacturer 1"; Value = "Keystone Electronics"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "5002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Type"; Value = "TH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "TH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "36-5002-ND"; VariantName = "[No Variations]"
+Change component parameters: Designator = "TP2" ("TP2"); Footprint = "TP1"; UniqueID = "\EKAVORSW" ("\EKAVORSW")
+Change component parameters (AddParameter): Name = "Manufacturer 1"; Value = "Keystone Electronics"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "5002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Type"; Value = "TH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "TH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "36-5002-ND"; VariantName = "[No Variations]"
+Change component parameters: Designator = "TP3" ("TP3"); Footprint = "TP1"; UniqueID = "\ZIVMZHGR" ("\ZIVMZHGR")
+Change component parameters (AddParameter): Name = "Manufacturer 1"; Value = "Keystone Electronics"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "5002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Type"; Value = "TH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "TH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "36-5002-ND"; VariantName = "[No Variations]"
+Change component parameters: Designator = "TP4" ("TP4"); Footprint = "TP1"; UniqueID = "\HPXGDAKH" ("\HPXGDAKH")
+Change component parameters (AddParameter): Name = "Manufacturer 1"; Value = "Keystone Electronics"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "5002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Type"; Value = "TH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package/Footprint"; Value = "TH"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "36-5002-ND"; VariantName = "[No Variations]"
+Added Component: Designator=MH1(MOUNTING_HOLE_3mm)
+Added Component: Designator=MH2(MOUNTING_HOLE_3mm)
+Added Component: Designator=MH3(MOUNTING_HOLE_3mm)
+Added Component: Designator=MH4(MOUNTING_HOLE_3mm)
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component MH1 MOUNTING_HOLE_M3
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component MH2 MOUNTING_HOLE_M3
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component MH3 MOUNTING_HOLE_M3
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component MH4 MOUNTING_HOLE_M3

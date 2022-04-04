@@ -1,0 +1,17 @@
+Change Physical Footprint: Designator=J1 Old Footprint=PWR New Footprint=PWR
+Change Physical Footprint: Designator=J2 Old Footprint=0022035065 New Footprint=0022035065
+Change Physical Footprint: Designator=J3 Old Footprint=0022035065 New Footprint=0022035065
+Change Physical Footprint: Designator=J4 Old Footprint=PICKIT New Footprint=PICKIT
+Change Physical Footprint: Designator=J5 Old Footprint=0099990987 New Footprint=0099990987
+Change Physical Footprint: Designator=J6 Old Footprint=0022035065 New Footprint=0022035065
+Change Physical Footprint: Designator=J7 Old Footprint=SIP8 New Footprint=SIP8
+Change Physical Footprint: Designator=J8 Old Footprint=0022035065 New Footprint=0022035065
+Change Physical Footprint: Designator=J9 Old Footprint=SIP8 New Footprint=SIP8
+Change Physical Footprint: Designator=J10 Old Footprint=0099990986 New Footprint=0099990986
+Change Physical Footprint: Designator=J11 Old Footprint=0099990987 New Footprint=0099990987
+Change Physical Footprint: Designator=J12 Old Footprint=0099990986 New Footprint=0099990986
+Change Physical Footprint: Designator=J13 Old Footprint=PWR New Footprint=PWR
+Change Physical Footprint: Designator=MH1 Old Footprint=MH3MM_5MM New Footprint=MH3MM_5MM
+Change Physical Footprint: Designator=MH2 Old Footprint=MH3MM_5MM New Footprint=MH3MM_5MM
+Change Physical Footprint: Designator=MH3 Old Footprint=MH3MM_5MM New Footprint=MH3MM_5MM
+Change Physical Footprint: Designator=MH4 Old Footprint=MH3MM_5MM New Footprint=MH3MM_5MM

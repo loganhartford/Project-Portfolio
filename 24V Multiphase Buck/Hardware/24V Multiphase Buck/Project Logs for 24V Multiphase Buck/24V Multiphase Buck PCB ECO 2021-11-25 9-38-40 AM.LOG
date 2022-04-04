@@ -1,0 +1,18 @@
+Added Pin To Net: NetName=VBATT Pin=J1-1
+Change Net Name : Old Net Name=VBATT New Net Name=VBAT
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C15 Electro Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C22 Electro Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C23 Electro Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C25 Ceramic Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C26 Ceramic Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C27 Ceramic Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C28 Ceramic Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component L1 Inductor
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component Q6 BUK768R1-100E,118
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component Q7 BUK768R1-100E,118
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component R11 Resistor
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component R13 Resistor
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component R14 Resistor
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component R15 Resistor
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component R16 Resistor
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component R17 Resistor

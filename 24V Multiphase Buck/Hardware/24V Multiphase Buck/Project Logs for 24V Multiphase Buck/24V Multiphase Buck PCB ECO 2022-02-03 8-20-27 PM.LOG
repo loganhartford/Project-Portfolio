@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=24V Pin=TP13-1
+Removed Pin From Net: NetName=24V Pin=TP16-1
+Removed Member From Class: ClassName=24V Multiphase Buck Member=TP13
+Removed Member From Class: ClassName=24V Multiphase Buck Member=TP16
+Change Component Designator: OldDesignator=CS+ NewDesignator=TP15
+Change Component Designator: OldDesignator=DH2 NewDesignator=TP9
+Change Component Designator: OldDesignator=DL2 NewDesignator=TP11
+Change Component Designator: OldDesignator=FB2 NewDesignator=TP17
+Change Component Designator: OldDesignator=LX1 NewDesignator=TP7
+Change Component Designator: OldDesignator=LX2 NewDesignator=TP10

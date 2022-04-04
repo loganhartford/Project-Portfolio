@@ -1,0 +1,16 @@
+Change Net Color : Old Net Color=Yellow New Net Color=Default
+Change Net Color : Old Net Color=Yellow New Net Color=Default
+Change Net Color : Old Net Color=Yellow New Net Color=Default
+Change Net Color : Old Net Color=Yellow New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 255, 110) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 255, 110) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 255, 110) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 110, 255) New Net Color=Default
+Change Net Color : Old Net Color=RGB(255, 110, 255) New Net Color=Default
+Change Net Color : Old Net Color=RGB(255, 110, 255) New Net Color=Default
+Change Net Color : Old Net Color=RGB(229, 222, 197) New Net Color=Default
+Change Net Color : Old Net Color=RGB(229, 222, 197) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 255, 110) New Net Color=Default
+Change Net Color : Old Net Color=RGB(0, 190, 0) New Net Color=Default
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C20 Electro Cap
+Added Member To Class: ClassName=24V Multiphase Buck Member=Component C22 Ceramic Cap
