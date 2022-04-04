@@ -5857,13 +5857,20 @@ void OSCILLATOR_Initialize(void);
 # 101 "./mcc_generated_files/mcc.h"
 void WDT_Initialize(void);
 # 44 "main.c" 2
+# 61 "main.c"
+_Bool silent_night_playing = 0;
+_Bool song3_playing = 0;
+_Bool song2_playing = 0;
 
+_Bool TMR0_complete = 0;
 
+int count = 0;
+uint8_t last_note = 0;
+uint8_t last_prescale = 0;
 
+uint8_t presses = 0;
 
-
-_Bool TMR0_b = 0;
-
+uint8_t num_songs = 3;
 
 
 
@@ -5871,6 +5878,7 @@ _Bool TMR0_b = 0;
 void shiftBytes(uint8_t highSide, uint8_t lowSide);
 void Initialize_Matrix(void);
 void displayMatrix(uint8_t states[8]);
+void playNote(uint8_t note, uint8_t prescale);
 void EXT_ISR(void);
 void TMR0_ISR_(void);
 void TMR1_ISR_(void);
@@ -5879,83 +5887,599 @@ void TMR1_ISR_(void);
 
 
 
+uint8_t silent_night[] = {158, 158, 158, 141, 158, 158,
+                          188, 188, 188, 188, 188, 188,
+                          158, 158, 158, 141, 158, 158,
+                          188, 188, 188, 188, 188, 188,
+                          211, 211, 211, 211, 211, 211,
+                          252, 252, 252, 252, 252, 252,
+                          238, 238, 238, 238, 238, 238,
+                          158, 158, 158, 158, 158, 158,
+                          141, 141, 141, 141, 141, 141,
+                          237, 237, 237, 252, 141, 141,
+                          158, 158, 158, 141, 158, 158,
+                          188, 188, 188, 188, 188, 188,
+                          141, 141, 141, 141, 141, 141,
+                          237, 237, 237, 252, 141, 141,
+                          158, 158, 158, 141, 158, 158,
+                          188, 188, 188, 188, 188, 188,
+                          211, 211, 211, 211, 211, 211,
+                          177, 177, 177, 211, 252, 252,
+                          237, 237, 237, 237, 237, 237,
+                          188, 188, 188, 188, 188, 188,
+                          237, 237, 158, 158, 188, 188,
+                          158, 158, 158, 177, 211, 211,
+                          238, 238, 238, 238, 238, 238, 0};
+uint8_t silent_night_pre[] = {0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0,
+                              0xC0, 0xC0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                              0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
+# 232 "main.c"
+uint8_t song2[] = { 50, 50, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
+                   252, 252, 238, 238, 238, 238, 252, 252, 252, 252, 238, 238, 238, 238, 252, 252,
+                     0, 0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
+                   141, 141, 252, 252, 141, 141, 158, 158, 178, 178, 178, 178, 168, 168, 168, 168,
+                     0, 0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 252, 252, 158, 158,
+                     0, 0, 158, 0, 158, 158, 158, 158, 0, 0, 141, 0, 141, 141, 141, 141,
+                     0, 0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 0, 0, 158, 158,
+                   252, 252, 238, 238, 238, 238, 252, 252, 252, 252, 252, 252, 238, 238, 238, 238,
+                     0, 0, 212, 212, 238, 238, 252, 252, 158, 158, 158, 158, 0, 0, 158, 158, 0};
+uint8_t song2_pre[] = {0x00, 0x00, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xE0, 0xE0, 0xE0, 0xD0, 0xD0, 0xE0, 0xE0,};
+uint8_t timer_high_2 = 0xED;
+uint8_t timer_low_2 = 0x1C;
+uint8_t song2_length = 144;
+# 367 "main.c"
+uint8_t song3[] = {212, 212, 212, 212, 212, 212, 212, 212, 212, 212,
+                    252, 252, 252, 252, 252, 252, 252, 252, 252, 252,
+                    178, 178, 178, 178, 178, 178, 178, 178, 178, 178,
+                    141, 141, 238, 238, 212, 212, 189, 189, 158, 158, 141, 141, 238, 238, 212, 212,
+                    189, 0, 189, 0, 189, 0, 189, 0, 189, 0, 189, 0, 189, 0, 189, 189,
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212,
+                    158, 158, 158, 158, 178, 178, 158, 158, 158, 158, 178, 178, 189, 189, 212, 212};
+uint8_t song3_pre[] = {0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
+                       0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0, 0xE0,
+                       0xE0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xC0, 0xC0, 0xC0, 0xC0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xC0, 0xC0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0,
+                       0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xE0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0, 0xD0};
+uint8_t timer_high_3 = 0xF1;
+uint8_t timer_low_3 = 0x3A;
+uint8_t song3_length = 158;
+uint8_t jungle_count = 0;
+_Bool jungle_bool = 0;
+# 414 "main.c"
+uint8_t light_array[] = {0xFE, 0xFF, 0xFE, 0xFF, 0xFE, 0xFF, 0xFE};
+
+
+
+
 void main(void)
 {
 
     SYSTEM_Initialize();
-# 87 "main.c"
+
+
+
+
+
+    (INTCONbits.GIE = 1);
+
+
+    (INTCONbits.PEIE = 1);
+# 440 "main.c"
     SPI1_Initialize();
+    SSP1CON1bits.SSPEN = 0;
+    TRISCbits.TRISC3 = 0;
+    TRISAbits.TRISA4 = 1;
+    TRISCbits.TRISC5 = 0;
+
+
+    SSP1CON1bits.SSPEN = 1;
 
 
     EXT_INT_Initialize();
     INT_SetInterruptHandler(EXT_ISR);
-    PIE0bits.INTE = 0;
+    PIE0bits.INTE = 1;
 
 
     TMR0_Initialize();
     TMR0_SetInterruptHandler(TMR0_ISR_);
+    T0CON0bits.T0EN = 0;
 
 
     TMR1_Initialize();
-    TMR0_SetInterruptHandler(TMR1_ISR_);
+    TMR1_SetInterruptHandler(TMR1_ISR_);
+    T1CONbits.TMR1ON = 0;
 
 
     TMR2_Initialize();
+    T2CONbits.TMR2ON = 0;
 
 
     PWM3_Initialize();
 
 
     do { LATCbits.LATC2 = 0; } while(0);
+    do { LATCbits.LATC4 = 0; } while(0);
+
 
     do { LATCbits.LATC0 = 0; } while(0);
 
-    do { LATCbits.LATC4 = 0; } while(0);
+
+    for (int i = 0; i < 15; i++)
+    {
+        for (int j = 0; j < 12; j++)
+        {
+            displayMatrix(light_array);
+        }
+        if (i < 7)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                uint8_t light = (~light_array[j]) << 7;
+                light_array[j] = (light_array[j] << 1) + (light >> 7);
+            }
+        }
+        else
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                uint8_t light = (~light_array[j]);
+                light_array[j] = (light_array[j] << 1) + 1;
+            }
+        }
+    }
+
+
+
+
+
+
 
     while (1)
     {
+        T0CON0bits.T0EN = 1;
+        shiftBytes(0xFE, 0x08);
+        do { LATCbits.LATC2 = 0; } while(0);
+        do { LATCbits.LATC0 = 0; } while(0);
+        if (presses && TMR0_complete)
+        {
+            T0CON0bits.T0EN = 0;
 
-        shiftBytes(0xBF, 0x20);
-# 170 "main.c"
+
+            switch (presses)
+            {
+                case 1:
+                    light_array[0] = 0x88;
+                    light_array[1] = 0x44;
+                    light_array[2] = 0x22;
+                    light_array[3] = 0x11;
+                    light_array[4] = 0x88;
+                    light_array[5] = 0x44;
+                    light_array[6] = 0x22;
+                    silent_night_playing = 1;
+                    break;
+                case 2:
+# 552 "main.c"
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xFF;
+                    light_array[3] = 0xFF;
+                    light_array[4] = 0xFF;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
+# 572 "main.c"
+                    song2_playing = 1;
+                    break;
+                case 3:
+# 595 "main.c"
+                    light_array[0] = 0xFF;
+                    light_array[1] = 0xFF;
+                    light_array[2] = 0xFF;
+                    light_array[3] = 0xFF;
+                    light_array[4] = 0xFF;
+                    light_array[5] = 0xFF;
+                    light_array[6] = 0xFF;
+                    jungle_count = 0;
+                    jungle_bool = 0;
+
+
+                    song3_playing = 1;
+                    break;
+            }
+            T1CONbits.TMR1ON = 1;
+            T2CONbits.TMR2ON = 1;
+
+
+            while (presses == 1)
+            {
+                playNote(silent_night[count], silent_night_pre[count]);
+                displayMatrix(light_array);
+            }
+
+            while (presses == 2)
+            {
+# 655 "main.c"
+                playNote(song2[count], song2_pre[count]);
+                displayMatrix(light_array);
+
+            }
+
+            while (presses == 3)
+            {
+                playNote(song3[count], song3_pre[count]);
+                displayMatrix(light_array);
+            }
+            presses = 0;
+            silent_night_playing = 0;
+            song2_playing = 0;
+            song3_playing = 0;
+            T1CONbits.TMR1ON = 0;
+            T2CONbits.TMR2ON = 0;
+        }
+
+        if (TMR0_complete && (!presses))
+        {
+            T0CON0bits.T0EN = 0;
+            T1CONbits.TMR1ON = 0;
+            T2CONbits.TMR2ON = 0;
+            PIR0bits.INTF = 0;
+            PIE0bits.INTE = 1;
+            do { LATCbits.LATC2 = 1; } while(0);
+            do { LATCbits.LATC0 = 1; } while(0);
+            __asm("sleep");
+        }
     }
 }
+
 
 
 
 
 void EXT_ISR(void)
 {
-    shiftBytes(0xBF, 0x20);
+# 706 "main.c"
+    presses++;
+    TMR0_Reload();
+
+
+    if (T1CONbits.TMR1ON)
+    {
+        presses = 0;
+        count = 0;
+    }
+
+    else
+    {
+        TMR0_complete = 0;
+    }
+
+    if (presses > num_songs)
+    {
+        presses = 0;
+    }
 }
+
 
 void TMR0_ISR_(void)
 {
-    if (TMR0_b)
-    {
-       shiftBytes(0xBF, 0x20);
-       TMR0_b = 0;
-    }
-    else
-    {
-        shiftBytes(0xBF, 0x20);
-        TMR0_b = 1;
-    }
+    TMR0_complete = 1;
 }
+
 
 void TMR1_ISR_(void)
 {
-    if (TMR0_b)
+    count++;
+
+
+    if (silent_night_playing)
     {
-       shiftBytes(0xBF, 0x20);
-       TMR0_b = 0;
+        if (count < 24 || ((count > 48) && (count < 96)))
+        {
+            if (last_note != silent_night[count])
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    uint8_t lights = light_array[i] >> 7;
+                    light_array[i] = (light_array[i] << 1) + lights;
+                }
+            }
+        }
+        else if (count > 119 && (last_note != silent_night[count]))
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = (light_array[i] << 1) + 1;
+            }
+        }
+        else if (count < 120)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                uint8_t lights = light_array[i] >> 7;
+                light_array[i] = (light_array[i] << 1) + lights;
+            }
+        }
     }
-    else
+
+
+    if (song2_playing)
     {
-        shiftBytes(0xBF, 0x20);
-        TMR0_b = 1;
+# 845 "main.c"
+        if (((song2[count] == 212) &&(song2_pre[count] == 0xD0))||((count == 110) || (count == 111)))
+        {
+           if (light_array[3] == 0xFF)
+           {
+                light_array[0] = 0xFF;
+                light_array[1] = 0xFF;
+                light_array[2] = 0xF3;
+                light_array[3] = 0xE3;
+                light_array[4] = 0xE3;
+                light_array[5] = 0xFF;
+                light_array[6] = 0xFF;
+           }
+           else
+           {
+               for (int i = 0; i < 7; i++)
+                {
+                    light_array[i] = 0x00;
+                }
+           }
+        }
+        else if ((song2[count] == 0) || (song2[count] == 50))
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                light_array[i] = 0xFF;
+            }
+        }
+        else if ((light_array[1] == 0x00) && (last_note != song2[count]))
+        {
+            light_array[0] = 0x88;
+            light_array[1] = 0x44;
+            light_array[2] = 0x22;
+            light_array[3] = 0x11;
+            light_array[4] = 0x88;
+            light_array[5] = 0x44;
+            light_array[6] = 0x22;
+        }
+        else if (last_note != song2[count])
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                light_array[i] =(light_array[i] << 1) + light_array[i]*2/3;
+            }
+        }
+# 936 "main.c"
     }
+
+
+    if (song3_playing)
+    {
+# 1053 "main.c"
+        if (count < 10)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0xF3;
+             }
+        }
+        else if (count < 20)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0x0F;
+             }
+        }
+        else if (count < 29)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0xFC;
+             }
+        }
+       else if (count == 29)
+        {
+           for (int i = 0; i < 7; i++)
+             {
+                 light_array[i] = 0x7F;
+             }
+        }
+       else if (song3[count] == 0)
+        {
+           for (int i = 0; i < 7; i++)
+           {
+                light_array[i] = 0x7F;
+           }
+        }
+       else if (count < 46 && (last_note != song3[count]))
+       {
+           for (int i = 0; i < 7; i++)
+           {
+                light_array[i] = light_array[i] >> 1;
+           }
+       }
+       else if (count < 62 && count > 45)
+        {
+           for (int i = 0; i < 7; i++)
+           {
+                light_array[i] = 0x00;
+           }
+        }
+       else if (count >= 62)
+       {
+           jungle_count++;
+           if (jungle_count == 1)
+           {
+                light_array[0] = 0x88;
+                light_array[1] = 0x44;
+                light_array[2] = 0x22;
+                light_array[3] = 0x11;
+                light_array[4] = 0x88;
+                light_array[5] = 0x44;
+                light_array[6] = 0x22;
+           }
+           else if (jungle_count < 9)
+           {
+               if (last_note != song3[count])
+               {
+                    for (int i = 0; i < 7; i++)
+                    {
+                        uint8_t lights = light_array[i] >> 7;
+                        light_array[i] = (light_array[i] << 1) + lights;
+                    }
+               }
+           }
+           else if (jungle_count < 16)
+           {
+               if (last_note != song3[count])
+               {
+                   uint8_t jungle_sw = (jungle_count - 8)/2;
+                   switch (jungle_sw)
+                   {
+                       case 0:
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0x81;
+                            }
+                            break;
+                        case 1:
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0xC3;
+                            }
+                            break;
+                        case 2:
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0xE7;
+                            }
+                            break;
+                        case 3:
+                            for (int i = 0; i < 7; i++)
+                            {
+                                light_array[i] = 0xFF;
+                            }
+                            break;
+                   }
+               }
+           }
+           else
+           {
+               jungle_count = 0;
+           }
+
+
+       }
+
+
+    }
+
+
+
+    if (song2_playing)
+    {
+
+
+
+
+        if ((song2[count] == 212) &&(song2_pre[count] == 0xD0))
+        {
+           playNote(0, 0);
+        }
+        else if ((count == 110) || (count == 111))
+        {
+           playNote(0, 0);
+        }
+# 1200 "main.c"
+        TMR1H = timer_high_2;
+        TMR1L = timer_low_2;
+    }
+
+
+    if (song3_playing)
+    {
+        TMR1H = timer_high_3;
+        TMR1L = timer_low_3;
+    }
+
+
+    if ((count > 138) && silent_night_playing)
+    {
+        presses = 0;
+        count = 0;
+    }
+
+
+    else if ((count > song2_length) && song2_playing)
+    {
+        presses = 0;
+        count = 0;
+    }
+
+
+    else if ((count > song3_length) && song3_playing)
+    {
+        presses = 0;
+        count = 0;
+# 1238 "main.c"
+    }
+
+
 }
 
+
+void playNote(uint8_t note, uint8_t prescale)
+{
+
+    if (note != last_note)
+    {
+        T2PR = note;
+    }
+
+    if (prescale != last_prescale)
+    {
+        T2CON = prescale;
+    }
+    last_note = note;
+    last_prescale = prescale;
+}
 
 
 void Initialize_Matrix(void)
@@ -5964,12 +6488,11 @@ void Initialize_Matrix(void)
     do { LATCbits.LATC0 = 0; } while(0);
     shiftBytes(0xFF, 0x00);
     do { LATCbits.LATC2 = 0; } while(0);
-
 }
+
 
 void shiftBytes(uint8_t highSide, uint8_t lowSide)
 {
-
 
     SPI1_ExchangeByte(lowSide);
     SPI1_ExchangeByte(highSide);
@@ -5978,6 +6501,7 @@ void shiftBytes(uint8_t highSide, uint8_t lowSide)
 
     do { LATCbits.LATC4 = 0; } while(0);
 }
+
 
 void displayMatrix(uint8_t states[8])
 {
