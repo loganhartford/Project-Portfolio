@@ -1,0 +1,9 @@
+LCD pinout top to bottom
+GND
+VCC
+SDA
+SCL
+
+Using 51K for photoresistor divider
+
+using a 100k with a 20-500 pot

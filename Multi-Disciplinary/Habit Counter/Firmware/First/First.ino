@@ -8,7 +8,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 const int resetPin = 2;
 const int mPin = 3;
-const int jPin = 5+;
+const int jPin = 5;
 const int pPin = 6;
 const int cPin = 7;
 const int lightPin = A3;
