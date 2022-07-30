@@ -21,12 +21,12 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 #define BUZZ              4   // Buzzer
 #define RED               5   // RED diode of RGB LED
 #define GREEN             6   // GREEN diode of RGB LED
-#define BUTTON       7   // Button which can manually activate buzzer
+#define BUTTON            7   // Button which activates/deactivates LED
 #define BLUE              9   // BLUE diode of RGB LED
 #define LASER             11  // Laser diode
-#define LED               13  // On board or external LED
 
 // EEPROM memory locations
+// Stores the total number of cans over time
 #define ONES 0
 #define TENS 1
 #define HUNDREDS 2
@@ -37,17 +37,18 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
  *               Variables
  */
 // Universal Variables
-int16_t beers = 0;  // Total count of the number of beers, stored in EEPROM
-uint8_t red = 25;    // Stores the state of the RED diode
+int16_t beers = 0;    // Total count of the number of beers, stored in EEPROM
+uint8_t red = 25;     // Stores the state of the RED diode
 uint8_t green = 170;  // Stores the state of the GREEN diode
 uint8_t blue = 250;   // Stores the state of the BLUE diode
-bool RGB_LED_on = 1;
+bool RGB_LED_on = 1;  //
 
 // lights_off() variables
-bool lights_off_global = 1;
+bool lights_off_global = 1;     // Indicates if the lights in the room are believed to be off
 float light_level_low_pass = 0; // Low-pass filter of the analog read of the photoresistor
 float pot_low_pass = 0;         // Low-pass filter of the analog read of the pot
 
+// update_led() variables
 int8_t red_dir = 1;
 int8_t green_dir = 1;
 int8_t blue_dir = 1;
@@ -56,8 +57,8 @@ int8_t blue_dir = 1;
 // ISR Variables
 volatile bool reset_requested = 0;  // Indicated the reset button has been pressed.
 volatile bool can_detected = 0;     // Indicates if a can has been detected by the laser
-volatile bool pressed = 0;
-volatile uint8_t presses = 0;
+volatile bool pressed = 0;          // Tracks if the button has been pressed during reset
+volatile uint8_t presses = 0;       // Tracks number of button presses during reset
 
 
 /*
@@ -67,7 +68,10 @@ void init_screen(void);         // Reads in initial EEPROM values and displays t
 uint16_t update_count(void);    // Reads in EEPROM values, increments and the stores them
 void update_screen(int beers);  // Updates screen with current number of beers
 bool lights_off(void);          // Reads all analog inputs
+void reset_count(void);         // Resets beer count
+ void reset_req(void);          // Serviced requests to reset the count
 void RGB_LED(uint8_t red, uint8_t green, uint8_t blue);   // Quick was to set the state of the RGB LED
+void update_LED(void);           // Changes the RGB LEDs colour in main loop
 void meme_detector(int16_t beers);  // Adds effects when certain milstones are reached in the beer count
 void button_ISR(void);          // Services momentary switch
 void laser_ISR(void);           // Services interrupts caused by a break in the laser
@@ -79,8 +83,6 @@ void setup()
   Serial.begin(115200);
 #endif
 
-Serial.begin(115200);
-
   // Initialize the LCD
   lcd.begin();
   lcd.backlight();
@@ -89,19 +91,15 @@ Serial.begin(115200);
   pinMode(BUZZ, OUTPUT);      // Buzzer
   pinMode(RED, OUTPUT);       // RED pin of REG LED
   pinMode(GREEN, OUTPUT);     // GREEN pin of REG LED
-  pinMode(BUTTON, INPUT);// Button which manually controls buzzer
+  pinMode(BUTTON, INPUT);     // Button whihc enable/disables LED
   pinMode(BLUE, OUTPUT);      // BLUE pin of REG LED
   pinMode(LASER, OUTPUT);     // Laser diode
-  pinMode(LED, OUTPUT);       // On board or external LED
 
   // Set initial pin states
-  digitalWrite(BUZZ, LOW);
-  digitalWrite(LASER, HIGH);
-  digitalWrite(LED, LOW);
-  analogWrite(RED, 0);
-  analogWrite(GREEN, 0);
-  analogWrite(BLUE, 0);
-
+  digitalWrite(BUZZ, LOW);    // Turn the buzzer off
+  digitalWrite(LASER, HIGH);  // Turn the laser on
+  RGB_LED(0,0,0);              // Turn RGB LED off
+  
   // Initialize the screen for this application
   init_screen();
 
@@ -112,6 +110,7 @@ Serial.begin(115200);
     meme_detector(9999);
   }
 
+  // Set-Up External Interrupts
   // External interrupt for button
   attachInterrupt(digitalPinToInterrupt(RESET_BUTTON), button_ISR, RISING);
 
@@ -121,8 +120,9 @@ Serial.begin(115200);
 
 void loop()
 {
-  // Halt program while the lights are off.
+  // Halts program while the lights are off.
   lights_off_global = lights_off();
+  // lights_off returns 1 when lights are supposed to be off
   while (lights_off_global)
   {
     lights_off_global = lights_off();;
@@ -134,7 +134,7 @@ void loop()
     beers = update_count(); // Update the beer count
     meme_detector(beers);   // Check for milestones 
     update_screen(beers);   // Update the screen with new count
-    can_detected = 0;       // Reset boolean
+    can_detected = 0;       // Reset detection bool
     
   }
 
@@ -145,14 +145,14 @@ void loop()
     reset_req();
   }
 
-  Serial.println(digitalRead(BUTTON));
-  // Enables/disables RBG led cycle
+  // Enables/disables RBG LED cycle
   if (digitalRead(BUTTON))
   {
     RGB_LED_on = !RGB_LED_on;
     while (digitalRead(BUTTON));
   }
 
+  // If the LED is on, cycle through colour
   if (RGB_LED_on)
   {
     update_LED();
@@ -168,52 +168,7 @@ void loop()
           Functions
 */
 
-void update_LED(void)
-{
-    uint8_t led = random(1, 4);
 
-    if (red >= 250)
-    {
-      red_dir = -1;
-    }
-    else if (red <= 5)
-    {
-      red_dir = 1;
-    }
-
-    if (green >= 250)
-    {
-      green_dir = -1;
-    }
-    else if (green <= 5)
-    {
-      green_dir = 1;
-    }
-
-    if (blue >= 250)
-    {
-      blue_dir = -1;
-    }
-    else if (blue <= 5)
-    {
-      blue_dir = 1;
-    }
-    
-    switch (led)
-    {  
-      case 1:
-        red += red_dir*(random(1, 4));
-        break;
-      case 2:
-        green += green_dir*(random(1, 4));
-        break;
-      case 3:
-        blue += blue_dir*(random(1, 4));
-        break;
-    }
-    RGB_LED(red, green, blue);
-    delay(4);
-}
 
 /*
    Reads in counter from EEPROM and consolidates it into a global
@@ -263,7 +218,7 @@ uint16_t update_count(void)
   // Turn into a single integer
   temp = ones + (10 * tens) + (100 * hundreds) + (1000 * thousands);
   temp++;  // Increment the counter
-  // Turn back into 3 bytes of data
+  // Turn back into 4 bytes of data
   ones = temp % 10;
   tens = ((temp % 100) - ones) / 10;
   hundreds = ((temp % 1000) - tens - ones) / 100;
@@ -299,7 +254,7 @@ uint16_t update_count(void)
 
 /*
    Updates the LCD screen with the current number of beers
-   and they're equivalent scrap value.
+   and their equivalent scrap value.
 */
 void update_screen(int16_t beers)
 {
@@ -334,13 +289,22 @@ void update_screen(int16_t beers)
    Carries out analog reads on the potentiometers and photoresitor.
    The photo resistor value is proprtional to the brightness of the
    room and is used to detemine if the screen should be on or off.
-   Potentiomenter 1's value determines the light threshold for
-   turning the screen off.
+   Potentiomenter's value determines the light threshold for
+   turning the screen off. Returns 1 when lights are supposed
+   to be off, 0 otherwise.
 */
 bool lights_off(void)
 {
-  float pot = 1024 - analogRead(POT);
-  float light_level = analogRead(LIGHT_PHOTO)+ 200; // Add 200 to put light_level in an easier to use range
+  // Read voltage at potentiometer and photoresistor pins
+  float pot = 1024 -analogRead(POT); // 1024 - to reverse polarity
+  float light_level = analogRead(LIGHT_PHOTO);
+
+  /*
+   * NOTE: I don't actually need to revers the polarity of pot
+   * anymore but I did it while debugging this feature and then
+   * built the linear approximation based on those values so its
+   * going to stay.
+   */
 
   // Accidentally bought a non-linear pot so we are going
   // to do a linear approximation
@@ -368,39 +332,37 @@ bool lights_off(void)
   // Low pass filter analog reads to remove large fluctuations 
   light_level_low_pass = light_level_low_pass + ((light_level - light_level_low_pass)/64);
   pot_low_pass = pot_low_pass + ((pot - pot_low_pass)/64);  
-
-  // The following is  Unlikely to happen
-  // but will prevent bugs from that dirty addtion to light_level
-  // above which could potentially make light_level so large that
-  // the screen could not be shut off by the pot
-  if (light_level_low_pass > 900) 
-  {
-    light_level_low_pass = 900;
-  }
   
 #ifdef DEBUG
-    Serial.print(pot); Serial.print(',');
-    Serial.print(pot_low_pass); Serial.print(',');
-    Serial.print(light_level); Serial.print(',');
-    Serial.println(light_level_low_pass);
+  // Serial monitor printout for debugging
+  Serial.print(pot); Serial.print(',');
+  Serial.print(pot_low_pass); Serial.print(',');
+  Serial.print(light_level); Serial.print(',');
+  Serial.println(light_level_low_pass);
 #endif
-  
+
+  // If the light level is lower than the pot value,
+  // turn off the screen and led and return 1, otherwise
   if (light_level_low_pass < pot_low_pass)
   {
-    lcd.noBacklight();
-    digitalWrite(LASER, LOW);
-    RGB_LED(0,0,0);
+    lcd.noBacklight();          // Turn off LDC
+    digitalWrite(LASER, LOW);   // Turn off laser
+    RGB_LED(0,0,0);             // Turn off LED
     return 1;
   }
   else if (lights_off_global)
   {
-    lcd.backlight();
-    digitalWrite(LASER, HIGH);
-    can_detected = 0;
+    lcd.backlight();          // Turn on LCD
+    digitalWrite(LASER, HIGH);// Turn on laser
     return 0;
   }
 }
 
+/*
+ * reset_count() is called during a sucessful
+ * reset request in order to reset the beer counter
+ * in code and in memeory.
+ */
 void reset_count(void)
 {
   // Erase values stored in EEPROM
@@ -436,6 +398,7 @@ void reset_count(void)
  */
  void reset_req(void)
  {
+    // Set up UI
     RGB_LED(255,0,0);
     uint32_t time_ms = 0;
     lcd.clear();
@@ -445,9 +408,12 @@ void reset_count(void)
     lcd.print("to reset (");
     lcd.print(6);
     lcd.print("s)");
-    
+
+    // User had 6 seconds to request a reset by
+    // pressing the button 6 more times.
     while (time_ms < 6000)
     {
+      // Display the number of presses before a reset will occur
       if (pressed && (presses <= 6))
       {
         lcd.setCursor(0, 0);
@@ -456,6 +422,7 @@ void reset_count(void)
         lcd.print("x more");
         pressed = 0;
       }
+      // Display the amount of time left before timeout
       if (!(time_ms%1000))
       {
         lcd.setCursor(0, 1);
@@ -466,10 +433,12 @@ void reset_count(void)
       delay(1);
       time_ms++;  
     }
+    // If the button was pressed 6 or more time, reset the count
     if (presses >= 6)
     {
       reset_count();
     }
+    // Reset variables
     reset_requested = 0;
     presses = 0;
     pressed = 0;
@@ -488,8 +457,62 @@ void RGB_LED(uint8_t red, uint8_t green, uint8_t blue)
 }
 
 /*
+  update_LED cycles the RGB LED through its colors in the main loop
+ */
+void update_LED(void)
+{
+    // At the end point of each 8 bit integer, the sign
+    // of ___dir is changed to prevent the variables from 
+    // rolling over, and to keep the animation smooth.
+    if (red >= 250)
+    {
+      red_dir = -1;
+    }
+    else if (red <= 5)
+    {
+      red_dir = 1;
+    }
+
+    if (green >= 250)
+    {
+      green_dir = -1;
+    }
+    else if (green <= 5)
+    {
+      green_dir = 1;
+    }
+
+    if (blue >= 250)
+    {
+      blue_dir = -1;
+    }
+    else if (blue <= 5)
+    {
+      blue_dir = 1;
+    }
+
+    // Randomly chooses which diode to change
+    uint8_t led = random(1, 4);
+    switch (led)
+    {  
+      // Adds or subtracts 1-3 from the selected LED
+      case 1:
+        red += red_dir*(random(1, 4));
+        break;
+      case 2:
+        green += green_dir*(random(1, 4));
+        break;
+      case 3:
+        blue += blue_dir*(random(1, 4));
+        break;
+    }
+    RGB_LED(red, green, blue);  // Update the LED
+    delay(4);
+}
+
+/*
    Detects when the number of beers is some special or funny
-   number and does a special animation with lights, screen
+   number and does an animation with lights, screen
    and LED.
 */
 void meme_detector(int16_t beers)
@@ -679,8 +702,7 @@ void meme_detector(int16_t beers)
 
 /*
    This ISR is called each time the momentary switch pushed.
-   The button is used to make changes to the device including reseting
-   the counter.
+   The button is used to reset the counter.
 */
 void button_ISR(void)
 {
@@ -689,16 +711,17 @@ void button_ISR(void)
     pressed = 1;
     presses++;
   }
-  else
+  else if (!lights_off_global)
   {
     reset_requested = 1;
   }
 }
 
 /*
-   This ISR is called each time the motion detector detects motion.
-   This is what casues the counter to be incremented and the screen
-   updated.
+   This ISR is called each time the laser beam is interrupted,
+   causing a spike in the voltage at the photoresistor pin.
+   This is what indicated that the counter should be incremented 
+   and the screen updated.
 */
 void laser_ISR(void)
 {
