@@ -3,11 +3,14 @@
 #include <EEPROM.h>
 
 // Code Versions
-#define DEBUG
+//#define DEBUG // Defining enabled serial monitor outputs
 
-// Create the LCB object
+// Create the LCD object
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
+/*
+ *               Constants
+ */
 // Pins
 #define LASER_PHOTO_AN    A0  // Analog read of laser photoresitor
 #define POT               A1  // Potentionmeter
@@ -18,12 +21,11 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 #define BUZZ              4   // Buzzer
 #define RED               5   // RED diode of RGB LED
 #define GREEN             6   // GREEN diode of RGB LED
-#define BUZZ_BUTTON       7   // Button which can manually activate buzzer
+#define BUTTON       7   // Button which can manually activate buzzer
 #define BLUE              9   // BLUE diode of RGB LED
 #define LASER             11  // Laser diode
 #define LED               13  // On board or external LED
 
-// Constants
 // EEPROM memory locations
 #define ONES 0
 #define TENS 1
@@ -31,14 +33,31 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 #define THOUSANDS 3
 #define UPDATE_REQ 9
 
-// Variables
-int16_t beers = 0;
-volatile bool motion_detected = 0;
-int16_t light_level_low_pass = 0;
-int16_t pot_low_pass = 0;
-bool reset_requested = 0;
+/*
+ *               Variables
+ */
+// Universal Variables
+int16_t beers = 0;  // Total count of the number of beers, stored in EEPROM
+uint8_t red = 25;    // Stores the state of the RED diode
+uint8_t green = 170;  // Stores the state of the GREEN diode
+uint8_t blue = 250;   // Stores the state of the BLUE diode
+bool RGB_LED_on = 1;
+
+// lights_off() variables
+bool lights_off_global = 1;
+float light_level_low_pass = 0; // Low-pass filter of the analog read of the photoresistor
+float pot_low_pass = 0;         // Low-pass filter of the analog read of the pot
+
+int8_t red_dir = 1;
+int8_t green_dir = 1;
+int8_t blue_dir = 1;
 
 
+// ISR Variables
+volatile bool reset_requested = 0;  // Indicated the reset button has been pressed.
+volatile bool can_detected = 0;     // Indicates if a can has been detected by the laser
+volatile bool pressed = 0;
+volatile uint8_t presses = 0;
 
 
 /*
@@ -47,11 +66,11 @@ bool reset_requested = 0;
 void init_screen(void);         // Reads in initial EEPROM values and displays them
 uint16_t update_count(void);    // Reads in EEPROM values, increments and the stores them
 void update_screen(int beers);  // Updates screen with current number of beers
-bool lights_off(void);        // Reads all analog inputs
-void RGB_LED(uint8_t red, uint8_t green, uint8_t blue);
-void meme_detector(int16_t beers);
+bool lights_off(void);          // Reads all analog inputs
+void RGB_LED(uint8_t red, uint8_t green, uint8_t blue);   // Quick was to set the state of the RGB LED
+void meme_detector(int16_t beers);  // Adds effects when certain milstones are reached in the beer count
 void button_ISR(void);          // Services momentary switch
-void laser_ISR(void);          // Services motion detector
+void laser_ISR(void);           // Services interrupts caused by a break in the laser
 
 void setup()
 {
@@ -60,21 +79,17 @@ void setup()
   Serial.begin(115200);
 #endif
 
+Serial.begin(115200);
+
   // Initialize the LCD
   lcd.begin();
   lcd.backlight();
-
-  // External interrupt for button
-  attachInterrupt(digitalPinToInterrupt(RESET_BUTTON), button_ISR, RISING);
-
-  // External interrup for motion sensor
-  attachInterrupt(digitalPinToInterrupt(LASER_PHOTO), laser_ISR, RISING);
 
   // Digital Pin Set Up
   pinMode(BUZZ, OUTPUT);      // Buzzer
   pinMode(RED, OUTPUT);       // RED pin of REG LED
   pinMode(GREEN, OUTPUT);     // GREEN pin of REG LED
-  pinMode(BUZZ_BUTTON, INPUT);// Button which manually controls buzzer
+  pinMode(BUTTON, INPUT);// Button which manually controls buzzer
   pinMode(BLUE, OUTPUT);      // BLUE pin of REG LED
   pinMode(LASER, OUTPUT);     // Laser diode
   pinMode(LED, OUTPUT);       // On board or external LED
@@ -91,37 +106,60 @@ void setup()
   init_screen();
 
   // Checks to see if the code needs to be updated before it will work
-  if (EEPROM.read(UPDATE_REQ) == 111)
+  if (EEPROM.read(UPDATE_REQ) == 111) // Set in meme_detector if beers exceeds 9999
   {
-    // This will throw the code into an infinite loop
+    // This will throw the code into an infinite while loop
     meme_detector(9999);
   }
+
+  // External interrupt for button
+  attachInterrupt(digitalPinToInterrupt(RESET_BUTTON), button_ISR, RISING);
+
+  // External interrup for motion sensor
+  attachInterrupt(digitalPinToInterrupt(LASER_PHOTO), laser_ISR, RISING);
 }
 
 void loop()
 {
   // Halt program while the lights are off.
-  while(lights_off());
-  
-  if (motion_detected)
+  lights_off_global = lights_off();
+  while (lights_off_global)
   {
-    beers = update_count();
-    update_screen(beers);
-    motion_detected = 0;
+    lights_off_global = lights_off();;
   }
 
+  // If a can has passed through the laser
+  if (can_detected)
+  {
+    beers = update_count(); // Update the beer count
+    meme_detector(beers);   // Check for milestones 
+    update_screen(beers);   // Update the screen with new count
+    can_detected = 0;       // Reset boolean
+    
+  }
+
+  // If the reset button has been pushed
   if (reset_requested)
   {
+    // Process reset request
     reset_req();
   }
-  
-  if (digitalRead(BUZZ_BUTTON))
+
+  Serial.println(digitalRead(BUTTON));
+  // Enables/disables RBG led cycle
+  if (digitalRead(BUTTON))
   {
-    digitalWrite(BUZZ, HIGH);
+    RGB_LED_on = !RGB_LED_on;
+    while (digitalRead(BUTTON));
+  }
+
+  if (RGB_LED_on)
+  {
+    update_LED();
   }
   else
   {
-    digitalWrite(BUZZ, LOW);
+    RGB_LED(0,0,0);
   }
 }
 
@@ -129,6 +167,53 @@ void loop()
 /*
           Functions
 */
+
+void update_LED(void)
+{
+    uint8_t led = random(1, 4);
+
+    if (red >= 250)
+    {
+      red_dir = -1;
+    }
+    else if (red <= 5)
+    {
+      red_dir = 1;
+    }
+
+    if (green >= 250)
+    {
+      green_dir = -1;
+    }
+    else if (green <= 5)
+    {
+      green_dir = 1;
+    }
+
+    if (blue >= 250)
+    {
+      blue_dir = -1;
+    }
+    else if (blue <= 5)
+    {
+      blue_dir = 1;
+    }
+    
+    switch (led)
+    {  
+      case 1:
+        red += red_dir*(random(1, 4));
+        break;
+      case 2:
+        green += green_dir*(random(1, 4));
+        break;
+      case 3:
+        blue += blue_dir*(random(1, 4));
+        break;
+    }
+    RGB_LED(red, green, blue);
+    delay(4);
+}
 
 /*
    Reads in counter from EEPROM and consolidates it into a global
@@ -195,9 +280,11 @@ uint16_t update_count(void)
       (EEPROM.read(HUNDREDS) == hundreds) || (EEPROM.read(THOUSANDS) == thousands))
   {
     // Beep the buzzer for succees
+    RGB_LED(0,255,0);
     digitalWrite(BUZZ, HIGH);
     delay(75);
     digitalWrite(BUZZ, LOW);
+    RGB_LED(0,0,0);
     return temp;
   }
   else
@@ -252,31 +339,93 @@ void update_screen(int16_t beers)
 */
 bool lights_off(void)
 {
-  uint16_t pot = analogRead(POT);
-  uint16_t light_level = analogRead(LIGHT_PHOTO);
-//  Serial.print(pot); Serial.print(',');
-//  Serial.println(light_level);
+  float pot = 1024 - analogRead(POT);
+  float light_level = analogRead(LIGHT_PHOTO)+ 200; // Add 200 to put light_level in an easier to use range
 
-  light_level_low_pass = light_level_low_pass + ((light_level - light_level_low_pass)>>8);
-  pot_low_pass = pot_low_pass + ((pot - pot_low_pass)>>8);
+  // Accidentally bought a non-linear pot so we are going
+  // to do a linear approximation
+  if (pot > 178)
+  {
+    pot = 0.2*pot + 819;
+  }
+  else if (pot > 73)
+  {
+    pot = 1.63*pot + 566;
+  }
+  else if (pot > 47)
+  {
+    pot = 1.35*pot + 411;
+  }
+  else if (pot > 0)
+  {
+    pot = 22.35*pot - 536;
+  }
+  else
+  {
+    pot = 0;
+  }
 
+  // Low pass filter analog reads to remove large fluctuations 
+  light_level_low_pass = light_level_low_pass + ((light_level - light_level_low_pass)/64);
+  pot_low_pass = pot_low_pass + ((pot - pot_low_pass)/64);  
+
+  // The following is  Unlikely to happen
+  // but will prevent bugs from that dirty addtion to light_level
+  // above which could potentially make light_level so large that
+  // the screen could not be shut off by the pot
+  if (light_level_low_pass > 900) 
+  {
+    light_level_low_pass = 900;
+  }
+  
+#ifdef DEBUG
+    Serial.print(pot); Serial.print(',');
     Serial.print(pot_low_pass); Serial.print(',');
+    Serial.print(light_level); Serial.print(',');
     Serial.println(light_level_low_pass);
-
+#endif
   
   if (light_level_low_pass < pot_low_pass)
   {
     lcd.noBacklight();
     digitalWrite(LASER, LOW);
-    motion_detected = 0; // Turning the laser off will cause an unwanted interrupt
     RGB_LED(0,0,0);
     return 1;
   }
-  else
+  else if (lights_off_global)
   {
     lcd.backlight();
     digitalWrite(LASER, HIGH);
+    can_detected = 0;
     return 0;
+  }
+}
+
+void reset_count(void)
+{
+  // Erase values stored in EEPROM
+  EEPROM.write(ONES, 0);
+  EEPROM.write(TENS, 0);
+  EEPROM.write(HUNDREDS, 0);
+  EEPROM.write(THOUSANDS, 0);
+
+  // Check to make sure values were written into EEPROM correctly
+  if ((EEPROM.read(ONES) == 0) || (EEPROM.read(TENS) == 0) ||
+      (EEPROM.read(HUNDREDS) == 0) || (EEPROM.read(THOUSANDS) == 0))
+  {
+    // Beep the buzzer for succees
+    digitalWrite(BUZZ, HIGH);
+    delay(75);
+    digitalWrite(BUZZ, LOW);
+    RGB_LED(0,0,0);
+    beers = 0;
+  }
+  else
+  {
+    // One long beep for failure
+    digitalWrite(BUZZ, HIGH);
+    delay(500);
+    digitalWrite(BUZZ, LOW);
   }
 }
 
@@ -287,19 +436,45 @@ bool lights_off(void)
  */
  void reset_req(void)
  {
+    RGB_LED(255,0,0);
     uint32_t time_ms = 0;
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Press 6x more");
     lcd.setCursor(0, 1);
     lcd.print("to reset (");
-    lcd.print(6000 - time);
+    lcd.print(6);
+    lcd.print("s)");
     
-    while (time < 6000)
+    while (time_ms < 6000)
     {
+      if (pressed && (presses <= 6))
+      {
+        lcd.setCursor(0, 0);
+        lcd.print("Press ");
+        lcd.print(6-presses);
+        lcd.print("x more");
+        pressed = 0;
+      }
+      if (!(time_ms%1000))
+      {
+        lcd.setCursor(0, 1);
+        lcd.print("to reset (");
+        lcd.print((6000 - time_ms)/1000);
+        lcd.print("s)");
+      }
       delay(1);
       time_ms++;  
     }
+    if (presses >= 6)
+    {
+      reset_count();
+    }
+    reset_requested = 0;
+    presses = 0;
+    pressed = 0;
+    RGB_LED(0,0,0);
+    update_screen(beers);
  }
 
 /*
@@ -322,49 +497,182 @@ void meme_detector(int16_t beers)
   // 6
   if (beers == 6)
   {
-
+    // Set LCD Screen
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("That was a 6/6");
+    lcd.setCursor(0, 1);
+    lcd.print("pint my boy.");
+    // Buzzer/Light display
+    for (int i = 0; i < 6; i++)
+    {
+      uint8_t led = 0;
+      led = 42*i;
+      RGB_LED(0, led, 0);
+      digitalWrite(BUZZ, HIGH);
+      delay(150);
+      digitalWrite(BUZZ, LOW);
+      delay(75);
+      RGB_LED(0, 0, 0);
+    }
+    delay(5000);
   }
   // 69
   else if (beers == 69)
   {
-
+    // Set LCD Screen
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("       69");
+    lcd.setCursor(0, 1);
+    lcd.print("      Nice.");
+    // Buzzer/Light display
+    for (int i = 0; i < 3; i++)
+    {
+      digitalWrite(BUZZ, HIGH);
+      delay(75);
+      digitalWrite(BUZZ, LOW);
+      delay(75);
+    }
+    int t = 0;
+    while (t < 1250)
+    {
+      t++;
+      update_LED();
+    }
   }
   // 420
   else if (beers == 420)
   {
-
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("      420");
+    lcd.setCursor(0, 1);
+    lcd.print("   Blaze It.");
+    // Buzzer/Light display
+    for (int i = 0; i < 3; i++)
+    {
+      RGB_LED(255, 0, 0);
+      digitalWrite(BUZZ, HIGH);
+      delay(75);
+      digitalWrite(BUZZ, LOW);
+      delay(75);
+      RGB_LED(0, 255, 0);
+      digitalWrite(BUZZ, HIGH);
+      delay(75);
+      digitalWrite(BUZZ, LOW);
+      delay(75);
+      RGB_LED(255, 255, 0);
+      digitalWrite(BUZZ, HIGH);
+      delay(200);
+      digitalWrite(BUZZ, LOW);
+      delay(200);
+    }
+    RGB_LED(0,255,0);
+    delay(5000);
+    RGB_LED(0,0,0);
   }
   // 666
   else if (beers == 666)
   {
-
+    // Set LCD Screen
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("       666!");
+    lcd.setCursor(0, 1);
+    lcd.print("     spooky.");
+    // Buzzer/Light display
+    for (int i = 0; i < 3; i++)
+    {
+      uint8_t led = 0;
+      led = 80*i;
+      RGB_LED(led, 0, 0);
+      digitalWrite(BUZZ, HIGH);
+      delay(500);
+      digitalWrite(BUZZ, LOW);
+      delay(75);
+      RGB_LED(0, 0, 0);
+    }
+    RGB_LED(255,0,0);
+    delay(5000);
+    RGB_LED(0,0,0);
   }
   // 777
   else if (beers == 777)
   {
-
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("       777!");
+    lcd.setCursor(0, 1);
+    lcd.print("Winner/Gagnant!");
+    // Buzzer/Light display
+    for (int i = 0; i < 20; i++)
+    {
+      RGB_LED(255, 255, 0);
+      digitalWrite(BUZZ, HIGH);
+      delay(50);
+      digitalWrite(BUZZ, LOW);
+      delay(50);
+      RGB_LED(0, 0, 0);
+    }
+    RGB_LED(255,255,0);
+    delay(5000);
+    RGB_LED(0,0,0);
   }
   // 1111
   else if (beers == 1111)
   {
-
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("     11:11");
+    lcd.setCursor(0, 1);
+    lcd.print("  Make a Wish!");
+    // Buzzer/Light display
+    RGB_LED(0,255,0);
+    digitalWrite(BUZZ, HIGH);
+    delay(1111);
+    digitalWrite(BUZZ, LOW);
+    delay(5000);
+    RGB_LED(0,0,0);
   }
   // 6969
   else if (beers == 6969)
   {
-
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("  Double 69???");
+    lcd.setCursor(0, 1);
+    lcd.print("  Hella Nice.");
+    // Buzzer/Light display
+    for (int i = 0; i < 4; i++)
+    {
+      RGB_LED(255, 0, 255);
+      digitalWrite(BUZZ, HIGH);
+      delay(75);
+      digitalWrite(BUZZ, LOW);
+      delay(200);
+      RGB_LED(0, 0, 0);
+    }
+    RGB_LED(255,0,255);
+    delay(5000);
+    RGB_LED(0,0,0);
   }
   // 9999
-  else if (beers == 9999)
+  else if (beers >= 9999)
   {
     // Code is only designed to handle upto 9999 beers
     RGB_LED(255, 0, 0); // Set LED to red
+    
+    // Set LCD
     lcd.setCursor(0, 0);
     lcd.print("Update Required");
     lcd.setCursor(0, 1);
     lcd.print("Talk to Motto");
+    
     // Wrtie EEPROM update REQ can be detected on start-up
     EEPROM.write(UPDATE_REQ, 111);
+
+    // Hold up the code
     while (1);
   }
 }
@@ -376,8 +684,15 @@ void meme_detector(int16_t beers)
 */
 void button_ISR(void)
 {
-  //digitalWrite(RED, digitalRead(RED) ^ 1);
-  reset_requested = 1;
+  if (reset_requested)
+  {
+    pressed = 1;
+    presses++;
+  }
+  else
+  {
+    reset_requested = 1;
+  }
 }
 
 /*
@@ -387,5 +702,9 @@ void button_ISR(void)
 */
 void laser_ISR(void)
 {
-  motion_detected = 1;
+  if (!lights_off_global)
+  {
+    can_detected = 1;
+  }
+  
 }
