@@ -300,7 +300,7 @@ bool lights_off(void)
   float light_level = analogRead(LIGHT_PHOTO);
 
   /*
-   * NOTE: I don't actually need to revers the polarity of pot
+   * NOTE: I don't actually need to reverse the polarity of pot
    * anymore but I did it while debugging this feature and then
    * built the linear approximation based on those values so its
    * going to stay.
@@ -345,7 +345,7 @@ bool lights_off(void)
   // turn off the screen and led and return 1, otherwise
   if (light_level_low_pass < pot_low_pass)
   {
-    lcd.noBacklight();          // Turn off LDC
+    lcd.noBacklight();          // Turn off LCD
     digitalWrite(LASER, LOW);   // Turn off laser
     RGB_LED(0,0,0);             // Turn off LED
     return 1;
@@ -523,9 +523,9 @@ void meme_detector(int16_t beers)
     // Set LCD Screen
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("That was a 6/6");
+    lcd.print(" That was a 6/6");
     lcd.setCursor(0, 1);
-    lcd.print("pint my boy.");
+    lcd.print("  pint my boy.");
     // Buzzer/Light display
     for (int i = 0; i < 6; i++)
     {
