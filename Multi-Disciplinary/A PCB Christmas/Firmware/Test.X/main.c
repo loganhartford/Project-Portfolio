@@ -648,8 +648,6 @@ void main(void)
             T0CON0bits.T0EN = 0;    // Disable TMR0
             T1CONbits.TMR1ON = 0;   // Disable TMR1
             T2CONbits.TMR2ON = 0;   // Disable TM2
-            PIR0bits.INTF = 0;      // Clear flag
-            PIE0bits.INTE = 1;      // Enable external interrupts
             OE_n_SetHigh();         // Disable shift register output
             EN_MATRIX_n_SetHigh();  // Disable load swich
             SLEEP();
@@ -663,19 +661,6 @@ void main(void)
 // Wakes from sleep and increments number of button pushes
 void EXT_ISR(void)
 {
-    uint8_t debounce = 0;
-    while (debounce < 40)
-    {
-        if (RA2_GetValue())
-        {
-            debounce++;
-            __delay_ms(1);
-        }
-        else
-        {
-            debounce = 0;
-        }
-    }
     presses++;          // Increment presses
     TMR0_Reload();      // Reset TMR0
     
