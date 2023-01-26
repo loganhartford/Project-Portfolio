@@ -1,0 +1,155 @@
+/* Stone with #FF9900, accent */
+
+/* Page Sections */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+  /* border: 5px solid #f97316; */
+}
+
+/* Page Elements */
+
+.site-header {
+  background-color: #e7e5e4;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.site-header strong {
+  color: #f97316;
+}
+
+button {
+  color: white;
+  background-color: #f97316;
+  border: 2px solid #f97316;
+}
+
+.account-buttons,
+.list-buttons {
+  padding: 5px;
+  font-size: 16px;
+  margin: 8px;
+  font-weight: bold;
+}
+
+.list-buttons {
+  margin-bottom: 10px;
+}
+
+.account-buttons {
+  margin: 0px;
+}
+.sign-up-button {
+  /* FIXME: */
+  margin-left: 375px;
+}
+
+.list-search {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.list-header {
+  margin-left: 10px;
+}
+
+.sort-button {
+  /* FIXME: */
+  margin-left: 658px;
+  margin-bottom: 10px;
+}
+
+.list-view {
+  font-size: 16px;
+  padding: 4px 15px;
+}
+
+.add-button {
+  width: 40%;
+  padding: 15px 0;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  border: 4px solid #f97316;
+  /* border-bottom: none;
+  border-left: none;
+  border-right: none; */
+
+  display: grid;
+  margin: 30px auto;
+}
+
+.add-book-form {
+  /* FIXME:; */
+  margin-left: 30px;
+}
+
+/* Listing Content */
+.book-listing {
+  margin-left: 20px;
+  list-style: none;
+  background-color: #e7e5e4;
+  margin-bottom: 30px;
+  position: relative;
+  height: 90px;
+}
+
+.book-cover {
+  height: 90px;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.book-title {
+  display: inline-block;
+  width: 80%;
+  margin-left: 120px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.author,
+.genre {
+  display: inline-block;
+}
+
+.author {
+  left: 120px;
+  bottom: 10px;
+  position: absolute;
+}
+
+.genre {
+  position: absolute;
+  right: 100px;
+  bottom: 10px;
+}
+
+.order-button {
+  padding: 5px 10px;
+
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+}
+
+/* Psuedo */
+button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #f97316;
+}
