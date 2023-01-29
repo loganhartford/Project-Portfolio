@@ -16,92 +16,119 @@
       <header>
         <h1 class="site-header">Book<strong>List</strong></h1>
         <button class="list-buttons">Create a New List</button>
-        <button class="list-buttons">Find a List</button>
+        <button class="list-buttons find-button">Find a List</button>
+        <button class="help-button">Help?</button>
         <button class="account-buttons sign-up-button">Sign-Up</button>
         <button class="account-buttons login-button">Login</button>
-        <form class="list-search">
+        <form class="list-search-form hidden">
           <input type="text" placeholder="Find a list..." />
           <button>Find!</button>
         </form>
       </header>
-      <h2 class="list-header">Logan's List</h2>
+      <div class="list-header">
+      <h2 class="list-name">Logan's <strong>List</strong></h2>
       <button class="list-view sort-button">Sort</button>
       <button class="list-view filter-button">Filter</button>
+      <ul class="sort-list hidden">
+        <li class="sort-list-option">A-Z Title &#8593</li>
+        <li class="sort-list-option">A-Z Author &#8593</li>
+        <li class="sort-list-option">Most Recent &#8593</li>
+      </ul>
+      <ul class="filter-list hidden">
+        <li class="filter-list-option">Philisophy</li>
+        <li class="filter-list-option">Science</li>
+        <li class="filter-list-option">Self-Improvement</li>
+      </ul>
+    </div>
       <ul>
-        <li class="book-listing">
-          <div class="book-body">
-            <img
-              src="img/brain.jpg"
-              alt="Cover of building a second brain book"
-              class="book-cover"
-            />
-            <h3 class="book-title">
-              Building a Second Brain: A Proven Method to Organize Your Digital
-              Life and Unlock Your Creative Potential
-            </h3>
-          </div>
-          <div class="book-footer">
-            <p class="author">by Tiago Forte</p>
-            <p class="genre">Self-Improvment</p>
-            <button
-              class="order-button"
+        <li class="book-listing" id="0000">
+          <img
+            src="img/brain.jpg"
+            alt="Cover of building a second brain book"
+            class="book-cover"
+          />
+          <h3 class="book-title">
+            <a
               href="https://www.amazon.ca/dp/1982167386/?coliid=I1KETX8MUBNQ3A&colid=2S4999TCVODHV&psc=1&ref_=lv_ov_lig_dp_it_im"
+              target="_blank"
+              >Building a Second Brain: A Proven Method to Organize Your Digital
+              Life and Unlock Your Creative Potential</a
             >
-              Order
-            </button>
-          </div>
+          </h3>
+          <p class="author">
+            by
+            <a
+              href="https://www.amazon.ca/Tiago-Forte/e/B076PVMTQQ/ref=aufs_dp_fta_dsk"
+              target="_blank"
+              >Tiago Forte</a
+            >
+          </p>
+          <p class="genre">Self-Improvment</p>
+          <button class="purchased-button">I've Purchased!</button>
         </li>
-        <li class="book-listing">
-          <div class="book-body">
-            <img
-              src="img/enchiro.jpg"
-              alt="Cover of Enchiridion"
-              class="book-cover"
-            />
-            <h3 class="book-title">Enchiridion</h3>
-          </div>
-          <div class="book-footer">
-            <p class="author">by Epictetcus</p>
-            <p class="genre">Philisophy</p>
-            <button
-              class="order-button"
+        <li class="book-listing" id="0001">
+          <img
+            src="img/enchiro.jpg"
+            alt="Cover of Enchiridion"
+            class="book-cover"
+          />
+          <h3 class="book-title">
+            <a
               href="https://www.amazon.ca/Enchiridion-Epictetus/dp/0486433595/ref=sr_1_1?crid=10FI86VTG1HW9&keywords=enchiridion&qid=1674528464&s=books&sprefix=enchiridion%2Cstripbooks%2C77&sr=1-1"
+              target="_blank"
+              >Enchiridion</a
             >
-              Order
-            </button>
-          </div>
+          </h3>
+
+          <p class="author">
+            by
+            <a
+              href="https://www.amazon.ca/s?i=stripbooks&rh=p_27%3AEpictetus&s=relevancerank&text=Epictetus&ref=dp_byline_sr_book_1"
+              target="_blank"
+              >Epictetcus</a
+            >
+          </p>
+          <p class="genre">Philisophy</p>
+          <button class="purchased-button">I've Purchased!</button>
         </li>
-        <li class="book-listing">
-          <div class="book-body">
-            <img
-              src="img/god.jpg"
-              alt="Cover the god equestion book"
-              class="book-cover"
-            />
-            <h3 class="book-title">
-              The God Equation: The Quest for a Theory of Everything
-            </h3>
-          </div>
-          <div class="book-footer">
-            <p class="author">by Michio Kaku</p>
-            <p class="genre">Science</p>
-            <button
-              class="order-button"
+        <li class="book-listing" id="0002">
+          <img
+            src="img/god.jpg"
+            alt="Cover the god equestion book"
+            class="book-cover"
+          />
+          <h3 class="book-title">
+            <a
               href="https://www.amazon.ca/God-Equation-Quest-Theory-Everything/dp/0525434569/ref=sr_1_1?crid=3DNS3C51RID4E&keywords=the+god+equation+by+michio+kaku&qid=1674528494&s=books&sprefix=the+god+eq%2Cstripbooks%2C87&sr=1-1m"
+              target="_blank"
+              >The God Equation: The Quest for a Theory of Everything</a
             >
-              Order
-            </button>
-          </div>
+          </h3>
+          <p class="author">
+            by
+            <a
+              href="https://www.amazon.ca/Michio-Kaku/e/B00J02CFW0/ref=aufs_dp_fta_dsk"
+              target="_blank"
+              >Michio Kaku</a
+            >
+          </p>
+          <p class="genre">Science</p>
+          <button class="purchased-button">I've Purchased!</button>
         </li>
       </ul>
-      <form class="add-book-form">
+      <button class="add-button">Add a Book!</button>
+      <form class="add-book-form hidden">
         <input type="text" placeholder="Title..." />
         <input type="text" placeholder="Author..." />
         <input type="text" placeholder="Where to buy..." />
         <button>Add</button>
         <button>Cancel</button>
       </form>
-      <button class="add-button">Add a Book!</button>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
+
+<!-- TODO: Add list items for the sort and filter buttons -->
+<!-- TODO: Add forms for the login and sign-up buttons -->
+<!-- TODO: Add a help button which explaings hot the dit is used -->

@@ -11,6 +11,10 @@ body {
   padding: 20px;
 }
 
+header {
+  position: relative;
+}
+
 .container {
   width: 800px;
   margin: 0 auto;
@@ -26,7 +30,8 @@ body {
   color: black;
 }
 
-.site-header strong {
+.site-header strong,
+.list-name strong {
   color: #f97316;
 }
 
@@ -34,41 +39,55 @@ button {
   color: white;
   background-color: #f97316;
   border: 2px solid #f97316;
+  border-radius: 7px;
 }
 
 .account-buttons,
-.list-buttons {
+.list-buttons,
+.help-button {
   padding: 5px;
   font-size: 16px;
-  margin: 8px;
   font-weight: bold;
 }
 
 .list-buttons {
   margin-bottom: 10px;
+  margin: 8px;
 }
 
-.account-buttons {
-  margin: 0px;
-}
 .sign-up-button {
-  /* FIXME: */
-  margin-left: 375px;
+  position: absolute;
+  right: 80px;
+  top: 12px;
 }
 
-.list-search {
+.login-button {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+
+.help-button {
+  position: absolute;
+  right: 165px;
+  top: 12px;
+}
+
+.list-search-form {
   margin-left: 10px;
   margin-bottom: 10px;
 }
 
-.list-header {
+.list-name {
+  display: inline-block;
   margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 .sort-button {
   /* FIXME: */
-  margin-left: 658px;
-  margin-bottom: 10px;
+  margin-left: 500px;
+  margin-top: 30px;
 }
 
 .list-view {
@@ -76,24 +95,46 @@ button {
   padding: 4px 15px;
 }
 
-.add-button {
-  width: 40%;
-  padding: 15px 0;
-  text-transform: uppercase;
-  font-size: 20px;
-  font-weight: bold;
-  border: 4px solid #f97316;
-  /* border-bottom: none;
-  border-left: none;
-  border-right: none; */
-
-  display: grid;
-  margin: 30px auto;
+.list-header {
+  position: relative;
 }
 
-.add-book-form {
-  /* FIXME:; */
-  margin-left: 30px;
+.sort-list,
+.filter-list {
+  display: inline-block;
+  list-style: none;
+  position: absolute;
+  background-color: white;
+  z-index: 5;
+}
+
+.filter-list {
+  top: 70px;
+  right: -25px;
+}
+
+.sort-list {
+  top: 70px;
+  right: 80px;
+}
+
+.sort-list-option,
+.filter-list-option {
+  font-size: 12px;
+  border: 1px solid #d6d3d1;
+  padding: 2px;
+  text-align: center;
+}
+
+.sort-list-option:hover,
+.filter-list-option:hover {
+  cursor: pointer;
+  background-color: #d6d3d1;
+}
+
+.sort-list-option:active,
+.filter-list-option:active {
+  color: #f97316;
 }
 
 /* Listing Content */
@@ -122,6 +163,19 @@ button {
   margin-bottom: 20px;
 }
 
+.book-listing a:link {
+  color: black;
+  text-decoration: none;
+}
+
+.book-listing a:visited {
+  color: black;
+}
+
+.book-listing a:hover {
+  text-decoration: underline;
+}
+
 .author,
 .genre {
   display: inline-block;
@@ -135,16 +189,44 @@ button {
 
 .genre {
   position: absolute;
-  right: 100px;
-  bottom: 10px;
+  left: 350px;
+  bottom: 5px;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 7px;
 }
 
-.order-button {
+.book-listing button {
   padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bolder;
+}
 
+.purchased-button {
   position: absolute;
-  right: 4px;
-  bottom: 4px;
+  right: 6px;
+  bottom: 6px;
+}
+
+.add-button {
+  width: 40%;
+  padding: 15px 0;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  border: 4px solid #f97316;
+  /* border-bottom: none;
+  border-left: none;
+  border-right: none; */
+
+  display: grid;
+  margin: 30px auto;
+  border-radius: 15px;
+}
+
+.add-book-form {
+  /* FIXME:; */
+  margin-left: 30px;
 }
 
 /* Psuedo */
@@ -152,4 +234,42 @@ button:hover {
   cursor: pointer;
   background-color: white;
   color: #f97316;
+}
+
+button:active {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+}
+
+/* Dynamic Styles */
+.hidden {
+  display: none;
+}
+
+.purchased {
+  background-color: #57534e;
+  /* filter: brightness(50%); */
+  text-decoration: line-through;
+}
+
+.inactive-tag {
+  background-color: #44403c;
+}
+
+.inactive-button {
+  color: #292524;
+  background-color: #44403c;
+  border: 2px solid #292524;
+}
+
+.inactive-button:hover {
+  color: #292524;
+  background-color: #44403c;
+  border: 2px solid #292524;
+  cursor: default;
+}
+
+.darken {
+  filter: brightness(50%);
 }
