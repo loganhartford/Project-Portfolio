@@ -22,11 +22,21 @@ header {
 
 /* Page Elements */
 
-.site-header {
+/* SITE HEADER */
+.site-header-block {
   background-color: #e7e5e4;
-  padding: 10px;
   margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 10px;
+}
+
+.site-header {
+  padding: 10px;
   color: black;
+  flex: 1 1 auto;
 }
 
 .site-header strong,
@@ -49,27 +59,37 @@ button {
   font-weight: bold;
 }
 
-.list-buttons {
-  margin-bottom: 10px;
-  margin: 8px;
-}
-
 .sign-up-button {
-  position: absolute;
-  right: 80px;
-  top: 12px;
 }
 
 .login-button {
-  position: absolute;
-  right: 12px;
-  top: 12px;
 }
 
 .help-button {
-  position: absolute;
-  right: 165px;
-  top: 12px;
+}
+
+/* LIST HEADER */
+
+.list-header {
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 10px;
+}
+
+.list-name {
+  display: inline-block;
+  margin-left: 10px;
+  flex: 1 1 auto;
+}
+
+.list-buttons {
+  margin-bottom: 10px;
+  margin: 8px;
 }
 
 .list-search-form {
@@ -77,16 +97,7 @@ button {
   margin-bottom: 10px;
 }
 
-.list-name {
-  display: inline-block;
-  margin-left: 10px;
-  margin-bottom: 20px;
-}
-
 .sort-button {
-  /* FIXME: */
-  margin-left: 500px;
-  margin-top: 30px;
 }
 
 .list-view {
@@ -94,25 +105,24 @@ button {
   padding: 4px 15px;
 }
 
-.list-header {
-  position: relative;
-}
-
 .sort-list,
 .filter-list {
   display: inline-block;
   list-style: none;
+  /* FIXME: */
   position: absolute;
   background-color: white;
   z-index: 5;
 }
 
 .filter-list {
+  /* FIXME: */
   top: 70px;
   right: -25px;
 }
 
 .sort-list {
+  /* FIXME: */
   top: 70px;
   right: 80px;
 }
@@ -136,30 +146,31 @@ button {
   color: #f97316;
 }
 
-/* Listing Content */
+/* BOOK LISTING */
 .book-listing {
   margin-left: 20px;
   list-style: none;
   background-color: #e7e5e4;
   margin-bottom: 30px;
-  position: relative;
-  height: 90px;
+  height: 95px;
+
+  display: grid;
+  grid-template-columns: 0fr 3fr 2fr 2fr;
+  grid-template-rows: minmax(0, 2fr) minmax(0, 1fr) 5px;
+  align-items: center;
+  justify-items: center;
+  column-gap: 10px;
 }
 
 .book-cover {
-  height: 90px;
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: 0;
+  height: 95px;
+  grid-row: 1 / 4;
+  justify-self: start;
 }
 
 .book-title {
-  display: inline-block;
-  width: 80%;
-  margin-left: 120px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  grid-column: 2 / 5;
+  justify-self: start;
 }
 
 .book-listing a:link {
@@ -177,35 +188,34 @@ button {
 
 .author,
 .genre {
-  display: inline-block;
 }
 
 .author {
-  left: 120px;
-  bottom: 10px;
-  position: absolute;
-}
-
-.genre {
-  position: absolute;
-  left: 350px;
-  bottom: 5px;
-  background-color: white;
-  padding: 5px 10px;
-  border-radius: 7px;
+  justify-self: start;
 }
 
 .book-listing button {
+  font-size: 16px;
+}
+
+.genre-button {
+  background-color: white;
+  color: black;
+  font-weight: 400;
+  padding: 5px 10px;
+  border-radius: 7px;
+
+  align-self: start;
+  border: 2px white;
+}
+
+.purchased-button {
   padding: 5px 10px;
   font-size: 16px;
   font-weight: bolder;
 }
 
-.purchased-button {
-  position: absolute;
-  right: 6px;
-  bottom: 6px;
-}
+/* ADD TO LIST */
 
 .add-button {
   width: 40%;
@@ -224,8 +234,16 @@ button {
 }
 
 .add-book-form {
-  /* FIXME:; */
-  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.add-book-form-button {
+  padding: 4px;
+  flex: 1 1 auto;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 /* Psuedo */
@@ -241,6 +259,17 @@ button:active {
   border: 2px solid black;
 }
 
+.genre-button:hover {
+  color: black;
+  background-color: #d6d3d1;
+}
+
+.genre-button:active {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+}
+
 /* Dynamic Styles */
 .hidden {
   display: none;
@@ -248,7 +277,9 @@ button:active {
 
 .purchased {
   background-color: #57534e;
-  /* filter: brightness(50%); */
+}
+
+.strike-through {
   text-decoration: line-through;
 }
 

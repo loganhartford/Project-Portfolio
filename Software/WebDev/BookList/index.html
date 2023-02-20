@@ -13,18 +13,21 @@
   </head>
   <body>
     <div class="container">
-      <header>
+      <header class="site-header-block">
         <h1 class="site-header">Book<strong>List</strong></h1>
-        <button class="list-buttons">Create a New List</button>
-        <button class="list-buttons find-button">Find a List</button>
+        
         <button class="help-button">Help?</button>
         <button class="account-buttons sign-up-button">Sign-Up</button>
         <button class="account-buttons login-button">Login</button>
-        <form class="list-search-form hidden">
-          <input type="text" placeholder="Find a list..." />
-          <button>Find!</button>
-        </form>
       </header>
+
+      <button class="list-buttons">Create a New List</button>
+      <button class="list-buttons find-button">Find a List</button>
+      <form class="list-search-form hidden">
+        <input type="text" placeholder="Find a list..." />
+        <button>Find!</button>
+      </form>
+
       <div class="list-header">
       <h2 class="list-name">Logan's <strong>List</strong></h2>
       <button class="list-view sort-button">Sort</button>
@@ -40,8 +43,8 @@
         <li class="filter-list-option">Self-Improvement</li>
       </ul>
     </div>
-      <ul>
-        <li class="book-listing" id="0000">
+      <ul class="book-list">
+        <li class="book-listing" id="i0000">
           <img
             src="img/brain.jpg"
             alt="Cover of building a second brain book"
@@ -63,10 +66,10 @@
               >Tiago Forte</a
             >
           </p>
-          <p class="genre">Self-Improvment</p>
+          <button class="genre-button">Self-Improvment</button>
           <button class="purchased-button">I've Purchased!</button>
         </li>
-        <li class="book-listing" id="0001">
+        <li class="book-listing" id="i0001">
           <img
             src="img/enchiro.jpg"
             alt="Cover of Enchiridion"
@@ -88,10 +91,10 @@
               >Epictetcus</a
             >
           </p>
-          <p class="genre">Philisophy</p>
+          <button class="genre-button">Philisophy</button>
           <button class="purchased-button">I've Purchased!</button>
         </li>
-        <li class="book-listing" id="0002">
+        <li class="book-listing" id="i0002">
           <img
             src="img/god.jpg"
             alt="Cover the god equestion book"
@@ -112,7 +115,7 @@
               >Michio Kaku</a
             >
           </p>
-          <p class="genre">Science</p>
+          <p class="genre-button">Science</p>
           <button class="purchased-button">I've Purchased!</button>
         </li>
       </ul>
@@ -121,8 +124,8 @@
         <input type="text" placeholder="Title..." />
         <input type="text" placeholder="Author..." />
         <input type="text" placeholder="Where to buy..." />
-        <button>Add</button>
-        <button>Cancel</button>
+        <button class="add-book-form-button add-book-form-button-add">Add</button>
+        <button class="add-book-form-button add-book-form-button-cancel">Cancel</button>
       </form>
     </div>
     <script src="script.js"></script>
