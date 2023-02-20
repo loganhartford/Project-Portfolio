@@ -130,13 +130,13 @@ button {
 
 .filter-list {
   /* FIXME: */
-  top: 70px;
+  top: 35px;
   right: -25px;
 }
 
 .sort-list {
   /* FIXME: */
-  top: 70px;
+  top: 35px;
   right: 80px;
 }
 
@@ -248,16 +248,29 @@ button {
 }
 
 .add-book-form {
-  display: flex;
-  justify-content: center;
-  gap: 3px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr 0.5fr;
+  column-gap: 4px;
+  row-gap: 4px;
 }
 
 .add-book-form-button {
   padding: 4px;
-  flex: 1 1 auto;
   font-weight: bold;
   font-size: 14px;
+}
+
+.add-book-form-title {
+  grid-column: 1/3;
+}
+
+.add-book-form-sub-title {
+  grid-column: 3/7;
+}
+
+.add-book-form-source {
+  grid-column: 3/5;
 }
 
 /* Psuedo */
@@ -287,6 +300,11 @@ button:active {
 /* Dynamic Styles */
 .hidden {
   display: none;
+}
+
+.sort-filter-pressed {
+  text-decoration: underline;
+  background-color: #d6d3d1;
 }
 
 .purchased {

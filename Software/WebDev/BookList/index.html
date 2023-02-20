@@ -33,9 +33,9 @@
       <button class="list-view sort-button">Sort</button>
       <button class="list-view filter-button">Filter</button>
       <ul class="sort-list hidden">
-        <li class="sort-list-option">A-Z Title &#8593</li>
-        <li class="sort-list-option">A-Z Author &#8593</li>
-        <li class="sort-list-option">Most Recent &#8593</li>
+        <li class="sort-list-option sort-title-button">A-Z Title &#8593</li>
+        <li class="sort-list-option sort-author-button">A-Z Author &#8593</li>
+        <li class="sort-list-option sort-dateAdded-button">Most Recent &#8593</li>
       </ul>
       <ul class="filter-list hidden">
         <li class="filter-list-option">Philisophy</li>
@@ -121,9 +121,11 @@
       </ul>
       <button class="add-button">Add a Book!</button>
       <form class="add-book-form hidden">
-        <input type="text" placeholder="Title..." />
-        <input type="text" placeholder="Author..." />
-        <input type="text" placeholder="Where to buy..." />
+        <input class="add-book-form-title" type="text" placeholder="Title..." />
+        <input class="add-book-form-sub-title" type="text" placeholder="Sub-title..." />
+        <input class="add-book-form-author" type="text" placeholder="Author..." />
+        <input class="add-book-form-genre" type="text" placeholder="Genre..." />
+        <input class="add-book-form-source" type="text" placeholder="Where to buy..." />
         <button class="add-book-form-button add-book-form-button-add">Add</button>
         <button class="add-book-form-button add-book-form-button-cancel">Cancel</button>
       </form>

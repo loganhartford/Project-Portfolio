@@ -60,13 +60,21 @@ const user0000 = {
 
 // ---- Selecting Elements ----
 
+// Body
+const body = document.querySelector('body');
+
 // Buttons
 const btnFind = document.querySelector('.find-button');
 const btnSort = document.querySelector('.sort-button');
 const btnFilter = document.querySelector('.filter-button');
 const btnPurchased = document.querySelectorAll('.purchased-button');
 const btnAdd = document.querySelector('.add-button');
+const btnAddBook = document.querySelector('.add-book-form-button-add');
+const btnCancelAddBook = document.querySelector('.add-book-form-button-cancel');
 const btnFindList = document.querySelector('.find-list-button');
+const btnSortTitle = document.querySelector('.sort-title-button');
+const btnSortAuthor = document.querySelector('.sort-author-button');
+const btnSortDate = document.querySelector('.sort-dateAdded-button');
 
 // Forms
 const formListSearch = document.querySelector('.list-search-form');
@@ -74,19 +82,24 @@ const formAddBook = document.querySelector('.add-book-form');
 
 // Form Field
 const fieldFindListName = document.querySelector('.find-list-list-name');
+const fieldAddBookTitle = document.querySelector('.add-book-form-title');
+const fieldAddBookSubTitle = document.querySelector('.add-book-form-sub-title');
+const fieldAddBookAuthor = document.querySelector('.add-book-form-author');
+const fieldAddBookGenre = document.querySelector('.add-book-form-genre');
+const fieldAddBookSource = document.querySelector('.add-book-form-source');
 
 // Lists
 const listSearch = document.querySelector('.sort-list');
 const listFilter = document.querySelector('.filter-list');
-const listSearchOption = document.querySelectorAll('.sort-list-option');
-const listFilterOption = document.querySelectorAll('.filter-list-option');
 const listCurrentBookList = document.querySelector('.book-list');
+const listSortList = document.querySelector('.sort-list');
 
 // Headings
 const headingBookList = document.querySelector('.list-name');
 
 // ---- Paramenters ----
 let currentUser = user0000;
+let currentBookList = "Logan's List";
 
 // ---- Fucntions ----
 
@@ -98,7 +111,17 @@ const dynamicSort = function (property) {
     property = property.slice(1);
   }
   // Return the fucntion to be used by sort
+  // Sorting by date untested, need to try with manually added date
   return function (a, b) {
+    if (property === 'dateAdded') {
+      const result =
+        new Date(a[property]) < new Date(b[property])
+          ? -1
+          : new Date(a[property]) > new Date(b[property])
+          ? 1
+          : 0;
+      return result * sortOrder;
+    }
     const result =
       a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
     return result * sortOrder;
@@ -116,10 +139,7 @@ const sortBookList = function (user, listName, sortByProperty) {
 
 const displayList = function (user, listName) {
   // find the book list, if empty, take first
-  const bookList =
-    typeof listName === 'number'
-      ? user.booklists[listName]
-      : findBookList(user, listName);
+  const bookList = findBookList(user, listName);
 
   // if listName is invalid
   if (!bookList?.list) {
@@ -158,14 +178,28 @@ const displayList = function (user, listName) {
           <button class="purchased-button">I've Purchased!</button>
       </li>`;
 
-    listCurrentBookList.insertAdjacentHTML('afterbegin', html);
+    listCurrentBookList.insertAdjacentHTML('beforeend', html);
   });
+  currentBookList = listName;
   return 1;
 };
 
-displayList(currentUser, 0);
+sortBookList(currentUser, currentBookList, 'dateAdded');
+displayList(currentUser, currentBookList);
 
 // ---- UI ----
+
+// Finding a list
+btnFindList.addEventListener('click', function (e) {
+  e.preventDefault();
+  const findListName = fieldFindListName.value;
+  const findListSuccess = displayList(currentUser, findListName);
+
+  if (findListSuccess) {
+    e.target.parentNode.classList.toggle('hidden');
+    formListSearch.reset();
+  }
+});
 
 // Seearch List
 btnFind.addEventListener('click', function () {
@@ -177,14 +211,55 @@ btnSort.addEventListener('click', function () {
   listSearch.classList.toggle('hidden');
 });
 
+// Sort by title
+const upArrow = '&#8593';
+const downArrow = '&#8595';
+listSortList.addEventListener('click', function (e) {
+  // Select current button
+  let button;
+  if (e.target.classList.contains('sort-title-button')) button = btnSortTitle;
+  if (e.target.classList.contains('sort-author-button')) button = btnSortAuthor;
+  if (e.target.classList.contains('sort-dateAdded-button'))
+    button = btnSortDate;
+  const buttonType = e.target.classList[1].split('-')[1];
+
+  // Unpress other sort buttons
+  let buttons = [btnSortTitle, btnSortAuthor, btnSortDate];
+  buttons.forEach(function (btn) {
+    if (btn != button) {
+      btn.classList.remove('sort-filter-pressed');
+    }
+  });
+
+  // Unsorted
+  if (
+    button.innerHTML.includes('↑') &&
+    !button.classList.contains('sort-filter-pressed')
+  ) {
+    sortBookList(currentUser, currentBookList, buttonType);
+    displayList(currentUser, currentBookList);
+    button.classList.add('sort-filter-pressed');
+  }
+  // Sorted ↑
+  else if (
+    button.innerHTML.includes('↑') &&
+    button.classList.contains('sort-filter-pressed')
+  ) {
+    sortBookList(currentUser, currentBookList, `-${buttonType}`);
+    displayList(currentUser, currentBookList);
+    button.innerHTML = `${button.innerHTML.slice(0, -1)}${downArrow}`;
+  }
+  // Sorted ↓
+  else if (button.innerHTML.includes('↓')) {
+    button.innerHTML = `${button.innerHTML.slice(0, -1)}${upArrow}`;
+    button.classList.remove('sort-filter-pressed');
+    // go back to being sorted by date added
+  }
+});
+
 // Filter
 btnFilter.addEventListener('click', function () {
   listFilter.classList.toggle('hidden');
-});
-
-// Add a book
-btnAdd.addEventListener('click', function () {
-  formAddBook.classList.toggle('hidden');
 });
 
 // Purchased buttons
@@ -208,49 +283,48 @@ document.querySelector('.book-list').addEventListener('click', function (e) {
 
     // Strike through the title;
     parent.children[1].classList.toggle('strike-through');
-
-    console.log(numChildren);
   }
 });
 
-// Finding a list
-btnFindList.addEventListener('click', function (e) {
+// Add a book
+btnAdd.addEventListener('click', function () {
+  formAddBook.classList.toggle('hidden');
+});
+
+btnAddBook.addEventListener('click', function (e) {
   e.preventDefault();
-  const findListName = fieldFindListName.value;
-  const findListSuccess = displayList(currentUser, findListName);
+  // Read in data from form
+  const addTitle = fieldAddBookTitle.value;
+  const addSubTitle = fieldAddBookSubTitle.value;
+  const addAuthor = fieldAddBookAuthor.value;
+  const addGenre = fieldAddBookGenre.value;
+  const addSource = fieldAddBookSource.value;
 
-  if (findListSuccess) {
-    e.target.parentNode.classList.toggle('hidden');
-    formListSearch.reset();
-  }
+  const newBook = {
+    title: addTitle,
+    subtitle: addSubTitle,
+    author: addAuthor,
+    authorSource: '',
+    genre: addGenre,
+    source: addSource,
+    cover: 'img/build.jpg', // FIXME:
+    dateAdded: Date(),
+    id: `000${findBookList(currentUser, currentBookList).books.length - 1}`,
+  };
+
+  findBookList(currentUser, currentBookList).books.unshift(newBook);
+  displayList(currentUser, currentBookList);
+  formAddBook.reset();
+  formAddBook.classList.add('hidden');
 });
 
-/*
-User data structure
+btnCancelAddBook.addEventListener('click', function (e) {
+  e.preventDefault();
+  formAddBook.reset();
+  formAddBook.classList.add('hidden');
+});
 
-Fucntions:
-- Have multiple users who can login and see their specific lsit\
-- logout
-- book lists are attached to user objects
-- need to be able to add new lists
-- 
-
-Booklist data structure:
-- Need to be able to sort the list 
-- Need to be able to add and delete from the list
-- Need to be able to filter list
-
-Booklisting data sturcure
-
-Functions
-- Need to be able to track when the book was added
-
-
-
-- EACH BOOKLIST NEEDS TO BE AN ARRAY OF OF BOOK OBJECTS
-- USER IS AN OBJECT
-- HOW ARE THE BOOKLISTS STORED INSIDE THE USER?
-
-*/
+// Close open menus
+body.addEventListener('click', function () {});
 
 // TODO: make sort option arrow flip direction when pressed
