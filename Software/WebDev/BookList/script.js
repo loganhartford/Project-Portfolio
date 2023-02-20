@@ -66,10 +66,14 @@ const btnSort = document.querySelector('.sort-button');
 const btnFilter = document.querySelector('.filter-button');
 const btnPurchased = document.querySelectorAll('.purchased-button');
 const btnAdd = document.querySelector('.add-button');
+const btnFindList = document.querySelector('.find-list-button');
 
 // Forms
 const formListSearch = document.querySelector('.list-search-form');
 const formAddBook = document.querySelector('.add-book-form');
+
+// Form Field
+const fieldFindListName = document.querySelector('.find-list-list-name');
 
 // Lists
 const listSearch = document.querySelector('.sort-list');
@@ -80,6 +84,9 @@ const listCurrentBookList = document.querySelector('.book-list');
 
 // Headings
 const headingBookList = document.querySelector('.list-name');
+
+// ---- Paramenters ----
+let currentUser = user0000;
 
 // ---- Fucntions ----
 
@@ -108,13 +115,23 @@ const sortBookList = function (user, listName, sortByProperty) {
 };
 
 const displayList = function (user, listName) {
+  // find the book list, if empty, take first
+  const bookList =
+    typeof listName === 'number'
+      ? user.booklists[listName]
+      : findBookList(user, listName);
+
+  // if listName is invalid
+  if (!bookList?.list) {
+    alert('Invalid List Name');
+    return 0;
+  }
   headingBookList.innerHTML = ''; // Clear book list title
   listCurrentBookList.innerHTML = ''; // Clear book list content
-  const bookList = findBookList(user, listName);
-  console.log(bookList);
-  headingBookList.innerHTML = `${bookList.list}`;
 
-  bookList.books.forEach(function (book) {
+  headingBookList.innerHTML = `${bookList?.list}`;
+
+  bookList?.books.forEach(function (book) {
     const html = `
     <li class="book-listing" id="${book.id}">
           <img
@@ -125,6 +142,7 @@ const displayList = function (user, listName) {
           <h3 class="book-title">
             <a
               href="${book.source}"
+              target="_blank"
               >${book.title}${book.subtitle ? ` :${book.subtitle}` : ''}</a
             >
           </h3>
@@ -132,6 +150,7 @@ const displayList = function (user, listName) {
             by
             <a
               href="${book.authorSource}"
+              target="_blank"
               >${book.author}</a
             >
           </p>
@@ -141,9 +160,10 @@ const displayList = function (user, listName) {
 
     listCurrentBookList.insertAdjacentHTML('afterbegin', html);
   });
+  return 1;
 };
 
-displayList(user0000, "Logan's List");
+displayList(currentUser, 0);
 
 // ---- UI ----
 
@@ -167,39 +187,7 @@ btnAdd.addEventListener('click', function () {
   formAddBook.classList.toggle('hidden');
 });
 
-// Purchased Buttons
-for (let i = 0; i < btnPurchased.length; i++) {
-  btnPurchased[i].addEventListener('click', function () {
-    // Set the specific listing to purchased
-    document.getElementById(`i000${i}`).classList.toggle('purchased');
-    // Style the children of the listing
-    const numChildren = document.getElementById(`i000${i}`).childElementCount;
-    // Book Title
-    document
-      .getElementById(`i000${i}`)
-      .children[1].classList.toggle('purchased');
-    // Modify purhcased button
-    if (document.getElementById(`i000${i}`).classList.contains('purchased')) {
-      document.getElementById(`i000${i}`).children[
-        numChildren - 1
-      ].textContent = 'Not Purchased';
-    } else {
-      document.getElementById(`i000${i}`).children[
-        numChildren - 1
-      ].textContent = "I've Purchased";
-    }
-    // Darken Containter
-    document.getElementById(`i000${i}`).children[0].classList.toggle('darken');
-    // Darken Tag
-    document
-      .getElementById(`i000${i}`)
-      .children[numChildren - 2].classList.toggle('inactive-tag');
-    document
-      .getElementById(`i000${i}`)
-      .children[1].classList.toggle('strike-through');
-  });
-}
-
+// Purchased buttons
 document.querySelector('.book-list').addEventListener('click', function (e) {
   if (e.target && e.target.matches('button.purchased-button')) {
     const parent = e.target.parentNode;
@@ -222,6 +210,18 @@ document.querySelector('.book-list').addEventListener('click', function (e) {
     parent.children[1].classList.toggle('strike-through');
 
     console.log(numChildren);
+  }
+});
+
+// Finding a list
+btnFindList.addEventListener('click', function (e) {
+  e.preventDefault();
+  const findListName = fieldFindListName.value;
+  const findListSuccess = displayList(currentUser, findListName);
+
+  if (findListSuccess) {
+    e.target.parentNode.classList.toggle('hidden');
+    formListSearch.reset();
   }
 });
 
@@ -252,16 +252,5 @@ Functions
 - HOW ARE THE BOOKLISTS STORED INSIDE THE USER?
 
 */
-
-const compare = function (a, b, property) {
-  const bookProperty1 = '';
-  const bookProperty2 = '';
-  if (property === 'title') {
-    bookProperty1 = a.title;
-    bookProperty2 = b.title;
-  }
-  bookProperty1 < bookProperty1 ? -1 : 1;
-  return 0;
-};
 
 // TODO: make sort option arrow flip direction when pressed

@@ -31,6 +31,7 @@ header {
   align-items: center;
   gap: 10px;
   padding-right: 10px;
+  border-radius: 4px;
 }
 
 .site-header {
@@ -93,8 +94,20 @@ button {
 }
 
 .list-search-form {
-  margin-left: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.find-list-button {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 4px 10px;
+}
+.find-list-list-name {
+  font-size: 14px;
+  padding: 0 10px;
+  align-self: stretch;
 }
 
 .sort-button {
@@ -153,6 +166,7 @@ button {
   background-color: #e7e5e4;
   margin-bottom: 30px;
   height: 95px;
+  border-radius: 4px;
 
   display: grid;
   grid-template-columns: 0fr 3fr 2fr 2fr;
