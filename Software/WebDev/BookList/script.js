@@ -200,6 +200,31 @@ for (let i = 0; i < btnPurchased.length; i++) {
   });
 }
 
+document.querySelector('.book-list').addEventListener('click', function (e) {
+  if (e.target && e.target.matches('button.purchased-button')) {
+    const parent = e.target.parentNode;
+    const numChildren = parent.childElementCount;
+
+    // Change book listing's state
+    parent.classList.toggle('purchased');
+
+    // Modify the button text
+    if (parent.classList.contains('purchased')) {
+      parent.children[numChildren - 1].textContent = 'Not Purchased';
+    } else {
+      parent.children[numChildren - 1].textContent = "I've purchsed";
+    }
+
+    // Darken the tag
+    parent.children[numChildren - 2].classList.toggle('inactive-tag');
+
+    // Strike through the title;
+    parent.children[1].classList.toggle('strike-through');
+
+    console.log(numChildren);
+  }
+});
+
 /*
 User data structure
 

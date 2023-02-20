@@ -287,6 +287,16 @@ button:active {
   background-color: #44403c;
 }
 
+.inactive-tag:hover {
+  background-color: #44403c;
+}
+
+.inactive-tag:active {
+  background-color: #44403c;
+  color: black;
+  border: 2px #44403c;
+}
+
 .inactive-button {
   color: #292524;
   background-color: #44403c;
