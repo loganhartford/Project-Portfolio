@@ -8,41 +8,78 @@
       content="width=
   , initial-scale=1.0"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=Playfair+Display:wght@400;500;700&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=Cormorant:wght@400;500;600&family=Playfair+Display:wght@400;500;700&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/phosphor-icons"></script>
+
     <link href="style.css" rel="stylesheet" />
     <title>BookList</title>
   </head>
   <body>
     <div class="container">
       <header class="site-header-block">
-        <h1 class="site-header">Book<strong>List</strong></h1>
-        
-        <button class="help-button">Help?</button>
-        <button class="account-buttons sign-up-button">Sign-Up</button>
-        <button class="account-buttons login-button">Login</button>
+        <i class="ph-list-light nav-burger"></i>
+        <h1 class="site-header">
+          <i class="ph-books-thin"></i>Book<span>List</span>
+        </h1>
+
+        <i class="ph-question-light help-button-icon"></i>
+        <i class="ph-sign-in login-button-icon"></i>
       </header>
 
-      <button class="list-buttons">Create a New List</button>
-      <button class="list-buttons find-button">Find a List</button>
-      <form class="list-search-form hidden">
-        <input class="find-list-list-name" type="text" placeholder="Find a list..." />
-        <button class="find-list-button">Find!</button>
-      </form>
+      <nav>
+        <ul class="nav-list hidden">
+          <li class="nav-list-item">Your Lists</li>
+          <li class="nav-list-item">Create New List</li>
+        </ul>
+      </nav>
 
       <div class="list-header">
-      <h2 class="list-name">Logan's <strong>List</strong></h2>
-      <button class="list-view sort-button">Sort</button>
-      <button class="list-view filter-button">Filter</button>
-      <ul class="sort-list hidden">
-        <li class="sort-list-option sort-title-button">A-Z Title &#8593</li>
-        <li class="sort-list-option sort-author-button">A-Z Author &#8593</li>
-        <li class="sort-list-option sort-dateAdded-button">Most Recent &#8593</li>
-      </ul>
-      <ul class="filter-list hidden">
-        <li class="filter-list-option">Philisophy</li>
-        <li class="filter-list-option">Science</li>
-        <li class="filter-list-option">Self-Improvement</li>
-      </ul>
-    </div>
+        <h2 class="list-name">Logan's List</h2>
+        <button class="list-view sort-button">
+          Sort<i class="ph-funnel-light list-view-icons"></i>
+        </button>
+        <button class="list-view filter-button">
+          Filter<i class="ph-faders-horizontal list-view-icons"></i>
+        </button>
+        <ul class="sort-list hidden">
+          <li class="sort-list-option sort-title-button">A-Z Title &#8593;</li>
+          <li class="sort-list-option sort-author-button">
+            A-Z Author &#8593;
+          </li>
+          <li class="sort-list-option sort-dateAdded-button">
+            Most Recent &#8593;
+          </li>
+        </ul>
+        <ul class="filter-list hidden">
+          <li class="filter-list-option">Philisophy</li>
+          <li class="filter-list-option">Science</li>
+          <li class="filter-list-option">Self-Improvement</li>
+        </ul>
+      </div>
       <ul class="book-list">
         <li class="book-listing" id="i0000">
           <img
@@ -119,16 +156,33 @@
           <button class="purchased-button">I've Purchased!</button>
         </li>
       </ul>
-      <button class="add-button">Add a Book!</button>
+
       <form class="add-book-form hidden">
         <input class="add-book-form-title" type="text" placeholder="Title..." />
-        <input class="add-book-form-sub-title" type="text" placeholder="Sub-title..." />
-        <input class="add-book-form-author" type="text" placeholder="Author..." />
+        <input
+          class="add-book-form-sub-title"
+          type="text"
+          placeholder="Sub-title..."
+        />
+        <input
+          class="add-book-form-author"
+          type="text"
+          placeholder="Author..."
+        />
         <input class="add-book-form-genre" type="text" placeholder="Genre..." />
-        <input class="add-book-form-source" type="text" placeholder="Where to buy..." />
-        <button class="add-book-form-button add-book-form-button-add">Add</button>
-        <button class="add-book-form-button add-book-form-button-cancel">Cancel</button>
+        <input
+          class="add-book-form-source"
+          type="text"
+          placeholder="Where to buy..."
+        />
+        <button class="add-book-form-button add-book-form-button-add">
+          Add
+        </button>
+        <button class="add-book-form-button add-book-form-button-cancel">
+          Cancel
+        </button>
       </form>
+      <button class="add-button">Add a Book!</button>
     </div>
     <script src="script.js"></script>
   </body>

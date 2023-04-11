@@ -1,18 +1,56 @@
 /* Stone with #FF9900, accent */
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
-/* Page Sections */
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+:root {
+  --orange: #ff922b;
+  --light-orange: #ffa94d;
+  --dark-orange: #fd7e14;
+  --grey: #e9ecef;
+  --light-grey: #f1f3f5;
+  --dark-grey: #dee2e6;
+  --text-grey: #343a40;
+  --text-light-grey: #f8f9fa;
+}
+
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Aleo', serif;
+  /* font-family: 'Playfair Display', serif; */
+  /* font-family: 'Work Sans', sans-serif; */
+  /* font-family: 'Cormorant', serif; */
+  color: var(--text-grey);
+  box-sizing: border-box;
 }
-
+/* Page Sections */
 body {
-  font-family: sans-serif;
   padding: 20px;
 }
 
 header {
   position: relative;
+}
+
+h1 {
+  font-size: 44px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 20px;
 }
 
 .container {
@@ -24,49 +62,63 @@ header {
 
 /* SITE HEADER */
 .site-header-block {
-  background-color: #e7e5e4;
-  margin-bottom: 10px;
-
   display: flex;
   align-items: center;
   gap: 10px;
   padding-right: 10px;
   border-radius: 4px;
+  justify-items: center;
 }
 
 .site-header {
   padding: 10px;
-  color: black;
   flex: 1 1 auto;
 }
 
-.site-header strong,
-.list-name strong {
-  color: #f97316;
+h1 i {
+  color: var(--text-grey);
+  font-size: 44px;
+}
+
+.site-header span,
+.list-name span {
+  color: var(--orange);
 }
 
 button {
-  color: white;
-  background-color: #f97316;
-  border: 2px solid #f97316;
+  color: var(--text-light-grey);
+  background-color: var(--orange);
+  border: 2px solid var(--orange);
   border-radius: 7px;
 }
 
 .account-buttons,
-.list-buttons,
-.help-button {
+.list-buttons {
   padding: 5px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.sign-up-button {
+.login-button-icon,
+.help-button-icon {
+  color: var(--text-grey);
+  font-size: 29px;
+  display: flex;
 }
 
-.login-button {
+.nav-burger {
+  color: var(--text-grey);
+  font-size: 36px;
 }
 
-.help-button {
+nav ul {
+  list-style: none;
+}
+
+.nav-list-item {
+  margin-bottom: 2px;
+  font-size: 16px;
 }
 
 /* LIST HEADER */
@@ -93,29 +145,15 @@ button {
   margin: 8px;
 }
 
-.list-search-form {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-}
-.find-list-button {
-  font-weight: bold;
-  font-size: 14px;
-  padding: 4px 10px;
-}
-.find-list-list-name {
-  font-size: 14px;
-  padding: 0 10px;
-  align-self: stretch;
-}
-
-.sort-button {
-}
-
 .list-view {
   font-size: 16px;
   padding: 4px 15px;
+  display: flex;
+  gap: 4px;
+}
+
+.list-view-icons {
+  color: var(--text-light-grey);
 }
 
 .sort-list,
@@ -124,7 +162,7 @@ button {
   list-style: none;
   /* FIXME: */
   position: absolute;
-  background-color: white;
+  background-color: var(--grey);
   z-index: 5;
 }
 
@@ -156,20 +194,19 @@ button {
 
 .sort-list-option:active,
 .filter-list-option:active {
-  color: #f97316;
+  color: var(--orange);
 }
 
 /* BOOK LISTING */
 .book-listing {
   margin-left: 20px;
   list-style: none;
-  background-color: #e7e5e4;
   margin-bottom: 30px;
   height: 95px;
   border-radius: 4px;
 
   display: grid;
-  grid-template-columns: 0fr 3fr 2fr 2fr;
+  grid-template-columns: 0fr 2fr 2fr 2fr;
   grid-template-rows: minmax(0, 2fr) minmax(0, 1fr) 5px;
   align-items: center;
   justify-items: center;
@@ -188,12 +225,12 @@ button {
 }
 
 .book-listing a:link {
-  color: black;
+  color: var(--text-grey);
   text-decoration: none;
 }
 
 .book-listing a:visited {
-  color: black;
+  color: var(--text-grey);
 }
 
 .book-listing a:hover {
@@ -213,31 +250,39 @@ button {
 }
 
 .genre-button {
-  background-color: white;
-  color: black;
+  background-color: var(--grey);
+  color: var(--text-grey);
   font-weight: 400;
   padding: 5px 10px;
   border-radius: 7px;
 
   align-self: start;
   border: 2px white;
+  display: flex;
+  gap: 2px;
 }
 
 .purchased-button {
   padding: 5px 10px;
   font-size: 16px;
-  font-weight: bolder;
+  justify-self: end;
+  display: flex;
+  gap: 4px;
+}
+
+.purchased-icon {
+  color: var(--text-light-grey);
+  font-size: 20px;
 }
 
 /* ADD TO LIST */
 
 .add-button {
-  width: 40%;
-  padding: 15px 0;
+  padding: 15px 15px;
   text-transform: uppercase;
   font-size: 20px;
   font-weight: bold;
-  border: 4px solid #f97316;
+  border: 2px solid var(--orange);
   /* border-bottom: none;
   border-left: none;
   border-right: none; */
@@ -276,25 +321,42 @@ button {
 /* Psuedo */
 button:hover {
   cursor: pointer;
-  background-color: white;
-  color: #f97316;
+  background-color: var(--light-orange);
+  border: 2px solid var(--light-orange);
 }
 
 button:active {
-  background-color: black;
-  color: white;
-  border: 2px solid black;
+  background-color: var(--dark-orange);
+  border: 2px solid var(--dark-orange);
 }
 
 .genre-button:hover {
-  color: black;
-  background-color: #d6d3d1;
+  background-color: var(--light-grey);
+  border: none;
 }
 
 .genre-button:active {
-  background-color: black;
-  color: white;
-  border: 2px solid black;
+  background-color: var(--dark-grey);
+}
+
+.login-button-icon:hover,
+.help-button-icon:hover,
+.nav-burger:hover,
+.nav-list-item:hover {
+  color: var(--light-orange);
+  cursor: pointer;
+}
+
+.login-button-icon:active,
+.help-button-icon:active,
+.nav-burger:active,
+.nav-list-item:active {
+  color: #e8590c;
+  font-weight: bold;
+}
+
+.nav-list-item:active {
+  font-weight: 400;
 }
 
 /* Dynamic Styles */
@@ -308,40 +370,9 @@ button:active {
 }
 
 .purchased {
-  background-color: #57534e;
+  /* background-color: var(--dark-grey); */
 }
 
 .strike-through {
   text-decoration: line-through;
-}
-
-.inactive-tag {
-  background-color: #44403c;
-}
-
-.inactive-tag:hover {
-  background-color: #44403c;
-}
-
-.inactive-tag:active {
-  background-color: #44403c;
-  color: black;
-  border: 2px #44403c;
-}
-
-.inactive-button {
-  color: #292524;
-  background-color: #44403c;
-  border: 2px solid #292524;
-}
-
-.inactive-button:hover {
-  color: #292524;
-  background-color: #44403c;
-  border: 2px solid #292524;
-  cursor: default;
-}
-
-.darken {
-  filter: brightness(50%);
 }

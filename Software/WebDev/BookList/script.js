@@ -46,7 +46,7 @@ const user0000 = {
           author: 'Michio Kaku',
           authorSource:
             'https://www.amazon.ca/Michio-Kaku/e/B00J02CFW0/ref=aufs_dp_fta_dsk',
-          genre: 'Self-Improvement',
+          genre: 'Science',
           source:
             'https://www.amazon.ca/God-Equation-Quest-Theory-Everything/dp/0525434569/ref=sr_1_1?crid=3DNS3C51RID4E&keywords=the+god+equation+by+michio+kaku&qid=1674528494&s=books&sprefix=the+god+eq%2Cstripbooks%2C87&sr=1-1m',
           cover: 'img/god.jpg',
@@ -58,13 +58,24 @@ const user0000 = {
   ],
 };
 
+// Book Genres:
+const genres = {
+  'Science Fiction': 'ph-flying-saucer',
+  Fantasy: 'ph-scroll',
+  'Self-Improvement': 'ph-wrench',
+  Fiction: 'ph-books',
+  'Non-Fiction': 'ph-globe-hemisphere-west',
+  Horror: 'ph-ghost',
+  Romance: 'ph-heart',
+  Philosophy: 'ph-brain',
+};
+
 // ---- Selecting Elements ----
 
 // Body
 const body = document.querySelector('body');
 
 // Buttons
-const btnFind = document.querySelector('.find-button');
 const btnSort = document.querySelector('.sort-button');
 const btnFilter = document.querySelector('.filter-button');
 const btnPurchased = document.querySelectorAll('.purchased-button');
@@ -75,6 +86,9 @@ const btnFindList = document.querySelector('.find-list-button');
 const btnSortTitle = document.querySelector('.sort-title-button');
 const btnSortAuthor = document.querySelector('.sort-author-button');
 const btnSortDate = document.querySelector('.sort-dateAdded-button');
+
+// Icons
+const iconBurger = document.querySelector('.nav-burger');
 
 // Forms
 const formListSearch = document.querySelector('.list-search-form');
@@ -93,6 +107,7 @@ const listSearch = document.querySelector('.sort-list');
 const listFilter = document.querySelector('.filter-list');
 const listCurrentBookList = document.querySelector('.book-list');
 const listSortList = document.querySelector('.sort-list');
+const listNavList = document.querySelector('.nav-list');
 
 // Headings
 const headingBookList = document.querySelector('.list-name');
@@ -163,7 +178,7 @@ const displayList = function (user, listName) {
             <a
               href="${book.source}"
               target="_blank"
-              >${book.title}${book.subtitle ? ` :${book.subtitle}` : ''}</a
+              >${book.title}${book.subtitle ? `: ${book.subtitle}` : ''}</a
             >
           </h3>
           <p class="author">
@@ -174,8 +189,10 @@ const displayList = function (user, listName) {
               >${book.author}</a
             >
           </p>
-          <button class="genre-button">${book.genre}</button>
-          <button class="purchased-button">I've Purchased!</button>
+          <button class="genre-button">${book.genre} <i class=${
+      genres[book.genre]
+    }></i></button>
+          <button class="purchased-button">I've Purchased <i class="ph-check purchased-icon"></i></button>
       </li>`;
 
     listCurrentBookList.insertAdjacentHTML('beforeend', html);
@@ -189,22 +206,22 @@ displayList(currentUser, currentBookList);
 
 // ---- UI ----
 
-// Finding a list
-btnFindList.addEventListener('click', function (e) {
-  e.preventDefault();
-  const findListName = fieldFindListName.value;
-  const findListSuccess = displayList(currentUser, findListName);
-
-  if (findListSuccess) {
-    e.target.parentNode.classList.toggle('hidden');
-    formListSearch.reset();
-  }
+// Nav Menu
+iconBurger.addEventListener('click', function () {
+  listNavList.classList.toggle('hidden');
 });
 
-// Seearch List
-btnFind.addEventListener('click', function () {
-  formListSearch.classList.toggle('hidden');
-});
+// // Finding a list
+// btnFindList.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   const findListName = fieldFindListName.value;
+//   const findListSuccess = displayList(currentUser, findListName);
+
+//   if (findListSuccess) {
+//     e.target.parentNode.classList.toggle('hidden');
+//     formListSearch.reset();
+//   }
+// });
 
 // Sort
 btnSort.addEventListener('click', function () {
@@ -275,11 +292,8 @@ document.querySelector('.book-list').addEventListener('click', function (e) {
     if (parent.classList.contains('purchased')) {
       parent.children[numChildren - 1].textContent = 'Not Purchased';
     } else {
-      parent.children[numChildren - 1].textContent = "I've purchsed";
+      parent.children[numChildren - 1].textContent = "I've Purchsed";
     }
-
-    // Darken the tag
-    parent.children[numChildren - 2].classList.toggle('inactive-tag');
 
     // Strike through the title;
     parent.children[1].classList.toggle('strike-through');
